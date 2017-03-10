@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */; };
+		D3190ABA1E7108E400121BAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190AB91E7108E400121BAB /* main.m */; };
+		D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABC1E7108E400121BAB /* AppDelegate.m */; };
+		D3190AC01E7108E400121BAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABF1E7108E400121BAB /* ViewController.m */; };
+		D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3190AC41E7108E400121BAB /* Assets.xcassets */; };
+		D3190B211E713A0F00121BAB /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = D3190B171E713A0F00121BAB /* bdtsdata */; };
+		D3190B221E713A0F00121BAB /* candide3-ClosedMouth.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D3190B181E713A0F00121BAB /* candide3-ClosedMouth.wfm */; };
+		D3190B231E713A0F00121BAB /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D3190B191E713A0F00121BAB /* candide3.fdp */; };
+		D3190B241E713A0F00121BAB /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1A1E713A0F00121BAB /* candide3.wfm */; };
+		D3190B251E713A0F00121BAB /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1B1E713A0F00121BAB /* Face Detector.cfg */; };
+		D3190B271E713A0F00121BAB /* Facial Features Tracker - High.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1D1E713A0F00121BAB /* Facial Features Tracker - High.cfg */; };
+		D3190B281E713A0F00121BAB /* Head Tracker.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1E1E713A0F00121BAB /* Head Tracker.cfg */; };
+		D3190B291E713A0F00121BAB /* jk_300.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1F1E713A0F00121BAB /* jk_300.fdp */; };
+		D3190B2A1E713A0F00121BAB /* jk_300.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D3190B201E713A0F00121BAB /* jk_300.wfm */; };
+		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
+		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
+		D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B341E7168C400121BAB /* libc++.tbd */; };
+		D3507D931E72905900550860 /* saledog in Resources */ = {isa = PBXBuildFile; fileRef = D3507D921E72905900550860 /* saledog */; };
+		D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3507D941E72A14000550860 /* AiyaCameraSDK.framework */; };
+		D3D5CF021E716EEF005C1F7A /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF011E716EEF005C1F7A /* lookup.png */; };
+		D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
+		D3D5CF161E72574E005C1F7A /* baowener in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF091E72574E005C1F7A /* baowener */; };
+		D3D5CF171E72574E005C1F7A /* deer in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0A1E72574E005C1F7A /* deer */; };
+		D3D5CF181E72574E005C1F7A /* gougou in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0B1E72574E005C1F7A /* gougou */; };
+		D3D5CF191E72574E005C1F7A /* grass in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0C1E72574E005C1F7A /* grass */; };
+		D3D5CF1A1E72574E005C1F7A /* huahuan in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0D1E72574E005C1F7A /* huahuan */; };
+		D3D5CF1B1E72574E005C1F7A /* huahuan3D in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0E1E72574E005C1F7A /* huahuan3D */; };
+		D3D5CF1C1E72574E005C1F7A /* leisi in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0F1E72574E005C1F7A /* leisi */; };
+		D3D5CF1D1E72574E005C1F7A /* majing in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF101E72574E005C1F7A /* majing */; };
+		D3D5CF1E1E72574E005C1F7A /* maoer in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF111E72574E005C1F7A /* maoer */; };
+		D3D5CF1F1E72574E005C1F7A /* niu in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF121E72574E005C1F7A /* niu */; };
+		D3D5CF201E72574E005C1F7A /* oldman in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF131E72574E005C1F7A /* oldman */; };
+		D3D5CF221E72574E005C1F7A /* shoutao in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF151E72574E005C1F7A /* shoutao */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiyaEffectsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71294350E0B716DB815C6811 /* Pods-AiyaEffectsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiyaEffectsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		789AA450CDB7819EABCD7788 /* Pods-AiyaEffectsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiyaEffectsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D3190AB51E7108E400121BAB /* AiyaEffectsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiyaEffectsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3190AB91E7108E400121BAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3190ABB1E7108E400121BAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D3190ABC1E7108E400121BAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D3190ABE1E7108E400121BAB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D3190ABF1E7108E400121BAB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D3190AC41E7108E400121BAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D3190AC91E7108E400121BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3190B171E713A0F00121BAB /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bdtsdata; sourceTree = "<group>"; };
+		D3190B181E713A0F00121BAB /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
+		D3190B191E713A0F00121BAB /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.fdp; sourceTree = "<group>"; };
+		D3190B1A1E713A0F00121BAB /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.wfm; sourceTree = "<group>"; };
+		D3190B1B1E713A0F00121BAB /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Face Detector.cfg"; sourceTree = "<group>"; };
+		D3190B1D1E713A0F00121BAB /* Facial Features Tracker - High.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Facial Features Tracker - High.cfg"; sourceTree = "<group>"; };
+		D3190B1E1E713A0F00121BAB /* Head Tracker.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Head Tracker.cfg"; sourceTree = "<group>"; };
+		D3190B1F1E713A0F00121BAB /* jk_300.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.fdp; sourceTree = "<group>"; };
+		D3190B201E713A0F00121BAB /* jk_300.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.wfm; sourceTree = "<group>"; };
+		D3190B2C1E713A3D00121BAB /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
+		D3190B2D1E713A3D00121BAB /* CameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
+		D3190B2E1E713A3D00121BAB /* CircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCell.h; sourceTree = "<group>"; };
+		D3190B2F1E713A3D00121BAB /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
+		D3190B321E7168BB00121BAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D3190B341E7168C400121BAB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		D3507D921E72905900550860 /* saledog */ = {isa = PBXFileReference; lastKnownFileType = folder; name = saledog; path = AiyaEffectResources/saledog; sourceTree = SOURCE_ROOT; };
+		D3507D941E72A14000550860 /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
+		D3D5CEF71E716DAE005C1F7A /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		D3D5CEF91E716DC5005C1F7A /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D3D5CF011E716EEF005C1F7A /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
+		D3D5CF091E72574E005C1F7A /* baowener */ = {isa = PBXFileReference; lastKnownFileType = folder; name = baowener; path = AiyaEffectResources/baowener; sourceTree = SOURCE_ROOT; };
+		D3D5CF0A1E72574E005C1F7A /* deer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = deer; path = AiyaEffectResources/deer; sourceTree = SOURCE_ROOT; };
+		D3D5CF0B1E72574E005C1F7A /* gougou */ = {isa = PBXFileReference; lastKnownFileType = folder; name = gougou; path = AiyaEffectResources/gougou; sourceTree = SOURCE_ROOT; };
+		D3D5CF0C1E72574E005C1F7A /* grass */ = {isa = PBXFileReference; lastKnownFileType = folder; name = grass; path = AiyaEffectResources/grass; sourceTree = SOURCE_ROOT; };
+		D3D5CF0D1E72574E005C1F7A /* huahuan */ = {isa = PBXFileReference; lastKnownFileType = folder; name = huahuan; path = AiyaEffectResources/huahuan; sourceTree = SOURCE_ROOT; };
+		D3D5CF0E1E72574E005C1F7A /* huahuan3D */ = {isa = PBXFileReference; lastKnownFileType = folder; name = huahuan3D; path = AiyaEffectResources/huahuan3D; sourceTree = SOURCE_ROOT; };
+		D3D5CF0F1E72574E005C1F7A /* leisi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = leisi; path = AiyaEffectResources/leisi; sourceTree = SOURCE_ROOT; };
+		D3D5CF101E72574E005C1F7A /* majing */ = {isa = PBXFileReference; lastKnownFileType = folder; name = majing; path = AiyaEffectResources/majing; sourceTree = SOURCE_ROOT; };
+		D3D5CF111E72574E005C1F7A /* maoer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = maoer; path = AiyaEffectResources/maoer; sourceTree = SOURCE_ROOT; };
+		D3D5CF121E72574E005C1F7A /* niu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = niu; path = AiyaEffectResources/niu; sourceTree = SOURCE_ROOT; };
+		D3D5CF131E72574E005C1F7A /* oldman */ = {isa = PBXFileReference; lastKnownFileType = folder; name = oldman; path = AiyaEffectResources/oldman; sourceTree = SOURCE_ROOT; };
+		D3D5CF151E72574E005C1F7A /* shoutao */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shoutao; path = AiyaEffectResources/shoutao; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3190AB21E7108E400121BAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */,
+				D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */,
+				D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */,
+				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03CF003D302261D1516C81F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				789AA450CDB7819EABCD7788 /* Pods-AiyaEffectsDemo.debug.xcconfig */,
+				71294350E0B716DB815C6811 /* Pods-AiyaEffectsDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B39C98AC3A4107F581005916 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */,
+				D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */,
+				D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */,
+				D3D5CEF91E716DC5005C1F7A /* CoreMIDI.framework */,
+				D3D5CEF71E716DAE005C1F7A /* libc++.1.tbd */,
+				D3190B341E7168C400121BAB /* libc++.tbd */,
+				D3190B321E7168BB00121BAB /* libz.tbd */,
+				3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3190AAC1E7108E400121BAB = {
+			isa = PBXGroup;
+			children = (
+				D3190AB71E7108E400121BAB /* AiyaEffectsDemo */,
+				D3190AB61E7108E400121BAB /* Products */,
+				03CF003D302261D1516C81F3 /* Pods */,
+				B39C98AC3A4107F581005916 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D3190AB61E7108E400121BAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3190AB51E7108E400121BAB /* AiyaEffectsDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3190AB71E7108E400121BAB /* AiyaEffectsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D3D5CF081E725735005C1F7A /* Resources */,
+				D3190ACF1E7139F700121BAB /* AiyaEffectsSDK */,
+				D3190ABB1E7108E400121BAB /* AppDelegate.h */,
+				D3190ABC1E7108E400121BAB /* AppDelegate.m */,
+				D3190ABE1E7108E400121BAB /* ViewController.h */,
+				D3190ABF1E7108E400121BAB /* ViewController.m */,
+				D3190AC41E7108E400121BAB /* Assets.xcassets */,
+				D3190AC91E7108E400121BAB /* Info.plist */,
+				D3190B2B1E713A3D00121BAB /* View */,
+				D3190AB81E7108E400121BAB /* Supporting Files */,
+			);
+			path = AiyaEffectsDemo;
+			sourceTree = "<group>";
+		};
+		D3190AB81E7108E400121BAB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3190AB91E7108E400121BAB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3190ACF1E7139F700121BAB /* AiyaEffectsSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D3507D941E72A14000550860 /* AiyaCameraSDK.framework */,
+				D3190AD11E7139F700121BAB /* AiyaEffectsSDKResource */,
+			);
+			path = AiyaEffectsSDK;
+			sourceTree = "<group>";
+		};
+		D3190AD11E7139F700121BAB /* AiyaEffectsSDKResource */ = {
+			isa = PBXGroup;
+			children = (
+				D3190B171E713A0F00121BAB /* bdtsdata */,
+				D3190B181E713A0F00121BAB /* candide3-ClosedMouth.wfm */,
+				D3190B191E713A0F00121BAB /* candide3.fdp */,
+				D3190B1A1E713A0F00121BAB /* candide3.wfm */,
+				D3190B1B1E713A0F00121BAB /* Face Detector.cfg */,
+				D3D5CF011E716EEF005C1F7A /* lookup.png */,
+				D3190B1D1E713A0F00121BAB /* Facial Features Tracker - High.cfg */,
+				D3190B1E1E713A0F00121BAB /* Head Tracker.cfg */,
+				D3190B1F1E713A0F00121BAB /* jk_300.fdp */,
+				D3190B201E713A0F00121BAB /* jk_300.wfm */,
+			);
+			path = AiyaEffectsSDKResource;
+			sourceTree = "<group>";
+		};
+		D3190B2B1E713A3D00121BAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3190B2C1E713A3D00121BAB /* CameraView.h */,
+				D3190B2D1E713A3D00121BAB /* CameraView.m */,
+				D3190B2E1E713A3D00121BAB /* CircleCell.h */,
+				D3190B2F1E713A3D00121BAB /* CircleCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3D5CF081E725735005C1F7A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3D5CF091E72574E005C1F7A /* baowener */,
+				D3D5CF0A1E72574E005C1F7A /* deer */,
+				D3D5CF0B1E72574E005C1F7A /* gougou */,
+				D3D5CF0C1E72574E005C1F7A /* grass */,
+				D3D5CF0D1E72574E005C1F7A /* huahuan */,
+				D3D5CF0E1E72574E005C1F7A /* huahuan3D */,
+				D3D5CF0F1E72574E005C1F7A /* leisi */,
+				D3D5CF101E72574E005C1F7A /* majing */,
+				D3D5CF111E72574E005C1F7A /* maoer */,
+				D3507D921E72905900550860 /* saledog */,
+				D3D5CF121E72574E005C1F7A /* niu */,
+				D3D5CF131E72574E005C1F7A /* oldman */,
+				D3D5CF151E72574E005C1F7A /* shoutao */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3190AB41E7108E400121BAB /* AiyaEffectsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3190ACC1E7108E400121BAB /* Build configuration list for PBXNativeTarget "AiyaEffectsDemo" */;
+			buildPhases = (
+				4FF5148A112D8C1FE162FF15 /* [CP] Check Pods Manifest.lock */,
+				D3190AB11E7108E400121BAB /* Sources */,
+				D3190AB21E7108E400121BAB /* Frameworks */,
+				D3190AB31E7108E400121BAB /* Resources */,
+				0F287D3029C390FBFCDC2993 /* [CP] Embed Pods Frameworks */,
+				8C6443B829A814F6264E1F10 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AiyaEffectsDemo;
+			productName = AiyaEffectsDemo;
+			productReference = D3190AB51E7108E400121BAB /* AiyaEffectsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3190AAD1E7108E400121BAB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "深圳哎吖科技";
+				TargetAttributes = {
+					D3190AB41E7108E400121BAB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G29KBS7YUL;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D3190AB01E7108E400121BAB /* Build configuration list for PBXProject "AiyaEffectsDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D3190AAC1E7108E400121BAB;
+			productRefGroup = D3190AB61E7108E400121BAB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D3190AB41E7108E400121BAB /* AiyaEffectsDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3190AB31E7108E400121BAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3507D931E72905900550860 /* saledog in Resources */,
+				D3D5CF1E1E72574E005C1F7A /* maoer in Resources */,
+				D3D5CF1D1E72574E005C1F7A /* majing in Resources */,
+				D3D5CF181E72574E005C1F7A /* gougou in Resources */,
+				D3190B251E713A0F00121BAB /* Face Detector.cfg in Resources */,
+				D3D5CF1C1E72574E005C1F7A /* leisi in Resources */,
+				D3D5CF1F1E72574E005C1F7A /* niu in Resources */,
+				D3190B221E713A0F00121BAB /* candide3-ClosedMouth.wfm in Resources */,
+				D3D5CF201E72574E005C1F7A /* oldman in Resources */,
+				D3190B271E713A0F00121BAB /* Facial Features Tracker - High.cfg in Resources */,
+				D3D5CF1A1E72574E005C1F7A /* huahuan in Resources */,
+				D3D5CF221E72574E005C1F7A /* shoutao in Resources */,
+				D3D5CF021E716EEF005C1F7A /* lookup.png in Resources */,
+				D3D5CF191E72574E005C1F7A /* grass in Resources */,
+				D3D5CF161E72574E005C1F7A /* baowener in Resources */,
+				D3190B241E713A0F00121BAB /* candide3.wfm in Resources */,
+				D3D5CF1B1E72574E005C1F7A /* huahuan3D in Resources */,
+				D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */,
+				D3D5CF171E72574E005C1F7A /* deer in Resources */,
+				D3190B211E713A0F00121BAB /* bdtsdata in Resources */,
+				D3190B2A1E713A0F00121BAB /* jk_300.wfm in Resources */,
+				D3190B291E713A0F00121BAB /* jk_300.fdp in Resources */,
+				D3190B281E713A0F00121BAB /* Head Tracker.cfg in Resources */,
+				D3190B231E713A0F00121BAB /* candide3.fdp in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F287D3029C390FBFCDC2993 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FF5148A112D8C1FE162FF15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C6443B829A814F6264E1F10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3190AB11E7108E400121BAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3190B311E713A3D00121BAB /* CircleCell.m in Sources */,
+				D3190AC01E7108E400121BAB /* ViewController.m in Sources */,
+				D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */,
+				D3190ABA1E7108E400121BAB /* main.m in Sources */,
+				D3190B301E713A3D00121BAB /* CameraView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D3190ACA1E7108E400121BAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D3190ACB1E7108E400121BAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3190ACD1E7108E400121BAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 789AA450CDB7819EABCD7788 /* Pods-AiyaEffectsDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = G29KBS7YUL;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK",
+				);
+				INFOPLIST_FILE = AiyaEffectsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D3190ACE1E7108E400121BAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71294350E0B716DB815C6811 /* Pods-AiyaEffectsDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = G29KBS7YUL;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK",
+				);
+				INFOPLIST_FILE = AiyaEffectsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3190AB01E7108E400121BAB /* Build configuration list for PBXProject "AiyaEffectsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3190ACA1E7108E400121BAB /* Debug */,
+				D3190ACB1E7108E400121BAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3190ACC1E7108E400121BAB /* Build configuration list for PBXNativeTarget "AiyaEffectsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3190ACD1E7108E400121BAB /* Debug */,
+				D3190ACE1E7108E400121BAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3190AAD1E7108E400121BAB /* Project object */;
+}
