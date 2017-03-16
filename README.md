@@ -1,18 +1,38 @@
 # AiyaCameraSDK 说明文档
 
-## 1. SDK 功能说明
+# 1、版本信息
+最新版本 V2.0.0
+
+AiyaCamera SDK V2.0.0
+>
+**功能更新**
+- 优化代码结构,加入Camera类.方便快速集成
+
+AiyaCamera SDK V1.3.0
+>
+**功能更新**
+- 使用GPUImage作为框架.把美颜和特效处理封闭成Filter
+- 优化美颜效果
+
+AiyaCamera SDK V1.2.0
+>
+**功能更新**
+- 优化贴纸流程
+- 增加美颜功能
+- 增加快速集成相机功能
+
+AiyaCamera SDK V1.0.0
+>
+**功能更新：**
+完成贴纸效果
+
+# 2、运行环境说明
+AiyaCameraSDK 最低运行版本为iOS8.0
+
+# 3、SDK 功能说明
 哎吖相机SDK的主要功能是在图片或视频中增加特效，可用于相机、直播等多种情景。
 
-## 2. SDK 架构设计
-架构设计分为三层.
-1. 最外层的是功能模块.功能模块可以快速的方便的集成到项目中.
-2. 中间框架层是以AiyaGPUImage为前缀,以Filter为后缀的类组成.这些类运行在GPUImage这个框架中.如果对GPUImage框架熟悉的开发人员,可以自定义丰富的功能.
-3. 底层模块是以Effect为后缀的类组成.这些类运行在OpenGl环境中.如果对OpenGL熟悉的开发人员,可以直接应用到图形渲染环境中.
-
-以下是类图
-![image](doc/1.png)
-
-## 3. SDK API说明
+# 4、SDK API说明
 ######AiyaCamera: 相机组件.
     通过设置启动相机时的参数以及设置美颜和滤镜参数,打开相机,对相机输出的数据进行美颜和滤镜处理.使用前要验证License.
 
@@ -37,16 +57,18 @@
 ######AiyaBeautifyEffect:
     对纹理数据进行美颜处理.
 
-## 4. SDK 集成说明
-#####1. 导入SDK静态库文件AiyaCameraSDK.framework
-#####2. 导入SDK资源文件 AYEffectTrackerData
-#####3. 导入依赖的系统库 libz.tbd, libc++.tbd, libc++.1.tdb, CoreMedia.framework, CoreGraphics.framework, MobileCoreServices.framework
-#####4. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.
+# 5、集成说明
+##1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件
+
+##2. 导入依赖的系统库动态库 libz.tbd, libc++.tbd
+
+##3. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.
 ```objective-c
 [AiyaLicenseManager initLicense:@"对应的licenseKey"];
 
 ```
-#####5. 具体使用方式如下
+
+##4. 具体使用方式如下
  * 使用方式一: 用AiyaCamera对相机数据进行特效加美颜处理
 ```objective-c
 _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureDevicePositionFront];//设置为前置相机
@@ -94,7 +116,10 @@ _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
 //---特效和美颜处理结束---
 ```
 
-## 5. 常见问题
+# 6、资源说明
+贴纸资源制作规范请参照其他相关文档。
+
+# 7、常见问题
 问题一: 如果项目中已经集成了GPUImageSDK怎么办?会不会产生冲突
 答: AiyaCameraSDK中封装的GPUImageSDK,全部类,c函数,宏都做了加前缀的处理.集成到项目中时不会和原有的GPUImageSDK产生冲突.
 
@@ -110,10 +135,7 @@ _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
 问题五: 没有网络时License会失效吗?
 答: 用户第一次验证License必须要有网络.以后再次验证时没有网络也可以正常使用.
 
-## 6. 版本更新
-最新版本 V1.4
-
-## 7. License说明
+# 8、License说明
 1. 每次启动时都要进行验证.
 2. 首次验证必须要进行联网.
 3. License 验证是同步请求.
@@ -121,5 +143,5 @@ _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
  YES 认证成功, SDK可以正常使用
  NO  认证失败, SDK不可以使用,请通过下面的联系方式联系我们
 
-## 8. 联系方式
+# 9、联系方式
 邮箱: liudawei@aiyaapp.com
