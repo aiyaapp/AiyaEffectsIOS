@@ -90,7 +90,6 @@ self.camera.delegate = self;
 
 }
 ```
-//---对像素缓冲区数据进行美颜处理---
  * 使用方式二: 用AiyaEffectProcess对像素缓冲区数据(CVPixelBuffer)进行特效加美颜处理
 ```objective-c
 _aiyaEffectProcess = [[AiyaEffectProcess alloc]init];//只初始化一次
