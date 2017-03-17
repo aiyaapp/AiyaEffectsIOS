@@ -40,9 +40,6 @@ AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功
 ###### AiyaEffectProcess: 图像数据处理组件(特效,美颜).
     设置美颜和滤镜参数,对图像数据进行美颜和滤镜处理.使用前要验证License.
 
-###### AiyaYFBeautifyProcess: 图像数据处理组件(美颜).
-    设置美颜参数,对图像数据进行美颜和滤镜处理.使用前不用验证License.
-
 ###### AiyaGPUImagexxxFilter: 滤镜.
     特效滤镜,美颜滤镜.
 
@@ -53,10 +50,7 @@ AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功
     在启动时调用.
 
 ###### AiyaCameraEffect:
-    BGRA数据的人脸识别,对纹理数据进行美颜和特效处理.
-
-###### AiyaBeautifyEffect:
-    对纹理数据进行美颜处理.
+    对数据进行美颜和特效处理.
 
 # 5、集成说明
 ## 1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件
