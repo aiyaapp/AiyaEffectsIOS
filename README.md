@@ -26,7 +26,12 @@ AiyaCamera SDK V2.0.0
 AiyaCameraSDK 最低运行版本为iOS8.0
 
 # 3、SDK 功能说明
-哎吖相机SDK的主要功能是在图片或视频中增加特效，可用于相机、直播等多种情景。
+AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功能如下：
+
+- 可提供2D序列帧特效
+- face mask特效
+- 3D静态特效和动画特效
+- 提供多种美颜算法
 
 # 4、SDK API说明
 ###### AiyaCamera: 相机组件.

@@ -14,4 +14,4 @@ AiyaCamera SDK V1.2.0
 AiyaCamera SDK V1.0.0
 >
 **功能更新：**
-完成贴纸效果
+- 完成贴纸效果
