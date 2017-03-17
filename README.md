@@ -1,4 +1,16 @@
-# AiyaCameraSDK 说明文档
+AiyaCameraSDK 说明文档
+
+[Android版AiyaEffectSDK](https://github.com/aiyaapp/AiyaEffectsAndroid)
+
+[IOS版AiyaEffectsSDK](https://github.com/aiyaapp/AiyaEffectsIOS)
+
+[Android版集成到金山云的示例](https://github.com/aiyaapp/AiyaEffectsWithKSVCAndroid)
+
+[Android版集成到ZegoLive的示例](https://github.com/aiyaapp/AiyaEffectsWithZegoAndroid)
+
+[IOS版集成到金山云的示例](https://github.com/aiyaapp/AiyaEffectsWithKSVCIOS)
+
+[IOS版集成到ZegoLive的示例](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 
 # 1、版本信息
 最新版本 V2.0.0
@@ -8,23 +20,7 @@ AiyaCamera SDK V2.0.0
 **功能更新**
 - 优化代码结构,加入Camera类.方便快速集成
 
-AiyaCamera SDK V1.3.0
->
-**功能更新**
-- 使用GPUImage作为框架.把美颜和特效处理封闭成Filter
-- 优化美颜效果
-
-AiyaCamera SDK V1.2.0
->
-**功能更新**
-- 优化贴纸流程
-- 增加美颜功能
-- 增加快速集成相机功能
-
-AiyaCamera SDK V1.0.0
->
-**功能更新：**
-完成贴纸效果
+[历史版本信息](doc/versionHistory.md)
 
 # 2、运行环境说明
 AiyaCameraSDK 最低运行版本为iOS8.0
@@ -33,42 +29,42 @@ AiyaCameraSDK 最低运行版本为iOS8.0
 哎吖相机SDK的主要功能是在图片或视频中增加特效，可用于相机、直播等多种情景。
 
 # 4、SDK API说明
-######AiyaCamera: 相机组件.
+###### AiyaCamera: 相机组件.
     通过设置启动相机时的参数以及设置美颜和滤镜参数,打开相机,对相机输出的数据进行美颜和滤镜处理.使用前要验证License.
 
-######AiyaEffectProcess: 图像数据处理组件(特效,美颜).
+###### AiyaEffectProcess: 图像数据处理组件(特效,美颜).
     设置美颜和滤镜参数,对图像数据进行美颜和滤镜处理.使用前要验证License.
 
-######AiyaYFBeautifyProcess: 图像数据处理组件(美颜).
+###### AiyaYFBeautifyProcess: 图像数据处理组件(美颜).
     设置美颜参数,对图像数据进行美颜和滤镜处理.使用前不用验证License.
 
-######AiyaGPUImagexxxFilter: 滤镜.
+###### AiyaGPUImagexxxFilter: 滤镜.
     特效滤镜,美颜滤镜.
 
-######AYxxx: GPUImageSDK中的核心类.
+###### AYxxx: GPUImageSDK中的核心类.
     都以AY为前缀.逻辑无修改.
 
-######AiyaLicenseManager: 验证License.
+###### AiyaLicenseManager: 验证License.
     在启动时调用.
 
-######AiyaCameraEffect:
+###### AiyaCameraEffect:
     BGRA数据的人脸识别,对纹理数据进行美颜和特效处理.
 
-######AiyaBeautifyEffect:
+###### AiyaBeautifyEffect:
     对纹理数据进行美颜处理.
 
 # 5、集成说明
-##1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件
+## 1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件
 
-##2. 导入依赖的系统库动态库 libz.tbd, libc++.tbd
+## 2. 导入依赖的系统库动态库 libz.tbd, libc++.tbd
 
-##3. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.
+## 3. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.
 ```objective-c
 [AiyaLicenseManager initLicense:@"对应的licenseKey"];
 
 ```
 
-##4. 具体使用方式如下
+## 4. 具体使用方式如下
  * 使用方式一: 用AiyaCamera对相机数据进行特效加美颜处理
 ```objective-c
 _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureDevicePositionFront];//设置为前置相机
