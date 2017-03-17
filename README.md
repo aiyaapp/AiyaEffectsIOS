@@ -28,10 +28,10 @@ AiyaCameraSDK 最低运行版本为iOS8.0
 # 3、SDK 功能说明
 AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功能如下：
 
-- 可提供2D序列帧特效
+- 2D序列帧特效
 - face mask特效
 - 3D静态特效和动画特效
-- 提供多种美颜算法
+- 多种美颜算法
 
 # 4、SDK API说明
 ###### AiyaCamera: 相机组件.
@@ -50,7 +50,7 @@ AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功
     在启动时调用.
 
 ###### AiyaCameraEffect:
-    对数据进行美颜和特效处理.
+    对视频图像数据进行美颜和特效处理.
 
 # 5、集成说明
 ## 1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件
@@ -90,16 +90,8 @@ self.camera.delegate = self;
 
 }
 ```
- * 使用方式二: 用AiyaYFBeautifyProcess对像素缓冲区数据(CVPixelBuffer)进行美颜处理
-```objective-c
-_aiyaYFBeautifyProcess = [[AiyaYFBeautifyProcess alloc]init];//只初始化一次
-_aiyaYFBeautifyProcess.beautyLevel = AIYA_YF_BEAUTY_LEVEL_5;
-
 //---对像素缓冲区数据进行美颜处理---
-[_aiyaYFBeautifyProcess processWithPixelBuffer:pixelBuffer];
-//---美颜处理结束---
-```
- * 使用方式三: 用AiyaEffectProcess对像素缓冲区数据(CVPixelBuffer)进行特效加美颜处理
+ * 使用方式二: 用AiyaEffectProcess对像素缓冲区数据(CVPixelBuffer)进行特效加美颜处理
 ```objective-c
 _aiyaEffectProcess = [[AiyaEffectProcess alloc]init];//只初始化一次
 _aiyaEffectProcess.beautyLevel = AIYA_BEAUTY_LEVEL_5;
@@ -107,7 +99,7 @@ _aiyaEffectProcess.effectPath = path;//设置特效路径
 _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
 
 //---对像素缓冲区数据进行特效和美颜处理---
-[_aiyaYFBeautifyProcess processWithPixelBuffer:pixelBuffer];
+[_aiyaEffectProcess processWithPixelBuffer:pixelBuffer];
 //---特效和美颜处理结束---
 ```
 
