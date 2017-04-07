@@ -8,8 +8,7 @@
 
 #import "ViewController.h"
 #import "CameraView.h"
-#import <AiyaCameraSDK/AiyaCamera.h>
-#import <AiyaCameraSDK/AiyaLicenseManager.h>
+#import <AiyaCameraSDK/AiyaCameraSDK.h>
 
 @interface ViewController ()<CameraViewDelegate,AiyaCameraDelegate>
 
@@ -43,22 +42,14 @@
         [UIImage imageNamed:@"effect"],@"手套",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"shoutao"],
     ];
     _beautifyData = @[
-        [UIImage imageNamed:@"beautify"],@"0",@(AIYA_BEAUTY_LEVEL_0),
-        [UIImage imageNamed:@"beautify"],@"1",@(AIYA_BEAUTY_LEVEL_1),
-        [UIImage imageNamed:@"beautify"],@"2",@(AIYA_BEAUTY_LEVEL_2),
-        [UIImage imageNamed:@"beautify"],@"3",@(AIYA_BEAUTY_LEVEL_3),
-        [UIImage imageNamed:@"beautify"],@"4",@(AIYA_BEAUTY_LEVEL_4),
-        [UIImage imageNamed:@"beautify"],@"5",@(AIYA_BEAUTY_LEVEL_5),
-        [UIImage imageNamed:@"beautify"],@"6",@(AIYA_BEAUTY_LEVEL_6),
-        [UIImage imageNamed:@"beautify"],@"7",@(AIYA_BEAUTY_LEVEL_7),
-        [UIImage imageNamed:@"beautify"],@"8",@(AIYA_BEAUTY_LEVEL_8),
-        [UIImage imageNamed:@"beautify"],@"9",@(AIYA_BEAUTY_LEVEL_9),
-        [UIImage imageNamed:@"beautify"],@"10",@(AIYA_BEAUTY_LEVEL_10),
-        [UIImage imageNamed:@"beautify"],@"11",@(AIYA_BEAUTY_LEVEL_11),
+        [UIImage imageNamed:@"beautify"],@"美颜0",@(AIYA_BEAUTY_TYPE_0),
+        [UIImage imageNamed:@"beautify"],@"美颜1",@(AIYA_BEAUTY_TYPE_1),
+        [UIImage imageNamed:@"beautify"],@"美颜4",@(AIYA_BEAUTY_TYPE_4),
+        [UIImage imageNamed:@"beautify"],@"美颜5",@(AIYA_BEAUTY_TYPE_5),
     ];
     
     //在正式环境中填入相应的License
-    [AiyaLicenseManager initLicense:@""];
+    [AiyaLicenseManager initLicense:@"" appKey:@""];
     
     _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureDevicePositionFront];
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];
@@ -132,8 +123,11 @@
     self.camera.effectPlayCount = 0;
 }
 
-- (void)onBeautyClick:(AIYA_BEAUTY_LEVEL)beautyLevel{
-    
+- (void)onBeautyTypeClick:(AIYA_BEAUTY_TYPE)beautyType{
+    [self.camera setBeautyType:beautyType];
+}
+
+- (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel{
     [self.camera setBeautyLevel:beautyLevel];
 }
 

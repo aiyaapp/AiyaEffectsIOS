@@ -16,13 +16,22 @@
 @class AiyaCamera;
 @protocol AiyaCameraDelegate <NSObject>
 @optional
+
 /**
- 特效渲染完成后的数据回调
+ 图像数据渲染完成后的数据回调
+
+ @param capture AiyaCamera
+ @param pixelBuffer 图像数据
+ @param frameTime 图像时间信息
+ @param effectStatus 特效播放状态
  */
 - (void)videoCaptureOutput:(AiyaCamera *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer frameTime:(CMTime)frameTime effectStatus:(AIYA_EFFECT_STATUS)effectStatus;
 
 /**
  音频数据的回调
+
+ @param capture AiyaCamera
+ @param audioBuffer 音频数据
  */
 - (void)audioCaptureOutput:(AiyaCamera *)capture audioBuffer:(CMSampleBufferRef)audioBuffer;
 
@@ -32,31 +41,34 @@
 /** delegate */
 @property (nonatomic, weak) id<AiyaCameraDelegate> delegate;
 
-/** 相机预览的分辨率 默认1280x720 */
+/** 设置相机预览的分辨率 默认1280x720 */
 @property (nonatomic, copy) NSString *sessionPreset;
 
-/** 前置相机使用镜像 默认关 */
+/** 设置前置相机使用镜像 默认开 */
 @property (nonatomic, assign) BOOL mirror;
 
 /** 相机 */
 @property (nonatomic, strong, readonly) AVCaptureDevice *inputCamera;
 
-/** 美颜等级 默认0 */
+/** 设置美颜等级 默认0 */
 @property (nonatomic, assign) AIYA_BEAUTY_LEVEL beautyLevel;
 
-/** 滤镜 默认空*/
+/** 设置美颜类型 默认0 */
+@property (nonatomic, assign) AIYA_BEAUTY_TYPE beautyType;
+
+/** 设置滤镜 默认空*/
 @property (nonatomic, strong) UIImage *style;
 
-/** 特效文件路径 */
+/** 设置特效文件路径 */
 @property (nonatomic, copy) NSString *effectPath;
 
-/** 特效播放次数 默认0 0表示一直渲染当前特效 */
+/** 设置特效播放次数 默认0 0表示一直渲染当前特效 */
 @property (nonatomic, assign) NSUInteger effectPlayCount;
 
-/** 是否打开音频 默认关 */
+/** 设置是否打开音频 默认关 */
 @property (nonatomic, assign) BOOL hasAudioTrack;
 
-/** 相机的位置 默认前置相机 */
+/** 设置相机的位置 默认前置相机 */
 @property (nonatomic, assign) AVCaptureDevicePosition capturePosition;
 
 /**

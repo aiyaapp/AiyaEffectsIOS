@@ -12,21 +12,33 @@
 		D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABC1E7108E400121BAB /* AppDelegate.m */; };
 		D3190AC01E7108E400121BAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABF1E7108E400121BAB /* ViewController.m */; };
 		D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3190AC41E7108E400121BAB /* Assets.xcassets */; };
-		D3190B211E713A0F00121BAB /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = D3190B171E713A0F00121BAB /* bdtsdata */; };
-		D3190B221E713A0F00121BAB /* candide3-ClosedMouth.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D3190B181E713A0F00121BAB /* candide3-ClosedMouth.wfm */; };
-		D3190B231E713A0F00121BAB /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D3190B191E713A0F00121BAB /* candide3.fdp */; };
-		D3190B241E713A0F00121BAB /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1A1E713A0F00121BAB /* candide3.wfm */; };
-		D3190B251E713A0F00121BAB /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1B1E713A0F00121BAB /* Face Detector.cfg */; };
-		D3190B271E713A0F00121BAB /* Facial Features Tracker - High.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1D1E713A0F00121BAB /* Facial Features Tracker - High.cfg */; };
-		D3190B281E713A0F00121BAB /* Head Tracker.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1E1E713A0F00121BAB /* Head Tracker.cfg */; };
-		D3190B291E713A0F00121BAB /* jk_300.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D3190B1F1E713A0F00121BAB /* jk_300.fdp */; };
-		D3190B2A1E713A0F00121BAB /* jk_300.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D3190B201E713A0F00121BAB /* jk_300.wfm */; };
 		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
 		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
 		D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B341E7168C400121BAB /* libc++.tbd */; };
 		D3507D931E72905900550860 /* saledog in Resources */ = {isa = PBXBuildFile; fileRef = D3507D921E72905900550860 /* saledog */; };
 		D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3507D941E72A14000550860 /* AiyaCameraSDK.framework */; };
-		D3D5CF021E716EEF005C1F7A /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF011E716EEF005C1F7A /* lookup.png */; };
+		D36196211E978C1D00C8BC0B /* candide3-ClosedMouth.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */; };
+		D36196221E978C1D00C8BC0B /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D36196041E978C1D00C8BC0B /* candide3.fdp */; };
+		D36196231E978C1D00C8BC0B /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D36196051E978C1D00C8BC0B /* candide3.wfm */; };
+		D36196241E978C1D00C8BC0B /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D36196061E978C1D00C8BC0B /* Face Detector.cfg */; };
+		D36196251E978C1D00C8BC0B /* Facial Features Tracker - High.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D36196071E978C1D00C8BC0B /* Facial Features Tracker - High.cfg */; };
+		D36196261E978C1D00C8BC0B /* Head Tracker.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D36196081E978C1D00C8BC0B /* Head Tracker.cfg */; };
+		D36196271E978C1D00C8BC0B /* jk_300.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D36196091E978C1D00C8BC0B /* jk_300.fdp */; };
+		D36196281E978C1D00C8BC0B /* jk_300.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D361960A1E978C1D00C8BC0B /* jk_300.wfm */; };
+		D36196291E978C1D00C8BC0B /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = D361960B1E978C1D00C8BC0B /* lookup.png */; };
+		D361962B1E978C3500C8BC0B /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = D361962A1E978C3500C8BC0B /* bdtsdata */; };
+		D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962D1E978C4600C8BC0B /* libassimp.a */; };
+		D36196441E978C7400C8BC0B /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962E1E978C4600C8BC0B /* libavcodec.a */; };
+		D36196451E978C7700C8BC0B /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962F1E978C4600C8BC0B /* libavdevice.a */; };
+		D36196461E978C7900C8BC0B /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196301E978C4600C8BC0B /* libavfilter.a */; };
+		D36196471E978C7C00C8BC0B /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196311E978C4600C8BC0B /* libavformat.a */; };
+		D36196481E978C7E00C8BC0B /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196321E978C4600C8BC0B /* libavutil.a */; };
+		D36196491E978C8000C8BC0B /* libsoil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196331E978C4600C8BC0B /* libsoil.a */; };
+		D361964A1E978C8300C8BC0B /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196341E978C4600C8BC0B /* libswresample.a */; };
+		D361964B1E978C8500C8BC0B /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196351E978C4600C8BC0B /* libswscale.a */; };
+		D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196361E978C4600C8BC0B /* libwebp.a */; };
+		D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196371E978C4600C8BC0B /* libzip.a */; };
+		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
 		D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
 		D3D5CF161E72574E005C1F7A /* baowener in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF091E72574E005C1F7A /* baowener */; };
 		D3D5CF171E72574E005C1F7A /* deer in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0A1E72574E005C1F7A /* deer */; };
@@ -54,15 +66,6 @@
 		D3190ABF1E7108E400121BAB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D3190AC41E7108E400121BAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3190AC91E7108E400121BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3190B171E713A0F00121BAB /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bdtsdata; sourceTree = "<group>"; };
-		D3190B181E713A0F00121BAB /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
-		D3190B191E713A0F00121BAB /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.fdp; sourceTree = "<group>"; };
-		D3190B1A1E713A0F00121BAB /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.wfm; sourceTree = "<group>"; };
-		D3190B1B1E713A0F00121BAB /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Face Detector.cfg"; sourceTree = "<group>"; };
-		D3190B1D1E713A0F00121BAB /* Facial Features Tracker - High.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Facial Features Tracker - High.cfg"; sourceTree = "<group>"; };
-		D3190B1E1E713A0F00121BAB /* Head Tracker.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Head Tracker.cfg"; sourceTree = "<group>"; };
-		D3190B1F1E713A0F00121BAB /* jk_300.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.fdp; sourceTree = "<group>"; };
-		D3190B201E713A0F00121BAB /* jk_300.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.wfm; sourceTree = "<group>"; };
 		D3190B2C1E713A3D00121BAB /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
 		D3190B2D1E713A3D00121BAB /* CameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
 		D3190B2E1E713A3D00121BAB /* CircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCell.h; sourceTree = "<group>"; };
@@ -71,12 +74,33 @@
 		D3190B341E7168C400121BAB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D3507D921E72905900550860 /* saledog */ = {isa = PBXFileReference; lastKnownFileType = folder; name = saledog; path = AiyaEffectResources/saledog; sourceTree = SOURCE_ROOT; };
 		D3507D941E72A14000550860 /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
+		D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
+		D36196041E978C1D00C8BC0B /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.fdp; sourceTree = "<group>"; };
+		D36196051E978C1D00C8BC0B /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.wfm; sourceTree = "<group>"; };
+		D36196061E978C1D00C8BC0B /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Face Detector.cfg"; sourceTree = "<group>"; };
+		D36196071E978C1D00C8BC0B /* Facial Features Tracker - High.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Facial Features Tracker - High.cfg"; sourceTree = "<group>"; };
+		D36196081E978C1D00C8BC0B /* Head Tracker.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Head Tracker.cfg"; sourceTree = "<group>"; };
+		D36196091E978C1D00C8BC0B /* jk_300.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.fdp; sourceTree = "<group>"; };
+		D361960A1E978C1D00C8BC0B /* jk_300.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.wfm; sourceTree = "<group>"; };
+		D361960B1E978C1D00C8BC0B /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
+		D361962A1E978C3500C8BC0B /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bdtsdata; sourceTree = "<group>"; };
+		D361962D1E978C4600C8BC0B /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libassimp.a; sourceTree = "<group>"; };
+		D361962E1E978C4600C8BC0B /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		D361962F1E978C4600C8BC0B /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
+		D36196301E978C4600C8BC0B /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
+		D36196311E978C4600C8BC0B /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		D36196321E978C4600C8BC0B /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		D36196331E978C4600C8BC0B /* libsoil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsoil.a; sourceTree = "<group>"; };
+		D36196341E978C4600C8BC0B /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		D36196351E978C4600C8BC0B /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
+		D36196361E978C4600C8BC0B /* libwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebp.a; sourceTree = "<group>"; };
+		D36196371E978C4600C8BC0B /* libzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzip.a; sourceTree = "<group>"; };
+		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		D3D5CEF71E716DAE005C1F7A /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		D3D5CEF91E716DC5005C1F7A /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D3D5CF011E716EEF005C1F7A /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
 		D3D5CF091E72574E005C1F7A /* baowener */ = {isa = PBXFileReference; lastKnownFileType = folder; name = baowener; path = AiyaEffectResources/baowener; sourceTree = SOURCE_ROOT; };
 		D3D5CF0A1E72574E005C1F7A /* deer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = deer; path = AiyaEffectResources/deer; sourceTree = SOURCE_ROOT; };
 		D3D5CF0B1E72574E005C1F7A /* gougou */ = {isa = PBXFileReference; lastKnownFileType = folder; name = gougou; path = AiyaEffectResources/gougou; sourceTree = SOURCE_ROOT; };
@@ -96,8 +120,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */,
+				D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */,
 				D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */,
+				D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */,
+				D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */,
+				D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */,
+				D361964B1E978C8500C8BC0B /* libswscale.a in Frameworks */,
+				D361964A1E978C8300C8BC0B /* libswresample.a in Frameworks */,
+				D36196491E978C8000C8BC0B /* libsoil.a in Frameworks */,
+				D36196481E978C7E00C8BC0B /* libavutil.a in Frameworks */,
+				D36196471E978C7C00C8BC0B /* libavformat.a in Frameworks */,
+				D36196461E978C7900C8BC0B /* libavfilter.a in Frameworks */,
+				D36196451E978C7700C8BC0B /* libavdevice.a in Frameworks */,
+				D36196441E978C7400C8BC0B /* libavcodec.a in Frameworks */,
+				D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */,
 				D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */,
 				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
 			);
@@ -118,6 +154,7 @@
 		B39C98AC3A4107F581005916 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D361964E1E978C9C00C8BC0B /* libiconv.tbd */,
 				D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */,
 				D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */,
 				D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */,
@@ -177,26 +214,10 @@
 			isa = PBXGroup;
 			children = (
 				D3507D941E72A14000550860 /* AiyaCameraSDK.framework */,
-				D3190AD11E7139F700121BAB /* AiyaEffectsSDKResource */,
+				D36195E31E978C1D00C8BC0B /* AiyaCameraSDKResource */,
+				D361962C1E978C4600C8BC0B /* thirdLib */,
 			);
 			path = AiyaEffectsSDK;
-			sourceTree = "<group>";
-		};
-		D3190AD11E7139F700121BAB /* AiyaEffectsSDKResource */ = {
-			isa = PBXGroup;
-			children = (
-				D3190B171E713A0F00121BAB /* bdtsdata */,
-				D3190B181E713A0F00121BAB /* candide3-ClosedMouth.wfm */,
-				D3190B191E713A0F00121BAB /* candide3.fdp */,
-				D3190B1A1E713A0F00121BAB /* candide3.wfm */,
-				D3190B1B1E713A0F00121BAB /* Face Detector.cfg */,
-				D3D5CF011E716EEF005C1F7A /* lookup.png */,
-				D3190B1D1E713A0F00121BAB /* Facial Features Tracker - High.cfg */,
-				D3190B1E1E713A0F00121BAB /* Head Tracker.cfg */,
-				D3190B1F1E713A0F00121BAB /* jk_300.fdp */,
-				D3190B201E713A0F00121BAB /* jk_300.wfm */,
-			);
-			path = AiyaEffectsSDKResource;
 			sourceTree = "<group>";
 		};
 		D3190B2B1E713A3D00121BAB /* View */ = {
@@ -208,6 +229,41 @@
 				D3190B2F1E713A3D00121BAB /* CircleCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D36195E31E978C1D00C8BC0B /* AiyaCameraSDKResource */ = {
+			isa = PBXGroup;
+			children = (
+				D361962A1E978C3500C8BC0B /* bdtsdata */,
+				D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */,
+				D36196041E978C1D00C8BC0B /* candide3.fdp */,
+				D36196051E978C1D00C8BC0B /* candide3.wfm */,
+				D36196061E978C1D00C8BC0B /* Face Detector.cfg */,
+				D36196071E978C1D00C8BC0B /* Facial Features Tracker - High.cfg */,
+				D36196081E978C1D00C8BC0B /* Head Tracker.cfg */,
+				D36196091E978C1D00C8BC0B /* jk_300.fdp */,
+				D361960A1E978C1D00C8BC0B /* jk_300.wfm */,
+				D361960B1E978C1D00C8BC0B /* lookup.png */,
+			);
+			path = AiyaCameraSDKResource;
+			sourceTree = "<group>";
+		};
+		D361962C1E978C4600C8BC0B /* thirdLib */ = {
+			isa = PBXGroup;
+			children = (
+				D361962D1E978C4600C8BC0B /* libassimp.a */,
+				D361962E1E978C4600C8BC0B /* libavcodec.a */,
+				D361962F1E978C4600C8BC0B /* libavdevice.a */,
+				D36196301E978C4600C8BC0B /* libavfilter.a */,
+				D36196311E978C4600C8BC0B /* libavformat.a */,
+				D36196321E978C4600C8BC0B /* libavutil.a */,
+				D36196331E978C4600C8BC0B /* libsoil.a */,
+				D36196341E978C4600C8BC0B /* libswresample.a */,
+				D36196351E978C4600C8BC0B /* libswscale.a */,
+				D36196361E978C4600C8BC0B /* libwebp.a */,
+				D36196371E978C4600C8BC0B /* libzip.a */,
+			);
+			path = thirdLib;
 			sourceTree = "<group>";
 		};
 		D3D5CF081E725735005C1F7A /* Resources */ = {
@@ -295,27 +351,27 @@
 				D3507D931E72905900550860 /* saledog in Resources */,
 				D3D5CF1E1E72574E005C1F7A /* maoer in Resources */,
 				D3D5CF1D1E72574E005C1F7A /* majing in Resources */,
+				D36196261E978C1D00C8BC0B /* Head Tracker.cfg in Resources */,
 				D3D5CF181E72574E005C1F7A /* gougou in Resources */,
-				D3190B251E713A0F00121BAB /* Face Detector.cfg in Resources */,
 				D3D5CF1C1E72574E005C1F7A /* leisi in Resources */,
 				D3D5CF1F1E72574E005C1F7A /* niu in Resources */,
-				D3190B221E713A0F00121BAB /* candide3-ClosedMouth.wfm in Resources */,
+				D36196291E978C1D00C8BC0B /* lookup.png in Resources */,
 				D3D5CF201E72574E005C1F7A /* oldman in Resources */,
-				D3190B271E713A0F00121BAB /* Facial Features Tracker - High.cfg in Resources */,
 				D3D5CF1A1E72574E005C1F7A /* huahuan in Resources */,
 				D3D5CF221E72574E005C1F7A /* shoutao in Resources */,
-				D3D5CF021E716EEF005C1F7A /* lookup.png in Resources */,
+				D36196211E978C1D00C8BC0B /* candide3-ClosedMouth.wfm in Resources */,
+				D361962B1E978C3500C8BC0B /* bdtsdata in Resources */,
+				D36196231E978C1D00C8BC0B /* candide3.wfm in Resources */,
+				D36196281E978C1D00C8BC0B /* jk_300.wfm in Resources */,
+				D36196241E978C1D00C8BC0B /* Face Detector.cfg in Resources */,
 				D3D5CF191E72574E005C1F7A /* grass in Resources */,
 				D3D5CF161E72574E005C1F7A /* baowener in Resources */,
-				D3190B241E713A0F00121BAB /* candide3.wfm in Resources */,
+				D36196271E978C1D00C8BC0B /* jk_300.fdp in Resources */,
+				D36196251E978C1D00C8BC0B /* Facial Features Tracker - High.cfg in Resources */,
+				D36196221E978C1D00C8BC0B /* candide3.fdp in Resources */,
 				D3D5CF1B1E72574E005C1F7A /* huahuan3D in Resources */,
 				D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */,
 				D3D5CF171E72574E005C1F7A /* deer in Resources */,
-				D3190B211E713A0F00121BAB /* bdtsdata in Resources */,
-				D3190B2A1E713A0F00121BAB /* jk_300.wfm in Resources */,
-				D3190B291E713A0F00121BAB /* jk_300.fdp in Resources */,
-				D3190B281E713A0F00121BAB /* Head Tracker.cfg in Resources */,
-				D3190B231E713A0F00121BAB /* candide3.fdp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +544,10 @@
 				INFOPLIST_FILE = AiyaEffectsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK/thirdLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -508,6 +568,10 @@
 				INFOPLIST_FILE = AiyaEffectsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK/thirdLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

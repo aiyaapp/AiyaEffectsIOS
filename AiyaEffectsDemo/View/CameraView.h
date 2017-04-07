@@ -16,7 +16,9 @@
 
 - (void)onEffectClick:(NSString *)path;
 
-- (void)onBeautyClick:(AIYA_BEAUTY_LEVEL)beautyLevel;
+- (void)onBeautyTypeClick:(AIYA_BEAUTY_TYPE)beautyType;
+
+- (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel;
 
 @end
 
