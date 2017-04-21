@@ -27,7 +27,7 @@
 //data step 3 UIImage|Text|Path
 @property (nonatomic, strong) NSArray *effectData;
 
-//data step 3 UIImage|Text|Level
+//data step 3 UIImage|Text|Type
 @property (nonatomic, strong) NSArray *beautifyData;
 
 @property (nonatomic, weak) id<CameraViewDelegate> delegate;

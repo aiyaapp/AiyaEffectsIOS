@@ -15,7 +15,7 @@
 @property (nonatomic, assign) BOOL isViewAppear;
 @property (nonatomic, strong) AiyaCamera *camera;
 
-@property (nonatomic, strong) NSArray *effectData;
+@property (nonatomic, strong) NSMutableArray *effectData;
 @property (nonatomic, strong) NSArray *beautifyData;
 
 @end
@@ -25,31 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _effectData = @[
-        [UIImage imageNamed:@"effect"],@"原始",@"",
-        [UIImage imageNamed:@"effect"],@"豹纹耳",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"baowener"],
-        [UIImage imageNamed:@"effect"],@"麋鹿",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"deer"],
-        [UIImage imageNamed:@"effect"],@"狗狗",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"gougou"],
-        [UIImage imageNamed:@"effect"],@"小草",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"grass"],
-        [UIImage imageNamed:@"effect"],@"老人",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"oldman"],
-        [UIImage imageNamed:@"effect"],@"花环",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"huahuan"],
-        [UIImage imageNamed:@"effect"],@"花环3D",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"huahuan3D"],
-        [UIImage imageNamed:@"effect"],@"蕾丝",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"leisi"],
-        [UIImage imageNamed:@"effect"],@"马镜",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"majing"],
-        [UIImage imageNamed:@"effect"],@"猫耳",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"maoer"],
-        [UIImage imageNamed:@"effect"],@"牛",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"niu"],
-        [UIImage imageNamed:@"effect"],@"单身狗",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"saledog"],
-        [UIImage imageNamed:@"effect"],@"手套",[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"shoutao"],
-    ];
-    _beautifyData = @[
-        [UIImage imageNamed:@"beautify"],@"美颜0",@(AIYA_BEAUTY_TYPE_0),
-        [UIImage imageNamed:@"beautify"],@"美颜1",@(AIYA_BEAUTY_TYPE_1),
-        [UIImage imageNamed:@"beautify"],@"美颜4",@(AIYA_BEAUTY_TYPE_4),
-        [UIImage imageNamed:@"beautify"],@"美颜5",@(AIYA_BEAUTY_TYPE_5),
-    ];
+    [self initResourceData];
     
     //在正式环境中填入相应的License
-    [AiyaLicenseManager initLicense:@"" appKey:@""];
+    [AiyaLicenseManager initLicense:@"" appKey:@"704705f35759"];
     
     _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureDevicePositionFront];
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];
@@ -66,6 +45,43 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterForeground:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
+
+/**
+ 初始化资源数据
+ */
+- (void)initResourceData{
+    NSString *effectRootDirPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"EffectResources"];
+    NSArray<NSString *> *effectDirNameArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:effectRootDirPath error:nil];
+    
+    //初始化特效资源
+    _effectData = [NSMutableArray arrayWithCapacity:(effectDirNameArr.count + 1) * 3];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"effect"],@"原始",@""]];
+    
+    for (NSString *effectDirName in effectDirNameArr) {
+        
+        NSString *path = [effectRootDirPath stringByAppendingPathComponent:[effectDirName stringByAppendingPathComponent:@"meta.json"]];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            continue;
+        }
+        NSData *jsonData = [NSData dataWithContentsOfFile:path];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        
+        [self.effectData addObject:[UIImage imageNamed:@"effect"]];
+        [self.effectData addObject:dic[@"name"]];
+        [self.effectData addObject:path];
+    }
+    
+    //初始化美颜资源
+    _beautifyData = @[
+                      [UIImage imageNamed:@"beautify"],@"美颜0",@(AIYA_BEAUTY_TYPE_0),
+                      [UIImage imageNamed:@"beautify"],@"美颜1",@(AIYA_BEAUTY_TYPE_1),
+                      [UIImage imageNamed:@"beautify"],@"美颜4",@(AIYA_BEAUTY_TYPE_4),
+                      [UIImage imageNamed:@"beautify"],@"美颜5",@(AIYA_BEAUTY_TYPE_5),
+                      ];
+}
+
+#pragma mark -
+#pragma mark AiyaCameraDelegate
 - (void)videoCaptureOutput:(AiyaCamera *)capture pixelBuffer:(CVPixelBufferRef)pixelBuffer frameTime:(CMTime)frameTime effectStatus:(AIYA_EFFECT_STATUS)effectStatus{
     
 }

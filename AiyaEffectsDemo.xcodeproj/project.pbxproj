@@ -15,7 +15,7 @@
 		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
 		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
 		D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B341E7168C400121BAB /* libc++.tbd */; };
-		D3507D931E72905900550860 /* saledog in Resources */ = {isa = PBXBuildFile; fileRef = D3507D921E72905900550860 /* saledog */; };
+		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
 		D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3507D941E72A14000550860 /* AiyaCameraSDK.framework */; };
 		D36196211E978C1D00C8BC0B /* candide3-ClosedMouth.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */; };
 		D36196221E978C1D00C8BC0B /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D36196041E978C1D00C8BC0B /* candide3.fdp */; };
@@ -40,18 +40,6 @@
 		D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196371E978C4600C8BC0B /* libzip.a */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
 		D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
-		D3D5CF161E72574E005C1F7A /* baowener in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF091E72574E005C1F7A /* baowener */; };
-		D3D5CF171E72574E005C1F7A /* deer in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0A1E72574E005C1F7A /* deer */; };
-		D3D5CF181E72574E005C1F7A /* gougou in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0B1E72574E005C1F7A /* gougou */; };
-		D3D5CF191E72574E005C1F7A /* grass in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0C1E72574E005C1F7A /* grass */; };
-		D3D5CF1A1E72574E005C1F7A /* huahuan in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0D1E72574E005C1F7A /* huahuan */; };
-		D3D5CF1B1E72574E005C1F7A /* huahuan3D in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0E1E72574E005C1F7A /* huahuan3D */; };
-		D3D5CF1C1E72574E005C1F7A /* leisi in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF0F1E72574E005C1F7A /* leisi */; };
-		D3D5CF1D1E72574E005C1F7A /* majing in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF101E72574E005C1F7A /* majing */; };
-		D3D5CF1E1E72574E005C1F7A /* maoer in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF111E72574E005C1F7A /* maoer */; };
-		D3D5CF1F1E72574E005C1F7A /* niu in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF121E72574E005C1F7A /* niu */; };
-		D3D5CF201E72574E005C1F7A /* oldman in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF131E72574E005C1F7A /* oldman */; };
-		D3D5CF221E72574E005C1F7A /* shoutao in Resources */ = {isa = PBXBuildFile; fileRef = D3D5CF151E72574E005C1F7A /* shoutao */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +60,7 @@
 		D3190B2F1E713A3D00121BAB /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
 		D3190B321E7168BB00121BAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D3190B341E7168C400121BAB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		D3507D921E72905900550860 /* saledog */ = {isa = PBXFileReference; lastKnownFileType = folder; name = saledog; path = AiyaEffectResources/saledog; sourceTree = SOURCE_ROOT; };
+		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
 		D3507D941E72A14000550860 /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
 		D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
 		D36196041E978C1D00C8BC0B /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.fdp; sourceTree = "<group>"; };
@@ -101,18 +89,6 @@
 		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D3D5CF091E72574E005C1F7A /* baowener */ = {isa = PBXFileReference; lastKnownFileType = folder; name = baowener; path = AiyaEffectResources/baowener; sourceTree = SOURCE_ROOT; };
-		D3D5CF0A1E72574E005C1F7A /* deer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = deer; path = AiyaEffectResources/deer; sourceTree = SOURCE_ROOT; };
-		D3D5CF0B1E72574E005C1F7A /* gougou */ = {isa = PBXFileReference; lastKnownFileType = folder; name = gougou; path = AiyaEffectResources/gougou; sourceTree = SOURCE_ROOT; };
-		D3D5CF0C1E72574E005C1F7A /* grass */ = {isa = PBXFileReference; lastKnownFileType = folder; name = grass; path = AiyaEffectResources/grass; sourceTree = SOURCE_ROOT; };
-		D3D5CF0D1E72574E005C1F7A /* huahuan */ = {isa = PBXFileReference; lastKnownFileType = folder; name = huahuan; path = AiyaEffectResources/huahuan; sourceTree = SOURCE_ROOT; };
-		D3D5CF0E1E72574E005C1F7A /* huahuan3D */ = {isa = PBXFileReference; lastKnownFileType = folder; name = huahuan3D; path = AiyaEffectResources/huahuan3D; sourceTree = SOURCE_ROOT; };
-		D3D5CF0F1E72574E005C1F7A /* leisi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = leisi; path = AiyaEffectResources/leisi; sourceTree = SOURCE_ROOT; };
-		D3D5CF101E72574E005C1F7A /* majing */ = {isa = PBXFileReference; lastKnownFileType = folder; name = majing; path = AiyaEffectResources/majing; sourceTree = SOURCE_ROOT; };
-		D3D5CF111E72574E005C1F7A /* maoer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = maoer; path = AiyaEffectResources/maoer; sourceTree = SOURCE_ROOT; };
-		D3D5CF121E72574E005C1F7A /* niu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = niu; path = AiyaEffectResources/niu; sourceTree = SOURCE_ROOT; };
-		D3D5CF131E72574E005C1F7A /* oldman */ = {isa = PBXFileReference; lastKnownFileType = folder; name = oldman; path = AiyaEffectResources/oldman; sourceTree = SOURCE_ROOT; };
-		D3D5CF151E72574E005C1F7A /* shoutao */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shoutao; path = AiyaEffectResources/shoutao; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +164,7 @@
 		D3190AB71E7108E400121BAB /* AiyaEffectsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D3D5CF081E725735005C1F7A /* Resources */,
+				D3481EED1EAA072C006FB4AE /* EffectResources */,
 				D3190ACF1E7139F700121BAB /* AiyaEffectsSDK */,
 				D3190ABB1E7108E400121BAB /* AppDelegate.h */,
 				D3190ABC1E7108E400121BAB /* AppDelegate.m */,
@@ -266,26 +242,6 @@
 			path = thirdLib;
 			sourceTree = "<group>";
 		};
-		D3D5CF081E725735005C1F7A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D3D5CF091E72574E005C1F7A /* baowener */,
-				D3D5CF0A1E72574E005C1F7A /* deer */,
-				D3D5CF0B1E72574E005C1F7A /* gougou */,
-				D3D5CF0C1E72574E005C1F7A /* grass */,
-				D3D5CF0D1E72574E005C1F7A /* huahuan */,
-				D3D5CF0E1E72574E005C1F7A /* huahuan3D */,
-				D3D5CF0F1E72574E005C1F7A /* leisi */,
-				D3D5CF101E72574E005C1F7A /* majing */,
-				D3D5CF111E72574E005C1F7A /* maoer */,
-				D3507D921E72905900550860 /* saledog */,
-				D3D5CF121E72574E005C1F7A /* niu */,
-				D3D5CF131E72574E005C1F7A /* oldman */,
-				D3D5CF151E72574E005C1F7A /* shoutao */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,30 +304,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3507D931E72905900550860 /* saledog in Resources */,
-				D3D5CF1E1E72574E005C1F7A /* maoer in Resources */,
-				D3D5CF1D1E72574E005C1F7A /* majing in Resources */,
 				D36196261E978C1D00C8BC0B /* Head Tracker.cfg in Resources */,
-				D3D5CF181E72574E005C1F7A /* gougou in Resources */,
-				D3D5CF1C1E72574E005C1F7A /* leisi in Resources */,
-				D3D5CF1F1E72574E005C1F7A /* niu in Resources */,
 				D36196291E978C1D00C8BC0B /* lookup.png in Resources */,
-				D3D5CF201E72574E005C1F7A /* oldman in Resources */,
-				D3D5CF1A1E72574E005C1F7A /* huahuan in Resources */,
-				D3D5CF221E72574E005C1F7A /* shoutao in Resources */,
 				D36196211E978C1D00C8BC0B /* candide3-ClosedMouth.wfm in Resources */,
 				D361962B1E978C3500C8BC0B /* bdtsdata in Resources */,
 				D36196231E978C1D00C8BC0B /* candide3.wfm in Resources */,
 				D36196281E978C1D00C8BC0B /* jk_300.wfm in Resources */,
 				D36196241E978C1D00C8BC0B /* Face Detector.cfg in Resources */,
-				D3D5CF191E72574E005C1F7A /* grass in Resources */,
-				D3D5CF161E72574E005C1F7A /* baowener in Resources */,
 				D36196271E978C1D00C8BC0B /* jk_300.fdp in Resources */,
 				D36196251E978C1D00C8BC0B /* Facial Features Tracker - High.cfg in Resources */,
 				D36196221E978C1D00C8BC0B /* candide3.fdp in Resources */,
-				D3D5CF1B1E72574E005C1F7A /* huahuan3D in Resources */,
 				D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */,
-				D3D5CF171E72574E005C1F7A /* deer in Resources */,
+				D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +349,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8C6443B829A814F6264E1F10 /* [CP] Copy Pods Resources */ = {
@@ -542,13 +486,13 @@
 					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK",
 				);
 				INFOPLIST_FILE = AiyaEffectsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK/thirdLib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya.AiyaEffectDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -566,13 +510,13 @@
 					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK",
 				);
 				INFOPLIST_FILE = AiyaEffectsDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AiyaEffectsDemo/AiyaEffectsSDK/thirdLib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiyaapp.aiya.AiyaEffectDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

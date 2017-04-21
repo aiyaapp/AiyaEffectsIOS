@@ -1,5 +1,7 @@
 
-platform :ios, '8.1'
+platform :ios, '8.0'
+
+project 'AiyaEffectsDemo.xcodeproj'
 
 target 'AiyaEffectsDemo' do
     

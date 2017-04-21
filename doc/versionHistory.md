@@ -1,3 +1,8 @@
+AiyaCamera SDK V2.0.0
+>
+**功能更新**
+- 优化代码结构,加入Camera类.方便快速集成
+
 AiyaCamera SDK V1.3.0
 >
 **功能更新**

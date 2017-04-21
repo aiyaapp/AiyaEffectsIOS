@@ -1,0 +1,10 @@
+{
+  "format" : "1",
+  "name":"花环2",
+  "nodes" : [
+    {
+	  "type":"3dAnim",
+      "obj" : "flowerani.fbx"
+    }
+  ]
+}
