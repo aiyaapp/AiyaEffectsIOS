@@ -16,17 +16,21 @@ typedef NS_ENUM(NSInteger, AIYA_BEAUTY_LEVEL) {
     AIYA_BEAUTY_LEVEL_3,
     AIYA_BEAUTY_LEVEL_4,
     AIYA_BEAUTY_LEVEL_5,
-    AIYA_BEAUTY_LEVEL_6,
-    AIYA_BEAUTY_LEVEL_7,
-    AIYA_BEAUTY_LEVEL_8,
-    AIYA_BEAUTY_LEVEL_9,
-    AIYA_BEAUTY_LEVEL_10,
-    AIYA_BEAUTY_LEVEL_11,
+    AIYA_BEAUTY_LEVEL_6
+};
+
+typedef NS_ENUM(NSUInteger, AIYA_BEAUTY_TYPE) {
+    AIYA_BEAUTY_TYPE_0,
+    AIYA_BEAUTY_TYPE_1,
+    AIYA_BEAUTY_TYPE_4 = 4,
+    AIYA_BEAUTY_TYPE_5 = 5,
 };
 
 @interface AiyaGPUImageBeautifyFilter : AYGPUImageFilter
 
 @property (nonatomic, assign) AIYA_BEAUTY_LEVEL beautyLevel;
+
+@property (nonatomic, assign) AIYA_BEAUTY_TYPE beautyType;
 
 - (id)initWithAiyaCameraEffect:(AiyaCameraEffect *)cameraEffect;
 

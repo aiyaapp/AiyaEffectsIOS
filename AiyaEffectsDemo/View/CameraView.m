@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *effectBt;
 @property (nonatomic, strong) UIButton *beautifyBt;
+@property (nonatomic, strong) UISlider *beautyLevelSlider;
 
 //mode 0 show effectcell; mode1 show beautifycell
 @property (nonatomic, assign) NSUInteger mode;
@@ -59,16 +60,30 @@
     [self.beautifyBt setImage:[UIImage imageNamed:@"bt_camera_face_texiao_nor"] forState:UIControlStateNormal];
     [_beautifyBt addTarget:self action:@selector(onBeautifyBtClick:) forControlEvents:UIControlEventTouchUpInside];
     
+    _beautyLevelSlider = [[UISlider alloc] init];
+    self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
+    self.beautyLevelSlider.maximumValue = 6;//设置可变最大值
+    self.beautyLevelSlider.value = 0;
+    self.beautyLevelSlider.hidden = YES;
+    [self.beautyLevelSlider addTarget:self action:@selector(beautyLevelChange) forControlEvents:UIControlEventValueChanged];
+
     [layout addSubview:self.collectionView];
     [layout addSubview:self.effectBt];
     [layout addSubview:self.beautifyBt];
     [self addSubview:layout];
+    [self addSubview:self.beautyLevelSlider];
     
     [layout mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
         make.bottom.equalTo(self.mas_bottom);
         make.height.mas_equalTo(165);
+    }];
+    
+    [self.beautyLevelSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(150);
+        make.centerX.equalTo(self.mas_centerX);
+        make.bottom.equalTo(layout.mas_top).offset(-10);
     }];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,6 +129,7 @@
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = YES;
         self.isShowBeautifyCollectionView = NO;
+        self.beautyLevelSlider.hidden = YES;
     }else {
         [self showCollectionView];
         self.mode = 0;
@@ -129,17 +145,20 @@
         [self hidenCollectionView];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = NO;
+        self.beautyLevelSlider.hidden = YES;
     }else if (self.isShowEffectCollectionView){
         self.mode = 1;
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = YES;
+        self.beautyLevelSlider.hidden = NO;
     }else {
         [self showCollectionView];
         self.mode = 1;
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = YES;
+        self.beautyLevelSlider.hidden = NO;
     }
 }
 
@@ -196,8 +215,14 @@
         }
     }else if (self.mode == 1){
         if (self.delegate) {
-            [self.delegate onBeautyClick:[[self.beautifyData objectAtIndex:indexPath.row * 3 + 2]integerValue]];
+            [self.delegate onBeautyTypeClick:[[self.beautifyData objectAtIndex:indexPath.row * 3 + 2] integerValue]];
         }
+    }
+}
+
+- (void)beautyLevelChange{
+    if (self.delegate) {
+        [self.delegate onBeautyLevelChange:(NSUInteger)self.beautyLevelSlider.value];
     }
 }
 

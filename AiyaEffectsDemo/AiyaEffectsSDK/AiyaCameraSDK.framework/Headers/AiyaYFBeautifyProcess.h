@@ -11,10 +11,21 @@
 
 @interface AiyaYFBeautifyProcess : NSObject
 
-/** 美颜等级 */
+/**
+ 设置美颜等级
+ */
 @property (nonatomic, assign) AIYA_YF_BEAUTY_LEVEL beautyLevel;
 
-/** 处理数据 */
+/**
+ 设置美颜类型 默认0
+ */
+@property (nonatomic, assign) AIYA_YF_BEAUTY_TYPE beautyType;
+
+/**
+ 使用设置的美颜等级,对图像数据进行美颜处理
+
+ @param pixelBuffer 图像数据
+ */
 - (void)processWithPixelBuffer:(CVPixelBufferRef)pixelBuffer;
 
 @end

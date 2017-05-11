@@ -16,7 +16,9 @@
 
 - (void)onEffectClick:(NSString *)path;
 
-- (void)onBeautyClick:(AIYA_BEAUTY_LEVEL)beautyLevel;
+- (void)onBeautyTypeClick:(AIYA_BEAUTY_TYPE)beautyType;
+
+- (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel;
 
 @end
 
@@ -25,7 +27,7 @@
 //data step 3 UIImage|Text|Path
 @property (nonatomic, strong) NSArray *effectData;
 
-//data step 3 UIImage|Text|Level
+//data step 3 UIImage|Text|Type
 @property (nonatomic, strong) NSArray *beautifyData;
 
 @property (nonatomic, weak) id<CameraViewDelegate> delegate;

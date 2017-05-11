@@ -13,12 +13,16 @@ AiyaCameraSDK 说明文档
 [IOS版集成到ZegoLive的示例](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 
 # 1、版本信息
-最新版本 V2.0.0
+最新版本 V2.1.0
 
-AiyaCamera SDK V2.0.0
+AiyaCamera SDK V2.1.0
 >
 **功能更新**
-- 优化代码结构,加入Camera类.方便快速集成
+- 修复了部分bug
+- 美颜加入类型参数
+- 完善了License验证流程
+- 从SDK分离出第三方库
+- 资源体积进一步缩小
 
 [历史版本信息](doc/versionHistory.md)
 
@@ -53,13 +57,13 @@ AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功
     对视频图像数据进行美颜和特效处理.
 
 # 5、集成说明
-## 1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件
+## 1. 导入SDK静态库文件AiyaCameraSDK.framework和资源文件 AYEffectTrackerData目录下所有文件和thirdLib目录下的第三方库
 
-## 2. 导入依赖的系统库动态库 libz.tbd, libc++.tbd
+## 2. 导入依赖的系统库动态库 libz.tbd, libc++.tbd, libiconv.tbd
 
-## 3. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.
+## 3. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.License申请请访问:http://bbtexiao.aiyaapp.com/site/free 我们在收到您的申请后会及时审批,并把审批结果发送到您的邮箱,请注意查收.
 ```objective-c
-[AiyaLicenseManager initLicense:@"对应的licenseKey"];
+[AiyaLicenseManager initLicense:@"对应的licenseKey" appKey:@"对应的appKey"];
 
 ```
 
@@ -71,6 +75,7 @@ _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureD
 [self.camera setEffectPath:path];//设置特效路径
 [self.camera setEffectPlayCount:0];//设置特效播放次数.0表示一直重复
 [self.camera setBeautyLevel:AIYA_BEAUTY_LEVEL_5];//设置美颜等级
+[self.camera setBeautyType:AIYA_BEAUTY_TYPE_0];//设置美颜类型
 [self.camera setHasAudioTrack:YES];//打开音频数据采集
 self.camera.delegate = self;
 [self.camera startCapture];//打开相机
@@ -90,10 +95,11 @@ self.camera.delegate = self;
 
 }
 ```
- * 使用方式二: 用AiyaEffectProcess对像素缓冲区数据(CVPixelBuffer)进行特效加美颜处理
+ * 使用方式二: 用AiyaEffectProcess对像素缓冲区数据进行处理
 ```objective-c
 _aiyaEffectProcess = [[AiyaEffectProcess alloc]init];//只初始化一次
 _aiyaEffectProcess.beautyLevel = AIYA_BEAUTY_LEVEL_5;
+_aiyaEffectProcess.beautyType = AIYA_BEAUTY_TYPE_0;
 _aiyaEffectProcess.effectPath = path;//设置特效路径
 _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
 
@@ -128,6 +134,7 @@ _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
 4. AiyaLicenseManager的initLicense函数返回码说明:
  YES 认证成功, SDK可以正常使用
  NO  认证失败, SDK不可以使用,请通过下面的联系方式联系我们
+5. license申请请访问:http://bbtexiao.aiyaapp.com/site/free 我们在收到您的申请后会及时审批,并把审批结果发送到您的邮箱,请注意查收.
 
 # 9、联系方式
 邮箱: liudawei@aiyaapp.com
