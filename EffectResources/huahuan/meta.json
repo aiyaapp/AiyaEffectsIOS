@@ -9,15 +9,16 @@
       "number"      : 75,     
       "width" : 322,         
       "height" : 228,
-      "duration" : 50,       
+      "duration" : 66,       
       "isloop" : 1,           
       "Triggertype" : 0,     
       "untilFinish" : 1,      
       "position" : "foreheadCenter",   
       "anchorX" : 160,       
       "anchorY" : 150,
-      "ratio" : 2.0,          
-      "fullscreen" : 0
+      "ratio" : 1.8,          
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
     }
   ]
 }

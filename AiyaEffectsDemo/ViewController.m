@@ -28,7 +28,7 @@
     [self initResourceData];
     
     //在正式环境中填入相应的License
-    [AiyaLicenseManager initLicense:@"" appKey:@"704705f35759"];
+    [AiyaLicenseManager initLicense:@"704705f35759"];
     
     _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureDevicePositionFront];
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];

@@ -13,6 +13,7 @@
 #import <AiyaCameraSDK/AiyaGPUImageTrackFilter.h>
 #import <AiyaCameraSDK/AiyaGPUImageBeautifyFilter.h>
 #import <AiyaCameraSDK/AiyaGPUImageStyleFilter.h>
+#import <AiyaCameraSDK/AiyaGPUImageOutputFrameFilter.h>
 
 #import <AiyaCameraSDK/AiyaBeautifyEffect.h>
 #import <AiyaCameraSDK/AiyaCameraEffect.h>

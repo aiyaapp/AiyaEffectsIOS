@@ -1,3 +1,12 @@
+AiyaCamera SDK V2.1.0
+>
+**功能更新**
+- 修复了部分bug
+- 美颜加入类型参数
+- 完善了License验证流程
+- 从SDK分离出第三方库
+- 资源体积进一步缩小
+
 AiyaCamera SDK V2.0.0
 >
 **功能更新**

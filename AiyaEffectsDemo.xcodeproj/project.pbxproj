@@ -15,18 +15,9 @@
 		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
 		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
 		D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B341E7168C400121BAB /* libc++.tbd */; };
+		D32161CC1ED05D4600BDEA99 /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32161CB1ED05D4600BDEA99 /* AiyaCameraSDK.framework */; };
+		D32161CE1ED05D6100BDEA99 /* AiyaCameraSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
-		D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3507D941E72A14000550860 /* AiyaCameraSDK.framework */; };
-		D36196211E978C1D00C8BC0B /* candide3-ClosedMouth.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */; };
-		D36196221E978C1D00C8BC0B /* candide3.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D36196041E978C1D00C8BC0B /* candide3.fdp */; };
-		D36196231E978C1D00C8BC0B /* candide3.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D36196051E978C1D00C8BC0B /* candide3.wfm */; };
-		D36196241E978C1D00C8BC0B /* Face Detector.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D36196061E978C1D00C8BC0B /* Face Detector.cfg */; };
-		D36196251E978C1D00C8BC0B /* Facial Features Tracker - High.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D36196071E978C1D00C8BC0B /* Facial Features Tracker - High.cfg */; };
-		D36196261E978C1D00C8BC0B /* Head Tracker.cfg in Resources */ = {isa = PBXBuildFile; fileRef = D36196081E978C1D00C8BC0B /* Head Tracker.cfg */; };
-		D36196271E978C1D00C8BC0B /* jk_300.fdp in Resources */ = {isa = PBXBuildFile; fileRef = D36196091E978C1D00C8BC0B /* jk_300.fdp */; };
-		D36196281E978C1D00C8BC0B /* jk_300.wfm in Resources */ = {isa = PBXBuildFile; fileRef = D361960A1E978C1D00C8BC0B /* jk_300.wfm */; };
-		D36196291E978C1D00C8BC0B /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = D361960B1E978C1D00C8BC0B /* lookup.png */; };
-		D361962B1E978C3500C8BC0B /* bdtsdata in Resources */ = {isa = PBXBuildFile; fileRef = D361962A1E978C3500C8BC0B /* bdtsdata */; };
 		D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962D1E978C4600C8BC0B /* libassimp.a */; };
 		D36196441E978C7400C8BC0B /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962E1E978C4600C8BC0B /* libavcodec.a */; };
 		D36196451E978C7700C8BC0B /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962F1E978C4600C8BC0B /* libavdevice.a */; };
@@ -60,18 +51,9 @@
 		D3190B2F1E713A3D00121BAB /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
 		D3190B321E7168BB00121BAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D3190B341E7168C400121BAB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		D32161CB1ED05D4600BDEA99 /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
+		D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AiyaCameraSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
-		D3507D941E72A14000550860 /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
-		D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "candide3-ClosedMouth.wfm"; sourceTree = "<group>"; };
-		D36196041E978C1D00C8BC0B /* candide3.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.fdp; sourceTree = "<group>"; };
-		D36196051E978C1D00C8BC0B /* candide3.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = candide3.wfm; sourceTree = "<group>"; };
-		D36196061E978C1D00C8BC0B /* Face Detector.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Face Detector.cfg"; sourceTree = "<group>"; };
-		D36196071E978C1D00C8BC0B /* Facial Features Tracker - High.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Facial Features Tracker - High.cfg"; sourceTree = "<group>"; };
-		D36196081E978C1D00C8BC0B /* Head Tracker.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Head Tracker.cfg"; sourceTree = "<group>"; };
-		D36196091E978C1D00C8BC0B /* jk_300.fdp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.fdp; sourceTree = "<group>"; };
-		D361960A1E978C1D00C8BC0B /* jk_300.wfm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jk_300.wfm; sourceTree = "<group>"; };
-		D361960B1E978C1D00C8BC0B /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
-		D361962A1E978C3500C8BC0B /* bdtsdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bdtsdata; sourceTree = "<group>"; };
 		D361962D1E978C4600C8BC0B /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libassimp.a; sourceTree = "<group>"; };
 		D361962E1E978C4600C8BC0B /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
 		D361962F1E978C4600C8BC0B /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
@@ -98,6 +80,7 @@
 			files = (
 				D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */,
 				D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */,
+				D32161CC1ED05D4600BDEA99 /* AiyaCameraSDK.framework in Frameworks */,
 				D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */,
 				D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */,
 				D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */,
@@ -110,7 +93,6 @@
 				D36196451E978C7700C8BC0B /* libavdevice.a in Frameworks */,
 				D36196441E978C7400C8BC0B /* libavcodec.a in Frameworks */,
 				D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */,
-				D3507D951E72A14000550860 /* AiyaCameraSDK.framework in Frameworks */,
 				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,8 +171,8 @@
 		D3190ACF1E7139F700121BAB /* AiyaEffectsSDK */ = {
 			isa = PBXGroup;
 			children = (
-				D3507D941E72A14000550860 /* AiyaCameraSDK.framework */,
-				D36195E31E978C1D00C8BC0B /* AiyaCameraSDKResource */,
+				D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */,
+				D32161CB1ED05D4600BDEA99 /* AiyaCameraSDK.framework */,
 				D361962C1E978C4600C8BC0B /* thirdLib */,
 			);
 			path = AiyaEffectsSDK;
@@ -205,23 +187,6 @@
 				D3190B2F1E713A3D00121BAB /* CircleCell.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D36195E31E978C1D00C8BC0B /* AiyaCameraSDKResource */ = {
-			isa = PBXGroup;
-			children = (
-				D361962A1E978C3500C8BC0B /* bdtsdata */,
-				D36196031E978C1D00C8BC0B /* candide3-ClosedMouth.wfm */,
-				D36196041E978C1D00C8BC0B /* candide3.fdp */,
-				D36196051E978C1D00C8BC0B /* candide3.wfm */,
-				D36196061E978C1D00C8BC0B /* Face Detector.cfg */,
-				D36196071E978C1D00C8BC0B /* Facial Features Tracker - High.cfg */,
-				D36196081E978C1D00C8BC0B /* Head Tracker.cfg */,
-				D36196091E978C1D00C8BC0B /* jk_300.fdp */,
-				D361960A1E978C1D00C8BC0B /* jk_300.wfm */,
-				D361960B1E978C1D00C8BC0B /* lookup.png */,
-			);
-			path = AiyaCameraSDKResource;
 			sourceTree = "<group>";
 		};
 		D361962C1E978C4600C8BC0B /* thirdLib */ = {
@@ -304,18 +269,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D36196261E978C1D00C8BC0B /* Head Tracker.cfg in Resources */,
-				D36196291E978C1D00C8BC0B /* lookup.png in Resources */,
-				D36196211E978C1D00C8BC0B /* candide3-ClosedMouth.wfm in Resources */,
-				D361962B1E978C3500C8BC0B /* bdtsdata in Resources */,
-				D36196231E978C1D00C8BC0B /* candide3.wfm in Resources */,
-				D36196281E978C1D00C8BC0B /* jk_300.wfm in Resources */,
-				D36196241E978C1D00C8BC0B /* Face Detector.cfg in Resources */,
-				D36196271E978C1D00C8BC0B /* jk_300.fdp in Resources */,
-				D36196251E978C1D00C8BC0B /* Facial Features Tracker - High.cfg in Resources */,
-				D36196221E978C1D00C8BC0B /* candide3.fdp in Resources */,
 				D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */,
 				D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */,
+				D32161CE1ED05D6100BDEA99 /* AiyaCameraSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

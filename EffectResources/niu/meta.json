@@ -9,15 +9,16 @@
       "number"      : 80,
       "width" : 114,
       "height" : 110,
-      "duration" : 50,
+      "duration" : 66,
       "isloop" : 1,
       "Triggertype" : 0,
       "untilFinish" : 1,
       "position" : "nose",
       "anchorX" : 57,
       "anchorY" : 60,
-      "ratio" : 0.8,
-      "fullscreen" : 0
+      "ratio" : 0.7,
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
     },
     {
 	  "type":"2dAnim",
@@ -25,15 +26,16 @@
       "number"      : 80,
       "width" : 340,
       "height" : 200,
-      "duration" : 50,
+      "duration" : 66,
       "isloop" : 1,
       "Triggertype" : 0,
       "untilFinish" : 1,
       "position" : "foreheadCenter",
       "anchorX" : 170,
       "anchorY" : 120,
-      "ratio" : 2.2,
-      "fullscreen" : 0
+      "ratio" : 1.7,
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
     }
   ]
 }

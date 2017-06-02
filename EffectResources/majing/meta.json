@@ -9,7 +9,7 @@
       "number"      : 40,
       "width" : 360,
       "height" : 46,
-      "duration" : 50,
+      "duration" : 66,
       "isloop" : 1,
       "Triggertype" : 0,
       "untilFinish" : 1,
@@ -17,23 +17,8 @@
       "anchorX" : 180,
       "anchorY" : 0,
       "ratio" : 1.8,
-      "fullscreen" : 0
-    },
-	{
-      "type":"2dAnim",
-      "dirname" : "saihong",
-      "number"      : 1,
-      "width" : 360,
-      "height" : 112,
-      "duration" : 50,
-      "isloop" : 1,
-      "Triggertype" : 0,
-      "untilFinish" : 1,
-      "position" : "cheek",
-      "anchorX" : 180,
-      "anchorY" : 32,
-      "ratio" : 1.5,
-      "fullscreen" : 0
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
     },
 	{
       "type":"2dAnim",
@@ -41,15 +26,16 @@
       "number"      : 40,
       "width" : 360,
       "height" : 108,
-      "duration" : 50,
+      "duration" : 66,
       "isloop" : 1,
       "Triggertype" : 0,
       "untilFinish" : 1,
-      "position" : "cheek",
-      "anchorX" : 180,
-      "anchorY" : 20,
-      "ratio" : 2.0,
-      "fullscreen" : 0
+      "position" : "nose",
+      "anchorX" : 185,
+      "anchorY" : -20,
+      "ratio" : 1.5,
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
     }
   ]
 }

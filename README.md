@@ -1,3 +1,8 @@
+
+![](doc/21.gif)
+![](doc/17.gif)
+![](doc/16.gif)
+
 AiyaCameraSDK 说明文档
 
 [Android版AiyaEffectSDK](https://github.com/aiyaapp/AiyaEffectsAndroid)
@@ -13,16 +18,15 @@ AiyaCameraSDK 说明文档
 [IOS版集成到ZegoLive的示例](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 
 # 1、版本信息
-最新版本 V2.1.0
+最新版本 V3.0.0
 
-AiyaCamera SDK V2.1.0
+AiyaCamera SDK V3.0.0
 >
 **功能更新**
 - 修复了部分bug
-- 美颜加入类型参数
-- 完善了License验证流程
-- 从SDK分离出第三方库
-- 资源体积进一步缩小
+- 资源文件打包
+- 人脸识别算法优化
+- 加入了更多特效
 
 [历史版本信息](doc/versionHistory.md)
 
@@ -33,7 +37,6 @@ AiyaCameraSDK 最低运行版本为iOS8.0
 AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功能如下：
 
 - 2D序列帧特效
-- face mask特效
 - 3D静态特效和动画特效
 - 多种美颜算法
 
@@ -63,7 +66,7 @@ AiyaEffectsSDK可用于相机、图片处理、直播等多种情景，主要功
 
 ## 3. 初始化Lisence.在使用AiyaCameraSDK之前,必须先初始化license,否则会出现无法使用的情况.License申请请访问:http://bbtexiao.aiyaapp.com/site/free 我们在收到您的申请后会及时审批,并把审批结果发送到您的邮箱,请注意查收.
 ```objective-c
-[AiyaLicenseManager initLicense:@"对应的licenseKey" appKey:@"对应的appKey"];
+[AiyaLicenseManager initLicense:@"对应的licenseKey"];
 
 ```
 
@@ -115,22 +118,19 @@ _aiyaEffectProcess.effectPlayCount = 1;//特效只播放一次
 问题一: 如果项目中已经集成了GPUImageSDK怎么办?会不会产生冲突
 答: AiyaCameraSDK中封装的GPUImageSDK,全部类,c函数,宏都做了加前缀的处理.集成到项目中时不会和原有的GPUImageSDK产生冲突.
 
-问题二: 特效只有一分钟.
-答: 只有传入正式的License才不会有一分钟的限制.
-
-问题三: SDKDemo中有Podfile文件,但是我的电脑没有装pod怎么办?
+问题二: SDKDemo中有Podfile文件,但是我的电脑没有装pod怎么办?
 答: SDKDemo已经把第三方库打包进去了.不需要下载更新第三方库.双击AiyaCameraSDKDemo.xcworkspace文件,打开后即可运行SDKDemo.
 
-问题四: 模拟器上无法运行.一直报错找不到文件怎么办?
+问题三: 模拟器上无法运行.一直报错找不到文件怎么办?
 答: 目前SDK没有打包x86版本,无法在模拟器上运行.只能在真机上运行.
 
-问题五: 没有网络时License会失效吗?
-答: 用户第一次验证License必须要有网络.以后再次验证时没有网络也可以正常使用.
+问题四: 没有网络时License会失效吗?
+答: 没有网络也可以正常使用.
 
 # 8、License说明
 1. 每次启动时都要进行验证.
-2. 首次验证必须要进行联网.
-3. License 验证是同步请求.
+2. 首次验证会进行联网.
+3. License 验证是异步请求,不影响主线程
 4. AiyaLicenseManager的initLicense函数返回码说明:
  YES 认证成功, SDK可以正常使用
  NO  认证失败, SDK不可以使用,请通过下面的联系方式联系我们
