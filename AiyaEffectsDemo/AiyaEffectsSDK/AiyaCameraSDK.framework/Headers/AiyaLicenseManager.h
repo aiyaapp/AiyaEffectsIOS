@@ -14,6 +14,6 @@
  初始化lisence
  同步请求服务器确认lisence
  */
-+ (void)initLicense:(NSString *)license appKey:(NSString *)appKey;
++ (void)initLicense:(NSString *)appKey;
 
 @end

@@ -44,8 +44,14 @@
 /** 设置相机预览的分辨率 默认1280x720 */
 @property (nonatomic, copy) NSString *sessionPreset;
 
+/** 设置相机预览时图像的填充方式 默认是kAYGPUImageFillModePreserveAspectRatioAndFill */
+@property (nonatomic, assign) AYGPUImageFillModeType previewFrameFillMode;
+
 /** 设置前置相机使用镜像 默认开 */
 @property (nonatomic, assign) BOOL mirror;
+
+/** 设置相机帧率 必须在设置完分辨率之后调用*/
+@property (nonatomic, assign) int32_t frameRate;
 
 /** 相机 */
 @property (nonatomic, strong, readonly) AVCaptureDevice *inputCamera;
@@ -70,6 +76,12 @@
 
 /** 设置相机的位置 默认前置相机 */
 @property (nonatomic, assign) AVCaptureDevicePosition capturePosition;
+
+/** 设置数据回调时的图像大小 默认是预览图像的大小*/
+@property (nonatomic, assign) CGSize outputFrameSize;
+
+/** 设置数据回调时的图像填充方式 默认是kAYGPUImageFillModePreserveAspectRatioAndFill*/
+@property (nonatomic, assign) AYGPUImageFillModeType outputFrameFillMode;
 
 /**
  初始化
