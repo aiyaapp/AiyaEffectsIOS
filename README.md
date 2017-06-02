@@ -27,7 +27,6 @@ AiyaCamera SDK V3.0.0
 - 资源文件打包
 - 人脸识别算法优化
 - 加入了更多特效
-- SDK免费使用，无限量炫酷特效免费使用
 
 [历史版本信息](doc/versionHistory.md)
 
