@@ -4,7 +4,7 @@
 # 宝宝特效 AiyaEffectsSDK iOS 使用手册
 
 ## 1. 概述
-宝宝特效 AiyaEffectsSDK 涵盖Android、iOS两个平台，基于自主研发的人脸识别模块，作为一款动态贴纸和2D/3D动画高效渲染的解决方案
+宝宝特效 AiyaEffectsSDK 涵盖Android、iOS两个平台，基于自主研发的人脸识别模块，作为一款动态贴纸和动画特效高效渲染的解决方案
 
 ### 1.1 版本信息
 最新版本 : v3.0.0 [更多版本信息](doc/versionHistory.md)
@@ -19,10 +19,10 @@
 ## 2. AiyaEffecSDK 功能说明
 
 ### 功能列表
-- [x] 支持2D动态贴纸
-- [x] 支持3D动态贴纸
-- [x] 支持2D动画高效渲染
-- [x] 支持3D动画高效渲染
+- [x] 支持动态贴纸
+- [x] 支持动画特效
+- [x] 支持自定义动态贴纸
+- [x] 支持自定义动画特效
 - [x] 支持美颜
 
 ## 3. 运行环境
@@ -37,18 +37,18 @@ AiyaEffectsSDK iOS 可运行于 iPhone/iPod Touch， 支持iOS 8.0及以上版�
 ## 5. 快速集成
 [快速集成](doc/howToUse.md)中提供了集成 AiyaEffectsSDK iOS 的方法
 
-## 6. 制作动态贴纸和2D/3D动画
-制作动态贴纸和2D/3D动画的教程还未正式开放，请直接[联系客服](http://www.bbtexiao.com/site/about)获取
+## 6. 自定义动态贴纸和动画特效
+制作动态贴纸和动画特效的教程还未正式开放，请直接[联系客服](http://www.bbtexiao.com/site/about)获取大量炫酷特效和制作教程
 
 ## 7. 注意事项
 * 本framework不支持模拟器运行
 
 ## 8. License说明
 * 宝宝特效 AiyaEffectsSDK 可以用于商业应用
-* 申请appKey请访问[免费使用](http://bbtexiao.aiyaapp.com/site/free)
+* 申请appKey请访问[宝宝特效 免费使用](http://bbtexiao.aiyaapp.com/site/free)
 
 ## 9. 反馈与建议
-- 主页: [宝宝特效](www.bbtexiao.com)
+- 主页: [宝宝特效](http://www.bbtexiao.com)
 - 邮箱: <liudawei@aiyaapp.com>
 - QQ讨论群: 建设中
 
