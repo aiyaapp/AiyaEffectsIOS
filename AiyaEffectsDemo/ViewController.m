@@ -134,7 +134,7 @@
 }
 
 -(void)onEffectClick:(NSString *)path{
-    
+    //请直接[联系客服]http://www.bbtexiao.com/site/about获取特效制作教程和大量炫酷特效
     [self.camera setEffectPath:path];
     self.camera.effectPlayCount = 0;
 }

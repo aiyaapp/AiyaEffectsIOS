@@ -1,5 +1,5 @@
-![](doc/summarize1.jpg)
-![](doc/summarize2.jpg)
+<a href="http://www.bbtexiao.com/"><img src="doc/summarize1.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.bbtexiao.com/"><img src="doc/summarize2.jpg" border="0" alt="宝宝特效" /></a>
 
 # 宝宝特效 AiyaEffectsSDK iOS 使用手册
 
