@@ -19,14 +19,7 @@
 		D32161CE1ED05D6100BDEA99 /* AiyaCameraSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
 		D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962D1E978C4600C8BC0B /* libassimp.a */; };
-		D36196441E978C7400C8BC0B /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962E1E978C4600C8BC0B /* libavcodec.a */; };
-		D36196451E978C7700C8BC0B /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962F1E978C4600C8BC0B /* libavdevice.a */; };
-		D36196461E978C7900C8BC0B /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196301E978C4600C8BC0B /* libavfilter.a */; };
-		D36196471E978C7C00C8BC0B /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196311E978C4600C8BC0B /* libavformat.a */; };
-		D36196481E978C7E00C8BC0B /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196321E978C4600C8BC0B /* libavutil.a */; };
 		D36196491E978C8000C8BC0B /* libsoil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196331E978C4600C8BC0B /* libsoil.a */; };
-		D361964A1E978C8300C8BC0B /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196341E978C4600C8BC0B /* libswresample.a */; };
-		D361964B1E978C8500C8BC0B /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196351E978C4600C8BC0B /* libswscale.a */; };
 		D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196361E978C4600C8BC0B /* libwebp.a */; };
 		D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196371E978C4600C8BC0B /* libzip.a */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
@@ -55,14 +48,7 @@
 		D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AiyaCameraSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
 		D361962D1E978C4600C8BC0B /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libassimp.a; sourceTree = "<group>"; };
-		D361962E1E978C4600C8BC0B /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
-		D361962F1E978C4600C8BC0B /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
-		D36196301E978C4600C8BC0B /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
-		D36196311E978C4600C8BC0B /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
-		D36196321E978C4600C8BC0B /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
 		D36196331E978C4600C8BC0B /* libsoil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsoil.a; sourceTree = "<group>"; };
-		D36196341E978C4600C8BC0B /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
-		D36196351E978C4600C8BC0B /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		D36196361E978C4600C8BC0B /* libwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebp.a; sourceTree = "<group>"; };
 		D36196371E978C4600C8BC0B /* libzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzip.a; sourceTree = "<group>"; };
 		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -84,14 +70,7 @@
 				D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */,
 				D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */,
 				D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */,
-				D361964B1E978C8500C8BC0B /* libswscale.a in Frameworks */,
-				D361964A1E978C8300C8BC0B /* libswresample.a in Frameworks */,
 				D36196491E978C8000C8BC0B /* libsoil.a in Frameworks */,
-				D36196481E978C7E00C8BC0B /* libavutil.a in Frameworks */,
-				D36196471E978C7C00C8BC0B /* libavformat.a in Frameworks */,
-				D36196461E978C7900C8BC0B /* libavfilter.a in Frameworks */,
-				D36196451E978C7700C8BC0B /* libavdevice.a in Frameworks */,
-				D36196441E978C7400C8BC0B /* libavcodec.a in Frameworks */,
 				D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */,
 				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
 			);
@@ -193,14 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				D361962D1E978C4600C8BC0B /* libassimp.a */,
-				D361962E1E978C4600C8BC0B /* libavcodec.a */,
-				D361962F1E978C4600C8BC0B /* libavdevice.a */,
-				D36196301E978C4600C8BC0B /* libavfilter.a */,
-				D36196311E978C4600C8BC0B /* libavformat.a */,
-				D36196321E978C4600C8BC0B /* libavutil.a */,
 				D36196331E978C4600C8BC0B /* libsoil.a */,
-				D36196341E978C4600C8BC0B /* libswresample.a */,
-				D36196351E978C4600C8BC0B /* libswscale.a */,
 				D36196361E978C4600C8BC0B /* libwebp.a */,
 				D36196371E978C4600C8BC0B /* libzip.a */,
 			);
