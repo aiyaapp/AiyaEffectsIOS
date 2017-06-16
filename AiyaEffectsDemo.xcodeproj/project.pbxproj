@@ -15,15 +15,11 @@
 		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
 		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
 		D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B341E7168C400121BAB /* libc++.tbd */; };
-		D32161CC1ED05D4600BDEA99 /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32161CB1ED05D4600BDEA99 /* AiyaCameraSDK.framework */; };
 		D32161CE1ED05D6100BDEA99 /* AiyaCameraSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
-		D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D361962D1E978C4600C8BC0B /* libassimp.a */; };
-		D36196491E978C8000C8BC0B /* libsoil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196331E978C4600C8BC0B /* libsoil.a */; };
-		D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196361E978C4600C8BC0B /* libwebp.a */; };
-		D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36196371E978C4600C8BC0B /* libzip.a */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
-		D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
+		D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
+		D3E4C1AD1EF40032003E74DB /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E4C1AC1EF40032003E74DB /* AiyaCameraSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,19 +40,15 @@
 		D3190B2F1E713A3D00121BAB /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
 		D3190B321E7168BB00121BAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D3190B341E7168C400121BAB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		D32161CB1ED05D4600BDEA99 /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
 		D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AiyaCameraSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
-		D361962D1E978C4600C8BC0B /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libassimp.a; sourceTree = "<group>"; };
-		D36196331E978C4600C8BC0B /* libsoil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsoil.a; sourceTree = "<group>"; };
-		D36196361E978C4600C8BC0B /* libwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebp.a; sourceTree = "<group>"; };
-		D36196371E978C4600C8BC0B /* libzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzip.a; sourceTree = "<group>"; };
 		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		D3D5CEF71E716DAE005C1F7A /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		D3D5CEF91E716DC5005C1F7A /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D3E4C1AC1EF40032003E74DB /* AiyaCameraSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AiyaCameraSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E4C1AD1EF40032003E74DB /* AiyaCameraSDK.framework in Frameworks */,
+				D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */,
 				D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */,
 				D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */,
-				D32161CC1ED05D4600BDEA99 /* AiyaCameraSDK.framework in Frameworks */,
-				D3D5CF031E716F21005C1F7A /* libz.tbd in Frameworks */,
-				D361964D1E978C8A00C8BC0B /* libzip.a in Frameworks */,
-				D361964C1E978C8800C8BC0B /* libwebp.a in Frameworks */,
-				D36196491E978C8000C8BC0B /* libsoil.a in Frameworks */,
-				D36196431E978C7100C8BC0B /* libassimp.a in Frameworks */,
 				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,8 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */,
-				D32161CB1ED05D4600BDEA99 /* AiyaCameraSDK.framework */,
-				D361962C1E978C4600C8BC0B /* thirdLib */,
+				D3E4C1AC1EF40032003E74DB /* AiyaCameraSDK.framework */,
 			);
 			path = AiyaEffectsSDK;
 			sourceTree = "<group>";
@@ -166,17 +153,6 @@
 				D3190B2F1E713A3D00121BAB /* CircleCell.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D361962C1E978C4600C8BC0B /* thirdLib */ = {
-			isa = PBXGroup;
-			children = (
-				D361962D1E978C4600C8BC0B /* libassimp.a */,
-				D36196331E978C4600C8BC0B /* libsoil.a */,
-				D36196361E978C4600C8BC0B /* libwebp.a */,
-				D36196371E978C4600C8BC0B /* libzip.a */,
-			);
-			path = thirdLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

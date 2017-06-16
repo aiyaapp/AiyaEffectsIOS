@@ -1,7 +1,7 @@
 {
   "format" : "1",
   "name":"马镜",
-  "resid" : "300105",
+  "resid" : "400103",
   "nodes" : [
     {
       "type":"2dAnim",

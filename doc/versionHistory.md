@@ -1,4 +1,18 @@
 
+AiyaEffectsSDK iOS V3.1.1
+>
+**功能更新**
+- 修复了部分bug
+- 解决了潜在的冲突的问题
+- 贴纸资源做了调整优化,不兼容以前的版本
+
+AiyaEffectsSDK iOS V3.1.0
+>
+**功能更新**
+- 修复了部分bug
+- 解决了ijkplayer冲突问题
+- 贴纸资源做了调整,不兼容以前的版本
+
 AiyaEffectsSDK iOS V3.0.0
 >
 **功能更新**
@@ -6,6 +20,7 @@ AiyaEffectsSDK iOS V3.0.0
 - 资源文件打包
 - 人脸识别算法优化
 - 加入了更多特效
+- 贴纸资源做了调整,不兼容以前的版本
 
 AiyaEffectsSDK iOS V2.1.0
 >
