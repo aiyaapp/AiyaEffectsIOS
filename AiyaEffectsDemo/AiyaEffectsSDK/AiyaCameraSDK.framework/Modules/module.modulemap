@@ -1,0 +1,6 @@
+framework module AiyaCameraSDK {
+  umbrella header "AiyaCameraSDK.h"
+
+  export *
+  module * { export * }
+}

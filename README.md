@@ -42,7 +42,6 @@ AiyaEffectsSDK iOS 可运行于 iPhone/iPod Touch， 支持iOS 8.0及以上版�
 
 ## 7. 注意事项
 * 本framework不支持模拟器运行
-* AiyaCameraSDK.framework压缩为zip格式,使用前请先解压
 
 ## 8. License说明
 * 宝宝特效 AiyaEffectsSDK 可以用于商业应用
