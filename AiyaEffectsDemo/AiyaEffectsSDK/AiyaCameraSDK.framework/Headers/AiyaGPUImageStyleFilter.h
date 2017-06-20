@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) UIImage* style;
 
+@property (nonatomic, assign) CGFloat intensity;
+
 @end

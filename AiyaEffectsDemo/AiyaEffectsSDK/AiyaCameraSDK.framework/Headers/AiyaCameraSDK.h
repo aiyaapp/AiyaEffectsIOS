@@ -14,6 +14,7 @@
 #import <AiyaCameraSDK/AiyaGPUImageBeautifyFilter.h>
 #import <AiyaCameraSDK/AiyaGPUImageStyleFilter.h>
 #import <AiyaCameraSDK/AiyaGPUImageOutputFrameFilter.h>
+#import <AiyaCameraSDK/AiyaGPUImageRawDataInput.h>
 
 #import <AiyaCameraSDK/AiyaBeautifyEffect.h>
 #import <AiyaCameraSDK/AiyaCameraEffect.h>
@@ -25,7 +26,6 @@
 #import <AiyaCameraSDK/AYGPUImageMovie.h>
 #import <AiyaCameraSDK/AYGPUImageMovieWriter.h>
 #import <AiyaCameraSDK/AYGPUImagePicture.h>
-#import <AiyaCameraSDK/AYGPUImageRawDataInput.h>
 #import <AiyaCameraSDK/AYGPUImageStillCamera.h>
 #import <AiyaCameraSDK/AYGPUImageVideoCamera.h>
 #import <AiyaCameraSDK/AYGLProgram.h>

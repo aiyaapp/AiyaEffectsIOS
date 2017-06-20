@@ -1,9 +1,10 @@
 # 宝宝特效 AiyaEffecSDK iOS 快速集成
 
 ## Step1 集成framework
-将 宝宝特效 AiyaEffectSDK iOS 解压后， 将 AiyaEfffectsDemo/AiyaEffectSDK 目录拖到项目中.然后添加另外两个系统库:
+将 宝宝特效 AiyaEffectSDK iOS 解压后， 将 AiyaEfffectsDemo/AiyaEffectSDK 目录拖到项目中.然后添加另外三个系统库:
 * libiconv.tdb
-* libc++.tdb 
+* libc++.tdb
+* libz.tdb
 
 ![](inputSDK.png)
 

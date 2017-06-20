@@ -65,6 +65,9 @@
 /** 设置滤镜 默认空*/
 @property (nonatomic, strong) UIImage *style;
 
+/** 设置滤镜的强度 默认0.8 最高为1*/
+@property (nonatomic, assign) CGFloat styleIntensity;
+
 /** 设置特效文件路径 */
 @property (nonatomic, copy) NSString *effectPath;
 

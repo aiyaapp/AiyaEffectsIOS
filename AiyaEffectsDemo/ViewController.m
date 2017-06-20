@@ -34,6 +34,8 @@
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];
     self.camera.delegate = self;
     self.camera.mirror = YES;
+    self.camera.style = [UIImage imageNamed:@"purityLookup"];//更多滤镜在Assets.xcassets中
+    self.camera.beautyLevel = AIYA_BEAUTY_LEVEL_6;
     
     CameraView *cameraView = [[CameraView alloc]initWithFrame:self.view.frame];
     cameraView.effectData = self.effectData;
