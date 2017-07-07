@@ -20,6 +20,10 @@
 
 - (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel;
 
+- (void)onBigEyesScaleChange:(float)scale;
+
+- (void)onSlimFaceScaleChange:(float)scale;
+
 @end
 
 @interface CameraView : UIView

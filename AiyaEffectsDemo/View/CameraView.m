@@ -18,8 +18,11 @@
 @property (nonatomic, strong) UIButton *beautifyBt;
 @property (nonatomic, strong) UISlider *beautyLevelSlider;
 
-//mode 0 show effectcell; mode1 show beautifycell
+//mode 0 show effectcell; mode 1 show beautifycell
 @property (nonatomic, assign) NSUInteger mode;
+
+//beautifyFaceMode 0 show beautifyFace; beautifyFaceMode 1 show bigEyes; beautifyFaceMode 2 show slimFace;
+@property (nonatomic, assign) NSUInteger beautifyFaceMode;
 
 // default hidden
 @property (nonatomic, assign) BOOL isShowEffectCollectionView;
@@ -199,7 +202,7 @@
     if (self.mode == 0) {
         cell.image = [self.effectData objectAtIndex:indexPath.row * 3];
         cell.text = [self.effectData objectAtIndex:indexPath.row * 3 + 1];
-    }else if (self.mode == 1){
+    }else if (self.mode == 1){        
         cell.image = [self.beautifyData objectAtIndex:indexPath.row * 3];
         cell.text = [self.beautifyData objectAtIndex:indexPath.row * 3 + 1];
     }
@@ -214,16 +217,45 @@
             [self.delegate onEffectClick:[self.effectData objectAtIndex:indexPath.row * 3 + 2]];
         }
     }else if (self.mode == 1){
-        if (self.delegate) {
-            [self.delegate onBeautyTypeClick:[[self.beautifyData objectAtIndex:indexPath.row * 3 + 2] integerValue]];
+        NSInteger value = [[self.beautifyData objectAtIndex:indexPath.row * 3 + 2] integerValue];
+        
+        if (value == -1 ) {// bigEyes
+            self.beautifyFaceMode = 1;
+            self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
+            self.beautyLevelSlider.maximumValue = 1;//设置可变最大值
+            self.beautyLevelSlider.value = 0;
+        }else if (value == -2){// slimFace
+            self.beautifyFaceMode = 2;
+            self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
+            self.beautyLevelSlider.maximumValue = 1;//设置可变最大值
+            self.beautyLevelSlider.value = 0;
+        }else {
+            self.beautifyFaceMode = 0;
+            self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
+            self.beautyLevelSlider.maximumValue = 6;//设置可变最大值
+            self.beautyLevelSlider.value = 0;
+            if (self.delegate) {
+                [self.delegate onBeautyTypeClick:value];
+            }
         }
     }
 }
 
 - (void)beautyLevelChange{
-    if (self.delegate) {
-        [self.delegate onBeautyLevelChange:(NSUInteger)self.beautyLevelSlider.value];
+    if (self.beautifyFaceMode == 0) {
+        if (self.delegate) {
+            [self.delegate onBeautyLevelChange:(NSUInteger)self.beautyLevelSlider.value];
+        }
+    }else if (self.beautifyFaceMode == 1){
+        if (self.delegate) {
+            [self.delegate onBigEyesScaleChange:self.beautyLevelSlider.value];
+        }
+    }else if (self.beautifyFaceMode == 2){
+        if (self.delegate) {
+            [self.delegate onSlimFaceScaleChange:self.beautyLevelSlider.value];
+        }
     }
+
 }
 
 @end
