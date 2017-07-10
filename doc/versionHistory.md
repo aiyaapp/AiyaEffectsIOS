@@ -1,4 +1,10 @@
 
+AiyaEffectsSDK iOS V3.2
+>
+**功能更新**
+- 修复了部分bug
+- 加入大眼,瘦脸功能
+
 AiyaEffectsSDK iOS V3.1.1
 >
 **功能更新**

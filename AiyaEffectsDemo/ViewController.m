@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSMutableArray *effectData;
 @property (nonatomic, strong) NSArray *beautifyData;
+@property (nonatomic, strong) NSArray *bigEyesAndSlimFace;
 
 @end
 
@@ -29,7 +30,7 @@
     
     //在正式环境中填入相应的License
     [AiyaLicenseManager initLicense:@"704705f35759"];
-    
+        
     _camera = [[AiyaCamera alloc]initWithPreview:self.view cameraPosition:AVCaptureDevicePositionFront];
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];
     self.camera.delegate = self;
@@ -79,6 +80,8 @@
                       [UIImage imageNamed:@"beautify"],@"美颜1",@(AIYA_BEAUTY_TYPE_1),
                       [UIImage imageNamed:@"beautify"],@"美颜4",@(AIYA_BEAUTY_TYPE_4),
                       [UIImage imageNamed:@"beautify"],@"美颜5",@(AIYA_BEAUTY_TYPE_5),
+                      [UIImage imageNamed:@"beautify"],@"大眼",@(-1),
+                      [UIImage imageNamed:@"beautify"],@"瘦脸",@(-2),
                       ];
 }
 
@@ -147,6 +150,18 @@
 
 - (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel{
     [self.camera setBeautyLevel:beautyLevel];
+    NSLog(@"beautyLevel %ld",beautyLevel);
+}
+
+- (void)onBigEyesScaleChange:(float)scale{
+    [self.camera setBigEyesScale:scale];
+    NSLog(@"BigEye scale %f",scale);
+}
+
+- (void)onSlimFaceScaleChange:(float)scale{
+    [self.camera setSlimFaceScale:scale];
+    NSLog(@"SlimFace scale %f",scale);
+
 }
 
 @end
