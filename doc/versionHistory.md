@@ -1,4 +1,10 @@
 
+AiyaEffectsSDK iOS V3.3
+>
+**功能更新**
+- 提高人脸跟踪的性能
+- 缩小了资源的大小
+
 AiyaEffectsSDK iOS V3.2
 >
 **功能更新**
