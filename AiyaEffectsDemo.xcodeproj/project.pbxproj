@@ -18,6 +18,7 @@
 		D32161CE1ED05D6100BDEA99 /* AiyaCameraSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
+		D3969C031F1F0EB6006B3372 /* FilterResources in Resources */ = {isa = PBXBuildFile; fileRef = D3969C021F1F0EB6006B3372 /* FilterResources */; };
 		D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
 		D3E4C1AD1EF40032003E74DB /* AiyaCameraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E4C1AC1EF40032003E74DB /* AiyaCameraSDK.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		D32161CD1ED05D6100BDEA99 /* AiyaCameraSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AiyaCameraSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
 		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D3969C021F1F0EB6006B3372 /* FilterResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FilterResources; sourceTree = SOURCE_ROOT; };
 		D3D5CEF71E716DAE005C1F7A /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		D3D5CEF91E716DC5005C1F7A /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				D3481EED1EAA072C006FB4AE /* EffectResources */,
+				D3969C021F1F0EB6006B3372 /* FilterResources */,
 				D3190ACF1E7139F700121BAB /* AiyaEffectsSDK */,
 				D3190ABB1E7108E400121BAB /* AppDelegate.h */,
 				D3190ABC1E7108E400121BAB /* AppDelegate.m */,
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3969C031F1F0EB6006B3372 /* FilterResources in Resources */,
 				D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */,
 				D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */,
 				D32161CE1ED05D6100BDEA99 /* AiyaCameraSDK.bundle in Resources */,

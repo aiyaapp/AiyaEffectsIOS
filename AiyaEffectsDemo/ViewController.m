@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSMutableArray *effectData;
 @property (nonatomic, strong) NSArray *beautifyData;
+@property (nonatomic, strong) NSMutableArray *styleData;
 @property (nonatomic, strong) NSArray *bigEyesAndSlimFace;
 
 @end
@@ -35,12 +36,12 @@
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];
     self.camera.delegate = self;
     self.camera.mirror = YES;
-    self.camera.style = [UIImage imageNamed:@"purityLookup"];//更多滤镜在Assets.xcassets中
     self.camera.beautyLevel = AIYA_BEAUTY_LEVEL_6;
     
     CameraView *cameraView = [[CameraView alloc]initWithFrame:self.view.frame];
     cameraView.effectData = self.effectData;
     cameraView.beautifyData = self.beautifyData;
+    cameraView.styleData = self.styleData;
     cameraView.delegate = self;
     [self.view addSubview:cameraView];
 
@@ -55,6 +56,10 @@
 - (void)initResourceData{
     NSString *effectRootDirPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"EffectResources"];
     NSArray<NSString *> *effectDirNameArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:effectRootDirPath error:nil];
+    
+    NSString *styleRootDirPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FilterResources/filter"];
+    NSString *styleIconRootDirPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FilterResources/icon"];
+    NSArray<NSString *> *styleFileNameArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:styleRootDirPath error:nil];
     
     //初始化特效资源
     _effectData = [NSMutableArray arrayWithCapacity:(effectDirNameArr.count + 1) * 3];
@@ -83,6 +88,23 @@
                       [UIImage imageNamed:@"beautify"],@"大眼",@(-1),
                       [UIImage imageNamed:@"beautify"],@"瘦脸",@(-2),
                       ];
+    
+    //初始化滤镜资源
+    _styleData = [NSMutableArray arrayWithCapacity:(styleFileNameArr.count + 1) * 3];
+    
+    for (NSString *styleFileName in styleFileNameArr) {
+        
+        NSString *stylePath = [styleRootDirPath stringByAppendingPathComponent:styleFileName];
+        NSString *styleIconPath = [styleIconRootDirPath stringByAppendingPathComponent:[[styleFileName stringByDeletingPathExtension] stringByAppendingPathExtension:@"png"]];
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:stylePath] || ![[NSFileManager defaultManager] fileExistsAtPath:styleIconPath]) {
+            continue;
+        }
+        
+        [self.styleData addObject:[UIImage imageWithContentsOfFile:styleIconPath]];
+        [self.styleData addObject:[[styleFileName stringByDeletingPathExtension] substringFromIndex:2]];
+        [self.styleData addObject:[UIImage imageWithContentsOfFile:stylePath]];
+    }
 }
 
 #pragma mark -
@@ -161,7 +183,16 @@
 - (void)onSlimFaceScaleChange:(float)scale{
     [self.camera setSlimFaceScale:scale];
     NSLog(@"SlimFace scale %f",scale);
+}
 
+- (void)onStyleClick:(UIImage *)image{
+    //请直接[联系客服]http://www.bbtexiao.com/site/about获取大量滤镜(超过20个)
+    [self.camera setStyle:image];
+}
+
+- (void)onStyleIntensityChange:(float)styleIntensity{
+    [self.camera setStyleIntensity:styleIntensity];
+    NSLog(@"style intersity %f",styleIntensity);
 }
 
 @end
