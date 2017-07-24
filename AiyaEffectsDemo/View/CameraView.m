@@ -19,10 +19,16 @@
 @property (nonatomic, strong) UIButton *styleBt;
 @property (nonatomic, strong) UISlider *slider;
 
-//mode 0 show effectcell; mode 1 show beautifycell; mode 2 shwo stylecell
+//mode 0 show effectcell
+//mode 1 show beautifycell
+//mode 2 shwo stylecell
 @property (nonatomic, assign) NSUInteger mode;
 
-//sliderMode 0 show beautifyFace; sliderMode 1 show bigEyes; sliderMode 2 show slimFace; sliderMode 3 show styleIntensity
+//sliderMode 0 show smoothSkin
+//sliderMode 1 show whitenSkin
+//sliderMode 2 show bigEyes
+//sliderMode 3 show slimFace
+//sliderMode 4 show style
 @property (nonatomic, assign) NSUInteger sliderMode;
 
 // default hidden
@@ -30,6 +36,8 @@
 @property (nonatomic, assign) BOOL isShowBeautifyCollectionView;
 @property (nonatomic, assign) BOOL isShowStyleCollectionView;
 
+//data step 3 UIImage|Text
+@property (nonatomic, strong) NSArray *beautifyData;
 @end
 
 @implementation CameraView
@@ -39,6 +47,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupSubview];
+        
+        _beautifyData = @[
+                        [UIImage imageNamed:@"beautify"],@"磨皮",
+                        [UIImage imageNamed:@"beautify"],@"美白",
+                        [UIImage imageNamed:@"beautify"],@"大眼",
+                        [UIImage imageNamed:@"beautify"],@"瘦脸",
+                        ];
     }
     return self;
 }
@@ -63,11 +78,11 @@
     [_effectBt addTarget:self action:@selector(onEffectBtClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _beautifyBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.beautifyBt setImage:[UIImage imageNamed:@"bt_camera_face_texiao_nor"] forState:UIControlStateNormal];
+    [self.beautifyBt setImage:[UIImage imageNamed:@"bt_camera_beauty"] forState:UIControlStateNormal];
     [_beautifyBt addTarget:self action:@selector(onBeautifyBtClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _styleBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.styleBt setImage:[UIImage imageNamed:@"bt_camera_face_texiao_nor"] forState:UIControlStateNormal];
+    [self.styleBt setImage:[UIImage imageNamed:@"bt_camera_style_filter"] forState:UIControlStateNormal];
     [_styleBt addTarget:self action:@selector(onStyleBtClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _slider = [[UISlider alloc] init];
@@ -126,12 +141,6 @@
 - (void)setEffectData:(NSArray *)effectData{
     
     _effectData = effectData;
-    [self.collectionView reloadData];
-}
-
-- (void)setBeautifyData:(NSArray *)beautifyData{
-    
-    _beautifyData = beautifyData;
     [self.collectionView reloadData];
 }
 
@@ -245,7 +254,7 @@
     if (self.mode == 0) {
         return self.effectData.count / 3;
     }else if (self.mode == 1){
-        return self.beautifyData.count / 3;
+        return self.beautifyData.count / 2;
     }else if (self.mode == 2){
         return self.styleData.count / 3;
     }else
@@ -263,8 +272,8 @@
         cell.image = [self.effectData objectAtIndex:indexPath.row * 3];
         cell.text = [self.effectData objectAtIndex:indexPath.row * 3 + 1];
     }else if (self.mode == 1){        
-        cell.image = [self.beautifyData objectAtIndex:indexPath.row * 3];
-        cell.text = [self.beautifyData objectAtIndex:indexPath.row * 3 + 1];
+        cell.image = [self.beautifyData objectAtIndex:indexPath.row * 2];
+        cell.text = [self.beautifyData objectAtIndex:indexPath.row * 2 + 1];
     }else if (self.mode == 2){
         cell.image = [self.styleData objectAtIndex:indexPath.row * 3];
         cell.text = [self.styleData objectAtIndex:indexPath.row * 3 + 1];
@@ -282,37 +291,20 @@
     }else if (self.mode == 1){
         self.slider.hidden = NO;
         
-        NSInteger type = [[self.beautifyData objectAtIndex:indexPath.row * 3 + 2] integerValue];
-        
-        if (type == -1 ) {// bigEyes
-            self.sliderMode = 1;
-            self.slider.minimumValue = 0;//设置可变最小值
-            self.slider.maximumValue = 1;//设置可变最大值
-            self.slider.value = 0.2;
-        }else if (type == -2){// slimFace
-            self.sliderMode = 2;
-            self.slider.minimumValue = 0;//设置可变最小值
-            self.slider.maximumValue = 1;//设置可变最大值
-            self.slider.value = 0.2;
-        }else { //美颜
-            self.sliderMode = 0;
-            self.slider.minimumValue = 0;//设置可变最小值
-            self.slider.maximumValue = 6;//设置可变最大值
-            self.slider.value = 5;
-            if (self.delegate) {
-                [self.delegate onBeautyTypeClick:type];
-            }
-        }
+        self.sliderMode = indexPath.row;
+        self.slider.minimumValue = 0;//设置可变最小值
+        self.slider.maximumValue = 1;//设置可变最大值
+        self.slider.value = 0;
         
         [self sliderValueChange];
         
     }else if (self.mode == 2){
         self.slider.hidden = NO;
         
-        self.sliderMode = 3;
+        self.sliderMode = 4;
         self.slider.minimumValue = 0;//设置可变最小值
         self.slider.maximumValue = 1;//设置可变最大值
-        self.slider.value = 0.8;
+        self.slider.value = 0;
         
         if (self.delegate) {
             [self.delegate onStyleClick:[self.styleData objectAtIndex:indexPath.row * 3 + 2]];
@@ -325,17 +317,21 @@
 - (void)sliderValueChange{
     if (self.sliderMode == 0) {
         if (self.delegate) {
-            [self.delegate onBeautyLevelChange:(NSUInteger)self.slider.value];
+            [self.delegate onSmoothSkinIntensityChange:self.slider.value];
         }
     }else if (self.sliderMode == 1){
         if (self.delegate) {
-            [self.delegate onBigEyesScaleChange:self.slider.value];
+            [self.delegate onWhitenSkinIntensityChange:self.slider.value];
         }
     }else if (self.sliderMode == 2){
         if (self.delegate) {
-            [self.delegate onSlimFaceScaleChange:self.slider.value];
+            [self.delegate onBigEyesScaleChange:self.slider.value];
         }
     }else if (self.sliderMode == 3){
+        if (self.delegate) {
+            [self.delegate onSlimFaceScaleChange:self.slider.value];
+        }
+    }else if (self.sliderMode == 4){
         if (self.delegate) {
             [self.delegate onStyleIntensityChange:self.slider.value];
         }

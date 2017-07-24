@@ -16,7 +16,6 @@
 @property (nonatomic, strong) AiyaCamera *camera;
 
 @property (nonatomic, strong) NSMutableArray *effectData;
-@property (nonatomic, strong) NSArray *beautifyData;
 @property (nonatomic, strong) NSMutableArray *styleData;
 @property (nonatomic, strong) NSArray *bigEyesAndSlimFace;
 
@@ -36,11 +35,10 @@
     [self.camera setSessionPreset:AVCaptureSessionPreset1280x720];
     self.camera.delegate = self;
     self.camera.mirror = YES;
-    self.camera.beautyLevel = AIYA_BEAUTY_LEVEL_6;
+    self.camera.smoothSkinIntensity = 0.8;
     
     CameraView *cameraView = [[CameraView alloc]initWithFrame:self.view.frame];
     cameraView.effectData = self.effectData;
-    cameraView.beautifyData = self.beautifyData;
     cameraView.styleData = self.styleData;
     cameraView.delegate = self;
     [self.view addSubview:cameraView];
@@ -78,16 +76,6 @@
         [self.effectData addObject:dic[@"name"]];
         [self.effectData addObject:path];
     }
-    
-    //初始化美颜资源
-    _beautifyData = @[
-                      [UIImage imageNamed:@"beautify"],@"美颜0",@(AIYA_BEAUTY_TYPE_0),
-                      [UIImage imageNamed:@"beautify"],@"美颜1",@(AIYA_BEAUTY_TYPE_1),
-                      [UIImage imageNamed:@"beautify"],@"美颜4",@(AIYA_BEAUTY_TYPE_4),
-                      [UIImage imageNamed:@"beautify"],@"美颜5",@(AIYA_BEAUTY_TYPE_5),
-                      [UIImage imageNamed:@"beautify"],@"大眼",@(-1),
-                      [UIImage imageNamed:@"beautify"],@"瘦脸",@(-2),
-                      ];
     
     //初始化滤镜资源
     _styleData = [NSMutableArray arrayWithCapacity:(styleFileNameArr.count + 1) * 3];
@@ -166,13 +154,14 @@
     self.camera.effectPlayCount = 0;
 }
 
-- (void)onBeautyTypeClick:(AIYA_BEAUTY_TYPE)beautyType{
-    [self.camera setBeautyType:beautyType];
+- (void)onSmoothSkinIntensityChange:(float)intensity{
+    [self.camera setSmoothSkinIntensity:intensity];
+    NSLog(@"SmoothSkin intensity %f",intensity);
 }
 
-- (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel{
-    [self.camera setBeautyLevel:beautyLevel];
-    NSLog(@"beautyLevel %ld",beautyLevel);
+- (void)onWhitenSkinIntensityChange:(float)intensity{
+    [self.camera setWhitenSkinIntensity:intensity];
+    NSLog(@"WhitenSkin intensity %f",intensity);
 }
 
 - (void)onBigEyesScaleChange:(float)scale{

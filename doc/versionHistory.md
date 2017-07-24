@@ -1,3 +1,8 @@
+AiyaEffectsSDK iOS V3.3.1
+>
+**功能更新**
+- 在Demo中加入Style调节选项
+- 拆分美颜选项为磨皮和美白两个选项
 
 AiyaEffectsSDK iOS V3.3
 >
