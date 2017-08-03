@@ -1,6 +1,8 @@
-AiyaEffectsSDK iOS V3.3.1
+AiyaEffectsSDK iOS V3.4
 >
 **功能更新**
+- 改善了抖动，尤其是在侧脸大角度的情况下
+- 修复了特效变形的问题
 - 在Demo中加入Style调节选项
 - 拆分美颜选项为磨皮和美白两个选项
 
