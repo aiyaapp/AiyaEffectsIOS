@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import <AiyaCameraSDK/AiyaGPUImageBeautifyFilter.h>
+#import <AiyaCameraSDK/AiyaCameraSDK.h>
 
 @protocol CameraViewDelegate <NSObject>
 
@@ -16,13 +16,17 @@
 
 - (void)onEffectClick:(NSString *)path;
 
-- (void)onBeautyTypeClick:(AIYA_BEAUTY_TYPE)beautyType;
+- (void)onStyleClick:(UIImage *)image;
 
-- (void)onBeautyLevelChange:(AIYA_BEAUTY_LEVEL)beautyLevel;
+- (void)onSmoothSkinIntensityChange:(float)intensity;
+
+- (void)onWhitenSkinIntensityChange:(float)intensity;
 
 - (void)onBigEyesScaleChange:(float)scale;
 
 - (void)onSlimFaceScaleChange:(float)scale;
+
+- (void)onStyleIntensityChange:(float)styleIntensity;
 
 @end
 
@@ -31,8 +35,8 @@
 //data step 3 UIImage|Text|Path
 @property (nonatomic, strong) NSArray *effectData;
 
-//data step 3 UIImage|Text|Type
-@property (nonatomic, strong) NSArray *beautifyData;
+//data step 3 UIImage|Text|UIImage
+@property (nonatomic, strong) NSArray *styleData;
 
 @property (nonatomic, weak) id<CameraViewDelegate> delegate;
 

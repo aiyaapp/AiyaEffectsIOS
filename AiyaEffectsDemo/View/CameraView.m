@@ -16,17 +16,28 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *effectBt;
 @property (nonatomic, strong) UIButton *beautifyBt;
-@property (nonatomic, strong) UISlider *beautyLevelSlider;
+@property (nonatomic, strong) UIButton *styleBt;
+@property (nonatomic, strong) UISlider *slider;
 
-//mode 0 show effectcell; mode 1 show beautifycell
+//mode 0 show effectcell
+//mode 1 show beautifycell
+//mode 2 shwo stylecell
 @property (nonatomic, assign) NSUInteger mode;
 
-//beautifyFaceMode 0 show beautifyFace; beautifyFaceMode 1 show bigEyes; beautifyFaceMode 2 show slimFace;
-@property (nonatomic, assign) NSUInteger beautifyFaceMode;
+//sliderMode 0 show smoothSkin
+//sliderMode 1 show whitenSkin
+//sliderMode 2 show bigEyes
+//sliderMode 3 show slimFace
+//sliderMode 4 show style
+@property (nonatomic, assign) NSUInteger sliderMode;
 
 // default hidden
 @property (nonatomic, assign) BOOL isShowEffectCollectionView;
 @property (nonatomic, assign) BOOL isShowBeautifyCollectionView;
+@property (nonatomic, assign) BOOL isShowStyleCollectionView;
+
+//data step 3 UIImage|Text
+@property (nonatomic, strong) NSArray *beautifyData;
 @end
 
 @implementation CameraView
@@ -36,6 +47,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupSubview];
+        
+        _beautifyData = @[
+                        [UIImage imageNamed:@"beautify"],@"磨皮",
+                        [UIImage imageNamed:@"beautify"],@"美白",
+                        [UIImage imageNamed:@"beautify"],@"大眼",
+                        [UIImage imageNamed:@"beautify"],@"瘦脸",
+                        ];
     }
     return self;
 }
@@ -60,21 +78,26 @@
     [_effectBt addTarget:self action:@selector(onEffectBtClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _beautifyBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.beautifyBt setImage:[UIImage imageNamed:@"bt_camera_face_texiao_nor"] forState:UIControlStateNormal];
+    [self.beautifyBt setImage:[UIImage imageNamed:@"bt_camera_beauty"] forState:UIControlStateNormal];
     [_beautifyBt addTarget:self action:@selector(onBeautifyBtClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    _beautyLevelSlider = [[UISlider alloc] init];
-    self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
-    self.beautyLevelSlider.maximumValue = 6;//设置可变最大值
-    self.beautyLevelSlider.value = 0;
-    self.beautyLevelSlider.hidden = YES;
-    [self.beautyLevelSlider addTarget:self action:@selector(beautyLevelChange) forControlEvents:UIControlEventValueChanged];
+    _styleBt = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.styleBt setImage:[UIImage imageNamed:@"bt_camera_style_filter"] forState:UIControlStateNormal];
+    [_styleBt addTarget:self action:@selector(onStyleBtClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _slider = [[UISlider alloc] init];
+    self.slider.minimumValue = 0;//设置可变最小值
+    self.slider.maximumValue = 6;//设置可变最大值
+    self.slider.value = 0;
+    self.slider.hidden = YES;
+    [self.slider addTarget:self action:@selector(sliderValueChange) forControlEvents:UIControlEventValueChanged];
 
     [layout addSubview:self.collectionView];
     [layout addSubview:self.effectBt];
     [layout addSubview:self.beautifyBt];
+    [layout addSubview:self.styleBt];
     [self addSubview:layout];
-    [self addSubview:self.beautyLevelSlider];
+    [self addSubview:self.slider];
     
     [layout mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
@@ -83,7 +106,7 @@
         make.height.mas_equalTo(165);
     }];
     
-    [self.beautyLevelSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(150);
         make.centerX.equalTo(self.mas_centerX);
         make.bottom.equalTo(layout.mas_top).offset(-10);
@@ -107,6 +130,12 @@
         make.right.equalTo(layout.mas_right).offset(-36);
         make.bottom.equalTo(layout.mas_bottom).offset(-65);
     }];
+    
+    [self.styleBt mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(34, 34));
+        make.right.equalTo(self.beautifyBt.mas_left).offset(-36);
+        make.bottom.equalTo(layout.mas_bottom).offset(-65);
+    }];
 }
 
 - (void)setEffectData:(NSArray *)effectData{
@@ -115,9 +144,9 @@
     [self.collectionView reloadData];
 }
 
-- (void)setBeautifyData:(NSArray *)beautifyData{
+- (void)setStyleData:(NSArray *)styleData{
     
-    _beautifyData = beautifyData;
+    _styleData = styleData;
     [self.collectionView reloadData];
 }
 
@@ -127,18 +156,23 @@
         [self hidenCollectionView];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = NO;
-    }else if (self.isShowBeautifyCollectionView){
+        self.isShowStyleCollectionView = NO;
+        
+    }else if (self.isShowBeautifyCollectionView || self.isShowStyleCollectionView){
         self.mode = 0;
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = YES;
         self.isShowBeautifyCollectionView = NO;
-        self.beautyLevelSlider.hidden = YES;
+        self.isShowStyleCollectionView = NO;
+        self.slider.hidden = YES;
+        
     }else {
         [self showCollectionView];
         self.mode = 0;
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = YES;
         self.isShowBeautifyCollectionView = NO;
+        self.isShowStyleCollectionView = NO;
     }
 }
 
@@ -148,20 +182,51 @@
         [self hidenCollectionView];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = NO;
-        self.beautyLevelSlider.hidden = YES;
-    }else if (self.isShowEffectCollectionView){
+        self.isShowStyleCollectionView = NO;
+        self.slider.hidden = YES;
+        
+    }else if (self.isShowEffectCollectionView || self.isShowStyleCollectionView){
         self.mode = 1;
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = YES;
-        self.beautyLevelSlider.hidden = NO;
+        self.isShowStyleCollectionView = NO;
+        self.slider.hidden = YES;
+        
     }else {
         [self showCollectionView];
         self.mode = 1;
         [self.collectionView reloadData];
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = YES;
-        self.beautyLevelSlider.hidden = NO;
+        self.isShowStyleCollectionView = NO;
+    }
+}
+
+- (void)onStyleBtClick:(UIButton *)bt{
+    
+    if (self.isShowStyleCollectionView) {
+        [self hidenCollectionView];
+        self.isShowEffectCollectionView = NO;
+        self.isShowBeautifyCollectionView = NO;
+        self.isShowStyleCollectionView = NO;
+        self.slider.hidden = YES;
+        
+    }else if (self.isShowEffectCollectionView || self.isShowBeautifyCollectionView){
+        self.mode = 2;
+        [self.collectionView reloadData];
+        self.isShowEffectCollectionView = NO;
+        self.isShowBeautifyCollectionView = NO;
+        self.isShowStyleCollectionView = YES;
+        self.slider.hidden = YES;
+        
+    }else {
+        [self showCollectionView];
+        self.mode = 2;
+        [self.collectionView reloadData];
+        self.isShowEffectCollectionView = NO;
+        self.isShowBeautifyCollectionView = NO;
+        self.isShowStyleCollectionView = YES;
     }
 }
 
@@ -169,6 +234,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.beautifyBt.center = CGPointMake(self.beautifyBt.center.x,self.beautifyBt.center.y + 39);
         self.effectBt.center = CGPointMake(self.effectBt.center.x,self.effectBt.center.y + 39);
+        self.styleBt.center = CGPointMake(self.styleBt.center.x,self.styleBt.center.y + 39);
         self.collectionView.center = CGPointMake(self.collectionView.center.x,self.collectionView.center.y + 100);
     }];
 }
@@ -177,6 +243,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.beautifyBt.center = CGPointMake(self.beautifyBt.center.x,self.beautifyBt.center.y - 39);
         self.effectBt.center = CGPointMake(self.effectBt.center.x,self.effectBt.center.y - 39);
+        self.styleBt.center = CGPointMake(self.styleBt.center.x,self.styleBt.center.y - 39);
         self.collectionView.center = CGPointMake(self.collectionView.center.x,self.collectionView.center.y - 100);
     }];
 }
@@ -187,7 +254,9 @@
     if (self.mode == 0) {
         return self.effectData.count / 3;
     }else if (self.mode == 1){
-        return self.beautifyData.count / 3;
+        return self.beautifyData.count / 2;
+    }else if (self.mode == 2){
+        return self.styleData.count / 3;
     }else
         return 0;
 }
@@ -203,8 +272,11 @@
         cell.image = [self.effectData objectAtIndex:indexPath.row * 3];
         cell.text = [self.effectData objectAtIndex:indexPath.row * 3 + 1];
     }else if (self.mode == 1){        
-        cell.image = [self.beautifyData objectAtIndex:indexPath.row * 3];
-        cell.text = [self.beautifyData objectAtIndex:indexPath.row * 3 + 1];
+        cell.image = [self.beautifyData objectAtIndex:indexPath.row * 2];
+        cell.text = [self.beautifyData objectAtIndex:indexPath.row * 2 + 1];
+    }else if (self.mode == 2){
+        cell.image = [self.styleData objectAtIndex:indexPath.row * 3];
+        cell.text = [self.styleData objectAtIndex:indexPath.row * 3 + 1];
     }
     return cell;
 }
@@ -217,42 +289,51 @@
             [self.delegate onEffectClick:[self.effectData objectAtIndex:indexPath.row * 3 + 2]];
         }
     }else if (self.mode == 1){
-        NSInteger value = [[self.beautifyData objectAtIndex:indexPath.row * 3 + 2] integerValue];
+        self.slider.hidden = NO;
         
-        if (value == -1 ) {// bigEyes
-            self.beautifyFaceMode = 1;
-            self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
-            self.beautyLevelSlider.maximumValue = 1;//设置可变最大值
-            self.beautyLevelSlider.value = 0;
-        }else if (value == -2){// slimFace
-            self.beautifyFaceMode = 2;
-            self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
-            self.beautyLevelSlider.maximumValue = 1;//设置可变最大值
-            self.beautyLevelSlider.value = 0;
-        }else {
-            self.beautifyFaceMode = 0;
-            self.beautyLevelSlider.minimumValue = 0;//设置可变最小值
-            self.beautyLevelSlider.maximumValue = 6;//设置可变最大值
-            self.beautyLevelSlider.value = 0;
-            if (self.delegate) {
-                [self.delegate onBeautyTypeClick:value];
-            }
+        self.sliderMode = indexPath.row;
+        self.slider.minimumValue = 0;//设置可变最小值
+        self.slider.maximumValue = 1;//设置可变最大值
+        self.slider.value = 0;
+        
+        [self sliderValueChange];
+        
+    }else if (self.mode == 2){
+        self.slider.hidden = NO;
+        
+        self.sliderMode = 4;
+        self.slider.minimumValue = 0;//设置可变最小值
+        self.slider.maximumValue = 1;//设置可变最大值
+        self.slider.value = 0;
+        
+        if (self.delegate) {
+            [self.delegate onStyleClick:[self.styleData objectAtIndex:indexPath.row * 3 + 2]];
         }
+        
+        [self sliderValueChange];
     }
 }
 
-- (void)beautyLevelChange{
-    if (self.beautifyFaceMode == 0) {
+- (void)sliderValueChange{
+    if (self.sliderMode == 0) {
         if (self.delegate) {
-            [self.delegate onBeautyLevelChange:(NSUInteger)self.beautyLevelSlider.value];
+            [self.delegate onSmoothSkinIntensityChange:self.slider.value];
         }
-    }else if (self.beautifyFaceMode == 1){
+    }else if (self.sliderMode == 1){
         if (self.delegate) {
-            [self.delegate onBigEyesScaleChange:self.beautyLevelSlider.value];
+            [self.delegate onWhitenSkinIntensityChange:self.slider.value];
         }
-    }else if (self.beautifyFaceMode == 2){
+    }else if (self.sliderMode == 2){
         if (self.delegate) {
-            [self.delegate onSlimFaceScaleChange:self.beautyLevelSlider.value];
+            [self.delegate onBigEyesScaleChange:self.slider.value];
+        }
+    }else if (self.sliderMode == 3){
+        if (self.delegate) {
+            [self.delegate onSlimFaceScaleChange:self.slider.value];
+        }
+    }else if (self.sliderMode == 4){
+        if (self.delegate) {
+            [self.delegate onStyleIntensityChange:self.slider.value];
         }
     }
 

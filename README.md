@@ -7,7 +7,7 @@
 宝宝特效 AiyaEffectsSDK 涵盖Android、iOS两个平台，基于自主研发的人脸识别模块，作为一款动态贴纸和动画特效高效渲染的解决方案
 
 ### 1.1 版本信息
-最新版本 : v3.3 [更多版本信息](doc/versionHistory.md)
+最新版本 : v3.4.0 [更多版本信息](doc/versionHistory.md)
 
 ### 1.2 集成示例
 * [集成到金山云的示例](https://github.com/aiyaapp/AiyaEffectsWithKSVCIOS)
