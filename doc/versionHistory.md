@@ -1,3 +1,10 @@
+AiyaEffectsSDK iOS V3.4.1
+>
+**功能更新**
+- 支持分开渲染人脸特效和礼物特效
+- 优化部分代码
+- 加入渲染错误码返回
+
 AiyaEffectsSDK iOS V3.4
 >
 **功能更新**

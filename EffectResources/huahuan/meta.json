@@ -1,6 +1,7 @@
 {
   "format" : "1",
   "name":"花环",
+  "resid" : "500106",
   "nodes" : [
     {
 	  "type":"3dModel",
