@@ -26,10 +26,18 @@
 ### 调用方式二:
 把AiyaEffectSDK 封装成GPUImageFilter使用， 这种方式可参考[KSYAiyaDemo](https://github.com/aiyaapp/AiyaEffectsWithKSVCIOS)
 
-![](ksy.png)
+![](ksy1.png)
+![](ksy2.png)
+![](ksy3.png)
+
 
 ### 调用方式三:
-使用AiyaEffectProcess 处理 CVPixelBufferRef， 这种方式可参考[zegoAiyaDemo](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
+使用AiyaEffectHandler 处理 CVPixelBufferRef， 这种方式可参考[zegoAiyaDemo](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 
-![](zego.png)  
-![](zego1.png)
+![](zego1.png)  
+![](zego2.png)
+
+### 调用方式四:
+只绘制帧画面不绘制人脸特效，可以使用AiyaAnimHandler 进行帧动画的绘制，这种方式可参考[AiyaEffectsLite](https://github.com/aiyaapp/AiyaEffectsLiteIOS)
+
+![](lite1.png)  

@@ -1,6 +1,7 @@
 {
   "format" : "1",
-  "name":"马竞",
+  "name":"马镜",
+  "resid" : "500103",
   "nodes" : [
     {
 	  "type":"3dModel",

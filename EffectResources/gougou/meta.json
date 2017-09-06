@@ -1,6 +1,7 @@
 {
   "format" : "1",
   "name":"狗狗",
+  "resid" : "500302",
   "nodes" : [
     {
 	  "type":"3dModel",
