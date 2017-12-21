@@ -46,16 +46,16 @@ AiyaEffectsSDK iOS 可运行于 iPhone/iPod Touch， 支持iOS 8.0及以上版�
 
 ## 8. License说明
 * 宝宝特效 AiyaEffectsSDK 可以用于商业应用
-* 申请appKey请访问[宝宝特效 免费使用](http://bbtexiao.aiyaapp.com/site/free)
+* 申请appKey请访问[宝宝特效 免费使用](http://www.lansear.cn)
 
 ## 9. 反馈与建议
-- 主页: [宝宝特效](http://www.bbtexiao.com)
+- 主页: [宝宝特效](http://www.lansear.cn)
 - 邮箱: <liudawei@aiyaapp.com>
 - QQ讨论群: 650242833
 
 ## 10. 更多项目
 * 抖音式短视频特效SDK
 
-<a href="http://www.bbtexiao.com/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.lansear.cn/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="宝宝特效" /></a>
 
-<a href="http://www.bbtexiao.com/"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
+<a href="http://www.lansear.cn/"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
