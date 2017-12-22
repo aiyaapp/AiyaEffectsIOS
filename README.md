@@ -1,5 +1,5 @@
-<a href="http://www.bbtexiao.com/"><img src="doc/summarize1.jpg" border="0" alt="宝宝特效" /></a>
-<a href="http://www.bbtexiao.com/"><img src="doc/summarize2.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.lansear.cn/product/bbtx"><img src="doc/summarize1.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.lansear.cn/product/bbtx"><img src="doc/summarize2.jpg" border="0" alt="宝宝特效" /></a>
 
 # 宝宝特效 AiyaEffectsSDK iOS 使用手册
 
@@ -38,7 +38,7 @@ AiyaEffectsSDK iOS 可运行于 iPhone/iPod Touch， 支持iOS 8.0及以上版�
 [快速集成](doc/howToUse.md)中提供了集成 AiyaEffectsSDK iOS 的方法
 
 ## 6. 自定义动态贴纸和动画特效
-制作动态贴纸和动画特效的教程还未正式开放，请直接[联系客服](http://www.bbtexiao.com/site/about)获取制作教程和大量炫酷特效
+制作动态贴纸和动画特效的教程还未正式开放，请直接[联系客服](http://www.lansear.cn/product/bbtx)获取制作教程和大量炫酷特效
 
 ## 7. 注意事项
 * 本framework不支持模拟器运行
@@ -46,16 +46,16 @@ AiyaEffectsSDK iOS 可运行于 iPhone/iPod Touch， 支持iOS 8.0及以上版�
 
 ## 8. License说明
 * 宝宝特效 AiyaEffectsSDK 可以用于商业应用
-* 申请appKey请访问[宝宝特效 免费使用](http://bbtexiao.aiyaapp.com/site/free)
+* 申请appKey请访问[宝宝特效](http://www.lansear.cn/product/bbtx)
 
 ## 9. 反馈与建议
-- 主页: [宝宝特效](http://www.bbtexiao.com)
+- 主页: [宝宝特效](http://www.lansear.cn/product/bbtx)
 - 邮箱: <liudawei@aiyaapp.com>
 - QQ讨论群: 650242833
 
 ## 10. 更多项目
 * 抖音式短视频特效SDK
 
-<a href="http://www.bbtexiao.com/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.lansear.cn/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="抖音式短视频特效" /></a>
 
-<a href="http://www.bbtexiao.com/"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
+<a href="http://www.lansear.cn/product/bbtx"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
