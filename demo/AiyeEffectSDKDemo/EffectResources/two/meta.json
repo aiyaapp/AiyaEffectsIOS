@@ -1,0 +1,24 @@
+{
+  "format" : "1",
+  "name":"two",
+  "resid" : "400881",
+  "nodes" : [
+    {
+      "type":"2dAnim",
+	  "dirname" : "two",
+      "number"      : 30,
+      "width" : 986,
+      "height" : 1214,
+      "duration" : 66,
+      "isloop" : 1,
+      "Triggertype" : 0,
+      "untilFinish" : 1,
+      "position" : "nose",
+      "anchorX" : 500,
+      "anchorY" : 600,
+      "ratio" : 2.2,
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
+    }
+  ]
+}

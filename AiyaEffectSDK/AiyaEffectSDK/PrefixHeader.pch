@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  AiyaEffectSDK
+//
+//  Created by 汪洋 on 2017/12/27.
+//  Copyright © 2017年 深圳市哎吖科技有限公司. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//#error 请选择特效库编译选项
+#define AY_ENABLE_TRACK             1           //人脸跟踪
+#define AY_ENABLE_EFFECT            1           //人脸动态贴纸, 帧动画特效
+#define AY_ENABLE_BEAUTY            1           //美颜大眼瘦脸
+#define AY_ENABLE_SHORT_VIDEO       1           //抖音式短视频特效
+
+#endif /* PrefixHeader_pch */

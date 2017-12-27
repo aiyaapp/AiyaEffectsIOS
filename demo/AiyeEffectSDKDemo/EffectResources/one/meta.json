@@ -1,0 +1,41 @@
+{
+  "format" : "1",
+  "name":"one",
+  "resid" : "400880",
+  "nodes" : [
+    {
+      "type":"2dAnim",
+	  "dirname" : "er",
+      "number"      : 44,
+      "width" : 700,
+      "height" : 700,
+      "duration" : 66,
+      "isloop" : 1,
+      "Triggertype" : 0,
+      "untilFinish" : 1,
+      "position" : "foreheadCenter",
+      "anchorX" : 325,
+      "anchorY" : 500,
+      "ratio" : 1.8,
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
+    },
+    {
+      "type":"2dAnim",
+    "dirname" : "xu",
+      "number"      : 44,
+      "width" : 700,
+      "height" : 700,
+      "duration" : 66,
+      "isloop" : 1,
+      "Triggertype" : 0,
+      "untilFinish" : 1,
+      "position" : "nose",
+      "anchorX" : 325,
+      "anchorY" : 300,
+      "ratio" : 1.8,
+      "fullscreen" : 0,
+    "PositionSwitch" : 2
+    }
+  ]
+}

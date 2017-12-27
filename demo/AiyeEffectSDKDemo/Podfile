@@ -1,0 +1,14 @@
+
+platform :ios, '8.0'
+
+project 'AiyaEffectsDemo.xcodeproj'
+
+target 'AiyaEffectsDemo' do
+    
+    pod 'Masonry'
+    
+    pod 'GPUImage'
+    
+    pod 'CocoaLumberjack'
+
+end

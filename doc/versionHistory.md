@@ -1,3 +1,10 @@
+AiyaEffectsSDK iOS V4.0.0
+>
+**功能更新**
+- 代码重构，将各个功能进行了模块化
+- 使用全新的License验证方式
+- 加入短视频特效
+
 AiyaEffectsSDK iOS V3.4.1
 >
 **功能更新**

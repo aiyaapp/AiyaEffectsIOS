@@ -1,0 +1,41 @@
+{
+  "format" : "1",
+  "name":"three",
+  "resid" : "400882",
+  "nodes" : [
+    {
+      "type":"2dAnim",
+	  "dirname" : "er",
+      "number"      : 30,
+      "width" : 677,
+      "height" : 508,
+      "duration" : 66,
+      "isloop" : 1,
+      "Triggertype" : 0,
+      "untilFinish" : 1,
+      "position" : "foreheadCenter",
+      "anchorX" : 350,
+      "anchorY" : 400,
+      "ratio" : 2.7,
+      "fullscreen" : 0,
+	  "PositionSwitch" : 2
+    },
+    {
+      "type":"2dAnim",
+    "dirname" : "xu",
+      "number"      : 30,
+      "width" : 677,
+      "height" : 508,
+      "duration" : 66,
+      "isloop" : 1,
+      "Triggertype" : 0,
+      "untilFinish" : 1,
+      "position" : "nose",
+      "anchorX" : 350,
+      "anchorY" : 300,
+      "ratio" : 2.5,
+      "fullscreen" : 0,
+    "PositionSwitch" : 2
+    }
+  ]
+}
