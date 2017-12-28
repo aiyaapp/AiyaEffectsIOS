@@ -9,7 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-//#error 请选择特效库编译选项
+#error 请选择特效库编译选项
 #define AY_ENABLE_TRACK             1           //人脸跟踪
 #define AY_ENABLE_EFFECT            1           //人脸动态贴纸, 帧动画特效
 #define AY_ENABLE_BEAUTY            1           //美颜大眼瘦脸
