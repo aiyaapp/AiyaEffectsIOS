@@ -12,8 +12,6 @@
 
 @interface AYGPUImageTrackOutput : NSObject<AYGPUImageInput>
 
-@property (nonatomic, assign) BOOL verticalFlip;
-
 @property (nonatomic, assign) void **faceData;
 
 - (instancetype)initWithContext:(AYGPUImageContext *)context;

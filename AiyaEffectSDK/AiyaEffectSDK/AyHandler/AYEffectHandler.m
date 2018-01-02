@@ -181,10 +181,6 @@
     self.textureOutput.verticalFlip = verticalFlip;
     self.rawDataInput.verticalFlip = verticalFlip;
     self.rawDataOutput.verticalFlip = verticalFlip;
-    
-#if AY_ENABLE_TRACK
-    _trackOutput.verticalFlip = verticalFlip;
-#endif
 }
 
 - (void)processWithTexture:(GLuint)texture width:(GLint)width height:(GLint)height{

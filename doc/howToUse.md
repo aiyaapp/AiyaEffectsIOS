@@ -39,16 +39,21 @@
 ## Step3 使用动态贴纸
 
 ### 调用方式一:
+创建自定义相机， 实现拍照和录制加贴纸功能，这种方式可参考 AiyaEffectsIOS/demo/AiyaVideoRecord
+
+![](aiyaCamera1.png)
+
+### 调用方式二:
 把 AYEffectHandler 封装成 GPUImageFilter 使用， 这种方式可参考 AiyaEffectsIOS/demo/AiyaEffectSDKDemo
 
 ![](wrapGPUImageFilter.png)
 
-### 调用方式二:
+### 调用方式三:
 使用 AYEffectHandler 处理 CVPixelBufferRef (BGRA格式)， 这种方式可参考[集成到Zego示例](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 
 ![](zego1.png)
 
-### 调用方式三:
+### 调用方式四:
 使用 AYEffectHandler 处理 Texture (BGRA格式)， 这种方式可参考[集成到腾讯云示例](https://github.com/aiyaapp/AiyaEffectsWithTXIOS)
 
 ![](tx1.png)
