@@ -92,11 +92,11 @@
         1.0f, 1.0f,
     };
     
-    static const GLfloat rotate180TextureCoordinates[] = {
-        1.0f, 1.0f,
+    static const GLfloat verticalFlipTextureCoordinates[] = {
         0.0f, 1.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f,  0.0f,
+        1.0f,  0.0f,
     };
     
     glActiveTexture(GL_TEXTURE4);
@@ -105,7 +105,7 @@
     
     glVertexAttribPointer(dataPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
     if (self.verticalFlip) {
-        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,rotate180TextureCoordinates);
+        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,verticalFlipTextureCoordinates);
     } else {
         glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,noRotationTextureCoordinates);
     }

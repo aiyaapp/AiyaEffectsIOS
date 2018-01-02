@@ -12,27 +12,27 @@
 		<key>AyBeauty.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>18</integer>
 		</dict>
 		<key>AyEffect.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>17</integer>
 		</dict>
 		<key>AySDKCore.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>15</integer>
 		</dict>
 		<key>AyShortVideoEffect.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>19</integer>
 		</dict>
 		<key>AyTrack.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
