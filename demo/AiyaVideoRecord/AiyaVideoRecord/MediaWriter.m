@@ -30,7 +30,7 @@
 static const int kAudioBitRate = 64000;
 
 // 视频的码率
-static const int kVideoBitRateFactor = 2.05; // videoBitRate = width * height * kVideoBitRateFactor;
+static const int kVideoBitRateFactor = 4; // videoBitRate = width * height * kVideoBitRateFactor;
 
 // 帧率
 static const int kVideoFrameRate = 30;
@@ -127,12 +127,15 @@ static const float radian = M_PI_2;
             [self.assetWriter addInput:self.assetWriterAudioInput];
         } else {
             NSLog(@"couldn't add asset writer audio input");
+            self.assetWriterAudioInput = nil;
+            return NO;
         }
 
     } else {
 
         self.assetWriterAudioInput = nil;
         NSLog(@"couldn't apply audio output settings");
+        return NO;
 
     }
 
@@ -170,13 +173,17 @@ static const float radian = M_PI_2;
             
             [self.assetWriter addInput:self.assetWriterVideoInput];
         } else {
+            
+            self.assetWriterVideoInput = nil;
             NSLog(@"couldn't add asset writer video input");
+            return NO;
         }
 
     } else {
 
         self.assetWriterVideoInput = nil;
         NSLog(@"couldn't apply video output settings");
+        return NO;
 
     }
 
@@ -192,10 +199,12 @@ static const float radian = M_PI_2;
     
     if (!self.audioAlreadySetup){
         self.audioAlreadySetup = [self setupAudioWithSettings:sampleBuffer];
-        NSLog(@"设置音频参数");
 
         if (!self.audioAlreadySetup) {
+            NSLog(@"设置音频参数失败");
             return;
+        } else {
+            NSLog(@"设置音频参数成功");
         }
     }
     
@@ -230,7 +239,7 @@ static const float radian = M_PI_2;
         CFRetain(sampleBuffer);
         
         dispatch_async(writerQueue, ^{
-            if (self.assetWriterAudioInput.readyForMoreMediaData) {
+            if (self.assetWriterAudioInput && self.assetWriterAudioInput.readyForMoreMediaData) {
                 
                 CMSampleBufferRef adjustedSampleBuffer = [self adjustTime:sampleBuffer by:self.firstTime];
 
@@ -273,9 +282,11 @@ static const float radian = M_PI_2;
     
     if (!self.videoAlreadySetup){
         self.videoAlreadySetup = [self setupVideoWithSettings:pixelBuffer];
-        NSLog(@"设置视频参数");
         if (!self.videoAlreadySetup){
+            NSLog(@"设置视频参数失败");
             return;
+        } else {
+            NSLog(@"设置视频参数成功");
         }
     }
         

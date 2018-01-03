@@ -67,6 +67,13 @@ static const GLfloat verticalFlipTextureCoordinates[] = {
     1.0f,  0.0f,
 };
 
+static const GLfloat horizontalFlipTextureCoordinates[] = {
+    1.0f, 0.0f,
+    0.0f, 0.0f,
+    1.0f,  1.0f,
+    0.0f,  1.0f,
+};
+
 static const GLfloat noRotationTextureCoordinates[] = {
     0.0f, 0.0f,
     1.0f, 0.0f,
@@ -232,10 +239,11 @@ static const GLfloat noRotationTextureCoordinates[] = {
         glVertexAttribPointer(positionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
         
         if (_mirror) {
-            glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, verticalFlipTextureCoordinates);
-        }else {
             glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, noRotationTextureCoordinates);
+        }else {
+            glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, verticalFlipTextureCoordinates);
         }
+        
         glUniformMatrix4fv(transformMatrixUniform, 1, GL_FALSE, transformMatrix);
         glUniformMatrix3fv(conversionMatrixUniform, 1, GL_FALSE, kAYColorConversion601FullRangeDefault);
 
@@ -293,8 +301,8 @@ static const GLfloat noRotationTextureCoordinates[] = {
         glEnableVertexAttribArray(textureCoordinateAttribute2);
         
         glVertexAttribPointer(positionAttribute2, 2, GL_FLOAT, 0, 0, squareVertices);
-        glVertexAttribPointer(textureCoordinateAttribute2, 2, GL_FLOAT, 0, 0, noRotationTextureCoordinates);
-        
+        glVertexAttribPointer(textureCoordinateAttribute2, 2, GL_FLOAT, 0, 0, horizontalFlipTextureCoordinates);
+
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         glFinish();
