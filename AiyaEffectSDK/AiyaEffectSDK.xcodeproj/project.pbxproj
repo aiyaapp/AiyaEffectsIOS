@@ -11,6 +11,7 @@
 		D31A58761FD0F88800ADAA89 /* AySlimFace.mm in Sources */ = {isa = PBXBuildFile; fileRef = D31A58751FD0F88800ADAA89 /* AySlimFace.mm */; };
 		D31A58791FD10AC900ADAA89 /* AYGPUImageTrackOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D31A58771FD10AC900ADAA89 /* AYGPUImageTrackOutput.h */; };
 		D31A587A1FD10AC900ADAA89 /* AYGPUImageTrackOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A58781FD10AC900ADAA89 /* AYGPUImageTrackOutput.m */; };
+		D343879F1FFC822700C331FD /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C21FCE5C1D00A00D12 /* libavcodec.a */; };
 		D34606911FD13AA5002FF508 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D34606901FD13AA4002FF508 /* libyuv.a */; };
 		D34606951FD1744B002FF508 /* libBaseEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D365AF4C1FD00CFC00E60BC0 /* libBaseEffects.a */; };
 		D365AF4A1FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D365AF481FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.h */; };
@@ -36,7 +37,6 @@
 		D36926BE1FCE5B6100A00D12 /* libaysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926BD1FCE5B6100A00D12 /* libaysdk.a */; };
 		D36926C71FCE5C1D00A00D12 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C01FCE5C1D00A00D12 /* libavutil.a */; };
 		D36926C81FCE5C1D00A00D12 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C11FCE5C1D00A00D12 /* libavfilter.a */; };
-		D36926C91FCE5C1D00A00D12 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C21FCE5C1D00A00D12 /* libavcodec.a */; };
 		D36926CA1FCE5C1D00A00D12 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C31FCE5C1D00A00D12 /* libavformat.a */; };
 		D36926CB1FCE5C1D00A00D12 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C41FCE5C1D00A00D12 /* libavdevice.a */; };
 		D36926CC1FCE5C1D00A00D12 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C51FCE5C1D00A00D12 /* libswresample.a */; };
@@ -365,7 +365,7 @@
 				D36926D41FCE5C3200A00D12 /* libsoil.a in Frameworks */,
 				D36926CB1FCE5C1D00A00D12 /* libavdevice.a in Frameworks */,
 				D36926CC1FCE5C1D00A00D12 /* libswresample.a in Frameworks */,
-				D36926C91FCE5C1D00A00D12 /* libavcodec.a in Frameworks */,
+				D343879F1FFC822700C331FD /* libavcodec.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

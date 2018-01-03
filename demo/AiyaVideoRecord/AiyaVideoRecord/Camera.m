@@ -109,8 +109,6 @@
         self.session.sessionPreset = AVCaptureSessionPreset1280x720;
     }else if ([self.session canSetSessionPreset:AVCaptureSessionPreset640x480]){
         self.session.sessionPreset = AVCaptureSessionPreset640x480;
-    }else if ([self.session canSetSessionPreset:AVCaptureSessionPreset352x288]){
-        self.session.sessionPreset = AVCaptureSessionPreset352x288;
     }
     
     [self.session commitConfiguration];
@@ -169,14 +167,6 @@
     
     self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.camera error:nil];
 
-    if ([self.session canSetSessionPreset:AVCaptureSessionPreset1280x720]){
-        self.session.sessionPreset = AVCaptureSessionPreset1280x720;
-    }else if ([self.session canSetSessionPreset:AVCaptureSessionPreset640x480]){
-        self.session.sessionPreset = AVCaptureSessionPreset640x480;
-    }else if ([self.session canSetSessionPreset:AVCaptureSessionPreset352x288]){
-        self.session.sessionPreset = AVCaptureSessionPreset352x288;
-    }
-    
     if ([self.session canAddInput:self.videoInput]) {
         [self.session addInput:self.videoInput];
     }

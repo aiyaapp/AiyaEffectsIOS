@@ -13,9 +13,10 @@ static const NSString * kVertexShaderString =
 @"attribute vec4 position;\n"
 "attribute vec2 inputTextureCoordinate;\n"
 "varying mediump vec2 v_texCoord;\n"
+"uniform mediump mat4 transformMatrix;\n"
 "void main()\n"
 "{\n"
-"    gl_Position = position;\n"
+"    gl_Position = transformMatrix * position;\n"
 "    v_texCoord = inputTextureCoordinate;\n"
 "}\n";
 
@@ -42,11 +43,11 @@ static const GLfloat verticalFlipTextureCoordinates[] = {
     1.0f,  0.0f,
 };
 
-static const GLfloat rotateRightTextureCoordinates[] = {
-    0.0f, 1.0f,
+static const GLfloat noRotationTextureCoordinates[] = {
     0.0f, 0.0f,
-    1.0f, 1.0f,
     1.0f, 0.0f,
+    0.0f, 1.0f,
+    1.0f, 1.0f,
 };
 
 @interface Preview () {
@@ -59,7 +60,8 @@ static const GLfloat rotateRightTextureCoordinates[] = {
     GLuint program;
     GLint positionAttribute, textureCoordinateAttribute;
     GLint inputTextureUniform;
-    
+    GLint transformMatrixUniform;
+
     GLuint bgraTexture;
 }
 @end
@@ -106,6 +108,8 @@ static const GLfloat rotateRightTextureCoordinates[] = {
         positionAttribute = glGetAttribLocation(program, [@"position" UTF8String]);
         textureCoordinateAttribute = glGetAttribLocation(program, [@"inputTextureCoordinate" UTF8String]);
         inputTextureUniform = glGetUniformLocation(program, [@"mTexture" UTF8String]);
+        transformMatrixUniform = glGetUniformLocation(program, [@"transformMatrix" UTF8String]);
+
     });
     
 }
@@ -129,6 +133,26 @@ static const GLfloat rotateRightTextureCoordinates[] = {
         
         glUseProgram(program);
         
+        CATransform3D transform3D = CATransform3DMakeRotation(M_PI_2, 0, 0, 1);
+        GLfloat transformMatrix[16];
+        transformMatrix[0] = (GLfloat)transform3D.m11;
+        transformMatrix[1] = (GLfloat)transform3D.m21;
+        transformMatrix[2] = (GLfloat)transform3D.m31;
+        transformMatrix[3] = (GLfloat)transform3D.m41;
+        transformMatrix[4] = (GLfloat)transform3D.m12;
+        transformMatrix[5] = (GLfloat)transform3D.m22;
+        transformMatrix[6] = (GLfloat)transform3D.m32;
+        transformMatrix[7] = (GLfloat)transform3D.m42;
+        transformMatrix[8] = (GLfloat)transform3D.m13;
+        transformMatrix[9] = (GLfloat)transform3D.m23;
+        transformMatrix[10] = (GLfloat)transform3D.m33;
+        transformMatrix[11] = (GLfloat)transform3D.m43;
+        transformMatrix[12] = (GLfloat)transform3D.m14;
+        transformMatrix[13] = (GLfloat)transform3D.m24;
+        transformMatrix[14] = (GLfloat)transform3D.m34;
+        transformMatrix[15] = (GLfloat)transform3D.m44;
+        glUniformMatrix4fv(transformMatrixUniform, 1, GL_FALSE, transformMatrix);
+
         glActiveTexture(GL_TEXTURE1);
         
         if (!bgraTexture) {
@@ -154,7 +178,7 @@ static const GLfloat rotateRightTextureCoordinates[] = {
         glEnableVertexAttribArray(textureCoordinateAttribute);
         
         glVertexAttribPointer(positionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
-        glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, rotateRightTextureCoordinates);
+        glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, verticalFlipTextureCoordinates);
         
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 // ----------旋转图像为正向 绘制结束----------
@@ -170,6 +194,25 @@ static const GLfloat rotateRightTextureCoordinates[] = {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         glUseProgram(program);
+        
+        transform3D = CATransform3DMakeRotation(0, 0, 0, 1);
+        transformMatrix[0] = (GLfloat)transform3D.m11;
+        transformMatrix[1] = (GLfloat)transform3D.m21;
+        transformMatrix[2] = (GLfloat)transform3D.m31;
+        transformMatrix[3] = (GLfloat)transform3D.m41;
+        transformMatrix[4] = (GLfloat)transform3D.m12;
+        transformMatrix[5] = (GLfloat)transform3D.m22;
+        transformMatrix[6] = (GLfloat)transform3D.m32;
+        transformMatrix[7] = (GLfloat)transform3D.m42;
+        transformMatrix[8] = (GLfloat)transform3D.m13;
+        transformMatrix[9] = (GLfloat)transform3D.m23;
+        transformMatrix[10] = (GLfloat)transform3D.m33;
+        transformMatrix[11] = (GLfloat)transform3D.m43;
+        transformMatrix[12] = (GLfloat)transform3D.m14;
+        transformMatrix[13] = (GLfloat)transform3D.m24;
+        transformMatrix[14] = (GLfloat)transform3D.m34;
+        transformMatrix[15] = (GLfloat)transform3D.m44;
+        glUniformMatrix4fv(transformMatrixUniform, 1, GL_FALSE, transformMatrix);
         
         CGRect insetRect = AVMakeRectWithAspectRatioInsideRect(CGSizeMake(height, width), CGRectMake(0, 0, backingWidth, backingHeight));
         
@@ -207,7 +250,7 @@ static const GLfloat rotateRightTextureCoordinates[] = {
         
         glVertexAttribPointer(positionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
 
-        glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, verticalFlipTextureCoordinates);
+        glVertexAttribPointer(textureCoordinateAttribute, 2, GL_FLOAT, 0, 0, noRotationTextureCoordinates);
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         
