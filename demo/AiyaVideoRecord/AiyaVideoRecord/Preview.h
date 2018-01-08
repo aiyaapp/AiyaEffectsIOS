@@ -15,4 +15,9 @@
  */
 - (void)render:(CVPixelBufferRef)CVPixelBuffer;
 
+/**
+ 停止渲染
+ */
+@property (nonatomic, assign) BOOL renderSuspended;
+
 @end

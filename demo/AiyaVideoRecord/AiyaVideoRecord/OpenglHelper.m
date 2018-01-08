@@ -183,7 +183,7 @@ static int specificKey;
 - (GLuint)createProgramWithVert:(const NSString *)vShaderString frag:(const NSString *)fShaderString{
     
     GLuint program = glCreateProgram();
-    GLuint vertShader, fragShader;
+    GLuint vertShader = 0, fragShader = 0;
     if (![self compileShader:&vertShader
                         type:GL_VERTEX_SHADER
                       string:vShaderString]){

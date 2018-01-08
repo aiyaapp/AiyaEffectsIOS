@@ -4,7 +4,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 
 @interface MediaWriter (){
-    dispatch_queue_t writerQueue;
+    dispatch_queue_t writerQueue; // AVAssetWriter 不能并行调用, 会出错.
     
     CMFormatDescriptionRef _outputFormatDescription;
 }
@@ -198,8 +198,10 @@ static const float radian = M_PI_2;
     }
     
     if (!self.audioAlreadySetup){
-        self.audioAlreadySetup = [self setupAudioWithSettings:sampleBuffer];
-
+        dispatch_sync(writerQueue, ^{
+            self.audioAlreadySetup = [self setupAudioWithSettings:sampleBuffer];
+        });
+        
         if (!self.audioAlreadySetup) {
             NSLog(@"设置音频参数失败");
             return;
@@ -281,7 +283,10 @@ static const float radian = M_PI_2;
     }
     
     if (!self.videoAlreadySetup){
-        self.videoAlreadySetup = [self setupVideoWithSettings:pixelBuffer];
+        dispatch_sync(writerQueue, ^{
+            self.videoAlreadySetup = [self setupVideoWithSettings:pixelBuffer];
+        });
+        
         if (!self.videoAlreadySetup){
             NSLog(@"设置视频参数失败");
             return;

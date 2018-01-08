@@ -114,6 +114,12 @@ static const GLfloat noRotationTextureCoordinates[] = {
     
 }
 
+- (void)setRenderSuspended:(BOOL)renderSuspended{
+    runSynchronouslyOnOpenglHelperContextQueue(^{
+        _renderSuspended = renderSuspended;
+    });
+}
+
 - (void)render:(CVPixelBufferRef)pixelBuffer{
     runSynchronouslyOnOpenglHelperContextQueue(^{
         [glHelper useAsCurrentContext];
@@ -190,7 +196,7 @@ static const GLfloat noRotationTextureCoordinates[] = {
         glBindFramebuffer(GL_FRAMEBUFFER, displayFrameBuffer);
         glViewport(0, 0, backingWidth, backingHeight);
         
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         glUseProgram(program);
@@ -255,7 +261,12 @@ static const GLfloat noRotationTextureCoordinates[] = {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         
         glBindRenderbuffer(GL_RENDERBUFFER, renderbuffer);
-        [[glHelper context] presentRenderbuffer:GL_RENDERBUFFER];
+        
+        if (!self.renderSuspended) {
+            [[glHelper context] presentRenderbuffer:GL_RENDERBUFFER];
+        } else {
+            NSLog(@"render has stoped");
+        }
 // ----------显示纹理数据到视图中 绘制结束----------
     });
 }
@@ -316,7 +327,12 @@ static const GLfloat noRotationTextureCoordinates[] = {
         glGenRenderbuffers(1, &renderbuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, renderbuffer);
         
-        [[glHelper context] renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
+        __block CAEAGLLayer *layer;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            layer = (CAEAGLLayer *)self.layer;
+        });
+        
+        [[glHelper context] renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
         
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
         glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
