@@ -105,7 +105,9 @@
         [self.session addOutput:self.audioOutput];
     }
     
-    if ([self.session canSetSessionPreset:AVCaptureSessionPreset1280x720]){
+    if ([self.session canSetSessionPreset:AVCaptureSessionPreset1920x1080]){
+        self.session.sessionPreset = AVCaptureSessionPreset1920x1080;
+    }else if ([self.session canSetSessionPreset:AVCaptureSessionPreset1280x720]){
         self.session.sessionPreset = AVCaptureSessionPreset1280x720;
     }else if ([self.session canSetSessionPreset:AVCaptureSessionPreset640x480]){
         self.session.sessionPreset = AVCaptureSessionPreset640x480;
@@ -117,6 +119,8 @@
 - (void)startCapture{
     if (![self.session isRunning]) {
         [self.session startRunning];
+        
+        [self focusAtPoint:CGPointMake(0.5f, 0.5f)];
     }
 }
 
