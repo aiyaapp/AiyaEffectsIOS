@@ -1,3 +1,9 @@
+AiyaEffectsSDK iOS V4.0.4
+>
+**功能更新**
+- 修复了"海的女儿"特效崩溃
+- 加入了视频录制的Demo
+
 AiyaEffectsSDK iOS V4.0.0
 >
 **功能更新**
