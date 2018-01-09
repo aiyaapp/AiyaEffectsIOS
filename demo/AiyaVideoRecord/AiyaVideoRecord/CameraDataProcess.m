@@ -149,7 +149,7 @@ static const GLfloat noRotationTextureCoordinates[] = {
     runSynchronouslyOnOpenglHelperContextQueue(^{
         [glHelper useAsCurrentContext];
         
-// ----------绘制YUV数据 绘制开始----------
+// ----------Draw YUV data start----------
         CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
         
         int width = (int)CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0);
@@ -251,14 +251,14 @@ static const GLfloat noRotationTextureCoordinates[] = {
         glEnableVertexAttribArray(textureCoordinateAttribute);
         
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-// ----------绘制YUV数据 绘制结束----------
+// ----------Draw YUV data end----------
 
         // 回调纹理数据
         if (self.delegate && [self.delegate respondsToSelector:@selector(cameraDataProcessWithTexture:width:height:)]) {
             inputTexture = [self.delegate cameraDataProcessWithTexture:inputTexture width:height height:width];
         }
      
-// ----------绘制BGRA格式的纹理到CMSampleBuffer中 绘制开始----------
+// ----------Draw BGRA texture to CMSampleBuffer start----------
         int outputWidth = width;
         int outputHeight = height;
         
@@ -317,7 +317,7 @@ static const GLfloat noRotationTextureCoordinates[] = {
         CMSampleBufferCreateForImageBuffer( kCFAllocatorDefault, outputCVPixelBuffer, true, NULL, NULL, outputFormatDescription, &timingInfo, &outputSampleBuffer );
         CFRelease(outputFormatDescription);
         
-// ----------绘制BGRA格式的纹理到CMSampleBuffer中 绘制结束----------
+// ----------Draw BGRA texture to CMSampleBuffer end----------
     });
     return outputSampleBuffer;
 }

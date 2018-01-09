@@ -46,7 +46,7 @@
     // license state notification
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(licenseMessage:) name:AiyaLicenseNotification object:nil];
     
-    // init license
+    // init license . apply license please open http://www.lansear.cn/product/bbtx or +8618676907096
     [AYLicenseManager initLicense:@"0244e715ce48440ea4ddb08054d9066b"];
     
     //录制视频

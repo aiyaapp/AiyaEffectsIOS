@@ -46,6 +46,8 @@
 //----------哎吖科技添加 开始----------
     // license state notification
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(licenseMessage:) name:AiyaLicenseNotification object:nil];
+    
+    // init license . apply license please open http://www.lansear.cn/product/bbtx or +8618676907096
     [AYLicenseManager initLicense:@"108dd994a1874c20ba5b54453ea7d1f2"];
 //----------哎吖科技添加 结束----------
 

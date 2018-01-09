@@ -101,7 +101,7 @@ static int specificKey;
 - (EAGLContext *)context {
     if (_context == nil)
     {
-        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2 sharegroup:nil];
+        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         [EAGLContext setCurrentContext:_context];
         
         // Set up a few global settings for the image processing pipeline

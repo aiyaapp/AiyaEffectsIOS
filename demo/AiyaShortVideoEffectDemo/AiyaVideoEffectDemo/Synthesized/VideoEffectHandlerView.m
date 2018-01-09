@@ -399,10 +399,6 @@ GLfloat *kAYColorConversion601FullRange = kAYColorConversion601FullRangeDefault;
     glBindRenderbuffer(GL_RENDERBUFFER, displayRenderbuffer);
     [[glHelper context] presentRenderbuffer:GL_RENDERBUFFER];
     
-    CMSampleBufferInvalidate(sampleBuffer);
-    CFRelease(sampleBuffer);
-    sampleBuffer = NULL;
-    
     return tempSamepleBuffer;
 }
 
