@@ -1,0 +1,11 @@
+{
+  "format" : "1",
+  "name":"happynewyaer",
+  "resid" : "500112",
+  "nodes" : [
+    		{
+	  "type":"3dModel",
+      "obj" : "happynewyaer.obj"
+    }
+  ]
+}
