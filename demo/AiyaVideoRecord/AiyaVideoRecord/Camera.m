@@ -89,20 +89,9 @@
     
     [self.session beginConfiguration];
     
+    // 找一个前置相机能使用的最高分辨率
     if ([self.session canAddInput:self.videoInput]) {
         [self.session addInput:self.videoInput];
-    }
-    
-    if ([self.session canAddOutput:self.videoOutput]) {
-        [self.session addOutput:self.videoOutput];
-    }
-    
-    if ([self.session canAddInput:self.audioInput]) {
-        [self.session addInput:self.audioInput];
-    }
-    
-    if ([self.session canAddOutput:self.audioOutput]) {
-        [self.session addOutput:self.audioOutput];
     }
     
     if ([self.session canSetSessionPreset:AVCaptureSessionPreset1920x1080]){
@@ -113,11 +102,30 @@
         self.session.sessionPreset = AVCaptureSessionPreset640x480;
     }
     
+    [self.session removeInput:self.videoInput];
+    
     [self.session commitConfiguration];
 }
 
 - (void)startCapture{
     if (![self.session isRunning]) {
+        
+        if ([self.session canAddInput:self.videoInput]) {
+            [self.session addInput:self.videoInput];
+        }
+        
+        if ([self.session canAddOutput:self.videoOutput]) {
+            [self.session addOutput:self.videoOutput];
+        }
+        
+        if ([self.session canAddInput:self.audioInput]) {
+            [self.session addInput:self.audioInput];
+        }
+        
+        if ([self.session canAddOutput:self.audioOutput]) {
+            [self.session addOutput:self.audioOutput];
+        }
+        
         [self.session startRunning];
         
         [self focusAtPoint:CGPointMake(0.5f, 0.5f)];
@@ -126,6 +134,15 @@
 
 - (void)stopCapture{
     if ([self.session isRunning]) {
+        
+        [self.session removeInput:self.videoInput];
+        
+        [self.session removeOutput:self.videoOutput];
+        
+        [self.session removeInput:self.audioInput];
+        
+        [self.session removeOutput:self.audioOutput];
+        
         [self.session stopRunning];
     }
 }
@@ -165,18 +182,8 @@
         }
     }
     
-    [self.session beginConfiguration];
-    
-    [self.session removeInput:self.videoInput];
-    
     self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.camera error:nil];
-
-    if ([self.session canAddInput:self.videoInput]) {
-        [self.session addInput:self.videoInput];
-    }
     
-    [self.session commitConfiguration];
-
     if (isRuning) {
         [self startCapture];
     }

@@ -29,7 +29,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aiyaMessage:) name:AiyaMessageNotification object:nil];
     
-    // init license
+    // init license . apply license please open http://www.lansear.cn/product/bbtx or +8618676907096
     [AYLicenseManager initLicense:@"3a8dff7c222644b7abbde10b22ad779d"];
     
     // add blue view

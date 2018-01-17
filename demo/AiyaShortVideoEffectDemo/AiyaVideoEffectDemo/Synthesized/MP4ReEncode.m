@@ -250,17 +250,21 @@
 
 - (BOOL)startAssetReaderAndWriter:(NSError **)outError
 {
-    BOOL success = YES;
     // Attempt to start the asset reader.
-    success = [self.assetReader startReading];
+    BOOL success = [self.assetReader startReading];
     if (!success){
-        *outError = [self.assetReader error];
+        if (outError != NULL) {
+            *outError = [self.assetReader error];
+        }
     }
     if (success){
         // If the reader started successfully, attempt to start the asset writer.
         success = [self.assetWriter startWriting];
-        if (!success)
-            *outError = [self.assetWriter error];
+        if (!success){
+            if (outError != NULL) {
+                *outError = [self.assetWriter error];
+            }
+        }
     }
     
     if (success){
@@ -322,13 +326,21 @@
                     // Get the next video sample buffer, and append it to the output file.
                     CMSampleBufferRef sampleBuffer = [self.assetReaderVideoOutput copyNextSampleBuffer];
                     if (sampleBuffer != NULL){
+                        CMSampleBufferRef newSampleBuffer = NULL;
                         if(self.delegate){
-                            sampleBuffer = [self.delegate MP4ReEncodeProcessVideoSampleBuffer:sampleBuffer];
+                            newSampleBuffer = [self.delegate MP4ReEncodeProcessVideoSampleBuffer:sampleBuffer];
                         }
                         
-                        BOOL success = [self.assetWriterVideoInput appendSampleBuffer:sampleBuffer];
+                        BOOL success = NO;
+                        if (newSampleBuffer) {
+                            success = [self.assetWriterVideoInput appendSampleBuffer:newSampleBuffer];
+                            CFRelease(newSampleBuffer);
+                            newSampleBuffer = NULL;
+                        }
+                        
                         CFRelease(sampleBuffer);
                         sampleBuffer = NULL;
+                        
                         completedOrFailed = !success;
                         
                     }else{
