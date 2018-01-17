@@ -1,6 +1,6 @@
-<a href="http://www.lansear.cn/product/bbtx"><img src="doc/summarize1.jpg" border="0" alt="宝宝特效" /></a>
-<a href="http://www.lansear.cn/product/bbtx"><img src="doc/summarize2.jpg" border="0" alt="宝宝特效" /></a>
-<a href="http://www.lansear.cn/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="抖音式短视频特效" /></a>
+<a href="http://www.aiyaapp.com/product/bbtx"><img src="doc/summarize1.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.aiyaapp.com/product/bbtx"><img src="doc/summarize2.jpg" border="0" alt="宝宝特效" /></a>
+<a href="http://www.aiyaapp.com/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="抖音式短视频特效" /></a>
 
 # AiyaEffectsSDK iOS Guide
 
@@ -43,15 +43,15 @@ There are two ways to get our sdk:
 [Quick Start](doc/howToUse.md)
 
 ## 6. Custom Dynamic Sticker And Frame Animation
-The document of custom dynamic sticker is not officially opened, please [constact us](http://www.lansear.cn/product/bbtx) to get.
+The document of custom dynamic sticker is not officially opened, please [constact us](http://www.aiyaapp.com/product/bbtx) to get.
 
 ## 7. License
-* Get a AiyaEffectsSDK license, please open the [AiyaEffectsSDK](http://www.lansear.cn/product/bbtx) website
+* Get a AiyaEffectsSDK license, please open the [AiyaEffectsSDK](http://www.aiyaapp.com/product/bbtx) website
 
 ## 8. Feedback
-- Homepage: [AiyaEffectsSDK](http://www.lansear.cn/product/bbtx)
+- Homepage: [AiyaEffectsSDK](http://www.aiyaapp.com/product/bbtx)
 - Phone: +86 18676907096
 - Email: <liudawei@aiyaapp.com> 
 - Tencent QQ Group: 650242833
 
-<a href="http://www.lansear.cn/product/bbtx"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
+<a href="http://www.aiyaapp.com/product/bbtx"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
