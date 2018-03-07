@@ -30,13 +30,22 @@ static const int recordStep = 10; //每10帧做一次记录
 
 @implementation AiyaEffectFilter
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        runSynchronouslyOnVideoProcessingQueue(^{
+            [GPUImageContext useImageProcessingContext];
+           
+            _effectHandler = [[AYEffectHandler alloc] init];
+        });
+    }
+    return self;
+}
+
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;{
     
     //------------->绘制特效图像<--------------//
-    
-    if (!_effectHandler) {
-        _effectHandler = [[AYEffectHandler alloc] init];
-    }
     
     [self.effectHandler processWithTexture:firstInputFramebuffer.texture width:[self sizeOfFBO].width height:[self sizeOfFBO].height];
     
