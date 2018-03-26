@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */; };
+		D310C553205F4E9800FD1826 /* AiyaEffectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */; };
+		D310C554205F4E9800FD1826 /* AiyaEffectSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3190ABA1E7108E400121BAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190AB91E7108E400121BAB /* main.m */; };
 		D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABC1E7108E400121BAB /* AppDelegate.m */; };
 		D3190AC01E7108E400121BAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABF1E7108E400121BAB /* ViewController.m */; };
@@ -15,8 +17,6 @@
 		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
 		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
 		D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B341E7168C400121BAB /* libc++.tbd */; };
-		D31F33071FF39A6500B042BD /* AiyaEffectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31F32FA1FF39A5A00B042BD /* AiyaEffectSDK.framework */; };
-		D31F33081FF39A6500B042BD /* AiyaEffectSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D31F32FA1FF39A5A00B042BD /* AiyaEffectSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D31F330E1FF39D8800B042BD /* AiyaEffectSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
@@ -27,61 +27,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D31F32F91FF39A5A00B042BD /* PBXContainerItemProxy */ = {
+		D310C555205F4E9800FD1826 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D37926E91FCD081A007DB5E8;
+			remoteInfo = AiyaEffectSDK;
+		};
+		D392C61A20514C40009883B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37926EA1FCD081A007DB5E8;
 			remoteInfo = AiyaEffectSDK;
 		};
-		D31F32FB1FF39A5A00B042BD /* PBXContainerItemProxy */ = {
+		D392C61C20514C40009883B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37926F91FCD0892007DB5E8;
 			remoteInfo = AySDKCore;
 		};
-		D31F32FD1FF39A5A00B042BD /* PBXContainerItemProxy */ = {
+		D392C61E20514C40009883B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37927061FCD08A0007DB5E8;
 			remoteInfo = AyTrack;
 		};
-		D31F32FF1FF39A5A00B042BD /* PBXContainerItemProxy */ = {
+		D392C62020514C40009883B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37927131FCD08AA007DB5E8;
 			remoteInfo = AyEffect;
 		};
-		D31F33011FF39A5A00B042BD /* PBXContainerItemProxy */ = {
+		D392C62220514C40009883B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37927201FCD08BB007DB5E8;
 			remoteInfo = AyBeauty;
 		};
-		D31F33031FF39A5A00B042BD /* PBXContainerItemProxy */ = {
+		D392C62420514C40009883B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+			containerPortal = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D379272D1FCD08DA007DB5E8;
 			remoteInfo = AyShortVideoEffect;
-		};
-		D31F33051FF39A6000B042BD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D37926E91FCD081A007DB5E8;
-			remoteInfo = AiyaEffectSDK;
-		};
-		D31F33091FF39A6500B042BD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D37926E91FCD081A007DB5E8;
-			remoteInfo = AiyaEffectSDK;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -92,7 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D31F33081FF39A6500B042BD /* AiyaEffectSDK.framework in Embed Frameworks */,
+				D310C554205F4E9800FD1826 /* AiyaEffectSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,10 +110,10 @@
 		D3190B2F1E713A3D00121BAB /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
 		D3190B321E7168BB00121BAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D3190B341E7168C400121BAB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AiyaEffectSDK.xcodeproj; path = ../../AiyaEffectSDK/AiyaEffectSDK.xcodeproj; sourceTree = "<group>"; };
 		D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AiyaEffectSDK.bundle; path = ../../../AiyaEffectSDK/AiyaEffectSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
 		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AiyaEffectSDK.xcodeproj; path = ../../AiyaEffectSDK/AiyaEffectSDK.xcodeproj; sourceTree = "<group>"; };
 		D393AE4B1FD387CF00DA7EB5 /* AiyaEffectFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AiyaEffectFilter.h; sourceTree = "<group>"; };
 		D393AE4C1FD387CF00DA7EB5 /* AiyaEffectFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiyaEffectFilter.m; sourceTree = "<group>"; };
 		D393AE6E1FD3988E00DA7EB5 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -142,7 +135,7 @@
 				D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */,
 				D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */,
 				D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */,
-				D31F33071FF39A6500B042BD /* AiyaEffectSDK.framework in Frameworks */,
+				D310C553205F4E9800FD1826 /* AiyaEffectSDK.framework in Frameworks */,
 				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,7 +172,7 @@
 		D3190AAC1E7108E400121BAB = {
 			isa = PBXGroup;
 			children = (
-				D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */,
+				D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */,
 				D3190AB71E7108E400121BAB /* AiyaEffectsDemo */,
 				D3190AB61E7108E400121BAB /* Products */,
 				03CF003D302261D1516C81F3 /* Pods */,
@@ -236,15 +229,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D31F32F11FF39A5A00B042BD /* Products */ = {
+		D392C60D20514C3F009883B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D31F32FA1FF39A5A00B042BD /* AiyaEffectSDK.framework */,
-				D31F32FC1FF39A5A00B042BD /* libAySDKCore.a */,
-				D31F32FE1FF39A5A00B042BD /* libAyTrack.a */,
-				D31F33001FF39A5A00B042BD /* libAyEffect.a */,
-				D31F33021FF39A5A00B042BD /* libAyBeauty.a */,
-				D31F33041FF39A5A00B042BD /* libAyShortVideoEffect.a */,
+				D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */,
+				D392C61D20514C40009883B2 /* libAySDKCore.a */,
+				D392C61F20514C40009883B2 /* libAyTrack.a */,
+				D392C62120514C40009883B2 /* libAyEffect.a */,
+				D392C62320514C40009883B2 /* libAyBeauty.a */,
+				D392C62520514C40009883B2 /* libAyShortVideoEffect.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,8 +260,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D31F33061FF39A6000B042BD /* PBXTargetDependency */,
-				D31F330A1FF39A6500B042BD /* PBXTargetDependency */,
+				D310C556205F4E9800FD1826 /* PBXTargetDependency */,
 			);
 			name = AiyaEffectsDemo;
 			productName = AiyaEffectsDemo;
@@ -304,8 +296,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D31F32F11FF39A5A00B042BD /* Products */;
-					ProjectRef = D31F32F01FF39A5A00B042BD /* AiyaEffectSDK.xcodeproj */;
+					ProductGroup = D392C60D20514C3F009883B2 /* Products */;
+					ProjectRef = D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -316,46 +308,46 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D31F32FA1FF39A5A00B042BD /* AiyaEffectSDK.framework */ = {
+		D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AiyaEffectSDK.framework;
-			remoteRef = D31F32F91FF39A5A00B042BD /* PBXContainerItemProxy */;
+			remoteRef = D392C61A20514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D31F32FC1FF39A5A00B042BD /* libAySDKCore.a */ = {
+		D392C61D20514C40009883B2 /* libAySDKCore.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAySDKCore.a;
-			remoteRef = D31F32FB1FF39A5A00B042BD /* PBXContainerItemProxy */;
+			remoteRef = D392C61C20514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D31F32FE1FF39A5A00B042BD /* libAyTrack.a */ = {
+		D392C61F20514C40009883B2 /* libAyTrack.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAyTrack.a;
-			remoteRef = D31F32FD1FF39A5A00B042BD /* PBXContainerItemProxy */;
+			remoteRef = D392C61E20514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D31F33001FF39A5A00B042BD /* libAyEffect.a */ = {
+		D392C62120514C40009883B2 /* libAyEffect.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAyEffect.a;
-			remoteRef = D31F32FF1FF39A5A00B042BD /* PBXContainerItemProxy */;
+			remoteRef = D392C62020514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D31F33021FF39A5A00B042BD /* libAyBeauty.a */ = {
+		D392C62320514C40009883B2 /* libAyBeauty.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAyBeauty.a;
-			remoteRef = D31F33011FF39A5A00B042BD /* PBXContainerItemProxy */;
+			remoteRef = D392C62220514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D31F33041FF39A5A00B042BD /* libAyShortVideoEffect.a */ = {
+		D392C62520514C40009883B2 /* libAyShortVideoEffect.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAyShortVideoEffect.a;
-			remoteRef = D31F33031FF39A5A00B042BD /* PBXContainerItemProxy */;
+			remoteRef = D392C62420514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -440,15 +432,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D31F33061FF39A6000B042BD /* PBXTargetDependency */ = {
+		D310C556205F4E9800FD1826 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AiyaEffectSDK;
-			targetProxy = D31F33051FF39A6000B042BD /* PBXContainerItemProxy */;
-		};
-		D31F330A1FF39A6500B042BD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AiyaEffectSDK;
-			targetProxy = D31F33091FF39A6500B042BD /* PBXContainerItemProxy */;
+			targetProxy = D310C555205F4E9800FD1826 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
