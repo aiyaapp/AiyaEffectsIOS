@@ -1,7 +1,6 @@
 {
   "format" : "1",
   "name":"手套",
-  "resid" : "500303",
   "nodes" : [
     {
 	  "type":"3dModel",

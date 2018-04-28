@@ -1,7 +1,6 @@
 {
   "format" : "1",
   "name":"兔耳",
-  "resid" : "500204",
   "nodes" : [
     {
 	  "type":"3dModel",

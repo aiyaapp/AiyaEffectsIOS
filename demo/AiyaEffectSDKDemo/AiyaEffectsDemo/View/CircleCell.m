@@ -32,10 +32,8 @@
 - (void)setupSubview{
     
     _imgView = [[UIImageView alloc]init];
-    [self.imgView.layer setCornerRadius:27.5];
-//    [self.imgView.layer setBorderWidth:1];
-//    [self.imgView.layer setBorderColor:[UIColor colorWithRed:0xa9/255 green:0xac/255 blue:0x89/255 alpha:0.6f].CGColor];
     [self.imgView setClipsToBounds:YES];
+    [self.imgView setContentMode:UIViewContentModeScaleAspectFit];
     
     _label = [[UILabel alloc]init];
     [self.label setFont:[UIFont systemFontOfSize:14]];
@@ -47,8 +45,11 @@
     
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
-        make.width.equalTo(self.contentView.mas_width);
-        make.height.equalTo(self.contentView.mas_width);
+        make.width.equalTo(self.contentView.mas_width).multipliedBy(0.8);
+        make.height.equalTo(self.contentView.mas_width).multipliedBy(0.8);
+        make.centerY.equalTo(self.contentView.mas_centerY);
+        make.centerX.equalTo(self.contentView.mas_centerX);
+        
     }];
     
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {

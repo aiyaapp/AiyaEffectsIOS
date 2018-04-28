@@ -83,21 +83,27 @@
 
     //初始化特效资源
     _effectData = [NSMutableArray arrayWithCapacity:(effectDirNameArr.count + 1) * 3];
-    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"effect"],@"原始",@""]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"no_eff"],@"原始",@""]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"img2017"],@"2017",[effectRootDirPath stringByAppendingPathComponent:@"2017/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"baowener"],@"豹纹耳",[effectRootDirPath stringByAppendingPathComponent:@"baowener/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"gougou"],@"狗狗",[effectRootDirPath stringByAppendingPathComponent:@"gougou/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"fadai"],@"发带",[effectRootDirPath stringByAppendingPathComponent:@"fadai/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"grass"],@"小草",[effectRootDirPath stringByAppendingPathComponent:@"grass/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"huahuan"],@"花环",[effectRootDirPath stringByAppendingPathComponent:@"huahuan/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"majing"],@"马镜",[effectRootDirPath stringByAppendingPathComponent:@"majing/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"maoer"],@"猫耳",[effectRootDirPath stringByAppendingPathComponent:@"maoer/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"maorong"],@"毛绒",[effectRootDirPath stringByAppendingPathComponent:@"maorong/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"giraffe"],@"梅花鹿",[effectRootDirPath stringByAppendingPathComponent:@"giraffe/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"niu"],@"牛",[effectRootDirPath stringByAppendingPathComponent:@"niu/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"shoutao"],@"手套",[effectRootDirPath stringByAppendingPathComponent:@"shoutao/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"bunny"],@"兔耳",[effectRootDirPath stringByAppendingPathComponent:@"bunny/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"gaokongshiai"],@"高空示爱",[effectRootDirPath stringByAppendingPathComponent:@"gaokongshiai/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"shiwaitaoyuan"],@"世外桃源",[effectRootDirPath stringByAppendingPathComponent:@"shiwaitaoyuan/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"mojing"],@"魔镜",[effectRootDirPath stringByAppendingPathComponent:@"mojing/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"mogulin"],@"蘑菇林",[effectRootDirPath stringByAppendingPathComponent:@"mogulin/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"xiaohongmao"],@"小红帽",[effectRootDirPath stringByAppendingPathComponent:@"xiaohongmao/meta.json"]]];
+    [self.effectData addObjectsFromArray:@[[UIImage imageNamed:@"arg"],@"国旗",[effectRootDirPath stringByAppendingPathComponent:@"arg/meta.json"]]];
 
-    for (NSString *effectDirName in effectDirNameArr) {
-
-        NSString *path = [effectRootDirPath stringByAppendingPathComponent:[effectDirName stringByAppendingPathComponent:@"meta.json"]];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            continue;
-        }
-        NSData *jsonData = [NSData dataWithContentsOfFile:path];
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-
-        [self.effectData addObject:[UIImage imageNamed:@"effect"]];
-        [self.effectData addObject:dic[@"name"]];
-        [self.effectData addObject:path];
-    }
 
     //初始化滤镜资源
     _styleData = [NSMutableArray arrayWithCapacity:(styleFileNameArr.count + 1) * 3];
