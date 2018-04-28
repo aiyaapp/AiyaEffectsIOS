@@ -84,6 +84,8 @@
 		D3AE5C811FF34D3F004D476B /* AYAnimHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = D3AE5C7F1FF34D3F004D476B /* AYAnimHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3AE5C821FF34D3F004D476B /* AYAnimHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE5C801FF34D3F004D476B /* AYAnimHandler.m */; };
 		D3B0DEE01FD2827D001920A0 /* libAyShortVideoEffect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D379272D1FCD08DA007DB5E8 /* libAyShortVideoEffect.a */; };
+		D3BE8E00205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3BE8DFE205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h */; };
+		D3BE8E01205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BE8DFF205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m */; };
 		D3EBBA751FCD4B6700F5742A /* AYGPUImageTextureInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */; };
 		D3EBBA761FCD4B6700F5742A /* AYGPUImageTextureInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */; };
 		D3EBBA791FCD4B7800F5742A /* AYGPUImageTextureOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */; };
@@ -303,6 +305,8 @@
 		D393AE901FD3A2A200DA7EB5 /* AYEffectConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYEffectConstants.m; sourceTree = "<group>"; };
 		D3AE5C7F1FF34D3F004D476B /* AYAnimHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYAnimHandler.h; sourceTree = "<group>"; };
 		D3AE5C801FF34D3F004D476B /* AYAnimHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYAnimHandler.m; sourceTree = "<group>"; };
+		D3BE8DFE205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageGaussianBlurFilter.h; sourceTree = "<group>"; };
+		D3BE8DFF205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageGaussianBlurFilter.m; sourceTree = "<group>"; };
 		D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageTextureInput.h; sourceTree = "<group>"; };
 		D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageTextureInput.m; sourceTree = "<group>"; };
 		D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageTextureOutput.h; sourceTree = "<group>"; };
@@ -661,6 +665,8 @@
 				D365AF5F1FD01C8300E60BC0 /* AYGPUImageSlimFaceFilter.m */,
 				D366B5671FD25A5C00A6178E /* AYGPUImageShortVideoFilter.h */,
 				D366B5681FD25A5C00A6178E /* AYGPUImageShortVideoFilter.m */,
+				D3BE8DFE205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h */,
+				D3BE8DFF205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m */,
 			);
 			path = AyGPUImageCustomFilter;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 				D37927421FCD0D4A007DB5E8 /* AYGPUImageContext.h in Headers */,
 				D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h in Headers */,
 				D37927581FCD1344007DB5E8 /* AYGPUImageLookupFilter.h in Headers */,
+				D3BE8E00205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +908,7 @@
 				D3EBBA821FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m in Sources */,
 				D393AE911FD3A2A200DA7EB5 /* AYEffectConstants.m in Sources */,
 				D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m in Sources */,
+				D3BE8E01205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m in Sources */,
 				D3EBBA7A1FCD4B7800F5742A /* AYGPUImageTextureOutput.m in Sources */,
 				D36926F11FCEC10C00A00D12 /* AYGPUImageEffectFilter.m in Sources */,
 				D3AE5C821FF34D3F004D476B /* AYAnimHandler.m in Sources */,
