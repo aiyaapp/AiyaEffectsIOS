@@ -192,6 +192,14 @@
     GLint viewPoint[4];
     glGetIntegerv(GL_VIEWPORT, (GLint *)&viewPoint);
     
+    NSMutableArray* vertexAttribEnableArray = [NSMutableArray arrayWithCapacity:10];
+    NSInteger vertexAttribEnableArraySize = 10;
+    for (int x = 0 ; x < vertexAttribEnableArraySize; x++) {
+        GLint vertexAttribEnable;
+        glGetVertexAttribiv(x, GL_VERTEX_ATTRIB_ARRAY_ENABLED, &vertexAttribEnable);
+        [vertexAttribEnableArray addObject:@(vertexAttribEnable)];
+    }
+    
     if (self.initRawDataProcess) {
         [self removeFilterTargers];
         
@@ -260,6 +268,9 @@
     // 还原当前绑定的FrameBuffer
     glBindFramebuffer(GL_FRAMEBUFFER, bindingFrameBuffer);
     glViewport(viewPoint[0], viewPoint[1], viewPoint[2], viewPoint[3]);
+    for (int x = 0 ; x < vertexAttribEnableArraySize; x++) {
+        glEnableVertexAttribArray((int)vertexAttribEnableArray[x]);
+    }
 }
 
 - (void)processWithPixelBuffer:(CVPixelBufferRef)pixelBuffer{
