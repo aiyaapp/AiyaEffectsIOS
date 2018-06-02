@@ -1,17 +1,17 @@
 //
-//  AYGPUImageRawDataOutput.m
+//  AYGPUImageBGRADataOutput.m
 //  AiyaEffectSDK
 //
 //  Created by 汪洋 on 2017/11/28.
 //  Copyright © 2017年 深圳市哎吖科技有限公司. All rights reserved.
 //
 
-#import "AYGPUImageRawDataOutput.h"
+#import "AYGPUImageBGRADataOutput.h"
 
 #import "AYGLProgram.h"
 #import "AYGPUImageFramebuffer.h"
 
-@interface AYGPUImageRawDataOutput (){
+@interface AYGPUImageBGRADataOutput (){
     AYGPUImageFramebuffer *firstInputFramebuffer;
     
     AYGLProgram *dataProgram;
@@ -19,19 +19,18 @@
     GLint dataInputTextureUniform;
     
     AYGPUImageFramebuffer *outputFramebuffer;
-    
-    int outputWidth;
-    int outputHeight;
 }
 
 @property (nonatomic, weak) AYGPUImageContext *context;
 @property (nonatomic, assign) CGSize inputSize;
 
-@property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
-
+@property (nonatomic, assign) CVPixelBufferRef outputPixelBuffer;
+@property (nonatomic, assign) void *outputData;
+@property (nonatomic, assign) int outputWidth;
+@property (nonatomic, assign) int outputHeight;
 @end
 
-@implementation AYGPUImageRawDataOutput
+@implementation AYGPUImageBGRADataOutput
 
 - (instancetype)initWithContext:(AYGPUImageContext *)context
 {
@@ -74,7 +73,7 @@
     [self.context useAsCurrentContext];
     [dataProgram use];
     
-    outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(outputWidth, outputHeight) missCVPixelBuffer:NO];
+    outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(self.outputWidth, self.outputHeight) missCVPixelBuffer:NO];
     [outputFramebuffer activateFramebuffer];
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -86,31 +85,13 @@
         -1.0f,  1.0f,
         1.0f,  1.0f,
     };
-    
-    static const GLfloat noRotationTextureCoordinates[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-    };
-    
-    static const GLfloat verticalFlipTextureCoordinates[] = {
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f,  0.0f,
-        1.0f,  0.0f,
-    };
-    
+        
     glActiveTexture(GL_TEXTURE4);
     glBindTexture(GL_TEXTURE_2D, [firstInputFramebuffer texture]);
     glUniform1i(dataInputTextureUniform, 4);
     
     glVertexAttribPointer(dataPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
-    if (self.verticalFlip) {
-        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,verticalFlipTextureCoordinates);
-    } else {
-        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,noRotationTextureCoordinates);
-    }
+    glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [AYGPUImageFilter textureCoordinatesForRotation:self.rotateMode]);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     glFinish();
@@ -118,26 +99,37 @@
     [firstInputFramebuffer unlock];
     
     //导出数据
-    CVPixelBufferLockBaseAddress(self.pixelBuffer, 0);
-    
-    uint8_t *targetBuffer = CVPixelBufferGetBaseAddress(self.pixelBuffer);
-    
-    GLubyte *outputBuffer = outputFramebuffer.byteBuffer;
-    
-    memcpy(targetBuffer, outputBuffer, outputWidth * outputHeight * 4);
-    
-    CVPixelBufferUnlockBaseAddress(self.pixelBuffer, 0);
+    if (self.outputPixelBuffer) {
+        CVPixelBufferLockBaseAddress(self.outputPixelBuffer, 0);
+        uint8_t *targetBuffer = CVPixelBufferGetBaseAddress(self.outputPixelBuffer);
+        GLubyte *outputBuffer = outputFramebuffer.byteBuffer;
+        memcpy(targetBuffer, outputBuffer, self.outputWidth * self.outputHeight * 4);
+        CVPixelBufferUnlockBaseAddress(self.outputPixelBuffer, 0);
+    }else if (self.outputData) {
+        GLubyte *outputBuffer = outputFramebuffer.byteBuffer;
+        memcpy(self.outputData, outputBuffer, self.outputWidth * self.outputHeight * 4);
+    }
     
     [outputFramebuffer unlock];
 }
 
-- (void)setOutputCVPixelBuffer:(CVPixelBufferRef)pixelBuffer{
+- (void)setOutputWithBGRAData:(void *)bgraData width:(int)width height:(int)height{
+    self.outputPixelBuffer = NULL;
     
-    self.pixelBuffer = pixelBuffer;
+    self.outputData = bgraData;
+    
+    self.outputWidth = width;
+    self.outputHeight = height;
+}
+
+- (void)setOutputWithBGRAPixelBuffer:(CVPixelBufferRef)pixelBuffer{
+    self.outputData = NULL;
+    
+    self.outputPixelBuffer = pixelBuffer;
     
     int bytesPerRow = (int) CVPixelBufferGetBytesPerRow(pixelBuffer);
-    outputWidth = bytesPerRow / 4;
-    outputHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
+    self.outputWidth = bytesPerRow / 4;
+    self.outputHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
 }
 
 #pragma mark -

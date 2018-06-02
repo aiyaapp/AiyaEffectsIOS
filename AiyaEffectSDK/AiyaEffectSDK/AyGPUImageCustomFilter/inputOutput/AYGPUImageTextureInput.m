@@ -54,12 +54,16 @@
 }
 
 
-- (void)processBGRADataWithTexture:(GLint)texture width:(int)width height:(int)height{
+- (void)processWithBGRATexture:(GLint)texture width:(int)width height:(int)height{
     runAYSynchronouslyOnContextQueue(self.context, ^{
         [self.context useAsCurrentContext];
         [dataProgram use];
         
-        outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(width, height) textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
+        if ([AYGPUImageFilter needExchangeWidthAndHeightWithRotation:self.rotateMode]) {
+            outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(height, width) textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
+        } else {
+            outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(width, height) textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
+        }
         [outputFramebuffer activateFramebuffer];
                 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -72,30 +76,14 @@
             1.0f,  1.0f,
         };
         
-        static const GLfloat noRotationTextureCoordinates[] = {
-            0.0f, 0.0f,
-            1.0f, 0.0f,
-            0.0f, 1.0f,
-            1.0f, 1.0f,
-        };
-        
-        static const GLfloat verticalFlipTextureCoordinates[] = {
-            0.0f, 1.0f,
-            1.0f, 1.0f,
-            0.0f,  0.0f,
-            1.0f,  0.0f,
-        };
         
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture);
         glUniform1i(dataInputTextureUniform, 1);
         
         glVertexAttribPointer(dataPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
-        if (self.verticalFlip) {
-            glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,verticalFlipTextureCoordinates);
-        } else {
-            glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,noRotationTextureCoordinates);
-        }
+        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [AYGPUImageFilter textureCoordinatesForRotation:self.rotateMode]);
+
         
         glEnableVertexAttribArray(dataPositionAttribute);
         glEnableVertexAttribArray(dataTextureCoordinateAttribute);
@@ -107,7 +95,11 @@
             NSInteger indexOfObject = [targets indexOfObject:currentTarget];
             NSInteger textureIndexOfTarget = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
             
-            [currentTarget setInputSize:CGSizeMake(width, height) atIndex:textureIndexOfTarget];
+            if ([AYGPUImageFilter needExchangeWidthAndHeightWithRotation:self.rotateMode]) {
+                [currentTarget setInputSize:CGSizeMake(height, width) atIndex:textureIndexOfTarget];
+            } else {
+                [currentTarget setInputSize:CGSizeMake(width, height) atIndex:textureIndexOfTarget];
+            }
             [currentTarget setInputFramebuffer:outputFramebuffer atIndex:textureIndexOfTarget];
             [currentTarget newFrameReadyAtTime:kCMTimeInvalid atIndex:textureIndexOfTarget];
         }

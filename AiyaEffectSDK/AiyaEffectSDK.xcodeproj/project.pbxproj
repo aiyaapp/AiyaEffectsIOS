@@ -90,11 +90,20 @@
 		D3EBBA761FCD4B6700F5742A /* AYGPUImageTextureInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */; };
 		D3EBBA791FCD4B7800F5742A /* AYGPUImageTextureOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */; };
 		D3EBBA7A1FCD4B7800F5742A /* AYGPUImageTextureOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */; };
-		D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h */; };
-		D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m */; };
-		D3EBBA811FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h */; };
-		D3EBBA821FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA801FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m */; };
+		D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h */; };
+		D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m */; };
+		D3EBBA811FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h */; };
+		D3EBBA821FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA801FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m */; };
+		D3EDF77020B9AFB60016D814 /* AYGPUImageNV12DataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF76E20B9AFB60016D814 /* AYGPUImageNV12DataInput.h */; };
+		D3EDF77120B9AFB60016D814 /* AYGPUImageNV12DataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF76F20B9AFB60016D814 /* AYGPUImageNV12DataInput.m */; };
+		D3EDF77420B9B0180016D814 /* AYGPUImageNV12DataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF77220B9B0180016D814 /* AYGPUImageNV12DataOutput.h */; };
+		D3EDF77520B9B0180016D814 /* AYGPUImageNV12DataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF77320B9B0180016D814 /* AYGPUImageNV12DataOutput.m */; };
+		D3EDF7A020BA5DE90016D814 /* AYGPUImageI420DataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF79E20BA5DE90016D814 /* AYGPUImageI420DataInput.h */; };
+		D3EDF7A120BA5DE90016D814 /* AYGPUImageI420DataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF79F20BA5DE90016D814 /* AYGPUImageI420DataInput.m */; };
+		D3EDF7A420BA5DFE0016D814 /* AYGPUImageI420DataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF7A220BA5DFE0016D814 /* AYGPUImageI420DataOutput.h */; };
+		D3EDF7A520BA5DFE0016D814 /* AYGPUImageI420DataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF7A320BA5DFE0016D814 /* AYGPUImageI420DataOutput.m */; };
 		D3F9DEEE1FF376BF0006CEAA /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = D3F9DEED1FF376BF0006CEAA /* PrefixHeader.pch */; };
+		D3FEE9CB20C2854E002B11C6 /* AYGPUImageConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D37927541FCD0E70007DB5E8 /* AYGPUImageConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,10 +320,18 @@
 		D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageTextureInput.m; sourceTree = "<group>"; };
 		D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageTextureOutput.h; sourceTree = "<group>"; };
 		D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageTextureOutput.m; sourceTree = "<group>"; };
-		D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageRawDataInput.h; sourceTree = "<group>"; };
-		D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageRawDataInput.m; sourceTree = "<group>"; };
-		D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageRawDataOutput.h; sourceTree = "<group>"; };
-		D3EBBA801FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageRawDataOutput.m; sourceTree = "<group>"; };
+		D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageBGRADataInput.h; sourceTree = "<group>"; };
+		D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageBGRADataInput.m; sourceTree = "<group>"; };
+		D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageBGRADataOutput.h; sourceTree = "<group>"; };
+		D3EBBA801FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageBGRADataOutput.m; sourceTree = "<group>"; };
+		D3EDF76E20B9AFB60016D814 /* AYGPUImageNV12DataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageNV12DataInput.h; sourceTree = "<group>"; };
+		D3EDF76F20B9AFB60016D814 /* AYGPUImageNV12DataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageNV12DataInput.m; sourceTree = "<group>"; };
+		D3EDF77220B9B0180016D814 /* AYGPUImageNV12DataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageNV12DataOutput.h; sourceTree = "<group>"; };
+		D3EDF77320B9B0180016D814 /* AYGPUImageNV12DataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageNV12DataOutput.m; sourceTree = "<group>"; };
+		D3EDF79E20BA5DE90016D814 /* AYGPUImageI420DataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageI420DataInput.h; sourceTree = "<group>"; };
+		D3EDF79F20BA5DE90016D814 /* AYGPUImageI420DataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageI420DataInput.m; sourceTree = "<group>"; };
+		D3EDF7A220BA5DFE0016D814 /* AYGPUImageI420DataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageI420DataOutput.h; sourceTree = "<group>"; };
+		D3EDF7A320BA5DFE0016D814 /* AYGPUImageI420DataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageI420DataOutput.m; sourceTree = "<group>"; };
 		D3F391541FD2AC11009274DE /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D3F9DEED1FF376BF0006CEAA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -643,16 +660,9 @@
 		D37927551FCD12C1007DB5E8 /* AyGPUImageCustomFilter */ = {
 			isa = PBXGroup;
 			children = (
+				D3EDF79D20BA5CF80016D814 /* inputOutput */,
 				D37927561FCD1344007DB5E8 /* AYGPUImageLookupFilter.h */,
 				D37927571FCD1344007DB5E8 /* AYGPUImageLookupFilter.m */,
-				D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */,
-				D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */,
-				D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */,
-				D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */,
-				D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h */,
-				D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m */,
-				D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h */,
-				D3EBBA801FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m */,
 				D31A58771FD10AC900ADAA89 /* AYGPUImageTrackOutput.h */,
 				D31A58781FD10AC900ADAA89 /* AYGPUImageTrackOutput.m */,
 				D36926EE1FCEC10C00A00D12 /* AYGPUImageEffectFilter.h */,
@@ -671,6 +681,29 @@
 			path = AyGPUImageCustomFilter;
 			sourceTree = "<group>";
 		};
+		D3EDF79D20BA5CF80016D814 /* inputOutput */ = {
+			isa = PBXGroup;
+			children = (
+				D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */,
+				D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */,
+				D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */,
+				D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */,
+				D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h */,
+				D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m */,
+				D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h */,
+				D3EBBA801FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m */,
+				D3EDF76E20B9AFB60016D814 /* AYGPUImageNV12DataInput.h */,
+				D3EDF76F20B9AFB60016D814 /* AYGPUImageNV12DataInput.m */,
+				D3EDF77220B9B0180016D814 /* AYGPUImageNV12DataOutput.h */,
+				D3EDF77320B9B0180016D814 /* AYGPUImageNV12DataOutput.m */,
+				D3EDF79E20BA5DE90016D814 /* AYGPUImageI420DataInput.h */,
+				D3EDF79F20BA5DE90016D814 /* AYGPUImageI420DataInput.m */,
+				D3EDF7A220BA5DFE0016D814 /* AYGPUImageI420DataOutput.h */,
+				D3EDF7A320BA5DFE0016D814 /* AYGPUImageI420DataOutput.m */,
+			);
+			path = inputOutput;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -681,26 +714,31 @@
 				D36926EC1FCEBF0A00A00D12 /* AYEffectHandler.h in Headers */,
 				D3AE5C811FF34D3F004D476B /* AYAnimHandler.h in Headers */,
 				D366B5641FD252B700A6178E /* AYShortVideoEffectHandler.h in Headers */,
+				D3EDF7A420BA5DFE0016D814 /* AYGPUImageI420DataOutput.h in Headers */,
 				D365AF601FD01C8300E60BC0 /* AYGPUImageSlimFaceFilter.h in Headers */,
+				D3FEE9CB20C2854E002B11C6 /* AYGPUImageConstants.h in Headers */,
 				D36926E81FCEBEAE00A00D12 /* AYLicenseManager.h in Headers */,
 				D365AF4A1FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.h in Headers */,
 				D379273A1FCD0D1D007DB5E8 /* AYGLProgram.h in Headers */,
+				D3EDF77020B9AFB60016D814 /* AYGPUImageNV12DataInput.h in Headers */,
 				D36927161FCED7AD00A00D12 /* AYEffectConstants.h in Headers */,
+				D3EDF7A020BA5DE90016D814 /* AYGPUImageI420DataInput.h in Headers */,
 				D3F9DEEE1FF376BF0006CEAA /* PrefixHeader.pch in Headers */,
 				D3EBBA751FCD4B6700F5742A /* AYGPUImageTextureInput.h in Headers */,
 				D365AF5C1FD01C6500E60BC0 /* AYGPUImageBigEyeFilter.h in Headers */,
 				D37927521FCD0DA8007DB5E8 /* AYGPUImageOutput.h in Headers */,
 				D37926EF1FCD081A007DB5E8 /* AiyaEffectSDK.h in Headers */,
 				D379274E1FCD0D95007DB5E8 /* AYGPUImageFramebufferCache.h in Headers */,
-				D3EBBA811FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h in Headers */,
+				D3EBBA811FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h in Headers */,
 				D31A58791FD10AC900ADAA89 /* AYGPUImageTrackOutput.h in Headers */,
 				D379274A1FCD0D71007DB5E8 /* AYGPUImageFramebuffer.h in Headers */,
 				D3EBBA791FCD4B7800F5742A /* AYGPUImageTextureOutput.h in Headers */,
 				D366B5691FD25A5C00A6178E /* AYGPUImageShortVideoFilter.h in Headers */,
+				D3EDF77420B9B0180016D814 /* AYGPUImageNV12DataOutput.h in Headers */,
 				D36926F01FCEC10C00A00D12 /* AYGPUImageEffectFilter.h in Headers */,
 				D37927461FCD0D5C007DB5E8 /* AYGPUImageFilter.h in Headers */,
 				D37927421FCD0D4A007DB5E8 /* AYGPUImageContext.h in Headers */,
-				D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h in Headers */,
+				D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h in Headers */,
 				D37927581FCD1344007DB5E8 /* AYGPUImageLookupFilter.h in Headers */,
 				D3BE8E00205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h in Headers */,
 			);
@@ -891,8 +929,11 @@
 			files = (
 				D37927471FCD0D5C007DB5E8 /* AYGPUImageFilter.m in Sources */,
 				D379274B1FCD0D71007DB5E8 /* AYGPUImageFramebuffer.m in Sources */,
+				D3EDF7A120BA5DE90016D814 /* AYGPUImageI420DataInput.m in Sources */,
+				D3EDF77120B9AFB60016D814 /* AYGPUImageNV12DataInput.m in Sources */,
 				D37927531FCD0DA8007DB5E8 /* AYGPUImageOutput.m in Sources */,
 				D37927431FCD0D4A007DB5E8 /* AYGPUImageContext.m in Sources */,
+				D3EDF77520B9B0180016D814 /* AYGPUImageNV12DataOutput.m in Sources */,
 				D37927591FCD1344007DB5E8 /* AYGPUImageLookupFilter.m in Sources */,
 				D3EBBA761FCD4B6700F5742A /* AYGPUImageTextureInput.m in Sources */,
 				D366B5651FD252B700A6178E /* AYShortVideoEffectHandler.m in Sources */,
@@ -905,9 +946,10 @@
 				D36926E91FCEBEAE00A00D12 /* AYLicenseManager.m in Sources */,
 				D365AF611FD01C8300E60BC0 /* AYGPUImageSlimFaceFilter.m in Sources */,
 				D379274F1FCD0D95007DB5E8 /* AYGPUImageFramebufferCache.m in Sources */,
-				D3EBBA821FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m in Sources */,
+				D3EDF7A520BA5DFE0016D814 /* AYGPUImageI420DataOutput.m in Sources */,
+				D3EBBA821FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m in Sources */,
 				D393AE911FD3A2A200DA7EB5 /* AYEffectConstants.m in Sources */,
-				D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m in Sources */,
+				D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m in Sources */,
 				D3BE8E01205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m in Sources */,
 				D3EBBA7A1FCD4B7800F5742A /* AYGPUImageTextureOutput.m in Sources */,
 				D36926F11FCEC10C00A00D12 /* AYGPUImageEffectFilter.m in Sources */,

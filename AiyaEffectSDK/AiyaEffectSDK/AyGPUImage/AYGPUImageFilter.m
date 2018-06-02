@@ -197,6 +197,21 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
     }
 }
 
++ (BOOL)needExchangeWidthAndHeightWithRotation:(AYGPUImageRotationMode)rotationMode {
+    switch(rotationMode)
+    {
+        case kAYGPUImageNoRotation: return NO;
+        case kAYGPUImageRotateLeft: return YES;
+        case kAYGPUImageRotateRight: return YES;
+        case kAYGPUImageFlipVertical: return NO;
+        case kAYGPUImageFlipHorizonal: return NO;
+        case kAYGPUImageRotateRightFlipVertical: return YES;
+        case kAYGPUImageRotateRightFlipHorizontal: return YES;
+        case kAYGPUImageRotate180: return NO;
+    }
+}
+
+
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;
 {
     [self.context useAsCurrentContext];

@@ -1,14 +1,14 @@
 //
-//  AYGPUImageRawDataInput.m
+//  AYGPUImageBGRADataInput.m
 //  AiyaEffectSDK
 //
 //  Created by 汪洋 on 2017/11/28.
 //  Copyright © 2017年 深圳市哎吖科技有限公司. All rights reserved.
 //
 
-#import "AYGPUImageRawDataInput.h"
+#import "AYGPUImageBGRADataInput.h"
 #import "AYGPUImageFilter.h"
-@interface AYGPUImageRawDataInput() {
+@interface AYGPUImageBGRADataInput() {
     AYGLProgram *dataProgram;
     
     GLint dataPositionAttribute;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation AYGPUImageRawDataInput
+@implementation AYGPUImageBGRADataInput
 
 - (instancetype)initWithContext:(AYGPUImageContext *)context
 {
@@ -54,17 +54,16 @@
     return self;
 }
 
-- (void)processBGRADataWithCVPixelBuffer:(CVPixelBufferRef)pixelBuffer;
-{
-    //    int bufferWidth = (int) CVPixelBufferGetWidth(pixelBuffer);
-    int bufferHeight = (int) CVPixelBufferGetHeight(pixelBuffer);
-    int bytesPerRow = (int) CVPixelBufferGetBytesPerRow(pixelBuffer);
-    
+- (void)processWithBGRAData:(void *)bgraData width:(int)width height:(int)height{
     runAYSynchronouslyOnContextQueue(self.context, ^{
         [self.context useAsCurrentContext];
         [dataProgram use];
         
-        outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(bytesPerRow / 4, bufferHeight) missCVPixelBuffer:YES];
+        if ([AYGPUImageFilter needExchangeWidthAndHeightWithRotation:self.rotateMode]) {
+            outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(height, width) missCVPixelBuffer:YES];
+        } else {
+            outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:CGSizeMake(width, height) missCVPixelBuffer:YES];
+        }
         [outputFramebuffer activateFramebuffer];
         
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -75,20 +74,6 @@
             1.0f, -1.0f,
             -1.0f,  1.0f,
             1.0f,  1.0f,
-        };
-        
-        static const GLfloat noRotationTextureCoordinates[] = {
-            0.0f, 0.0f,
-            1.0f, 0.0f,
-            0.0f, 1.0f,
-            1.0f, 1.0f,
-        };
-        
-        static const GLfloat verticalFlipTextureCoordinates[] = {
-            0.0f, 1.0f,
-            1.0f, 1.0f,
-            0.0f,  0.0f,
-            1.0f,  0.0f,
         };
         
         if (!inputDataTexture) {
@@ -102,18 +87,12 @@
         
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, inputDataTexture);
-        CVPixelBufferLockBaseAddress(pixelBuffer, 0);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bytesPerRow / 4, bufferHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(pixelBuffer));
-        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGRA, GL_UNSIGNED_BYTE, bgraData);
         
         glUniform1i(dataInputTextureUniform, 1);
         
         glVertexAttribPointer(dataPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
-        if (self.verticalFlip) {
-            glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,verticalFlipTextureCoordinates);
-        } else {
-            glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,noRotationTextureCoordinates);
-        }
+        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [AYGPUImageFilter textureCoordinatesForRotation:self.rotateMode]);
         
         glEnableVertexAttribArray(dataPositionAttribute);
         glEnableVertexAttribArray(dataTextureCoordinateAttribute);
@@ -125,14 +104,30 @@
             NSInteger indexOfObject = [targets indexOfObject:currentTarget];
             NSInteger textureIndexOfTarget = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
             
-            [currentTarget setInputSize:CGSizeMake(bytesPerRow / 4, bufferHeight) atIndex:textureIndexOfTarget];
+            if ([AYGPUImageFilter needExchangeWidthAndHeightWithRotation:self.rotateMode]) {
+                [currentTarget setInputSize:CGSizeMake(height, width) atIndex:textureIndexOfTarget];
+            } else {
+                [currentTarget setInputSize:CGSizeMake(width, height) atIndex:textureIndexOfTarget];
+            }
             [currentTarget setInputFramebuffer:outputFramebuffer atIndex:textureIndexOfTarget];
             [currentTarget newFrameReadyAtTime:kCMTimeInvalid atIndex:textureIndexOfTarget];
         }
         
         [outputFramebuffer unlock];
-        
     });
+}
+
+- (void)processWithBGRAPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+{
+    int width = (int) CVPixelBufferGetBytesPerRow(pixelBuffer) / 4;
+    int height = (int) CVPixelBufferGetHeight(pixelBuffer);
+    
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    void* bgraData = CVPixelBufferGetBaseAddress(pixelBuffer);
+    
+    [self processWithBGRAData:bgraData width:width height:height];
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
 }
 
 - (void)dealloc

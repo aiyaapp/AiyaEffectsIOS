@@ -85,36 +85,18 @@
         1.0f,  1.0f,
     };
     
-    static const GLfloat noRotationTextureCoordinates[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-    };
-    
-    static const GLfloat verticalFlipTextureCoordinates[] = {
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f,  0.0f,
-        1.0f,  0.0f,
-    };
-    
     glActiveTexture(GL_TEXTURE4);
     glBindTexture(GL_TEXTURE_2D, [firstInputFramebuffer texture]);
     glUniform1i(dataInputTextureUniform, 4);
     
     glVertexAttribPointer(dataPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
-    if (self.verticalFlip) {
-        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,verticalFlipTextureCoordinates);
-    } else {
-        glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0,noRotationTextureCoordinates);
-    }
+    glVertexAttribPointer(dataTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [AYGPUImageFilter textureCoordinatesForRotation:self.rotateMode]);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     [firstInputFramebuffer unlock];
 }
 
-- (void)setOutputTexture:(GLint)texture width:(int)width height:(int)height{
+- (void)setOutputWithBGRATexture:(GLint)texture width:(int)width height:(int)height{
     _texture = texture;
     _textureWidth = width;
     _textureHeight = height;

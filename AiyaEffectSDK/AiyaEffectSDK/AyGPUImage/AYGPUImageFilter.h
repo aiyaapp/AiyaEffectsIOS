@@ -56,6 +56,7 @@ extern NSString *const kAYGPUImagePassthroughFragmentShaderString;
 
 /// @name Rendering
 + (const GLfloat *)textureCoordinatesForRotation:(AYGPUImageRotationMode)rotationMode;
++ (BOOL)needExchangeWidthAndHeightWithRotation:(AYGPUImageRotationMode)rotationMode;
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;
 - (void)informTargetsAboutNewFrameAtTime:(CMTime)frameTime;
 - (CGSize)outputFrameSize;
