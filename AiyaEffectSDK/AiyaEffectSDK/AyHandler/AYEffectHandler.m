@@ -54,7 +54,6 @@
 
 #if AY_ENABLE_TRACK
 @property (nonatomic, strong) AYGPUImageTrackOutput *trackOutput;
-@property (nonatomic, assign) void *faceData;
 #endif
 
 #if AY_ENABLE_EFFECT
@@ -129,7 +128,7 @@
 - (void)setEffectPath:(NSString *)effectPath{
     _effectPath = effectPath;
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:effectPath]) {
+    if (effectPath == NULL || (![effectPath isEqualToString:@""] && ![[NSFileManager defaultManager] fileExistsAtPath:effectPath])) {
         NSLog(@"无效的特效资源路径");
         return;
     }
@@ -269,16 +268,14 @@
     }
     
 #if AY_ENABLE_TRACK
-    _faceData = NULL;
-    [self.trackOutput setFaceData:&_faceData];
     
 #if AY_ENABLE_BEAUTY
-    [self.bigEyeFilter setFaceData:&_faceData];
-    [self.slimFaceFilter setFaceData:&_faceData];
+    [self.bigEyeFilter setFaceData:self.trackOutput.faceData];
+    [self.slimFaceFilter setFaceData:self.trackOutput.faceData];
 #endif
     
 #if AY_ENABLE_EFFECT
-    [self.effectFilter setFaceData:&_faceData];
+    [self.effectFilter setFaceData:self.trackOutput.faceData];
 #endif
     
 #endif

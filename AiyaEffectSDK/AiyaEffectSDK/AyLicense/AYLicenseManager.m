@@ -7,12 +7,12 @@
 //
 
 #import "AYLicenseManager.h"
-#import "AySDKCore.h"
+#import "AyCore.h"
 
 @implementation AYLicenseManager
 
 + (void)initLicense:(NSString *)appKey{
-    [AySDKCore initLicense:appKey];
+    [AyCore initLicense:appKey];
 }
 
 @end

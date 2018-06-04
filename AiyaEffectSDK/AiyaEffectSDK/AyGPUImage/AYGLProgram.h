@@ -35,6 +35,5 @@
 - (GLuint)uniformIndex:(NSString *)uniformName;
 - (BOOL)link;
 - (void)use;
-- (void)validate;
 
 @end

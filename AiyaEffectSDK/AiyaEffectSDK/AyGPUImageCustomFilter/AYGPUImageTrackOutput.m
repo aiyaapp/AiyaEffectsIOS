@@ -12,7 +12,7 @@
 #import "AYGPUImageFramebuffer.h"
 
 #if AY_ENABLE_TRACK
-#import "AyTrack.h"
+#import "AyFaceTrack.h"
 #endif
 
 @interface AYGPUImageTrackOutput () {
@@ -23,13 +23,15 @@
     GLint dataInputTextureUniform;
     
     AYGPUImageFramebuffer *outputFramebuffer;
+    
+    void *_faceData;
 }
 
 @property (nonatomic, weak) AYGPUImageContext *context;
 @property (nonatomic, assign) CGSize outputSize;
 
 #if AY_ENABLE_TRACK
-@property (nonatomic, strong) AyTrack *track;
+@property (nonatomic, strong) AyFaceTrack *track;
 #endif
 
 @end
@@ -65,10 +67,14 @@
     dataInputTextureUniform = [dataProgram uniformIndex:@"inputImageTexture"];
     
 #if AY_ENABLE_TRACK
-    _track = [[AyTrack alloc] init];
+    _track = [[AyFaceTrack alloc] init];
 #endif
     
     return self;
+}
+
+- (void **)faceData {
+    return &_faceData;
 }
 
 #pragma mark -
@@ -115,6 +121,7 @@
 #if AY_ENABLE_TRACK
     //获取人脸数据
     GLubyte *outputBuffer = outputFramebuffer.byteBuffer;
+    _faceData = NULL;
     [self.track trackWithPixelBuffer:outputBuffer bufferWidth:self.outputSize.width bufferHeight:self.outputSize.height trackData:self.faceData];
 #endif
     

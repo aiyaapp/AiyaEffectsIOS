@@ -204,22 +204,6 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
     glUseProgram(program);
 }
 // END:use
-#pragma mark -
-
-- (void)validate;
-{
-    GLint logLength;
-    
-    glValidateProgram(program);
-    glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
-    if (logLength > 0)
-    {
-        GLchar *log = (GLchar *)malloc(logLength);
-        glGetProgramInfoLog(program, logLength, &logLength, log);
-        self.programLog = [NSString stringWithFormat:@"%s", log];
-        free(log);
-    }
-}
 
 #pragma mark -
 // START:dealloc
