@@ -132,31 +132,7 @@
 #pragma mark -
 #pragma mark GPUImageInput protocol
 
-- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        
-        [self renderAtInternalSize];
-    });
-}
-
-- (NSInteger)nextAvailableTextureIndex;
-{
-    return 0;
-}
-
-- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer atIndex:(NSInteger)textureIndex;
-{
-    firstInputFramebuffer = newInputFramebuffer;
-    [firstInputFramebuffer lock];
-}
-
-- (void)setInputRotation:(AYGPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex{
-}
-
-- (void)setInputSize:(CGSize)newSize atIndex:(NSInteger)textureIndex;
-{
+- (void)setInputSize:(CGSize)newSize {
     CGSize outputSize;
     outputSize.width = 176;
     outputSize.height = newSize.height * outputSize.width / newSize.width ;
@@ -164,14 +140,17 @@
     self.outputSize = outputSize;
 }
 
-- (CGSize)maximumOutputSize;
-{
-    return CGSizeZero;
+- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer {
+    firstInputFramebuffer = newInputFramebuffer;
+    [firstInputFramebuffer lock];
 }
 
-- (void)endProcessing;
-{
-    
+- (void)newFrameReady {
+    runAYSynchronouslyOnContextQueue(self.context, ^{
+        [self.context useAsCurrentContext];
+        
+        [self renderAtInternalSize];
+    });
 }
 
 @end

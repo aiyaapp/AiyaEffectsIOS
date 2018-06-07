@@ -135,7 +135,18 @@
 #pragma mark -
 #pragma mark GPUImageInput protocol
 
-- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
+- (void)setInputSize:(CGSize)newSize;
+{
+    
+}
+
+- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer;
+{
+    firstInputFramebuffer = newInputFramebuffer;
+    [firstInputFramebuffer lock];
+}
+
+- (void)newFrameReady;
 {
     runAYSynchronouslyOnContextQueue(self.context, ^{
         [self.context useAsCurrentContext];
@@ -143,34 +154,5 @@
         [self renderAtInternalSize];
     });
 }
-
-- (NSInteger)nextAvailableTextureIndex;
-{
-    return 0;
-}
-
-- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer atIndex:(NSInteger)textureIndex;
-{
-    firstInputFramebuffer = newInputFramebuffer;
-    [firstInputFramebuffer lock];
-}
-
-- (void)setInputRotation:(AYGPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex{
-}
-
-- (void)setInputSize:(CGSize)newSize atIndex:(NSInteger)textureIndex;
-{
-}
-
-- (CGSize)maximumOutputSize;
-{
-    return CGSizeZero;
-}
-
-- (void)endProcessing;
-{
-    
-}
-
 
 @end

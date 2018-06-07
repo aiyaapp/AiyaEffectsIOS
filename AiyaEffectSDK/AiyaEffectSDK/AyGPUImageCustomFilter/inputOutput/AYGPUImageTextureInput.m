@@ -91,17 +91,14 @@
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         
         for (id<AYGPUImageInput> currentTarget in targets)
-        {
-            NSInteger indexOfObject = [targets indexOfObject:currentTarget];
-            NSInteger textureIndexOfTarget = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
-            
+        {            
             if ([AYGPUImageFilter needExchangeWidthAndHeightWithRotation:self.rotateMode]) {
-                [currentTarget setInputSize:CGSizeMake(height, width) atIndex:textureIndexOfTarget];
+                [currentTarget setInputSize:CGSizeMake(height, width)];
             } else {
-                [currentTarget setInputSize:CGSizeMake(width, height) atIndex:textureIndexOfTarget];
+                [currentTarget setInputSize:CGSizeMake(width, height)];
             }
-            [currentTarget setInputFramebuffer:outputFramebuffer atIndex:textureIndexOfTarget];
-            [currentTarget newFrameReadyAtTime:kCMTimeInvalid atIndex:textureIndexOfTarget];
+            [currentTarget setInputFramebuffer:outputFramebuffer];
+            [currentTarget newFrameReady];
         }
         
         [outputFramebuffer unlock];
