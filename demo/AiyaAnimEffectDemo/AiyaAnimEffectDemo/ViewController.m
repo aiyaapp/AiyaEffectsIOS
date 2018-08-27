@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <GLKit/GLKit.h>
-#import <AiyaEffectSDK/AiyaEffectSDK.h>
+#import <AiyaEffectSDKLite/AiyaEffectSDKLite.h>
 
 @interface ViewController () <GLKViewDelegate>{
     GLKView *glkView;
