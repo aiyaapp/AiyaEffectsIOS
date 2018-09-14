@@ -50,8 +50,5 @@ The document of custom dynamic sticker is not officially opened, please [constac
 
 ## 8. Feedback
 - Homepage: [AiyaEffectsSDK](http://www.aiyaapp.com/product/bbtx)
-- Phone: +86 18676907096
-- Email: <liudawei@aiyaapp.com> 
-- Tencent QQ Group: 650242833
 
 <a href="http://www.aiyaapp.com/product/bbtx"><img src="doc/logo.png" border="0" alt="宝宝特效" /></a>
