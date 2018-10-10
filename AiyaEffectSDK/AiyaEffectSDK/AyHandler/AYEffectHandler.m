@@ -34,6 +34,7 @@
 
 @interface AYEffectHandler () {
     GLint bindingFrameBuffer;
+    GLint bindingRenderBuffer;
     GLint viewPoint[4];
     NSMutableArray<NSNumber *>* vertexAttribEnableArray;
     NSInteger vertexAttribEnableArraySize;
@@ -409,6 +410,9 @@
     // 获取当前绑定的FrameBuffer
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, (GLint *)&bindingFrameBuffer);
     
+    // 获取当前绑定的RenderBuffer
+    glGetIntegerv(GL_RENDERBUFFER_BINDING, (GLint *)&bindingRenderBuffer);
+    
     // 获取viewpoint
     glGetIntegerv(GL_VIEWPORT, (GLint *)&viewPoint);
     
@@ -429,6 +433,9 @@
 - (void)restoreOpenGLState {
     // 还原当前绑定的FrameBuffer
     glBindFramebuffer(GL_FRAMEBUFFER, bindingFrameBuffer);
+    
+    // 还原当前绑定的RenderBuffer
+    glBindRenderbuffer(GL_RENDERBUFFER, bindingRenderBuffer);
     
     // 还原viewpoint
     glViewport(viewPoint[0], viewPoint[1], viewPoint[2], viewPoint[3]);
