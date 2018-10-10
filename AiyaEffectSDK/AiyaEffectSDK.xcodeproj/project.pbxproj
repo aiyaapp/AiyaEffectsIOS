@@ -12,12 +12,9 @@
 		D31A58791FD10AC900ADAA89 /* AYGPUImageTrackOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D31A58771FD10AC900ADAA89 /* AYGPUImageTrackOutput.h */; };
 		D31A587A1FD10AC900ADAA89 /* AYGPUImageTrackOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D31A58781FD10AC900ADAA89 /* AYGPUImageTrackOutput.m */; };
 		D343879F1FFC822700C331FD /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C21FCE5C1D00A00D12 /* libavcodec.a */; };
-		D34606911FD13AA5002FF508 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D34606901FD13AA4002FF508 /* libyuv.a */; };
-		D34606951FD1744B002FF508 /* libBaseEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D365AF4C1FD00CFC00E60BC0 /* libBaseEffects.a */; };
 		D365AF4A1FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D365AF481FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.h */; };
 		D365AF4B1FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D365AF491FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.m */; };
 		D365AF531FD013C400E60BC0 /* AyBeauty.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37927231FCD08BB007DB5E8 /* AyBeauty.mm */; };
-		D365AF561FD0146500E60BC0 /* libAyBeauty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927201FCD08BB007DB5E8 /* libAyBeauty.a */; };
 		D365AF571FD0149F00E60BC0 /* libAiyaBeautyEffectLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D365AF421FCFFCB600E60BC0 /* libAiyaBeautyEffectLib.a */; };
 		D365AF581FD014A200E60BC0 /* libAiyaFaceProcessEffectLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D365AF431FCFFCB700E60BC0 /* libAiyaFaceProcessEffectLib.a */; };
 		D365AF5C1FD01C6500E60BC0 /* AYGPUImageBigEyeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D365AF5A1FD01C6500E60BC0 /* AYGPUImageBigEyeFilter.h */; };
@@ -29,11 +26,7 @@
 		D366B5651FD252B700A6178E /* AYShortVideoEffectHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D366B5631FD252B700A6178E /* AYShortVideoEffectHandler.m */; };
 		D366B5691FD25A5C00A6178E /* AYGPUImageShortVideoFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D366B5671FD25A5C00A6178E /* AYGPUImageShortVideoFilter.h */; };
 		D366B56A1FD25A5C00A6178E /* AYGPUImageShortVideoFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D366B5681FD25A5C00A6178E /* AYGPUImageShortVideoFilter.m */; };
-		D36926A71FCE4C6F00A00D12 /* libAySdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926A51FCE4C6F00A00D12 /* libAySdkCore.a */; };
-		D36926AE1FCE511900A00D12 /* libAySDKCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37926F91FCD0892007DB5E8 /* libAySDKCore.a */; };
 		D36926B41FCE527E00A00D12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926A91FCE4F7100A00D12 /* libc++.tbd */; };
-		D36926B81FCE54BD00A00D12 /* libaftk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926B71FCE54BD00A00D12 /* libaftk.a */; };
-		D36926BA1FCE550600A00D12 /* libsimd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926B91FCE550600A00D12 /* libsimd.a */; };
 		D36926BE1FCE5B6100A00D12 /* libaysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926BD1FCE5B6100A00D12 /* libaysdk.a */; };
 		D36926C71FCE5C1D00A00D12 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C01FCE5C1D00A00D12 /* libavutil.a */; };
 		D36926C81FCE5C1D00A00D12 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C11FCE5C1D00A00D12 /* libavfilter.a */; };
@@ -55,10 +48,10 @@
 		D36926F51FCEC9DA00A00D12 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926F41FCEC9DA00A00D12 /* libiconv.tbd */; };
 		D36927161FCED7AD00A00D12 /* AYEffectConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D36927151FCED7AD00A00D12 /* AYEffectConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D37926EF1FCD081A007DB5E8 /* AiyaEffectSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = D37926ED1FCD081A007DB5E8 /* AiyaEffectSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D37926FD1FCD0892007DB5E8 /* AySDKCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37926FC1FCD0892007DB5E8 /* AySDKCore.mm */; };
-		D37926FE1FCD0892007DB5E8 /* AySDKCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37926FB1FCD0892007DB5E8 /* AySDKCore.h */; };
-		D379270A1FCD08A0007DB5E8 /* AyTrack.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37927091FCD08A0007DB5E8 /* AyTrack.mm */; };
-		D379270B1FCD08A0007DB5E8 /* AyTrack.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37927081FCD08A0007DB5E8 /* AyTrack.h */; };
+		D37926FD1FCD0892007DB5E8 /* AyCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37926FC1FCD0892007DB5E8 /* AyCore.mm */; };
+		D37926FE1FCD0892007DB5E8 /* AyCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37926FB1FCD0892007DB5E8 /* AyCore.h */; };
+		D379270A1FCD08A0007DB5E8 /* AyFaceTrack.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37927091FCD08A0007DB5E8 /* AyFaceTrack.mm */; };
+		D379270B1FCD08A0007DB5E8 /* AyFaceTrack.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37927081FCD08A0007DB5E8 /* AyFaceTrack.h */; };
 		D37927171FCD08AA007DB5E8 /* AyEffect.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37927161FCD08AA007DB5E8 /* AyEffect.mm */; };
 		D37927181FCD08AA007DB5E8 /* AyEffect.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37927151FCD08AA007DB5E8 /* AyEffect.h */; };
 		D37927251FCD08BB007DB5E8 /* AyBeauty.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D37927221FCD08BB007DB5E8 /* AyBeauty.h */; };
@@ -78,55 +71,71 @@
 		D37927531FCD0DA8007DB5E8 /* AYGPUImageOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D37927511FCD0DA8007DB5E8 /* AYGPUImageOutput.m */; };
 		D37927581FCD1344007DB5E8 /* AYGPUImageLookupFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D37927561FCD1344007DB5E8 /* AYGPUImageLookupFilter.h */; };
 		D37927591FCD1344007DB5E8 /* AYGPUImageLookupFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D37927571FCD1344007DB5E8 /* AYGPUImageLookupFilter.m */; };
-		D37A28F51FF0A6A900FE4866 /* libAyEffect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927131FCD08AA007DB5E8 /* libAyEffect.a */; };
-		D37A28F71FF0A90E00FE4866 /* libAyTrack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927061FCD08A0007DB5E8 /* libAyTrack.a */; };
+		D380864420C55A2300CF090A /* libaftk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926B71FCE54BD00A00D12 /* libaftk.a */; };
+		D380864520C55A2500CF090A /* libsimd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926B91FCE550600A00D12 /* libsimd.a */; };
+		D380864620C55A2A00CF090A /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D34606901FD13AA4002FF508 /* libyuv.a */; };
 		D393AE911FD3A2A200DA7EB5 /* AYEffectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D393AE901FD3A2A200DA7EB5 /* AYEffectConstants.m */; };
 		D3AE5C811FF34D3F004D476B /* AYAnimHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = D3AE5C7F1FF34D3F004D476B /* AYAnimHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3AE5C821FF34D3F004D476B /* AYAnimHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE5C801FF34D3F004D476B /* AYAnimHandler.m */; };
-		D3B0DEE01FD2827D001920A0 /* libAyShortVideoEffect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D379272D1FCD08DA007DB5E8 /* libAyShortVideoEffect.a */; };
 		D3BE8E00205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3BE8DFE205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h */; };
 		D3BE8E01205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BE8DFF205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m */; };
+		D3E7FD9620C58E0C009D1A7D /* libAySdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926A51FCE4C6F00A00D12 /* libAySdkCore.a */; };
+		D3E7FD9720C58E0E009D1A7D /* libBaseEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D365AF4C1FD00CFC00E60BC0 /* libBaseEffects.a */; };
+		D3E7FDA420C59110009D1A7D /* libAyBeauty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927201FCD08BB007DB5E8 /* libAyBeauty.a */; };
+		D3E7FDA520C59113009D1A7D /* libAyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37926F91FCD0892007DB5E8 /* libAyCore.a */; };
+		D3E7FDA620C59115009D1A7D /* libAyEffect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927131FCD08AA007DB5E8 /* libAyEffect.a */; };
+		D3E7FDA720C59118009D1A7D /* libAyFaceTrack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927061FCD08A0007DB5E8 /* libAyFaceTrack.a */; };
+		D3E7FDA820C5911B009D1A7D /* libAyShortVideoEffect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D379272D1FCD08DA007DB5E8 /* libAyShortVideoEffect.a */; };
 		D3EBBA751FCD4B6700F5742A /* AYGPUImageTextureInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */; };
 		D3EBBA761FCD4B6700F5742A /* AYGPUImageTextureInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */; };
 		D3EBBA791FCD4B7800F5742A /* AYGPUImageTextureOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */; };
 		D3EBBA7A1FCD4B7800F5742A /* AYGPUImageTextureOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */; };
-		D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h */; };
-		D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m */; };
-		D3EBBA811FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h */; };
-		D3EBBA821FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA801FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m */; };
+		D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h */; };
+		D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m */; };
+		D3EBBA811FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h */; };
+		D3EBBA821FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EBBA801FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m */; };
+		D3EDF77020B9AFB60016D814 /* AYGPUImageNV12DataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF76E20B9AFB60016D814 /* AYGPUImageNV12DataInput.h */; };
+		D3EDF77120B9AFB60016D814 /* AYGPUImageNV12DataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF76F20B9AFB60016D814 /* AYGPUImageNV12DataInput.m */; };
+		D3EDF77420B9B0180016D814 /* AYGPUImageNV12DataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF77220B9B0180016D814 /* AYGPUImageNV12DataOutput.h */; };
+		D3EDF77520B9B0180016D814 /* AYGPUImageNV12DataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF77320B9B0180016D814 /* AYGPUImageNV12DataOutput.m */; };
+		D3EDF7A020BA5DE90016D814 /* AYGPUImageI420DataInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF79E20BA5DE90016D814 /* AYGPUImageI420DataInput.h */; };
+		D3EDF7A120BA5DE90016D814 /* AYGPUImageI420DataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF79F20BA5DE90016D814 /* AYGPUImageI420DataInput.m */; };
+		D3EDF7A420BA5DFE0016D814 /* AYGPUImageI420DataOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EDF7A220BA5DFE0016D814 /* AYGPUImageI420DataOutput.h */; };
+		D3EDF7A520BA5DFE0016D814 /* AYGPUImageI420DataOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDF7A320BA5DFE0016D814 /* AYGPUImageI420DataOutput.m */; };
 		D3F9DEEE1FF376BF0006CEAA /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = D3F9DEED1FF376BF0006CEAA /* PrefixHeader.pch */; };
+		D3FEE9CB20C2854E002B11C6 /* AYGPUImageConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D37927541FCD0E70007DB5E8 /* AYGPUImageConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D365AF541FD0145F00E60BC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D37926E11FCD081A007DB5E8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D379271F1FCD08BB007DB5E8;
-			remoteInfo = AyBeauty;
-		};
-		D36926AC1FCE511400A00D12 /* PBXContainerItemProxy */ = {
+		D3E7FD9A20C590F9009D1A7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D37926E11FCD081A007DB5E8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D37926F81FCD0892007DB5E8;
-			remoteInfo = AySDKCore;
+			remoteInfo = AyCore;
 		};
-		D36926E21FCEB1FD00A00D12 /* PBXContainerItemProxy */ = {
+		D3E7FD9C20C590FB009D1A7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D37926E11FCD081A007DB5E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D37927051FCD08A0007DB5E8;
+			remoteInfo = AyFaceTrack;
+		};
+		D3E7FD9E20C590FE009D1A7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D37926E11FCD081A007DB5E8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D37927121FCD08AA007DB5E8;
 			remoteInfo = AyEffect;
 		};
-		D37A28F31FF0A69F00FE4866 /* PBXContainerItemProxy */ = {
+		D3E7FDA020C59101009D1A7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D37926E11FCD081A007DB5E8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D37927051FCD08A0007DB5E8;
-			remoteInfo = AyTrack;
+			remoteGlobalIDString = D379271F1FCD08BB007DB5E8;
+			remoteInfo = AyBeauty;
 		};
-		D3B0DEDE1FD28272001920A0 /* PBXContainerItemProxy */ = {
+		D3E7FDA220C59103009D1A7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D37926E11FCD081A007DB5E8 /* Project object */;
 			proxyType = 1;
@@ -142,7 +151,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				D37926FE1FCD0892007DB5E8 /* AySDKCore.h in CopyFiles */,
+				D37926FE1FCD0892007DB5E8 /* AyCore.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +161,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				D379270B1FCD08A0007DB5E8 /* AyTrack.h in CopyFiles */,
+				D379270B1FCD08A0007DB5E8 /* AyFaceTrack.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,12 +281,12 @@
 		D37926EA1FCD081A007DB5E8 /* AiyaEffectSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AiyaEffectSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37926ED1FCD081A007DB5E8 /* AiyaEffectSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AiyaEffectSDK.h; sourceTree = "<group>"; };
 		D37926EE1FCD081A007DB5E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D37926F91FCD0892007DB5E8 /* libAySDKCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAySDKCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37926FB1FCD0892007DB5E8 /* AySDKCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AySDKCore.h; sourceTree = "<group>"; };
-		D37926FC1FCD0892007DB5E8 /* AySDKCore.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AySDKCore.mm; sourceTree = "<group>"; };
-		D37927061FCD08A0007DB5E8 /* libAyTrack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAyTrack.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37927081FCD08A0007DB5E8 /* AyTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyTrack.h; sourceTree = "<group>"; };
-		D37927091FCD08A0007DB5E8 /* AyTrack.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AyTrack.mm; sourceTree = "<group>"; };
+		D37926F91FCD0892007DB5E8 /* libAyCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAyCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37926FB1FCD0892007DB5E8 /* AyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyCore.h; sourceTree = "<group>"; };
+		D37926FC1FCD0892007DB5E8 /* AyCore.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AyCore.mm; sourceTree = "<group>"; };
+		D37927061FCD08A0007DB5E8 /* libAyFaceTrack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAyFaceTrack.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37927081FCD08A0007DB5E8 /* AyFaceTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyFaceTrack.h; sourceTree = "<group>"; };
+		D37927091FCD08A0007DB5E8 /* AyFaceTrack.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AyFaceTrack.mm; sourceTree = "<group>"; };
 		D37927131FCD08AA007DB5E8 /* libAyEffect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAyEffect.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37927151FCD08AA007DB5E8 /* AyEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyEffect.h; sourceTree = "<group>"; };
 		D37927161FCD08AA007DB5E8 /* AyEffect.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AyEffect.mm; sourceTree = "<group>"; };
@@ -311,10 +320,18 @@
 		D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageTextureInput.m; sourceTree = "<group>"; };
 		D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageTextureOutput.h; sourceTree = "<group>"; };
 		D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageTextureOutput.m; sourceTree = "<group>"; };
-		D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageRawDataInput.h; sourceTree = "<group>"; };
-		D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageRawDataInput.m; sourceTree = "<group>"; };
-		D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageRawDataOutput.h; sourceTree = "<group>"; };
-		D3EBBA801FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageRawDataOutput.m; sourceTree = "<group>"; };
+		D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageBGRADataInput.h; sourceTree = "<group>"; };
+		D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageBGRADataInput.m; sourceTree = "<group>"; };
+		D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageBGRADataOutput.h; sourceTree = "<group>"; };
+		D3EBBA801FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageBGRADataOutput.m; sourceTree = "<group>"; };
+		D3EDF76E20B9AFB60016D814 /* AYGPUImageNV12DataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageNV12DataInput.h; sourceTree = "<group>"; };
+		D3EDF76F20B9AFB60016D814 /* AYGPUImageNV12DataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageNV12DataInput.m; sourceTree = "<group>"; };
+		D3EDF77220B9B0180016D814 /* AYGPUImageNV12DataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageNV12DataOutput.h; sourceTree = "<group>"; };
+		D3EDF77320B9B0180016D814 /* AYGPUImageNV12DataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageNV12DataOutput.m; sourceTree = "<group>"; };
+		D3EDF79E20BA5DE90016D814 /* AYGPUImageI420DataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageI420DataInput.h; sourceTree = "<group>"; };
+		D3EDF79F20BA5DE90016D814 /* AYGPUImageI420DataInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageI420DataInput.m; sourceTree = "<group>"; };
+		D3EDF7A220BA5DFE0016D814 /* AYGPUImageI420DataOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYGPUImageI420DataOutput.h; sourceTree = "<group>"; };
+		D3EDF7A320BA5DFE0016D814 /* AYGPUImageI420DataOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageI420DataOutput.m; sourceTree = "<group>"; };
 		D3F391541FD2AC11009274DE /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D3F9DEED1FF376BF0006CEAA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,14 +341,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E7FDA820C5911B009D1A7D /* libAyShortVideoEffect.a in Frameworks */,
+				D3E7FDA720C59118009D1A7D /* libAyFaceTrack.a in Frameworks */,
+				D3E7FDA620C59115009D1A7D /* libAyEffect.a in Frameworks */,
+				D3E7FDA520C59113009D1A7D /* libAyCore.a in Frameworks */,
+				D3E7FDA420C59110009D1A7D /* libAyBeauty.a in Frameworks */,
 				D36926B41FCE527E00A00D12 /* libc++.tbd in Frameworks */,
 				D36926F31FCEC9BB00A00D12 /* libz.tbd in Frameworks */,
 				D36926F51FCEC9DA00A00D12 /* libiconv.tbd in Frameworks */,
-				D36926AE1FCE511900A00D12 /* libAySDKCore.a in Frameworks */,
-				D365AF561FD0146500E60BC0 /* libAyBeauty.a in Frameworks */,
-				D37A28F51FF0A6A900FE4866 /* libAyEffect.a in Frameworks */,
-				D37A28F71FF0A90E00FE4866 /* libAyTrack.a in Frameworks */,
-				D3B0DEE01FD2827D001920A0 /* libAyShortVideoEffect.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +356,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D36926A71FCE4C6F00A00D12 /* libAySdkCore.a in Frameworks */,
-				D34606951FD1744B002FF508 /* libBaseEffects.a in Frameworks */,
+				D3E7FD9620C58E0C009D1A7D /* libAySdkCore.a in Frameworks */,
+				D3E7FD9720C58E0E009D1A7D /* libBaseEffects.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +365,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34606911FD13AA5002FF508 /* libyuv.a in Frameworks */,
-				D36926BA1FCE550600A00D12 /* libsimd.a in Frameworks */,
-				D36926B81FCE54BD00A00D12 /* libaftk.a in Frameworks */,
+				D380864420C55A2300CF090A /* libaftk.a in Frameworks */,
+				D380864520C55A2500CF090A /* libsimd.a in Frameworks */,
+				D380864620C55A2A00CF090A /* libyuv.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,8 +526,8 @@
 			isa = PBXGroup;
 			children = (
 				D37926EC1FCD081A007DB5E8 /* AiyaEffectSDK */,
-				D37926FA1FCD0892007DB5E8 /* AySDKCore */,
-				D37927071FCD08A0007DB5E8 /* AyTrack */,
+				D37926FA1FCD0892007DB5E8 /* AyCore */,
+				D37927071FCD08A0007DB5E8 /* AyFaceTrack */,
 				D37927141FCD08AA007DB5E8 /* AyEffect */,
 				D37927211FCD08BB007DB5E8 /* AyBeauty */,
 				D379272E1FCD08DA007DB5E8 /* AyShortVideoEffect */,
@@ -523,8 +540,8 @@
 			isa = PBXGroup;
 			children = (
 				D37926EA1FCD081A007DB5E8 /* AiyaEffectSDK.framework */,
-				D37926F91FCD0892007DB5E8 /* libAySDKCore.a */,
-				D37927061FCD08A0007DB5E8 /* libAyTrack.a */,
+				D37926F91FCD0892007DB5E8 /* libAyCore.a */,
+				D37927061FCD08A0007DB5E8 /* libAyFaceTrack.a */,
 				D37927131FCD08AA007DB5E8 /* libAyEffect.a */,
 				D37927201FCD08BB007DB5E8 /* libAyBeauty.a */,
 				D379272D1FCD08DA007DB5E8 /* libAyShortVideoEffect.a */,
@@ -548,25 +565,25 @@
 			path = AiyaEffectSDK;
 			sourceTree = "<group>";
 		};
-		D37926FA1FCD0892007DB5E8 /* AySDKCore */ = {
+		D37926FA1FCD0892007DB5E8 /* AyCore */ = {
 			isa = PBXGroup;
 			children = (
-				D37926FB1FCD0892007DB5E8 /* AySDKCore.h */,
-				D37926FC1FCD0892007DB5E8 /* AySDKCore.mm */,
+				D37926FB1FCD0892007DB5E8 /* AyCore.h */,
+				D37926FC1FCD0892007DB5E8 /* AyCore.mm */,
 				D36926A31FCE4C6F00A00D12 /* AyCoreAuth.h */,
 				D36926A21FCE4C6F00A00D12 /* AyObserver.h */,
 				D36926A51FCE4C6F00A00D12 /* libAySdkCore.a */,
 				D365AF4C1FD00CFC00E60BC0 /* libBaseEffects.a */,
 				D36927121FCED1E300A00D12 /* AYEffectConstants.h */,
 			);
-			path = AySDKCore;
+			path = AyCore;
 			sourceTree = "<group>";
 		};
-		D37927071FCD08A0007DB5E8 /* AyTrack */ = {
+		D37927071FCD08A0007DB5E8 /* AyFaceTrack */ = {
 			isa = PBXGroup;
 			children = (
-				D37927081FCD08A0007DB5E8 /* AyTrack.h */,
-				D37927091FCD08A0007DB5E8 /* AyTrack.mm */,
+				D37927081FCD08A0007DB5E8 /* AyFaceTrack.h */,
+				D37927091FCD08A0007DB5E8 /* AyFaceTrack.mm */,
 				D36926B61FCE54B300A00D12 /* BaseTrack.h */,
 				D36926B51FCE54A600A00D12 /* FaceTrack.h */,
 				D36926BB1FCE552E00A00D12 /* FaceData.h */,
@@ -575,7 +592,7 @@
 				D36926B91FCE550600A00D12 /* libsimd.a */,
 				D36927131FCED1EB00A00D12 /* AYEffectConstants.h */,
 			);
-			path = AyTrack;
+			path = AyFaceTrack;
 			sourceTree = "<group>";
 		};
 		D37927141FCD08AA007DB5E8 /* AyEffect */ = {
@@ -643,16 +660,9 @@
 		D37927551FCD12C1007DB5E8 /* AyGPUImageCustomFilter */ = {
 			isa = PBXGroup;
 			children = (
+				D3EDF79D20BA5CF80016D814 /* inputOutput */,
 				D37927561FCD1344007DB5E8 /* AYGPUImageLookupFilter.h */,
 				D37927571FCD1344007DB5E8 /* AYGPUImageLookupFilter.m */,
-				D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */,
-				D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */,
-				D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */,
-				D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */,
-				D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h */,
-				D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m */,
-				D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h */,
-				D3EBBA801FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m */,
 				D31A58771FD10AC900ADAA89 /* AYGPUImageTrackOutput.h */,
 				D31A58781FD10AC900ADAA89 /* AYGPUImageTrackOutput.m */,
 				D36926EE1FCEC10C00A00D12 /* AYGPUImageEffectFilter.h */,
@@ -671,6 +681,29 @@
 			path = AyGPUImageCustomFilter;
 			sourceTree = "<group>";
 		};
+		D3EDF79D20BA5CF80016D814 /* inputOutput */ = {
+			isa = PBXGroup;
+			children = (
+				D3EBBA731FCD4B6700F5742A /* AYGPUImageTextureInput.h */,
+				D3EBBA741FCD4B6700F5742A /* AYGPUImageTextureInput.m */,
+				D3EBBA771FCD4B7800F5742A /* AYGPUImageTextureOutput.h */,
+				D3EBBA781FCD4B7800F5742A /* AYGPUImageTextureOutput.m */,
+				D3EBBA7B1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h */,
+				D3EBBA7C1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m */,
+				D3EBBA7F1FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h */,
+				D3EBBA801FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m */,
+				D3EDF76E20B9AFB60016D814 /* AYGPUImageNV12DataInput.h */,
+				D3EDF76F20B9AFB60016D814 /* AYGPUImageNV12DataInput.m */,
+				D3EDF77220B9B0180016D814 /* AYGPUImageNV12DataOutput.h */,
+				D3EDF77320B9B0180016D814 /* AYGPUImageNV12DataOutput.m */,
+				D3EDF79E20BA5DE90016D814 /* AYGPUImageI420DataInput.h */,
+				D3EDF79F20BA5DE90016D814 /* AYGPUImageI420DataInput.m */,
+				D3EDF7A220BA5DFE0016D814 /* AYGPUImageI420DataOutput.h */,
+				D3EDF7A320BA5DFE0016D814 /* AYGPUImageI420DataOutput.m */,
+			);
+			path = inputOutput;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -681,26 +714,31 @@
 				D36926EC1FCEBF0A00A00D12 /* AYEffectHandler.h in Headers */,
 				D3AE5C811FF34D3F004D476B /* AYAnimHandler.h in Headers */,
 				D366B5641FD252B700A6178E /* AYShortVideoEffectHandler.h in Headers */,
+				D3EDF7A420BA5DFE0016D814 /* AYGPUImageI420DataOutput.h in Headers */,
 				D365AF601FD01C8300E60BC0 /* AYGPUImageSlimFaceFilter.h in Headers */,
+				D3FEE9CB20C2854E002B11C6 /* AYGPUImageConstants.h in Headers */,
 				D36926E81FCEBEAE00A00D12 /* AYLicenseManager.h in Headers */,
 				D365AF4A1FCFFDCA00E60BC0 /* AYGPUImageBeautyFilter.h in Headers */,
 				D379273A1FCD0D1D007DB5E8 /* AYGLProgram.h in Headers */,
+				D3EDF77020B9AFB60016D814 /* AYGPUImageNV12DataInput.h in Headers */,
 				D36927161FCED7AD00A00D12 /* AYEffectConstants.h in Headers */,
+				D3EDF7A020BA5DE90016D814 /* AYGPUImageI420DataInput.h in Headers */,
 				D3F9DEEE1FF376BF0006CEAA /* PrefixHeader.pch in Headers */,
 				D3EBBA751FCD4B6700F5742A /* AYGPUImageTextureInput.h in Headers */,
 				D365AF5C1FD01C6500E60BC0 /* AYGPUImageBigEyeFilter.h in Headers */,
 				D37927521FCD0DA8007DB5E8 /* AYGPUImageOutput.h in Headers */,
 				D37926EF1FCD081A007DB5E8 /* AiyaEffectSDK.h in Headers */,
 				D379274E1FCD0D95007DB5E8 /* AYGPUImageFramebufferCache.h in Headers */,
-				D3EBBA811FCD4D0E00F5742A /* AYGPUImageRawDataOutput.h in Headers */,
+				D3EBBA811FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.h in Headers */,
 				D31A58791FD10AC900ADAA89 /* AYGPUImageTrackOutput.h in Headers */,
 				D379274A1FCD0D71007DB5E8 /* AYGPUImageFramebuffer.h in Headers */,
 				D3EBBA791FCD4B7800F5742A /* AYGPUImageTextureOutput.h in Headers */,
 				D366B5691FD25A5C00A6178E /* AYGPUImageShortVideoFilter.h in Headers */,
+				D3EDF77420B9B0180016D814 /* AYGPUImageNV12DataOutput.h in Headers */,
 				D36926F01FCEC10C00A00D12 /* AYGPUImageEffectFilter.h in Headers */,
 				D37927461FCD0D5C007DB5E8 /* AYGPUImageFilter.h in Headers */,
 				D37927421FCD0D4A007DB5E8 /* AYGPUImageContext.h in Headers */,
-				D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageRawDataInput.h in Headers */,
+				D3EBBA7D1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.h in Headers */,
 				D37927581FCD1344007DB5E8 /* AYGPUImageLookupFilter.h in Headers */,
 				D3BE8E00205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h in Headers */,
 			);
@@ -721,20 +759,20 @@
 			buildRules = (
 			);
 			dependencies = (
-				D37A28F41FF0A69F00FE4866 /* PBXTargetDependency */,
-				D3B0DEDF1FD28272001920A0 /* PBXTargetDependency */,
-				D365AF551FD0145F00E60BC0 /* PBXTargetDependency */,
-				D36926E31FCEB1FD00A00D12 /* PBXTargetDependency */,
-				D36926AD1FCE511400A00D12 /* PBXTargetDependency */,
+				D3E7FDA320C59103009D1A7D /* PBXTargetDependency */,
+				D3E7FDA120C59101009D1A7D /* PBXTargetDependency */,
+				D3E7FD9F20C590FE009D1A7D /* PBXTargetDependency */,
+				D3E7FD9D20C590FB009D1A7D /* PBXTargetDependency */,
+				D3E7FD9B20C590F9009D1A7D /* PBXTargetDependency */,
 			);
 			name = AiyaEffectSDK;
 			productName = AiyaEffectSDK;
 			productReference = D37926EA1FCD081A007DB5E8 /* AiyaEffectSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D37926F81FCD0892007DB5E8 /* AySDKCore */ = {
+		D37926F81FCD0892007DB5E8 /* AyCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D37927011FCD0892007DB5E8 /* Build configuration list for PBXNativeTarget "AySDKCore" */;
+			buildConfigurationList = D37927011FCD0892007DB5E8 /* Build configuration list for PBXNativeTarget "AyCore" */;
 			buildPhases = (
 				D37926F51FCD0892007DB5E8 /* Sources */,
 				D37926F61FCD0892007DB5E8 /* Frameworks */,
@@ -744,14 +782,14 @@
 			);
 			dependencies = (
 			);
-			name = AySDKCore;
+			name = AyCore;
 			productName = AySDKCore;
-			productReference = D37926F91FCD0892007DB5E8 /* libAySDKCore.a */;
+			productReference = D37926F91FCD0892007DB5E8 /* libAyCore.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D37927051FCD08A0007DB5E8 /* AyTrack */ = {
+		D37927051FCD08A0007DB5E8 /* AyFaceTrack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D379270C1FCD08A0007DB5E8 /* Build configuration list for PBXNativeTarget "AyTrack" */;
+			buildConfigurationList = D379270C1FCD08A0007DB5E8 /* Build configuration list for PBXNativeTarget "AyFaceTrack" */;
 			buildPhases = (
 				D37927021FCD08A0007DB5E8 /* Sources */,
 				D37927031FCD08A0007DB5E8 /* Frameworks */,
@@ -761,9 +799,9 @@
 			);
 			dependencies = (
 			);
-			name = AyTrack;
+			name = AyFaceTrack;
 			productName = AyTrack;
-			productReference = D37927061FCD08A0007DB5E8 /* libAyTrack.a */;
+			productReference = D37927061FCD08A0007DB5E8 /* libAyFaceTrack.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D37927121FCD08AA007DB5E8 /* AyEffect */ = {
@@ -865,8 +903,8 @@
 			projectRoot = "";
 			targets = (
 				D37926E91FCD081A007DB5E8 /* AiyaEffectSDK */,
-				D37926F81FCD0892007DB5E8 /* AySDKCore */,
-				D37927051FCD08A0007DB5E8 /* AyTrack */,
+				D37926F81FCD0892007DB5E8 /* AyCore */,
+				D37927051FCD08A0007DB5E8 /* AyFaceTrack */,
 				D37927121FCD08AA007DB5E8 /* AyEffect */,
 				D379271F1FCD08BB007DB5E8 /* AyBeauty */,
 				D379272C1FCD08DA007DB5E8 /* AyShortVideoEffect */,
@@ -891,8 +929,11 @@
 			files = (
 				D37927471FCD0D5C007DB5E8 /* AYGPUImageFilter.m in Sources */,
 				D379274B1FCD0D71007DB5E8 /* AYGPUImageFramebuffer.m in Sources */,
+				D3EDF7A120BA5DE90016D814 /* AYGPUImageI420DataInput.m in Sources */,
+				D3EDF77120B9AFB60016D814 /* AYGPUImageNV12DataInput.m in Sources */,
 				D37927531FCD0DA8007DB5E8 /* AYGPUImageOutput.m in Sources */,
 				D37927431FCD0D4A007DB5E8 /* AYGPUImageContext.m in Sources */,
+				D3EDF77520B9B0180016D814 /* AYGPUImageNV12DataOutput.m in Sources */,
 				D37927591FCD1344007DB5E8 /* AYGPUImageLookupFilter.m in Sources */,
 				D3EBBA761FCD4B6700F5742A /* AYGPUImageTextureInput.m in Sources */,
 				D366B5651FD252B700A6178E /* AYShortVideoEffectHandler.m in Sources */,
@@ -905,9 +946,10 @@
 				D36926E91FCEBEAE00A00D12 /* AYLicenseManager.m in Sources */,
 				D365AF611FD01C8300E60BC0 /* AYGPUImageSlimFaceFilter.m in Sources */,
 				D379274F1FCD0D95007DB5E8 /* AYGPUImageFramebufferCache.m in Sources */,
-				D3EBBA821FCD4D0E00F5742A /* AYGPUImageRawDataOutput.m in Sources */,
+				D3EDF7A520BA5DFE0016D814 /* AYGPUImageI420DataOutput.m in Sources */,
+				D3EBBA821FCD4D0E00F5742A /* AYGPUImageBGRADataOutput.m in Sources */,
 				D393AE911FD3A2A200DA7EB5 /* AYEffectConstants.m in Sources */,
-				D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageRawDataInput.m in Sources */,
+				D3EBBA7E1FCD4CFB00F5742A /* AYGPUImageBGRADataInput.m in Sources */,
 				D3BE8E01205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m in Sources */,
 				D3EBBA7A1FCD4B7800F5742A /* AYGPUImageTextureOutput.m in Sources */,
 				D36926F11FCEC10C00A00D12 /* AYGPUImageEffectFilter.m in Sources */,
@@ -919,7 +961,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37926FD1FCD0892007DB5E8 /* AySDKCore.mm in Sources */,
+				D37926FD1FCD0892007DB5E8 /* AyCore.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,7 +969,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D379270A1FCD08A0007DB5E8 /* AyTrack.mm in Sources */,
+				D379270A1FCD08A0007DB5E8 /* AyFaceTrack.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,30 +1002,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D365AF551FD0145F00E60BC0 /* PBXTargetDependency */ = {
+		D3E7FD9B20C590F9009D1A7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D379271F1FCD08BB007DB5E8 /* AyBeauty */;
-			targetProxy = D365AF541FD0145F00E60BC0 /* PBXContainerItemProxy */;
+			target = D37926F81FCD0892007DB5E8 /* AyCore */;
+			targetProxy = D3E7FD9A20C590F9009D1A7D /* PBXContainerItemProxy */;
 		};
-		D36926AD1FCE511400A00D12 /* PBXTargetDependency */ = {
+		D3E7FD9D20C590FB009D1A7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D37926F81FCD0892007DB5E8 /* AySDKCore */;
-			targetProxy = D36926AC1FCE511400A00D12 /* PBXContainerItemProxy */;
+			target = D37927051FCD08A0007DB5E8 /* AyFaceTrack */;
+			targetProxy = D3E7FD9C20C590FB009D1A7D /* PBXContainerItemProxy */;
 		};
-		D36926E31FCEB1FD00A00D12 /* PBXTargetDependency */ = {
+		D3E7FD9F20C590FE009D1A7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D37927121FCD08AA007DB5E8 /* AyEffect */;
-			targetProxy = D36926E21FCEB1FD00A00D12 /* PBXContainerItemProxy */;
+			targetProxy = D3E7FD9E20C590FE009D1A7D /* PBXContainerItemProxy */;
 		};
-		D37A28F41FF0A69F00FE4866 /* PBXTargetDependency */ = {
+		D3E7FDA120C59101009D1A7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D37927051FCD08A0007DB5E8 /* AyTrack */;
-			targetProxy = D37A28F31FF0A69F00FE4866 /* PBXContainerItemProxy */;
+			target = D379271F1FCD08BB007DB5E8 /* AyBeauty */;
+			targetProxy = D3E7FDA020C59101009D1A7D /* PBXContainerItemProxy */;
 		};
-		D3B0DEDF1FD28272001920A0 /* PBXTargetDependency */ = {
+		D3E7FDA320C59103009D1A7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D379272C1FCD08DA007DB5E8 /* AyShortVideoEffect */;
-			targetProxy = D3B0DEDE1FD28272001920A0 /* PBXContainerItemProxy */;
+			targetProxy = D3E7FDA220C59103009D1A7D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1150,7 +1192,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AySDKCore",
+					"$(PROJECT_DIR)/AyCore",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1165,7 +1207,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AySDKCore",
+					"$(PROJECT_DIR)/AyCore",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1181,8 +1223,8 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/AyTrack/libyuv/include\"";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AyTrack",
-					"$(PROJECT_DIR)/AyTrack/libyuv/lib",
+					"$(PROJECT_DIR)/AyFaceTrack",
+					"$(PROJECT_DIR)/AyFaceTrack/libyuv/lib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1198,8 +1240,8 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/AyTrack/libyuv/include\"";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AyTrack",
-					"$(PROJECT_DIR)/AyTrack/libyuv/lib",
+					"$(PROJECT_DIR)/AyFaceTrack",
+					"$(PROJECT_DIR)/AyFaceTrack/libyuv/lib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1323,7 +1365,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D37927011FCD0892007DB5E8 /* Build configuration list for PBXNativeTarget "AySDKCore" */ = {
+		D37927011FCD0892007DB5E8 /* Build configuration list for PBXNativeTarget "AyCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D37926FF1FCD0892007DB5E8 /* Debug */,
@@ -1332,7 +1374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D379270C1FCD08A0007DB5E8 /* Build configuration list for PBXNativeTarget "AyTrack" */ = {
+		D379270C1FCD08A0007DB5E8 /* Build configuration list for PBXNativeTarget "AyFaceTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D379270D1FCD08A0007DB5E8 /* Debug */,

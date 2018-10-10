@@ -10,6 +10,7 @@
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "AYGPUImageConstants.h"
 
 @interface AYEffectHandler : NSObject
 
@@ -42,7 +43,7 @@
 /**
  当前的美颜算法类型, 共有6种美颜算法. 当前使用的是AY_BEAUTY_TYPE_5
  */
-@property (nonatomic, assign, readonly) NSInteger beautyAlgorithmType;
+@property (nonatomic, assign) NSInteger beautyAlgorithmType;
 
 /**
  设置磨皮 默认0 最高为1
@@ -70,9 +71,9 @@
 @property (nonatomic, assign) CGFloat slimFace;
 
 /**
- 设置特效是否要垂直翻转
+ 设置特效旋转或者翻转, 共8个方向
  */
-@property (nonatomic, assign) BOOL verticalFlip;
+@property (nonatomic, assign) AYGPUImageRotationMode rotateMode;
 
 /**
  处理纹理数据
@@ -84,11 +85,51 @@
 - (void)processWithTexture:(GLuint)texture width:(GLint)width height:(GLint)height;
 
 /**
- 处理BGRA数据
+ 处理iOS封装的数据
  
  @param pixelBuffer BGRA格式数据
+ @param formatType 只支持kCVPixelFormatType_420YpCbCr8BiPlanarFullRange 和 kCVPixelFormatType_32BGRA
  */
-- (void)processWithPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+- (void)processWithPixelBuffer:(CVPixelBufferRef)pixelBuffer formatType:(OSType)formatType;
 
+/**
+ 处理原始数据, 格式为NV12, 对应iOS相机输出数据格式420YpCbCr8BiPlanarFullRange
+ 
+ ----------plane0
+ Y1 Y2 Y3 Y4
+ Y5 Y6 Y7 Y8
+ ----------plane1
+ U1 V1 U2 V2
+ 
+ @param yBuffer 灰度数据
+ @param uvBuffer 色度数据
+ @param width 宽度
+ @param height 高度
+ */
+- (void)processWithYBuffer:(void *)yBuffer uvBuffer:(void *)uvBuffer width:(int)width height:(int)height;
+
+/**
+ 处理原始数据, 格式为I420, 一般用于安卓设备
+ 
+ ----------plane0
+ Y1 Y2 Y3 Y4
+ Y5 Y6 Y7 Y8
+ ----------plane1
+ U1 U2
+ ----------plane2
+ V1 V2
+ 
+ @param yBuffer 灰度数据
+ @param uBuffer 色度数据
+ @param vBuffer 色度数据
+ @param width 宽度
+ @param height 高度
+ */
+- (void)processWithYBuffer:(void *)yBuffer uBuffer:(void *)uBuffer vBuffer:(void *)vBuffer width:(int)width height:(int)height;
+
+/**
+ 处理原始数据, 格式为32BGRA
+ */
+- (void)processWithBGRAData:(void *)bgraData width:(int)width height:(int)height;
 
 @end

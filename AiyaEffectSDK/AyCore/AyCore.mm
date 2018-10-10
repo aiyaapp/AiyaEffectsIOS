@@ -1,12 +1,12 @@
 //
-//  AySDKCore.m
-//  AySDKCore
+//  AyCore.m
+//  AyCore
 //
 //  Created by 汪洋 on 2017/11/28.
 //  Copyright © 2017年 深圳市哎吖科技有限公司. All rights reserved.
 //
 
-#import "AySDKCore.h"
+#import "AyCore.h"
 #include "AyObserver.h"
 #include "AyCoreAuth.h"
 #include "AYEffectConstants.h"
@@ -27,7 +27,7 @@ void func_ay_auth_message(int type,int ret,const char * info){
 
 AyObserver ay_auth_observer = {func_ay_auth_message};
 
-@implementation AySDKCore
+@implementation AyCore
 
 + (void)initLicense:(NSString *)appKey{
     static dispatch_once_t onceToken;

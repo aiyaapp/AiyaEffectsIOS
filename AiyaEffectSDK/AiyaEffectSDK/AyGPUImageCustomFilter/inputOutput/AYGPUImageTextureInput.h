@@ -10,8 +10,13 @@
 
 @interface AYGPUImageTextureInput : AYGPUImageOutput
 
-@property (nonatomic, assign) BOOL verticalFlip;
+@property (nonatomic, assign) AYGPUImageRotationMode rotateMode;
 
-- (void)processBGRADataWithTexture:(GLint)texture width:(int)width height:(int)height;
+/**
+ 处理纹理
+
+ @param texture 纹理数据
+ */
+- (void)processWithBGRATexture:(GLint)texture width:(int)width height:(int)height;
 
 @end

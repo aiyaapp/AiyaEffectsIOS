@@ -320,13 +320,13 @@
     
     if (!self.handler) {
         self.handler = [[AYEffectHandler alloc] init];
-        self.handler.verticalFlip = YES;
         [self.handler setBigEye:0.2];
         [self.handler setSlimFace:0.2];
         [self.handler setSmooth:1];
         [self.handler setEffectPath:[[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"grass"]];
     }
-    
+
+    [self.handler setRotateMode:kAYGPUImageFlipVertical];
     [self.handler processWithTexture:texture width:width height:height];
     
     return texture;

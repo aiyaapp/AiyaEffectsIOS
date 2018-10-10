@@ -96,7 +96,6 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
                  type:(GLenum)type
                string:(NSString *)shaderString
 {
-    //    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     
     GLint status;
     const GLchar *source;
@@ -136,9 +135,6 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
         }
     }
     
-    //    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-    //    NSLog(@"Compiled in %f ms", linkTime * 1000.0);
-    
     return status == GL_TRUE;
 }
 // END:compile
@@ -164,8 +160,20 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
     glLinkProgram(program);
     
     glGetProgramiv(program, GL_LINK_STATUS, &status);
-    if (status == GL_FALSE)
+    if (status == GL_FALSE){
+        GLint logLength;
+        
+        glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
+        if (logLength > 0)
+        {
+            GLchar *log = (GLchar *)malloc(logLength);
+            glGetProgramInfoLog(program, logLength, &logLength, log);
+            self.programLog = [NSString stringWithFormat:@"%s", log];
+            free(log);
+        }
+
         return NO;
+    }
     
     if (vertShader)
     {
@@ -180,9 +188,6 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
     
     self.initialized = YES;
     
-    //    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-    //    NSLog(@"Linked in %f ms", linkTime * 1000.0);
-    
     return YES;
 }
 // END:link
@@ -192,22 +197,6 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
     glUseProgram(program);
 }
 // END:use
-#pragma mark -
-
-- (void)validate;
-{
-    GLint logLength;
-    
-    glValidateProgram(program);
-    glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
-    if (logLength > 0)
-    {
-        GLchar *log = (GLchar *)malloc(logLength);
-        glGetProgramInfoLog(program, logLength, &logLength, log);
-        self.programLog = [NSString stringWithFormat:@"%s", log];
-        free(log);
-    }
-}
 
 #pragma mark -
 // START:dealloc
