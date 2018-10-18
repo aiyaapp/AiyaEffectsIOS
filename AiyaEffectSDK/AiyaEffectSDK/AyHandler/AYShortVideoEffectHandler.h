@@ -10,6 +10,7 @@
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "AYGPUImageConstants.h"
 
 typedef NS_ENUM(NSUInteger, AY_SHORT_VIDEO_EFFECT_TYPE) {
     AY_SHORT_VIDEO_EFFECT_NONE = 0,            // 基本特效
@@ -39,9 +40,9 @@ typedef NS_ENUM(NSUInteger, AY_SHORT_VIDEO_EFFECT_TYPE) {
 @property (nonatomic, assign) AY_SHORT_VIDEO_EFFECT_TYPE type;
 
 /**
- 设置特效是否要垂直翻转
+ 设置特效旋转或者翻转, 共8个方向
  */
-@property (nonatomic, assign) BOOL verticalFlip;
+@property (nonatomic, assign) AYGPUImageRotationMode rotateMode;
 
 /**
  处理纹理数据
@@ -51,12 +52,5 @@ typedef NS_ENUM(NSUInteger, AY_SHORT_VIDEO_EFFECT_TYPE) {
  @param height 高度
  */
 - (void)processWithTexture:(GLuint)texture width:(GLint)width height:(GLint)height;
-
-/**
- 处理BGRA数据
- 
- @param pixelBuffer BGRA格式数据
- */
-- (void)processWithPixelBuffer:(CVPixelBufferRef)pixelBuffer;
 
 @end

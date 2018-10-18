@@ -17,8 +17,6 @@
 
 void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(void));
 
-#define AYGPUImageRotationSwapsWidthAndHeight(rotation) ((rotation) == kAYGPUImageRotateLeft || (rotation) == kAYGPUImageRotateRight || (rotation) == kAYGPUImageRotateRightFlipVertical || (rotation) == kAYGPUImageRotateRightFlipHorizontal)
-
 @interface AYGPUImageContext : NSObject
 
 @property(readonly, nonatomic) dispatch_queue_t contextQueue;
@@ -29,29 +27,18 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 
 - (void)useAsCurrentContext;
 
-- (GLint)maximumTextureSizeForThisDevice;
-- (GLint)maximumTextureUnitsForThisDevice;
-- (GLint)maximumVaryingVectorsForThisDevice;
-- (BOOL)deviceSupportsOpenGLESExtension:(NSString *)extension;
-- (BOOL)deviceSupportsRedTextures;
-- (BOOL)deviceSupportsFramebufferReads;
-- (CGSize)sizeThatFitsWithinATextureForSize:(CGSize)inputSize;
-
 - (void)presentBufferForDisplay;
+
 - (AYGLProgram *)programForVertexShaderString:(NSString *)vertexShaderString fragmentShaderString:(NSString *)fragmentShaderString;
 
 - (void)useSharegroup:(EAGLSharegroup *)sharegroup;
 
-// Manage fast texture upload
-+ (BOOL)supportsFastTextureUpload;
-
 @end
 
 @protocol AYGPUImageInput <NSObject>
-- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
-- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer atIndex:(NSInteger)textureIndex;
-- (NSInteger)nextAvailableTextureIndex;
-- (void)setInputSize:(CGSize)newSize atIndex:(NSInteger)textureIndex;
-- (void)setInputRotation:(AYGPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex;
-- (void)endProcessing;
+
+- (void)setInputSize:(CGSize)newSize;
+- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer;
+- (void)newFrameReady;
+
 @end

@@ -46,7 +46,7 @@ static const int recordStep = 10; //每10帧做一次记录
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;{
     
     //------------->绘制特效图像<--------------//
-    
+    [self.effectHandler setRotateMode:kAYGPUImageNoRotation];
     [self.effectHandler processWithTexture:firstInputFramebuffer.texture width:[self sizeOfFBO].width height:[self sizeOfFBO].height];
     
     glEnableVertexAttribArray(filterPositionAttribute);

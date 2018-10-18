@@ -15,18 +15,15 @@
 {
     AYGPUImageFramebuffer *outputFramebuffer;
     
-    NSMutableArray *targets, *targetTextureIndices;
+    NSMutableArray *targets;
     
-    CGSize inputTextureSize, cachedMaximumOutputSize;
+    CGSize inputTextureSize;
 }
 
 @property (nonatomic, weak) AYGPUImageContext *context;
-@property(nonatomic, copy) void(^frameProcessingCompletionBlock)(AYGPUImageOutput*, CMTime);
 @property(readwrite, nonatomic) AYGPUTextureOptions outputTextureOptions;
 
 - (id)initWithContext:(AYGPUImageContext *)context;
-
-- (void)setInputFramebufferForTarget:(id<AYGPUImageInput>)target atIndex:(NSInteger)inputTextureIndex;
 
 - (AYGPUImageFramebuffer *)framebufferForOutput;
 
@@ -35,8 +32,6 @@
 - (NSArray*)targets;
 
 - (void)addTarget:(id<AYGPUImageInput>)newTarget;
-
-- (void)addTarget:(id<AYGPUImageInput>)newTarget atTextureLocation:(NSInteger)textureLocation;
 
 - (void)removeTarget:(id<AYGPUImageInput>)targetToRemove;
 

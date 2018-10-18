@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D37926E91FCD081A007DB5E8"
-               BuildableName = "AiyaEffectSDK.framework"
-               BlueprintName = "AiyaEffectSDK"
+               BlueprintIdentifier = "D37926F81FCD0892007DB5E8"
+               BuildableName = "libAyCore.a"
+               BlueprintName = "AyCore"
                ReferencedContainer = "container:AiyaEffectSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D37926E91FCD081A007DB5E8"
-            BuildableName = "AiyaEffectSDK.framework"
-            BlueprintName = "AiyaEffectSDK"
+            BlueprintIdentifier = "D37926F81FCD0892007DB5E8"
+            BuildableName = "libAyCore.a"
+            BlueprintName = "AyCore"
             ReferencedContainer = "container:AiyaEffectSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D37926E91FCD081A007DB5E8"
-            BuildableName = "AiyaEffectSDK.framework"
-            BlueprintName = "AiyaEffectSDK"
+            BlueprintIdentifier = "D37926F81FCD0892007DB5E8"
+            BuildableName = "libAyCore.a"
+            BlueprintName = "AyCore"
             ReferencedContainer = "container:AiyaEffectSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -20,8 +20,6 @@
 
 @property (nonatomic, strong) NSMutableDictionary *beautyDic;
 
-@property (nonatomic, assign) AY_BEAUTY_TYPE type;
-
 @end
 
 @implementation AYGPUImageBeautyFilter
@@ -64,8 +62,21 @@
     [firstInputFramebuffer unlock];
 }
 
-- (AY_BEAUTY_TYPE)type{
-    return _type;
+- (void)setType:(AY_BEAUTY_TYPE)type {
+    if (_type != type) {
+        _type = type;
+#if AY_ENABLE_BEAUTY
+        runAYSynchronouslyOnContextQueue(self.context, ^{
+            [self.context useAsCurrentContext];
+            if (self.beauty) {
+                [self.beauty releaseGLResource];
+            }
+            
+            _beauty = [[AyBeauty alloc] initWithType:type];
+            [self.beauty initGLResource];
+        });
+#endif
+    }
 }
 
 - (void)setIntensity:(CGFloat)intensity{

@@ -159,7 +159,7 @@ void dataAYProviderUnlockCallback (void *info, const void *data, size_t size);
             framebuffer = 0;
         }
         
-        if ([AYGPUImageContext supportsFastTextureUpload] && !_missCVPixelBuffer)
+        if (/**[AYGPUImageContext supportsFastTextureUpload] &&*/ !_missCVPixelBuffer)
         {
             if (renderTarget)
             {
@@ -221,39 +221,39 @@ void dataAYProviderUnlockCallback (void *info, const void *data, size_t size);
 
 - (void)lockForReading
 {
-    if ([AYGPUImageContext supportsFastTextureUpload])
-    {
+//    if ([AYGPUImageContext supportsFastTextureUpload])
+//    {
         if (readLockCount == 0)
         {
             CVPixelBufferLockBaseAddress(renderTarget, 0);
         }
         readLockCount++;
-    }
+//    }
 }
 
 - (void)unlockAfterReading
 {
-    if ([AYGPUImageContext supportsFastTextureUpload])
-    {
+//    if ([AYGPUImageContext supportsFastTextureUpload])
+//    {
         NSAssert(readLockCount > 0, @"Unbalanced call to -[AYGPUImageFramebuffer unlockAfterReading]");
         readLockCount--;
         if (readLockCount == 0)
         {
             CVPixelBufferUnlockBaseAddress(renderTarget, 0);
         }
-    }
+//    }
 }
 
 - (NSUInteger)bytesPerRow;
 {
-    if ([AYGPUImageContext supportsFastTextureUpload])
-    {
+//    if ([AYGPUImageContext supportsFastTextureUpload])
+//    {
         return CVPixelBufferGetBytesPerRow(renderTarget);
-    }
-    else
-    {
-        return _size.width * 4;
-    }
+//    }
+//    else
+//    {
+//        return _size.width * 4;
+//    }
 }
 
 - (GLubyte *)byteBuffer;

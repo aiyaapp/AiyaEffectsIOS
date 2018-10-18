@@ -1,19 +1,19 @@
 //
-//  AyTrack.m
-//  AyTrack
+//  AyFaceTrack.m
+//  AyFaceTrack
 //
 //  Created by 汪洋 on 2017/11/28.
 //  Copyright © 2017年 深圳市哎吖科技有限公司. All rights reserved.
 //
 
-#import "AyTrack.h"
+#import "AyFaceTrack.h"
 #import "FaceTrack.h"
 #include "AYEffectConstants.h"
 #include "FaceData.h"
 
 static BOOL stopTrack = NO;
 
-@interface AyTrack () {
+@interface AyFaceTrack () {
     std::shared_ptr<AiyaTrack::FaceTrack> faceTrack;
     
     FaceData faceData;
@@ -21,7 +21,7 @@ static BOOL stopTrack = NO;
 
 @end
 
-@implementation AyTrack
+@implementation AyFaceTrack
 
 - (instancetype)init
 {

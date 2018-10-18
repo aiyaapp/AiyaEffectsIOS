@@ -112,110 +112,6 @@ static int specificKey;
     }
 }
 
-- (GLint)maximumTextureSizeForThisDevice;
-{
-    static dispatch_once_t pred;
-    static GLint maxTextureSize = 0;
-    
-    dispatch_once(&pred, ^{
-        [self useAsCurrentContext];
-        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
-    });
-    
-    return maxTextureSize;
-}
-
-- (GLint)maximumTextureUnitsForThisDevice;
-{
-    static dispatch_once_t pred;
-    static GLint maxTextureUnits = 0;
-    
-    dispatch_once(&pred, ^{
-        [self useAsCurrentContext];
-        glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &maxTextureUnits);
-    });
-    
-    return maxTextureUnits;
-}
-
-- (GLint)maximumVaryingVectorsForThisDevice;
-{
-    static dispatch_once_t pred;
-    static GLint maxVaryingVectors = 0;
-    
-    dispatch_once(&pred, ^{
-        [self useAsCurrentContext];
-        glGetIntegerv(GL_MAX_VARYING_VECTORS, &maxVaryingVectors);
-    });
-    
-    return maxVaryingVectors;
-}
-
-- (BOOL)deviceSupportsOpenGLESExtension:(NSString *)extension;
-{
-    static dispatch_once_t pred;
-    static NSArray *extensionNames = nil;
-    
-    // Cache extensions for later quick reference, since this won't change for a given device
-    dispatch_once(&pred, ^{
-        [self useAsCurrentContext];
-        NSString *extensionsString = [NSString stringWithCString:(const char *)glGetString(GL_EXTENSIONS) encoding:NSASCIIStringEncoding];
-        extensionNames = [extensionsString componentsSeparatedByString:@" "];
-    });
-    
-    return [extensionNames containsObject:extension];
-}
-
-
-// http://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_rg.txt
-
-- (BOOL)deviceSupportsRedTextures;
-{
-    static dispatch_once_t pred;
-    static BOOL supportsRedTextures = NO;
-    
-    dispatch_once(&pred, ^{
-        supportsRedTextures = [self deviceSupportsOpenGLESExtension:@"GL_EXT_texture_rg"];
-    });
-    
-    return supportsRedTextures;
-}
-
-- (BOOL)deviceSupportsFramebufferReads;
-{
-    static dispatch_once_t pred;
-    static BOOL supportsFramebufferReads = NO;
-    
-    dispatch_once(&pred, ^{
-        supportsFramebufferReads = [self deviceSupportsOpenGLESExtension:@"GL_EXT_shader_framebuffer_fetch"];
-    });
-    
-    return supportsFramebufferReads;
-}
-
-- (CGSize)sizeThatFitsWithinATextureForSize:(CGSize)inputSize;
-{
-    GLint maxTextureSize = [self maximumTextureSizeForThisDevice];
-    if ( (inputSize.width < maxTextureSize) && (inputSize.height < maxTextureSize) )
-    {
-        return inputSize;
-    }
-    
-    CGSize adjustedSize;
-    if (inputSize.width > inputSize.height)
-    {
-        adjustedSize.width = (CGFloat)maxTextureSize;
-        adjustedSize.height = ((CGFloat)maxTextureSize / inputSize.width) * inputSize.height;
-    }
-    else
-    {
-        adjustedSize.height = (CGFloat)maxTextureSize;
-        adjustedSize.width = ((CGFloat)maxTextureSize / inputSize.height) * inputSize.width;
-    }
-    
-    return adjustedSize;
-}
-
 - (void)presentBufferForDisplay;
 {
     [self.context presentRenderbuffer:GL_RENDERBUFFER];
@@ -250,23 +146,6 @@ static int specificKey;
 }
 
 #pragma mark -
-#pragma mark Manage fast texture upload
-
-+ (BOOL)supportsFastTextureUpload;
-{
-#if TARGET_IPHONE_SIMULATOR
-    return NO;
-#else
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
-    return (CVOpenGLESTextureCacheCreate != NULL);
-#pragma clang diagnostic pop
-    
-#endif
-}
-
-#pragma mark -
 #pragma mark Accessors
 
 - (EAGLContext *)context;
@@ -291,11 +170,7 @@ static int specificKey;
 {
     if (_coreVideoTextureCache == NULL)
     {
-#if defined(__IPHONE_6_0)
         CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, [self context], NULL, &_coreVideoTextureCache);
-#else
-        CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, (__bridge void *)[self context], NULL, &_coreVideoTextureCache);
-#endif
         
         if (err)
         {

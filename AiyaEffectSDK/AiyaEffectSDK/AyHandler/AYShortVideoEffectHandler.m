@@ -9,20 +9,21 @@
 #import "AYShortVideoEffectHandler.h"
 #import "AYGPUImageTextureInput.h"
 #import "AYGPUImageTextureOutput.h"
-#import "AYGPUImageRawDataInput.h"
-#import "AYGPUImageRawDataOutput.h"
 
 #if AY_ENABLE_SHORT_VIDEO
 #import "AYGPUImageShortVideoFilter.h"
 #endif
 
-@interface AYShortVideoEffectHandler ()
+@interface AYShortVideoEffectHandler (){
+    GLint bindingFrameBuffer;
+    GLint viewPoint[4];
+    NSMutableArray<NSNumber *>* vertexAttribEnableArray;
+    NSInteger vertexAttribEnableArraySize;
+}
 
 @property (nonatomic, strong) AYGPUImageContext *glContext;
 @property (nonatomic, strong) AYGPUImageTextureInput *textureInput;
 @property (nonatomic, strong) AYGPUImageTextureOutput *textureOutput;
-@property (nonatomic, strong) AYGPUImageRawDataInput *rawDataInput;
-@property (nonatomic, strong) AYGPUImageRawDataOutput *rawDataOutput;
 
 #if AY_ENABLE_SHORT_VIDEO
 @property (nonatomic, strong) AYGPUImageShortVideoFilter *shortVideoFilter;
@@ -40,13 +41,13 @@
 {
     self = [super init];
     if (self) {
+        vertexAttribEnableArraySize = 5;
+        vertexAttribEnableArray = [NSMutableArray array];
+        
         _glContext = [[AYGPUImageContext alloc] init];
         
         _textureInput = [[AYGPUImageTextureInput alloc] initWithContext:_glContext];
         _textureOutput = [[AYGPUImageTextureOutput alloc] initWithContext:_glContext];
-        _rawDataInput = [[AYGPUImageRawDataInput alloc] initWithContext:_glContext];
-        _rawDataOutput = [[AYGPUImageRawDataOutput alloc] initWithContext:_glContext];
-        
 
 #if AY_ENABLE_SHORT_VIDEO
         _shortVideoFilter = [[AYGPUImageShortVideoFilter alloc] initWithContext:_glContext];
@@ -61,20 +62,21 @@
     self.updateType = YES;
 }
 
-- (void)setVerticalFlip:(BOOL)verticalFlip{
-    _verticalFlip = verticalFlip;
+- (void)setRotateMode:(AYGPUImageRotationMode)rotateMode{
+    _rotateMode = rotateMode;
     
-    self.textureInput.verticalFlip = verticalFlip;
-    self.textureOutput.verticalFlip = verticalFlip;
+    self.textureInput.rotateMode = rotateMode;
+    
+    if (rotateMode == kAYGPUImageRotateLeft) {
+        rotateMode = kAYGPUImageRotateRight;
+    }else if (rotateMode == kAYGPUImageRotateRight) {
+        rotateMode = kAYGPUImageRotateLeft;
+    }
+    
+    self.textureOutput.rotateMode = rotateMode;
 }
-
 - (void)processWithTexture:(GLuint)texture width:(GLint)width height:(GLint)height{
-    // 获取当前绑定的FrameBuffer
-    GLint bindingFrameBuffer;
-    glGetIntegerv(GL_FRAMEBUFFER_BINDING, (GLint *)&bindingFrameBuffer);
-    
-    GLint viewPoint[4];
-    glGetIntegerv(GL_VIEWPORT, (GLint *)&viewPoint);
+    [self saveOpenGLState];
     
     if (self.updateType) {
 #if AY_ENABLE_SHORT_VIDEO
@@ -95,56 +97,54 @@
     }
 
     // 设置输出的Filter
-    [self.textureOutput setOutputTexture:texture width:width height:height];
+    [self.textureOutput setOutputWithBGRATexture:texture width:width height:height];
     
     // 设置输入的Filter, 同时开始处理纹理数据
-    [self.textureInput processBGRADataWithTexture:texture width:width height:height];
+    [self.textureInput processWithBGRATexture:texture width:width height:height];
     
-    // 还原当前绑定的FrameBuffer
-    glBindFramebuffer(GL_FRAMEBUFFER, bindingFrameBuffer);
-    glViewport(viewPoint[0], viewPoint[1], viewPoint[2], viewPoint[3]);
+    [self restoreOpenGLState];
 }
 
-- (void)processWithPixelBuffer:(CVPixelBufferRef)pixelBuffer{
+
+/**
+ 保存opengl状态
+ */
+- (void)saveOpenGLState {
     // 获取当前绑定的FrameBuffer
-    GLint bindingFrameBuffer;
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, (GLint *)&bindingFrameBuffer);
     
-    GLint viewPoint[4];
+    // 获取viewpoint
     glGetIntegerv(GL_VIEWPORT, (GLint *)&viewPoint);
     
-    if (self.updateType) {
-#if AY_ENABLE_SHORT_VIDEO
-        [self.shortVideoFilter setType:(NSUInteger)self.type];
-        [self.shortVideoFilter reset];
-        self.currentEffectFilter = self.shortVideoFilter;
-#endif
-        self.updateType = NO;
+    // 获取顶点数据
+    [vertexAttribEnableArray removeAllObjects];
+    for (int x = 0 ; x < vertexAttribEnableArraySize; x++) {
+        GLint vertexAttribEnable;
+        glGetVertexAttribiv(x, GL_VERTEX_ATTRIB_ARRAY_ENABLED, &vertexAttribEnable);
+        if (vertexAttribEnable) {
+            [vertexAttribEnableArray addObject:@(x)];
+        }
     }
-    
-    [self removeFilterTargers];
-    
-    if (self.currentEffectFilter) {
-        [self.rawDataInput addTarget:self.currentEffectFilter];
-        [self.currentEffectFilter addTarget:self.rawDataOutput];
-    }else {
-        [self.rawDataInput addTarget:self.rawDataOutput];
-    }
-    
-    // 设置输出的Filter
-    [self.rawDataOutput setOutputCVPixelBuffer:pixelBuffer];
-    
-    // 设置输入的Filter, 同时开始处理BGRA数据
-    [self.rawDataInput processBGRADataWithCVPixelBuffer:pixelBuffer];
-    
+}
+
+/**
+ 恢复opengl状态
+ */
+- (void)restoreOpenGLState {
     // 还原当前绑定的FrameBuffer
     glBindFramebuffer(GL_FRAMEBUFFER, bindingFrameBuffer);
+    
+    // 还原viewpoint
     glViewport(viewPoint[0], viewPoint[1], viewPoint[2], viewPoint[3]);
+    
+    // 还原顶点数据
+    for (int x = 0 ; x < vertexAttribEnableArray.count; x++) {
+        glEnableVertexAttribArray(vertexAttribEnableArray[x].intValue);
+    }
 }
 
 - (void)removeFilterTargers{
     [self.textureInput removeAllTargets];
-    [self.rawDataInput removeAllTargets];
     
 #if AY_ENABLE_SHORT_VIDEO
     [self.shortVideoFilter removeAllTargets];

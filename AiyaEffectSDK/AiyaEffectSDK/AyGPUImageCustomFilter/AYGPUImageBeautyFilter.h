@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, AY_BEAUTY_TYPE) {
 /**
  美颜算法类型
  */
-@property (nonatomic, assign, readonly) AY_BEAUTY_TYPE type;
+@property (nonatomic, assign) AY_BEAUTY_TYPE type;
 
 /**
  美颜强度 [0.0f, 1.0f], 只适用于 0x1002

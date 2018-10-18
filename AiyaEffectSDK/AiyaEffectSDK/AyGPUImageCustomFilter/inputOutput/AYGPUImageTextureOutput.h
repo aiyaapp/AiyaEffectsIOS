@@ -1,5 +1,5 @@
 //
-//  AYGPUImageRawDataOutput.h
+//  AYGPUImageTextureOutput.h
 //  AiyaEffectSDK
 //
 //  Created by 汪洋 on 2017/11/28.
@@ -10,17 +10,17 @@
 #import "AYGPUImageFilter.h"
 #import "AYGPUImageContext.h"
 
-@interface AYGPUImageRawDataOutput : NSObject<AYGPUImageInput>
+@interface AYGPUImageTextureOutput : NSObject<AYGPUImageInput>
 
-@property (nonatomic, assign) BOOL verticalFlip;
+@property (nonatomic, assign) AYGPUImageRotationMode rotateMode;
 
 - (instancetype)initWithContext:(AYGPUImageContext *)context;
 
 /**
- 输出BGRA数据
+ 设置输出BGRA纹理
 
- @param pixelBuffer 用于存储输出数据的CVPixelBuffer
+ @param texture BGRA纹理
  */
-- (void)setOutputCVPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+- (void)setOutputWithBGRATexture:(GLint)texture width:(int)width height:(int)height;
 
 @end

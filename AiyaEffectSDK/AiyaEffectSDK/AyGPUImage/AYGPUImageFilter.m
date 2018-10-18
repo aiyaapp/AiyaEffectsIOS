@@ -48,13 +48,6 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
         return nil;
     }
     
-    uniformStateRestorationBlocks = [NSMutableDictionary dictionaryWithCapacity:10];
-    inputRotation = kAYGPUImageNoRotation;
-    backgroundColorRed = 0.0;
-    backgroundColorGreen = 0.0;
-    backgroundColorBlue = 0.0;
-    backgroundColorAlpha = 0.0;
-    
     self.context = context;
     
     runAYSynchronouslyOnContextQueue(self.context, ^{
@@ -197,6 +190,20 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
     }
 }
 
++ (BOOL)needExchangeWidthAndHeightWithRotation:(AYGPUImageRotationMode)rotationMode {
+    switch(rotationMode)
+    {
+        case kAYGPUImageNoRotation: return NO;
+        case kAYGPUImageRotateLeft: return YES;
+        case kAYGPUImageRotateRight: return YES;
+        case kAYGPUImageFlipVertical: return NO;
+        case kAYGPUImageFlipHorizonal: return NO;
+        case kAYGPUImageRotateRightFlipVertical: return YES;
+        case kAYGPUImageRotateRightFlipHorizontal: return YES;
+        case kAYGPUImageRotate180: return NO;
+    }
+}
+
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;
 {
     [self.context useAsCurrentContext];
@@ -205,9 +212,7 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
     outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:[self sizeOfFBO] textureOptions:self.outputTextureOptions missCVPixelBuffer:NO];
     [outputFramebuffer activateFramebuffer];
     
-    [self setUniformsForProgramAtIndex:0];
-    
-    glClearColor(backgroundColorRed, backgroundColorGreen, backgroundColorBlue, backgroundColorAlpha);
+    glClearColor(0, 0, 0, 0);
     glClear(GL_COLOR_BUFFER_BIT);
     
     glActiveTexture(GL_TEXTURE2);
@@ -223,22 +228,13 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
     [firstInputFramebuffer unlock];
 }
 
-- (void)informTargetsAboutNewFrameAtTime:(CMTime)frameTime;
+- (void)informTargetsAboutNewFrame;
 {
-    if (self.frameProcessingCompletionBlock != NULL)
-    {
-        self.frameProcessingCompletionBlock(self, frameTime);
-    }
-    
     // Get all targets the framebuffer so they can grab a lock on it
     for (id<AYGPUImageInput> currentTarget in targets)
     {
-        
-        NSInteger indexOfObject = [targets indexOfObject:currentTarget];
-        NSInteger textureIndex = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
-        
-        [self setInputFramebufferForTarget:currentTarget atIndex:textureIndex];
-        [currentTarget setInputSize:[self outputFrameSize] atIndex:textureIndex];
+        [currentTarget setInputSize:[self outputFrameSize]];
+        [currentTarget setInputFramebuffer:[self framebufferForOutput]];
     }
     
     // Release our hold so it can return to the cache immediately upon processing
@@ -249,10 +245,7 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
     // Trigger processing last, so that our unlock comes first in serial execution, avoiding the need for a callback
     for (id<AYGPUImageInput> currentTarget in targets)
     {
-        
-        NSInteger indexOfObject = [targets indexOfObject:currentTarget];
-        NSInteger textureIndex = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
-        [currentTarget newFrameReadyAtTime:frameTime atIndex:textureIndex];
+        [currentTarget newFrameReady];
     }
 }
 
@@ -262,187 +255,20 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
 }
 
 #pragma mark -
-#pragma mark Input parameters
-
-- (void)setBackgroundColorRed:(GLfloat)redComponent green:(GLfloat)greenComponent blue:(GLfloat)blueComponent alpha:(GLfloat)alphaComponent;
-{
-    backgroundColorRed = redComponent;
-    backgroundColorGreen = greenComponent;
-    backgroundColorBlue = blueComponent;
-    backgroundColorAlpha = alphaComponent;
-}
-
-- (void)setInteger:(GLint)newInteger forUniformName:(NSString *)uniformName;
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    [self setInteger:newInteger forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setFloat:(GLfloat)newFloat forUniformName:(NSString *)uniformName;
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    [self setFloat:newFloat forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setSize:(CGSize)newSize forUniformName:(NSString *)uniformName;
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    [self setSize:newSize forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setPoint:(CGPoint)newPoint forUniformName:(NSString *)uniformName;
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    [self setPoint:newPoint forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setFloatVec3:(AYGPUVector3)newVec3 forUniformName:(NSString *)uniformName;
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    [self setVec3:newVec3 forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setFloatVec4:(AYGPUVector4)newVec4 forUniform:(NSString *)uniformName;
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    [self setVec4:newVec4 forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setFloatArray:(GLfloat *)array length:(GLsizei)count forUniform:(NSString*)uniformName
-{
-    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
-    
-    [self setFloatArray:array length:count forUniform:uniformIndex program:filterProgram];
-}
-
-- (void)setMatrix3f:(AYGPUMatrix3x3)matrix forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniformMatrix3fv(uniform, 1, GL_FALSE, (GLfloat *)&matrix);
-        }];
-    });
-}
-
-- (void)setMatrix4f:(AYGPUMatrix4x4)matrix forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniformMatrix4fv(uniform, 1, GL_FALSE, (GLfloat *)&matrix);
-        }];
-    });
-}
-
-- (void)setFloat:(GLfloat)floatValue forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniform1f(uniform, floatValue);
-        }];
-    });
-}
-
-- (void)setPoint:(CGPoint)pointValue forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            GLfloat positionArray[2];
-            positionArray[0] = pointValue.x;
-            positionArray[1] = pointValue.y;
-            
-            glUniform2fv(uniform, 1, positionArray);
-        }];
-    });
-}
-
-- (void)setSize:(CGSize)sizeValue forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            GLfloat sizeArray[2];
-            sizeArray[0] = sizeValue.width;
-            sizeArray[1] = sizeValue.height;
-            
-            glUniform2fv(uniform, 1, sizeArray);
-        }];
-    });
-}
-
-- (void)setVec3:(AYGPUVector3)vectorValue forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniform3fv(uniform, 1, (GLfloat *)&vectorValue);
-        }];
-    });
-}
-
-- (void)setVec4:(AYGPUVector4)vectorValue forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniform4fv(uniform, 1, (GLfloat *)&vectorValue);
-        }];
-    });
-}
-
-- (void)setFloatArray:(GLfloat *)arrayValue length:(GLsizei)arrayLength forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    // Make a copy of the data, so it doesn't get overwritten before async call executes
-    NSData* arrayData = [NSData dataWithBytes:arrayValue length:arrayLength * sizeof(arrayValue[0])];
-    
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniform1fv(uniform, arrayLength, [arrayData bytes]);
-        }];
-    });
-}
-
-- (void)setInteger:(GLint)intValue forUniform:(GLint)uniform program:(AYGLProgram *)shaderProgram;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        [shaderProgram use];
-        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
-            glUniform1i(uniform, intValue);
-        }];
-    });
-}
-
-- (void)setAndExecuteUniformStateCallbackAtIndex:(GLint)uniform forProgram:(AYGLProgram *)shaderProgram toBlock:(dispatch_block_t)uniformStateBlock;
-{
-    [uniformStateRestorationBlocks setObject:[uniformStateBlock copy] forKey:[NSNumber numberWithInt:uniform]];
-    uniformStateBlock();
-}
-
-- (void)setUniformsForProgramAtIndex:(NSUInteger)programIndex;
-{
-    [uniformStateRestorationBlocks enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop){
-        dispatch_block_t currentBlock = obj;
-        currentBlock();
-    }];
-}
-
-#pragma mark -
 #pragma mark AYGPUImageInput
 
-- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
+- (void)setInputSize:(CGSize)newSize;
+{
+    inputTextureSize = newSize;
+}
+
+- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer;
+{
+    firstInputFramebuffer = newInputFramebuffer;
+    [firstInputFramebuffer lock];
+}
+
+- (void)newFrameReady;
 {
     static const GLfloat imageVertices[] = {
         -1.0f, -1.0f,
@@ -451,65 +277,16 @@ NSString *const kAYGPUImagePassthroughFragmentShaderString = SHADER_STRING
         1.0f,  1.0f,
     };
     
-    [self renderToTextureWithVertices:imageVertices textureCoordinates:[[self class] textureCoordinatesForRotation:inputRotation]];
+    static const GLfloat textureCoordinates[] = {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.0f, 1.0f,
+        1.0f, 1.0f,
+    };
     
-    [self informTargetsAboutNewFrameAtTime:frameTime];
-}
-
-- (NSInteger)nextAvailableTextureIndex;
-{
-    return 0;
-}
-
-- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer atIndex:(NSInteger)textureIndex;
-{
-    firstInputFramebuffer = newInputFramebuffer;
-    [firstInputFramebuffer lock];
-}
-
-- (CGSize)rotatedSize:(CGSize)sizeToRotate forIndex:(NSInteger)textureIndex;
-{
-    CGSize rotatedSize = sizeToRotate;
+    [self renderToTextureWithVertices:imageVertices textureCoordinates:textureCoordinates];
     
-    if (AYGPUImageRotationSwapsWidthAndHeight(inputRotation))
-    {
-        rotatedSize.width = sizeToRotate.height;
-        rotatedSize.height = sizeToRotate.width;
-    }
-    
-    return rotatedSize;
-}
-
-- (void)setInputSize:(CGSize)newSize atIndex:(NSInteger)textureIndex;
-{
-    CGSize rotatedSize = [self rotatedSize:newSize forIndex:textureIndex];
-    
-    if (CGSizeEqualToSize(rotatedSize, CGSizeZero))
-    {
-        inputTextureSize = rotatedSize;
-    }
-    else if (!CGSizeEqualToSize(inputTextureSize, rotatedSize))
-    {
-        inputTextureSize = rotatedSize;
-    }
-}
-
-- (void)setInputRotation:(AYGPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex;
-{
-    inputRotation = newInputRotation;
-}
-
-- (void)endProcessing
-{
-    if (!isEndProcessing)
-    {
-        isEndProcessing = YES;
-        
-        for (id<AYGPUImageInput> currentTarget in targets)
-        {
-            [currentTarget endProcessing];
-        }
-    }
+    [self informTargetsAboutNewFrame];
 }
 
 @end

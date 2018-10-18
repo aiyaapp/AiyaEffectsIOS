@@ -12,7 +12,7 @@
 #import "AYGPUImageFramebuffer.h"
 
 #if AY_ENABLE_TRACK
-#import "AyTrack.h"
+#import "AyFaceTrack.h"
 #endif
 
 @interface AYGPUImageTrackOutput () {
@@ -23,13 +23,15 @@
     GLint dataInputTextureUniform;
     
     AYGPUImageFramebuffer *outputFramebuffer;
+    
+    void *_faceData;
 }
 
 @property (nonatomic, weak) AYGPUImageContext *context;
 @property (nonatomic, assign) CGSize outputSize;
 
 #if AY_ENABLE_TRACK
-@property (nonatomic, strong) AyTrack *track;
+@property (nonatomic, strong) AyFaceTrack *track;
 #endif
 
 @end
@@ -65,10 +67,14 @@
     dataInputTextureUniform = [dataProgram uniformIndex:@"inputImageTexture"];
     
 #if AY_ENABLE_TRACK
-    _track = [[AyTrack alloc] init];
+    _track = [[AyFaceTrack alloc] init];
 #endif
     
     return self;
+}
+
+- (void **)faceData {
+    return &_faceData;
 }
 
 #pragma mark -
@@ -115,6 +121,7 @@
 #if AY_ENABLE_TRACK
     //获取人脸数据
     GLubyte *outputBuffer = outputFramebuffer.byteBuffer;
+    _faceData = NULL;
     [self.track trackWithPixelBuffer:outputBuffer bufferWidth:self.outputSize.width bufferHeight:self.outputSize.height trackData:self.faceData];
 #endif
     
@@ -125,31 +132,7 @@
 #pragma mark -
 #pragma mark GPUImageInput protocol
 
-- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
-{
-    runAYSynchronouslyOnContextQueue(self.context, ^{
-        [self.context useAsCurrentContext];
-        
-        [self renderAtInternalSize];
-    });
-}
-
-- (NSInteger)nextAvailableTextureIndex;
-{
-    return 0;
-}
-
-- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer atIndex:(NSInteger)textureIndex;
-{
-    firstInputFramebuffer = newInputFramebuffer;
-    [firstInputFramebuffer lock];
-}
-
-- (void)setInputRotation:(AYGPUImageRotationMode)newInputRotation atIndex:(NSInteger)textureIndex{
-}
-
-- (void)setInputSize:(CGSize)newSize atIndex:(NSInteger)textureIndex;
-{
+- (void)setInputSize:(CGSize)newSize {
     CGSize outputSize;
     outputSize.width = 176;
     outputSize.height = newSize.height * outputSize.width / newSize.width ;
@@ -157,14 +140,17 @@
     self.outputSize = outputSize;
 }
 
-- (CGSize)maximumOutputSize;
-{
-    return CGSizeZero;
+- (void)setInputFramebuffer:(AYGPUImageFramebuffer *)newInputFramebuffer {
+    firstInputFramebuffer = newInputFramebuffer;
+    [firstInputFramebuffer lock];
 }
 
-- (void)endProcessing;
-{
-    
+- (void)newFrameReady {
+    runAYSynchronouslyOnContextQueue(self.context, ^{
+        [self.context useAsCurrentContext];
+        
+        [self renderAtInternalSize];
+    });
 }
 
 @end
