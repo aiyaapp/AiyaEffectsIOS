@@ -1,3 +1,9 @@
+AiyaEffectsSDK iOS V4.1.0
+>
+**功能更新**
+- 优化了渲染框架, 支持yuv输入输出, 支持旋转
+- 支持阿里云推流SDK
+
 AiyaEffectsSDK iOS V4.0.4
 >
 **功能更新**
