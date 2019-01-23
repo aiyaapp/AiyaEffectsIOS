@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2368EEB821EE2A4F005B574C /* libAySdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2368EEB721EE2A4F005B574C /* libAySdkCore.a */; };
 		D31A58731FD0F87500ADAA89 /* AyBigEye.mm in Sources */ = {isa = PBXBuildFile; fileRef = D31A58721FD0F87500ADAA89 /* AyBigEye.mm */; };
 		D31A58761FD0F88800ADAA89 /* AySlimFace.mm in Sources */ = {isa = PBXBuildFile; fileRef = D31A58751FD0F88800ADAA89 /* AySlimFace.mm */; };
 		D31A58791FD10AC900ADAA89 /* AYGPUImageTrackOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D31A58771FD10AC900ADAA89 /* AYGPUImageTrackOutput.h */; };
@@ -35,7 +36,6 @@
 		D36926CC1FCE5C1D00A00D12 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C51FCE5C1D00A00D12 /* libswresample.a */; };
 		D36926CD1FCE5C1D00A00D12 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C61FCE5C1D00A00D12 /* libswscale.a */; };
 		D36926D31FCE5C3200A00D12 /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926CF1FCE5C3200A00D12 /* libwebp.a */; };
-		D36926D41FCE5C3200A00D12 /* libsoil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926D01FCE5C3200A00D12 /* libsoil.a */; };
 		D36926D51FCE5C3200A00D12 /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926D11FCE5C3200A00D12 /* libzip.a */; };
 		D36926D61FCE5C3200A00D12 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926D21FCE5C3200A00D12 /* libassimp.a */; };
 		D36926E81FCEBEAE00A00D12 /* AYLicenseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D36926E61FCEBEAE00A00D12 /* AYLicenseManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,7 +79,6 @@
 		D3AE5C821FF34D3F004D476B /* AYAnimHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE5C801FF34D3F004D476B /* AYAnimHandler.m */; };
 		D3BE8E00205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3BE8DFE205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.h */; };
 		D3BE8E01205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BE8DFF205BC53B00B33309 /* AYGPUImageGaussianBlurFilter.m */; };
-		D3E7FD9620C58E0C009D1A7D /* libAySdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926A51FCE4C6F00A00D12 /* libAySdkCore.a */; };
 		D3E7FD9720C58E0E009D1A7D /* libBaseEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D365AF4C1FD00CFC00E60BC0 /* libBaseEffects.a */; };
 		D3E7FDA420C59110009D1A7D /* libAyBeauty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37927201FCD08BB007DB5E8 /* libAyBeauty.a */; };
 		D3E7FDA520C59113009D1A7D /* libAyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37926F91FCD0892007DB5E8 /* libAyCore.a */; };
@@ -198,6 +197,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2368EEB721EE2A4F005B574C /* libAySdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAySdkCore.a; path = "../../../../../../../Users/mac/Library/Developer/Xcode/DerivedData/AySdkCore-bqkzccrimpfywvedigxybufblsdm/Build/Products/Debug-iphoneos/libAySdkCore.a"; sourceTree = "<group>"; };
 		D31A58711FD0F87500ADAA89 /* AyBigEye.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyBigEye.h; sourceTree = "<group>"; };
 		D31A58721FD0F87500ADAA89 /* AyBigEye.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AyBigEye.mm; sourceTree = "<group>"; };
 		D31A58741FD0F88800ADAA89 /* AySlimFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AySlimFace.h; sourceTree = "<group>"; };
@@ -246,7 +246,6 @@
 		D366B5681FD25A5C00A6178E /* AYGPUImageShortVideoFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYGPUImageShortVideoFilter.m; sourceTree = "<group>"; };
 		D36926A21FCE4C6F00A00D12 /* AyObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AyObserver.h; sourceTree = "<group>"; };
 		D36926A31FCE4C6F00A00D12 /* AyCoreAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AyCoreAuth.h; sourceTree = "<group>"; };
-		D36926A51FCE4C6F00A00D12 /* libAySdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAySdkCore.a; sourceTree = "<group>"; };
 		D36926A91FCE4F7100A00D12 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D36926B51FCE54A600A00D12 /* FaceTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTrack.h; sourceTree = "<group>"; };
 		D36926B61FCE54B300A00D12 /* BaseTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTrack.h; sourceTree = "<group>"; };
@@ -356,8 +355,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E7FD9620C58E0C009D1A7D /* libAySdkCore.a in Frameworks */,
 				D3E7FD9720C58E0E009D1A7D /* libBaseEffects.a in Frameworks */,
+				2368EEB821EE2A4F005B574C /* libAySdkCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +382,6 @@
 				D36926CA1FCE5C1D00A00D12 /* libavformat.a in Frameworks */,
 				D36926D61FCE5C3200A00D12 /* libassimp.a in Frameworks */,
 				D36926CD1FCE5C1D00A00D12 /* libswscale.a in Frameworks */,
-				D36926D41FCE5C3200A00D12 /* libsoil.a in Frameworks */,
 				D36926CB1FCE5C1D00A00D12 /* libavdevice.a in Frameworks */,
 				D36926CC1FCE5C1D00A00D12 /* libswresample.a in Frameworks */,
 				D343879F1FFC822700C331FD /* libavcodec.a in Frameworks */,
@@ -572,7 +570,7 @@
 				D37926FC1FCD0892007DB5E8 /* AyCore.mm */,
 				D36926A31FCE4C6F00A00D12 /* AyCoreAuth.h */,
 				D36926A21FCE4C6F00A00D12 /* AyObserver.h */,
-				D36926A51FCE4C6F00A00D12 /* libAySdkCore.a */,
+				2368EEB721EE2A4F005B574C /* libAySdkCore.a */,
 				D365AF4C1FD00CFC00E60BC0 /* libBaseEffects.a */,
 				D36927121FCED1E300A00D12 /* AYEffectConstants.h */,
 			);
