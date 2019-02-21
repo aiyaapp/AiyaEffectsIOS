@@ -35,7 +35,6 @@
 		D36926CC1FCE5C1D00A00D12 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C51FCE5C1D00A00D12 /* libswresample.a */; };
 		D36926CD1FCE5C1D00A00D12 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926C61FCE5C1D00A00D12 /* libswscale.a */; };
 		D36926D31FCE5C3200A00D12 /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926CF1FCE5C3200A00D12 /* libwebp.a */; };
-		D36926D41FCE5C3200A00D12 /* libsoil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926D01FCE5C3200A00D12 /* libsoil.a */; };
 		D36926D51FCE5C3200A00D12 /* libzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926D11FCE5C3200A00D12 /* libzip.a */; };
 		D36926D61FCE5C3200A00D12 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36926D21FCE5C3200A00D12 /* libassimp.a */; };
 		D36926E81FCEBEAE00A00D12 /* AYLicenseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D36926E61FCEBEAE00A00D12 /* AYLicenseManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -383,7 +382,6 @@
 				D36926CA1FCE5C1D00A00D12 /* libavformat.a in Frameworks */,
 				D36926D61FCE5C3200A00D12 /* libassimp.a in Frameworks */,
 				D36926CD1FCE5C1D00A00D12 /* libswscale.a in Frameworks */,
-				D36926D41FCE5C3200A00D12 /* libsoil.a in Frameworks */,
 				D36926CB1FCE5C1D00A00D12 /* libavdevice.a in Frameworks */,
 				D36926CC1FCE5C1D00A00D12 /* libswresample.a in Frameworks */,
 				D343879F1FFC822700C331FD /* libavcodec.a in Frameworks */,
