@@ -40,28 +40,28 @@
     }
     
     _context = context;
-    
-    [context useAsCurrentContext];
-    dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
-    
-    if (!dataProgram.initialized)
-    {
-        if (![dataProgram link])
+    runAYSynchronouslyOnContextQueue(context, ^{
+        [context useAsCurrentContext];
+        dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
+        
+        if (!dataProgram.initialized)
         {
-            NSString *progLog = [dataProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [dataProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [dataProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            dataProgram = nil;
+            if (![dataProgram link])
+            {
+                NSString *progLog = [dataProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [dataProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [dataProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                dataProgram = nil;
+            }
         }
-    }
-    
-    dataPositionAttribute = [dataProgram attributeIndex:@"position"];
-    dataTextureCoordinateAttribute = [dataProgram attributeIndex:@"inputTextureCoordinate"];
-    dataInputTextureUniform = [dataProgram uniformIndex:@"inputImageTexture"];
-    
+        
+        dataPositionAttribute = [dataProgram attributeIndex:@"position"];
+        dataTextureCoordinateAttribute = [dataProgram attributeIndex:@"inputTextureCoordinate"];
+        dataInputTextureUniform = [dataProgram uniformIndex:@"inputImageTexture"];
+    });
     return self;
 }
 

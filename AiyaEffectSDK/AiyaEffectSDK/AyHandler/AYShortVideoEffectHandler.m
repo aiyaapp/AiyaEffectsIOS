@@ -44,7 +44,7 @@
         vertexAttribEnableArraySize = 5;
         vertexAttribEnableArray = [NSMutableArray array];
         
-        _glContext = [[AYGPUImageContext alloc] init];
+        _glContext = [[AYGPUImageContext alloc] initWithNewGLContext];
         
         _textureInput = [[AYGPUImageTextureInput alloc] initWithContext:_glContext];
         _textureOutput = [[AYGPUImageTextureOutput alloc] initWithContext:_glContext];

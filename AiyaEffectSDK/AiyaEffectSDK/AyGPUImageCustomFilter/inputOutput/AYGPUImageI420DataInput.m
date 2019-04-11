@@ -59,31 +59,32 @@ NSString *const kAYRGBConversion2FragmentShaderString = SHADER_STRING
         return nil;
     }
     
-    [context useAsCurrentContext];
-    
-    dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYRGBConversion2FragmentShaderString];
-    
-    if (!dataProgram.initialized)
-    {
-        if (![dataProgram link])
+    runAYSynchronouslyOnContextQueue(context, ^{
+        [context useAsCurrentContext];
+        
+        dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYRGBConversion2FragmentShaderString];
+        
+        if (!dataProgram.initialized)
         {
-            NSString *progLog = [dataProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [dataProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [dataProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            dataProgram = nil;
+            if (![dataProgram link])
+            {
+                NSString *progLog = [dataProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [dataProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [dataProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                dataProgram = nil;
+            }
         }
-    }
-    
-    dataPositionAttribute = [dataProgram attributeIndex:@"position"];
-    dataTextureCoordinateAttribute = [dataProgram attributeIndex:@"inputTextureCoordinate"];
-    datayTextureUniform = [dataProgram uniformIndex:@"yTexture"];
-    datauTextureUniform = [dataProgram uniformIndex:@"uTexture"];
-    datavTextureUniform = [dataProgram uniformIndex:@"vTexture"];
-    colorConversionUniform = [dataProgram uniformIndex:@"colorConversionMatrix"];
-    
+        
+        dataPositionAttribute = [dataProgram attributeIndex:@"position"];
+        dataTextureCoordinateAttribute = [dataProgram attributeIndex:@"inputTextureCoordinate"];
+        datayTextureUniform = [dataProgram uniformIndex:@"yTexture"];
+        datauTextureUniform = [dataProgram uniformIndex:@"uTexture"];
+        datavTextureUniform = [dataProgram uniformIndex:@"vTexture"];
+        colorConversionUniform = [dataProgram uniformIndex:@"colorConversionMatrix"];
+    });
     return self;
 }
 

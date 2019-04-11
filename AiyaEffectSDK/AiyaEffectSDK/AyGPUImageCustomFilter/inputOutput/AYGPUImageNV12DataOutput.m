@@ -96,49 +96,50 @@ GLfloat kAYColorConversionRGBDefault[] = {
     
     _context = context;
     
-    [context useAsCurrentContext];
-    luminanceProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
-    
-    if (!luminanceProgram.initialized)
-    {
-        if (![luminanceProgram link])
+    runAYSynchronouslyOnContextQueue(context, ^{
+        [context useAsCurrentContext];
+        luminanceProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
+        
+        if (!luminanceProgram.initialized)
         {
-            NSString *progLog = [luminanceProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [luminanceProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [luminanceProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            luminanceProgram = nil;
+            if (![luminanceProgram link])
+            {
+                NSString *progLog = [luminanceProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [luminanceProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [luminanceProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                luminanceProgram = nil;
+            }
         }
-    }
-    
-    luminancePositionAttribute = [luminanceProgram attributeIndex:@"position"];
-    luminanceTextureCoordinateAttribute = [luminanceProgram attributeIndex:@"inputTextureCoordinate"];
-    luminanceInputTextureUniform = [luminanceProgram uniformIndex:@"inputImageTexture"];
-    luminanceColorConversionUniform = [luminanceProgram uniformIndex:@"colorConversionMatrix"];
-    
-    chrominanceProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
-    
-    if (!chrominanceProgram.initialized)
-    {
-        if (![chrominanceProgram link])
+        
+        luminancePositionAttribute = [luminanceProgram attributeIndex:@"position"];
+        luminanceTextureCoordinateAttribute = [luminanceProgram attributeIndex:@"inputTextureCoordinate"];
+        luminanceInputTextureUniform = [luminanceProgram uniformIndex:@"inputImageTexture"];
+        luminanceColorConversionUniform = [luminanceProgram uniformIndex:@"colorConversionMatrix"];
+        
+        chrominanceProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
+        
+        if (!chrominanceProgram.initialized)
         {
-            NSString *progLog = [chrominanceProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [chrominanceProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [chrominanceProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            chrominanceProgram = nil;
+            if (![chrominanceProgram link])
+            {
+                NSString *progLog = [chrominanceProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [chrominanceProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [chrominanceProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                chrominanceProgram = nil;
+            }
         }
-    }
-    
-    chrominancePositionAttribute = [chrominanceProgram attributeIndex:@"position"];
-    chrominanceTextureCoordinateAttribute = [chrominanceProgram attributeIndex:@"inputTextureCoordinate"];
-    chrominanceInputTextureUniform = [chrominanceProgram uniformIndex:@"inputImageTexture"];
-    chrominanceColorConversionUniform = [chrominanceProgram uniformIndex:@"colorConversionMatrix"];
-
+        
+        chrominancePositionAttribute = [chrominanceProgram attributeIndex:@"position"];
+        chrominanceTextureCoordinateAttribute = [chrominanceProgram attributeIndex:@"inputTextureCoordinate"];
+        chrominanceInputTextureUniform = [chrominanceProgram uniformIndex:@"inputImageTexture"];
+        chrominanceColorConversionUniform = [chrominanceProgram uniformIndex:@"colorConversionMatrix"];
+    });
     return self;
 }
 
