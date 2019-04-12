@@ -42,8 +42,6 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 {
     NSMutableDictionary *shaderProgramCache;
     EAGLSharegroup *_sharegroup;
-    
-    BOOL _newGLContext;
 }
 
 @end
@@ -56,47 +54,36 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 @synthesize coreVideoTextureCache = _coreVideoTextureCache;
 @synthesize framebufferCache = _framebufferCache;
 
-- (id)init{
-    if (!(self = [super init]))
-    {
-        return nil;
+static int specificKey;
+
+- (instancetype)initWithNewGLContext
+{
+    self = [super init];
+    if (self) {
+        _contextQueue = dispatch_queue_create("com.aiyaapp.AYGPUImage", AYGPUImageDefaultQueueAttribute());
+        
+        CFStringRef specificValue = CFSTR("AYGPUImageQueue");
+        dispatch_queue_set_specific(_contextQueue,
+                                    &specificKey,
+                                    (void*)specificValue,
+                                    (dispatch_function_t)CFRelease);
+        
+        shaderProgramCache = [[NSMutableDictionary alloc] init];
+        
+        _context = [self createContext];
     }
-    
-    if ([EAGLContext currentContext]) {
-        [self initWithCurrentGLContext];
-    }else {
-        [self initWithNewGLContext];
-    }
-    
-    [self context];
-    
     return self;
 }
 
-static int specificKey;
-
-- (void)initWithNewGLContext;
+- (instancetype)initWithCurrentGLContext
 {
-    _contextQueue = dispatch_queue_create("com.aiyaapp.AYGPUImage", AYGPUImageDefaultQueueAttribute());
-    
-    CFStringRef specificValue = CFSTR("AYGPUImageQueue");
-    dispatch_queue_set_specific(_contextQueue,
-                                &specificKey,
-                                (void*)specificValue,
-                                (dispatch_function_t)CFRelease);
-    
-    shaderProgramCache = [[NSMutableDictionary alloc] init];
-    
-    _newGLContext = YES;
-    
-}
-
-- (void)initWithCurrentGLContext;
-{
-    
-    shaderProgramCache = [[NSMutableDictionary alloc] init];
-    
-    _newGLContext = NO;
+    self = [super init];
+    if (self) {
+        shaderProgramCache = [[NSMutableDictionary alloc] init];
+        
+        _context = [EAGLContext currentContext];
+    }
+    return self;
 }
 
 - (void *)contextKey {
@@ -150,19 +137,6 @@ static int specificKey;
 
 - (EAGLContext *)context;
 {
-    if (_newGLContext) {
-        if (_context == nil)
-        {
-            _context = [self createContext];
-            [EAGLContext setCurrentContext:_context];
-            
-            // Set up a few global settings for the image processing pipeline
-            glDisable(GL_DEPTH_TEST);
-        }
-    }else {
-        _context = [EAGLContext currentContext];
-    }
-    
     return _context;
 }
 
@@ -191,4 +165,5 @@ static int specificKey;
     
     return _framebufferCache;
 }
+
 @end

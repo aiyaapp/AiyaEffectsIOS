@@ -15,6 +15,11 @@
 @interface AYEffectHandler : NSObject
 
 /**
+ 如果处理原始数据需要创建EGLContext, 处理纹理不需要创建EGLContext
+ */
+- (instancetype)initWithNewEGLContext:(BOOL)isNew;
+
+/**
  设置特效,通过设置特效文件路径的方式,默认空值,空值表示取消渲染特效
  */
 @property (nonatomic, strong) NSString *effectPath;

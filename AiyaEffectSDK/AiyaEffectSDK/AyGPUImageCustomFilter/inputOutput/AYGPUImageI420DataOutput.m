@@ -116,72 +116,72 @@ NSString *const kAY_V_ConversionFragmentShaderString = SHADER_STRING
     }
     
     _context = context;
-    
-    [context useAsCurrentContext];
-    
-    yProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAY_Y_ConversionFragmentShaderString];
-    
-    if (!yProgram.initialized)
-    {
-        if (![yProgram link])
+    runAYSynchronouslyOnContextQueue(context, ^{
+        [context useAsCurrentContext];
+        
+        yProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAY_Y_ConversionFragmentShaderString];
+        
+        if (!yProgram.initialized)
         {
-            NSString *progLog = [yProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [yProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [yProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            yProgram = nil;
+            if (![yProgram link])
+            {
+                NSString *progLog = [yProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [yProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [yProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                yProgram = nil;
+            }
         }
-    }
-    
-    yPositionAttribute = [yProgram attributeIndex:@"position"];
-    yTextureCoordinateAttribute = [yProgram attributeIndex:@"inputTextureCoordinate"];
-    yInputTextureUniform = [yProgram uniformIndex:@"inputImageTexture"];
-    yColorConversionUniform = [yProgram uniformIndex:@"colorConversionMatrix"];
-    
-    uProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAY_U_ConversionFragmentShaderString];
-    
-    if (!uProgram.initialized)
-    {
-        if (![uProgram link])
+        
+        yPositionAttribute = [yProgram attributeIndex:@"position"];
+        yTextureCoordinateAttribute = [yProgram attributeIndex:@"inputTextureCoordinate"];
+        yInputTextureUniform = [yProgram uniformIndex:@"inputImageTexture"];
+        yColorConversionUniform = [yProgram uniformIndex:@"colorConversionMatrix"];
+        
+        uProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAY_U_ConversionFragmentShaderString];
+        
+        if (!uProgram.initialized)
         {
-            NSString *progLog = [uProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [uProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [uProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            uProgram = nil;
+            if (![uProgram link])
+            {
+                NSString *progLog = [uProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [uProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [uProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                uProgram = nil;
+            }
         }
-    }
-    
-    uPositionAttribute = [uProgram attributeIndex:@"position"];
-    uTextureCoordinateAttribute = [uProgram attributeIndex:@"inputTextureCoordinate"];
-    uInputTextureUniform = [uProgram uniformIndex:@"inputImageTexture"];
-    uColorConversionUniform = [uProgram uniformIndex:@"colorConversionMatrix"];
-    
-    vProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAY_V_ConversionFragmentShaderString];
-    
-    if (!vProgram.initialized)
-    {
-        if (![vProgram link])
+        
+        uPositionAttribute = [uProgram attributeIndex:@"position"];
+        uTextureCoordinateAttribute = [uProgram attributeIndex:@"inputTextureCoordinate"];
+        uInputTextureUniform = [uProgram uniformIndex:@"inputImageTexture"];
+        uColorConversionUniform = [uProgram uniformIndex:@"colorConversionMatrix"];
+        
+        vProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAY_V_ConversionFragmentShaderString];
+        
+        if (!vProgram.initialized)
         {
-            NSString *progLog = [vProgram programLog];
-            NSLog(@"Program link log: %@", progLog);
-            NSString *fragLog = [vProgram fragmentShaderLog];
-            NSLog(@"Fragment shader compile log: %@", fragLog);
-            NSString *vertLog = [vProgram vertexShaderLog];
-            NSLog(@"Vertex shader compile log: %@", vertLog);
-            vProgram = nil;
+            if (![vProgram link])
+            {
+                NSString *progLog = [vProgram programLog];
+                NSLog(@"Program link log: %@", progLog);
+                NSString *fragLog = [vProgram fragmentShaderLog];
+                NSLog(@"Fragment shader compile log: %@", fragLog);
+                NSString *vertLog = [vProgram vertexShaderLog];
+                NSLog(@"Vertex shader compile log: %@", vertLog);
+                vProgram = nil;
+            }
         }
-    }
-    
-    vPositionAttribute = [vProgram attributeIndex:@"position"];
-    vTextureCoordinateAttribute = [vProgram attributeIndex:@"inputTextureCoordinate"];
-    vInputTextureUniform = [vProgram uniformIndex:@"inputImageTexture"];
-    vColorConversionUniform = [vProgram uniformIndex:@"colorConversionMatrix"];
-    
+        
+        vPositionAttribute = [vProgram attributeIndex:@"position"];
+        vTextureCoordinateAttribute = [vProgram attributeIndex:@"inputTextureCoordinate"];
+        vInputTextureUniform = [vProgram uniformIndex:@"inputImageTexture"];
+        vColorConversionUniform = [vProgram uniformIndex:@"colorConversionMatrix"];
+    });
     return self;
 }
 

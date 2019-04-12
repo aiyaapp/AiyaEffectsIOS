@@ -76,14 +76,21 @@
 
 @implementation AYEffectHandler
 
-- (instancetype)init
-{
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Singleton Exception" reason:@"use initWithNewEGLContext" userInfo:nil];
+}
+
+- (instancetype)initWithNewEGLContext:(BOOL)isNew {
     self = [super init];
     if (self) {
         vertexAttribEnableArraySize = 5;
         vertexAttribEnableArray = [NSMutableArray array];
         
-        _glContext = [[AYGPUImageContext alloc] init];
+        if (isNew) {
+            _glContext = [[AYGPUImageContext alloc] initWithNewGLContext];
+        } else {
+            _glContext = [[AYGPUImageContext alloc] initWithCurrentGLContext];
+        }
         
         _textureInput = [[AYGPUImageTextureInput alloc] initWithContext:_glContext];
         _textureOutput = [[AYGPUImageTextureOutput alloc] initWithContext:_glContext];
@@ -121,7 +128,7 @@
 #if AY_ENABLE_EFFECT
         _effectFilter = [[AYGPUImageEffectFilter alloc] initWithContext:_glContext];
 #endif
-    }
+}
     return self;
 }
 

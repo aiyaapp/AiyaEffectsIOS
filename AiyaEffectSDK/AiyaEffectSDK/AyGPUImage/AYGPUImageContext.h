@@ -25,6 +25,10 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 @property(readonly) CVOpenGLESTextureCacheRef coreVideoTextureCache;
 @property(readonly, retain, nonatomic) AYGPUImageFramebufferCache *framebufferCache;
 
+- (instancetype)initWithNewGLContext;
+
+- (instancetype)initWithCurrentGLContext;
+
 - (void)useAsCurrentContext;
 
 - (void)presentBufferForDisplay;
