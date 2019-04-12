@@ -125,6 +125,7 @@
         _whiten = 0;
         _intensity = whiten;
         [self.beauty setIntensity:_intensity];
+        return;
     }
     
     [self.beauty setWhiten:whiten];

@@ -12,10 +12,10 @@
 最新版本 : v4.1.0 [更多版本信息](doc/versionHistory.md)
 
 ### 1.2 集成示例
-* [集成到金山云示例](https://github.com/aiyaapp/AiyaEffectsWithKSVCIOS)
-* [集成到Zego示例](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 * [集成到腾讯云示例](https://github.com/aiyaapp/AiyaEffectsWithTXIOS)
-* [集成到声网示例](https://github.com/aiyaapp/AiyaEffectsWithAgoraIOS)
+* [集成到阿里云示例](https://github.com/aiyaapp/AiyaEffectsWithAliyuniOS)
+* [集成到声网云示例](https://github.com/aiyaapp/AiyaEffectsWithAgoraIOS)
+* [集成到Zego示例](https://github.com/aiyaapp/AiyaEffectsWithZegoIOS)
 
 ### 1.3 关于热更新
 宝宝特效 AiyaEffectsSDK 保证，提供的[AiyaEffectsSDK iOS](https://github.com/aiyaapp/AiyaEffectsIOS)未使用热更新技术，请放心使用。
