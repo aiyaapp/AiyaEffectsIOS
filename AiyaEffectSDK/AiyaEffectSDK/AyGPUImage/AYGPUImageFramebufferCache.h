@@ -20,6 +20,7 @@
 - (id)initWithContext:(AYGPUImageContext *)context;
 
 - (AYGPUImageFramebuffer *)fetchFramebufferForSize:(CGSize)framebufferSize textureOptions:(AYGPUTextureOptions)textureOptions missCVPixelBuffer:(BOOL)missCVPixelBuffer;
+
 - (AYGPUImageFramebuffer *)fetchFramebufferForSize:(CGSize)framebufferSize missCVPixelBuffer:(BOOL)missCVPixelBuffer;
 
 - (void)returnFramebufferToCache:(AYGPUImageFramebuffer *)framebuffer;

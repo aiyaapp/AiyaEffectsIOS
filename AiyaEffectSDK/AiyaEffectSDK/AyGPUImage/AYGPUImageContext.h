@@ -21,7 +21,9 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 
 @property(readonly, nonatomic) dispatch_queue_t contextQueue;
 @property(readonly, nonatomic) void *contextKey;
+
 @property(readonly, retain, nonatomic) EAGLContext *context;
+
 @property(readonly) CVOpenGLESTextureCacheRef coreVideoTextureCache;
 @property(readonly, retain, nonatomic) AYGPUImageFramebufferCache *framebufferCache;
 
@@ -34,8 +36,6 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 - (void)presentBufferForDisplay;
 
 - (AYGLProgram *)programForVertexShaderString:(NSString *)vertexShaderString fragmentShaderString:(NSString *)fragmentShaderString;
-
-- (void)useSharegroup:(EAGLSharegroup *)sharegroup;
 
 @end
 

@@ -64,7 +64,7 @@ GLfloat kAYColorConversion601FullRangeDefault[] = {
     
     runAYSynchronouslyOnContextQueue(context, ^{
         [context useAsCurrentContext];
-        
+
         dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYRGBConversionFragmentShaderString];
         
         if (!dataProgram.initialized)
@@ -87,6 +87,7 @@ GLfloat kAYColorConversion601FullRangeDefault[] = {
         dataChrominanceTextureUniform = [dataProgram uniformIndex:@"chrominanceTexture"];
         colorConversionUniform = [dataProgram uniformIndex:@"colorConversionMatrix"];
     });
+    
     return self;
 }
 

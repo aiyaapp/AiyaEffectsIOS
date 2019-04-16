@@ -81,6 +81,16 @@
 @property (nonatomic, assign) AYGPUImageRotationMode rotateMode;
 
 /**
+ 初始化判断是否是处理纹理数据
+ */
+- (instancetype)initWithProcessTexture:(Boolean)isProcessTexture;
+
+/**
+ 清空所有资源
+ */
+- (void)destroy;
+
+/**
  处理纹理数据
 
  @param texture 纹理数据

@@ -40,6 +40,7 @@
     }
     
     _context = context;
+    
     runAYSynchronouslyOnContextQueue(context, ^{
         [context useAsCurrentContext];
         dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
@@ -62,6 +63,7 @@
         dataTextureCoordinateAttribute = [dataProgram attributeIndex:@"inputTextureCoordinate"];
         dataInputTextureUniform = [dataProgram uniformIndex:@"inputImageTexture"];
     });
+    
     return self;
 }
 

@@ -44,7 +44,7 @@
         vertexAttribEnableArraySize = 5;
         vertexAttribEnableArray = [NSMutableArray array];
         
-        _glContext = [[AYGPUImageContext alloc] initWithNewGLContext];
+        _glContext = [[AYGPUImageContext alloc] initWithCurrentGLContext];
         
         _textureInput = [[AYGPUImageTextureInput alloc] initWithContext:_glContext];
         _textureOutput = [[AYGPUImageTextureOutput alloc] initWithContext:_glContext];
@@ -87,7 +87,7 @@
         self.updateType = NO;
     }
     
-    [self removeFilterTargers];
+    [self.textureInput removeAllTargets];
     
     if (self.currentEffectFilter) {
         [self.textureInput addTarget:self.currentEffectFilter];
@@ -143,16 +143,19 @@
     }
 }
 
-- (void)removeFilterTargers{
-    [self.textureInput removeAllTargets];
+- (void)destroy{
+    self.textureInput = NULL;
+    self.textureOutput = NULL;
     
 #if AY_ENABLE_SHORT_VIDEO
-    [self.shortVideoFilter removeAllTargets];
+    self.shortVideoFilter = NULL;
 #endif
+    
+    self.glContext = NULL;
 }
 
 - (void)dealloc{
-    [self removeFilterTargers];
+    [self destroy];
 }
 
 @end
