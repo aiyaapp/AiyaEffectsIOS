@@ -3,7 +3,6 @@
 <a href="http://www.aiyaapp.com/txshow.html"><img src="doc/shortVideo.jpg" border="0" alt="抖音式短视频特效" /></a>
 
 # 宝宝特效 AiyaEffectsSDK iOS 使用手册 
-[English guide](README-EN.md)
 
 ## 1. 概述
 宝宝特效 AiyaEffectsSDK 涵盖Android、iOS两个平台，基于自主研发的人脸识别模块，作为一款动态贴纸和动画特效高效渲染的解决方案
