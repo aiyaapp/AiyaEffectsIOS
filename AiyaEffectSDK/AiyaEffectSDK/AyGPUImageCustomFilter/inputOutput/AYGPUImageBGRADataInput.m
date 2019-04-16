@@ -52,6 +52,7 @@
         dataTextureCoordinateAttribute = [dataProgram attributeIndex:@"inputTextureCoordinate"];
         dataInputTextureUniform = [dataProgram uniformIndex:@"inputImageTexture"];
     });
+    
     return self;
 }
 

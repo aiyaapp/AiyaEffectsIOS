@@ -42,6 +42,8 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 {
     NSMutableDictionary *shaderProgramCache;
     EAGLSharegroup *_sharegroup;
+    
+    BOOL _newGLContext;
 }
 
 @end
@@ -56,7 +58,7 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 
 static int specificKey;
 
-- (instancetype)initWithNewGLContext
+- (instancetype)initWithNewGLContext;
 {
     self = [super init];
     if (self) {
@@ -70,7 +72,9 @@ static int specificKey;
         
         shaderProgramCache = [[NSMutableDictionary alloc] init];
         
-        _context = [self createContext];
+        dispatch_sync(_contextQueue, ^{
+            _context = [self createContext];
+        });
     }
     return self;
 }
@@ -135,11 +139,6 @@ static int specificKey;
 #pragma mark -
 #pragma mark Accessors
 
-- (EAGLContext *)context;
-{
-    return _context;
-}
-
 - (CVOpenGLESTextureCacheRef)coreVideoTextureCache;
 {
     if (_coreVideoTextureCache == NULL)
@@ -165,5 +164,4 @@ static int specificKey;
     
     return _framebufferCache;
 }
-
 @end

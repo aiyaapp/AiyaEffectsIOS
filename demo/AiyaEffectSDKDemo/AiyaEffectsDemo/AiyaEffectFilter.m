@@ -37,7 +37,7 @@ static const int recordStep = 10; //每10帧做一次记录
         runSynchronouslyOnVideoProcessingQueue(^{
             [GPUImageContext useImageProcessingContext];
            
-            _effectHandler = [[AYEffectHandler alloc] init];
+            _effectHandler = [[AYEffectHandler alloc] initWithProcessTexture:YES];
         });
     }
     return self;

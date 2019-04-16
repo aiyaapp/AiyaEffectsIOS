@@ -116,6 +116,7 @@ NSString *const kAY_V_ConversionFragmentShaderString = SHADER_STRING
     }
     
     _context = context;
+    
     runAYSynchronouslyOnContextQueue(context, ^{
         [context useAsCurrentContext];
         
@@ -182,6 +183,7 @@ NSString *const kAY_V_ConversionFragmentShaderString = SHADER_STRING
         vInputTextureUniform = [vProgram uniformIndex:@"inputImageTexture"];
         vColorConversionUniform = [vProgram uniformIndex:@"colorConversionMatrix"];
     });
+        
     return self;
 }
 

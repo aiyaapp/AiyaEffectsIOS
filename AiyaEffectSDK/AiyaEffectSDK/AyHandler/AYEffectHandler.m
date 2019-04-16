@@ -76,20 +76,22 @@
 
 @implementation AYEffectHandler
 
-- (instancetype)init {
-    @throw [NSException exceptionWithName:@"Singleton Exception" reason:@"use initWithNewEGLContext" userInfo:nil];
+- (instancetype)init
+{
+    @throw [NSException exceptionWithName:@"init Exception" reason:@"use initWithProcessTexture:" userInfo:nil];
 }
 
-- (instancetype)initWithNewEGLContext:(BOOL)isNew {
+- (instancetype)initWithProcessTexture:(Boolean)isProcessTexture;
+{
     self = [super init];
     if (self) {
         vertexAttribEnableArraySize = 5;
         vertexAttribEnableArray = [NSMutableArray array];
         
-        if (isNew) {
-            _glContext = [[AYGPUImageContext alloc] initWithNewGLContext];
-        } else {
+        if (isProcessTexture) {
             _glContext = [[AYGPUImageContext alloc] initWithCurrentGLContext];
+        } else {
+            _glContext = [[AYGPUImageContext alloc] initWithNewGLContext];
         }
         
         _textureInput = [[AYGPUImageTextureInput alloc] initWithContext:_glContext];
@@ -128,7 +130,7 @@
 #if AY_ENABLE_EFFECT
         _effectFilter = [[AYGPUImageEffectFilter alloc] initWithContext:_glContext];
 #endif
-}
+    }
     return self;
 }
 
@@ -453,29 +455,41 @@
     }
 }
 
-- (void)removeFilterTargers{
-    [self.textureInput removeAllTargets];
-    [self.bgraDataInput removeAllTargets];
-    [self.nv12DataInput removeAllTargets];
+- (void)destroy{
+    self.textureInput = NULL;
+    self.textureOutput = NULL;
+    self.bgraDataInput = NULL;
+    self.bgraDataOutput = NULL;
+    self.nv12DataInput = NULL;
+    self.nv12DataOutput = NULL;
+    self.i420DataInput = NULL;
+    self.i420DataOutput = NULL;
     
-#if AY_ENABLE_BEAUTY
-    [self.beautyFilter removeAllTargets];
-#endif
+    self.commonInputFilter = NULL;
+    self.commonOutputFilter = NULL;
     
-    [self.lookupFilter removeAllTargets];
-    
-#if AY_ENABLE_BEAUTY
-    [self.bigEyeFilter removeAllTargets];
-    [self.slimFaceFilter removeAllTargets];
+#if AY_ENABLE_TRACK
+    self.trackOutput = NULL;
 #endif
     
 #if AY_ENABLE_EFFECT
-    [self.effectFilter removeAllTargets];
+    self.effectFilter = NULL;
 #endif
+    
+    self.lookupFilter = NULL;
+    
+#if AY_ENABLE_BEAUTY
+    self.beautyFilter = NULL;
+    self.bigEyeFilter = NULL;
+    self.slimFaceFilter = NULL;
+#endif
+    
+    self.glContext = NULL;
+
 }
 
 - (void)dealloc{
-    [self removeFilterTargers];
+    [self destroy];
 }
 
 @end

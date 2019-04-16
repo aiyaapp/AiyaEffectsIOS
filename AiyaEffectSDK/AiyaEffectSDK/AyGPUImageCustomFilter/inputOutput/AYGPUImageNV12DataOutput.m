@@ -140,6 +140,7 @@ GLfloat kAYColorConversionRGBDefault[] = {
         chrominanceInputTextureUniform = [chrominanceProgram uniformIndex:@"inputImageTexture"];
         chrominanceColorConversionUniform = [chrominanceProgram uniformIndex:@"colorConversionMatrix"];
     });
+    
     return self;
 }
 

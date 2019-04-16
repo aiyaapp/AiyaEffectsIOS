@@ -53,4 +53,9 @@ typedef NS_ENUM(NSUInteger, AY_SHORT_VIDEO_EFFECT_TYPE) {
  */
 - (void)processWithTexture:(GLuint)texture width:(GLint)width height:(GLint)height;
 
+/**
+ 清空所有资源
+ */
+- (void)destroy;
+
 @end

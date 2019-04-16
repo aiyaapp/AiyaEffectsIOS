@@ -59,9 +59,9 @@ NSString *const kAYRGBConversion2FragmentShaderString = SHADER_STRING
         return nil;
     }
     
+    [context useAsCurrentContext];
+    
     runAYSynchronouslyOnContextQueue(context, ^{
-        [context useAsCurrentContext];
-        
         dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYRGBConversion2FragmentShaderString];
         
         if (!dataProgram.initialized)
@@ -85,6 +85,7 @@ NSString *const kAYRGBConversion2FragmentShaderString = SHADER_STRING
         datavTextureUniform = [dataProgram uniformIndex:@"vTexture"];
         colorConversionUniform = [dataProgram uniformIndex:@"colorConversionMatrix"];
     });
+        
     return self;
 }
 

@@ -47,6 +47,7 @@
     
     runAYSynchronouslyOnContextQueue(context, ^{
         [context useAsCurrentContext];
+        
         dataProgram = [context programForVertexShaderString:kAYGPUImageVertexShaderString fragmentShaderString:kAYGPUImagePassthroughFragmentShaderString];
         
         if (!dataProgram.initialized)
@@ -71,6 +72,7 @@
         _track = [[AyFaceTrack alloc] init];
 #endif
     });
+    
     return self;
 }
 
