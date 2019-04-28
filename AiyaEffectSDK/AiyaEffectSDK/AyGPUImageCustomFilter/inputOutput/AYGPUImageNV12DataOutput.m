@@ -144,7 +144,7 @@ GLfloat kAYColorConversionRGBDefault[] = {
     return self;
 }
 
-- (void)createoutputPixelBufferWithWidth:(GLsizei)width height:(GLsizei)height{
+- (void)createOutputPixelBufferWithWidth:(GLsizei)width height:(GLsizei)height{
     CFDictionaryRef empty = CFDictionaryCreate(kCFAllocatorDefault, NULL, NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
     CFMutableDictionaryRef attrs = CFDictionaryCreateMutable(kCFAllocatorDefault, 1, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
     CFDictionarySetValue(attrs, kCVPixelBufferIOSurfacePropertiesKey, empty);
@@ -194,6 +194,10 @@ GLfloat kAYColorConversionRGBDefault[] = {
 - (void)renderAtInternalSize;
 {
     [self.context useAsCurrentContext];
+    
+    if (outputPixelBuffer == nil) {
+        [self createOutputPixelBufferWithWidth:self.outputWidth height:self.outputHeight];
+    }
     
     //==========> 绘制luminance数据
     [luminanceProgram use];

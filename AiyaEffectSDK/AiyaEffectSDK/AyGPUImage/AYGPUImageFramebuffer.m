@@ -24,9 +24,6 @@
 
 @end
 
-void dataAYProviderReleaseCallback (void *info, const void *data, size_t size);
-void dataAYProviderUnlockCallback (void *info, const void *data, size_t size);
-
 @implementation AYGPUImageFramebuffer
 
 @synthesize size = _size;

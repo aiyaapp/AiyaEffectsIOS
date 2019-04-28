@@ -58,6 +58,10 @@ void runAYSynchronouslyOnContextQueue(AYGPUImageContext *context, void (^block)(
 
 static int specificKey;
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"init Exception" reason:@"use initWithNewGLContext or initWithCurrentGLContext" userInfo:nil];
+}
+
 - (instancetype)initWithNewGLContext;
 {
     self = [super init];
