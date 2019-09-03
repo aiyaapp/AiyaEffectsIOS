@@ -123,9 +123,11 @@
     
 #if AY_ENABLE_TRACK
     //获取人脸数据
-    GLubyte *outputBuffer = outputFramebuffer.byteBuffer;
     _faceData = NULL;
+    [outputFramebuffer lockForReading];
+    GLubyte * outputBuffer = CVPixelBufferGetBaseAddress(outputFramebuffer.pixelBuffer);
     [self.track trackWithPixelBuffer:outputBuffer bufferWidth:self.outputSize.width bufferHeight:self.outputSize.height trackData:self.faceData];
+    [outputFramebuffer unlockAfterReading];
 #endif
     
     [outputFramebuffer unlock];

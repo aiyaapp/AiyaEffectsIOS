@@ -49,7 +49,7 @@
     [self.view addSubview:glkView];
     
     displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
-    displayLink.frameInterval = 4;// 帧率 = 60 / frameInterval
+    displayLink.frameInterval = 2;// 帧率 = 60 / frameInterval
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     self->isAppActive = true;

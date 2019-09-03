@@ -41,8 +41,8 @@
 - (void)clearAllLocks;
 
 //// Raw data bytes
-//- (void)lockForReading;
-//- (void)unlockAfterReading;
+- (void)lockForReading;
+- (void)unlockAfterReading;
 - (NSUInteger)bytesPerRow;
 - (GLubyte *)byteBuffer;
 - (CVPixelBufferRef)pixelBuffer;
