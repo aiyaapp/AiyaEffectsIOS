@@ -10,7 +10,7 @@
 #import <GLKit/GLKit.h>
 #import <AiyaEffectSDK/AiyaEffectSDK.h>
 
-@interface ViewController () <GLKViewDelegate>{
+@interface ViewController () <GLKViewDelegate, AYAnimHandlerDelegate>{
     GLKView *glkView;
     CADisplayLink* displayLink;
     
@@ -30,15 +30,14 @@
     // license state notification
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(licenseMessage:) name:AiyaLicenseNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aiyaMessage:) name:AiyaMessageNotification object:nil];
-    
     // init license . apply license please open http://www.lansear.cn/product/bbtx or +8618676907096
     [AYLicenseManager initLicense:@"3a8dff7c222644b7abbde10b22ad779d"];
     
     // add blue view
-    UIView *v = [[UIView alloc] initWithFrame:self.view.bounds];
-    v.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:v];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    imageView.image = [UIImage imageNamed:@"girl"];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:imageView];
     
     //使用GLKit创建opengl渲染环境
     glkView = [[GLKView alloc]initWithFrame:self.view.bounds context:[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]];
@@ -87,13 +86,9 @@
     [lock unlock];
 }
 
-- (void)aiyaMessage:(NSNotification *)notifi{
-    
-    NSString *message = notifi.userInfo[AiyaMessageNotificationUserInfoKey];
-    if ([@"AY_EFFECTS_REPLAY_END" isEqualToString:message]) {
-        NSLog(@"多次播放完成");
-        [displayLink invalidate];
-    }
+- (void)playEnd {
+    NSLog(@"多次播放完成");
+    [displayLink invalidate];
 }
 
 #pragma mark CADisplayLink selector
@@ -114,7 +109,7 @@
     if (!_animHandler) {
         //初始化AiyaAnimEffect
         _animHandler = [[AYAnimHandler alloc] init];
-        self.animHandler.effectPath = [[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"mogulin"];
+        self.animHandler.effectPath = [[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"shiwaitaoyuan"];
         self.animHandler.effectPlayCount = 2;
     }
     

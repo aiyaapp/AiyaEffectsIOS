@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const AiyaMessageNotification = @"AiyaMessageNotification";
-NSString * const AiyaMessageNotificationUserInfoKey = @"AiyaMessageResult";
 NSString * const AY_MESSAGE_DETAIL[] = {
     @"AY_NO_ERROR",
     @"AY_INVALID_ENUM",

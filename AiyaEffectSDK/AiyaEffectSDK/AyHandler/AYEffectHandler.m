@@ -32,7 +32,11 @@
 #import "AYGPUImageSlimFaceFilter.h"
 #endif
 
+#if AY_ENABLE_EFFECT
+@interface AYEffectHandler () <AYGPUImageEffectFilterDelegate> {
+#else
 @interface AYEffectHandler () {
+#endif
     GLint bindingFrameBuffer;
     GLint bindingRenderBuffer;
     GLint viewPoint[4];
@@ -129,6 +133,7 @@
         
 #if AY_ENABLE_EFFECT
         _effectFilter = [[AYGPUImageEffectFilter alloc] initWithContext:_glContext];
+        _effectFilter.delegate = self;
 #endif
     }
     return self;
@@ -150,6 +155,12 @@
     _effectPlayCount = effectPlayCount;
     
     [self.effectFilter setEffectPlayCount:effectPlayCount];
+}
+    
+- (void)playEnd {
+    if (self.delegate) {
+        [self.delegate playEnd];
+    }
 }
 #endif
 

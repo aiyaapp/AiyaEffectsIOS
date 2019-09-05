@@ -9,8 +9,6 @@
 #ifndef AYEffectConstants_h
 #define AYEffectConstants_h
 
-extern NSString * const AiyaMessageNotification;
-extern NSString * const AiyaMessageNotificationUserInfoKey;
 extern NSString * const AY_MESSAGE_DETAIL[];
 
 extern NSString * const AiyaLicenseNotification;

@@ -12,12 +12,18 @@
 #import <OpenGLES/ES2/glext.h>
 #import "AYGPUImageConstants.h"
 
-@interface AYEffectHandler : NSObject
+@protocol AYEffectHandlerDelegate <NSObject>
 
 /**
- 如果处理原始数据需要创建EGLContext, 处理纹理不需要创建EGLContext
+ 播放结束
  */
-- (instancetype)initWithNewEGLContext:(BOOL)isNew;
+- (void)playEnd;
+
+@end
+
+@interface AYEffectHandler : NSObject
+
+@property (nonatomic, weak) id<AYEffectHandlerDelegate> delegate;
 
 /**
  设置特效,通过设置特效文件路径的方式,默认空值,空值表示取消渲染特效
@@ -28,16 +34,6 @@
  设置特效播放次数
  */
 @property (nonatomic, assign) NSUInteger effectPlayCount;
-
-/**
- 暂停特效播放
- */
-- (void)pauseEffect;
-
-/**
- 继续特效播放
- */
-- (void)resumeEffect;
 
 /**
  设置风格滤镜
@@ -89,6 +85,16 @@
  清空所有资源
  */
 - (void)destroy;
+
+/**
+ 暂停特效播放
+ */
+- (void)pauseEffect;
+
+/**
+ 继续特效播放
+ */
+- (void)resumeEffect;
 
 /**
  处理纹理数据

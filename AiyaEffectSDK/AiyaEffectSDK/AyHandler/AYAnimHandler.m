@@ -11,7 +11,12 @@
 #import "AyEffect.h"
 #endif
 
+#if AY_ENABLE_EFFECT
+@interface AYAnimHandler () <AyEffectDelegate>
+#else
 @interface AYAnimHandler ()
+#endif
+
 #if AY_ENABLE_EFFECT
 @property (nonatomic, strong) AyEffect *effect;
 
@@ -29,8 +34,7 @@
         _effect = [[AyEffect alloc] init];
         [self.effect initGLResource];
         self.effect.enalbeVFilp = YES;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aiyaMessage:) name:AiyaMessageNotification object:nil];
+        self.effect.delegate = self;
 #endif
     }
     return self;
@@ -60,20 +64,23 @@
     self.currentPlayCount = 0;
 }
 
-- (void)aiyaMessage:(NSNotification *)notifi{
-    NSString *message = notifi.userInfo[AiyaMessageNotificationUserInfoKey];
+- (void)effectMessageWithType:(NSInteger)type ret:(NSInteger)ret info:(NSString *)info {
     
     if (!self.effectPath || [self.effectPath isEqualToString:@""]){
         
-    }else if ([@"AY_EFFECTS_END" isEqualToString:message]) {//已经渲染完成一遍
+    }else if ([@"AY_EFFECTS_END" isEqualToString:info]) {//已经渲染完成一遍
         self.currentPlayCount ++;
         if (self.effectPlayCount != 0 && self.currentPlayCount >= self.effectPlayCount){
             [self setEffectPath:@""];
-            [[NSNotificationCenter defaultCenter] postNotificationName:AiyaMessageNotification object:nil userInfo:@{AiyaMessageNotificationUserInfoKey:@"AY_EFFECTS_REPLAY_END"}];
+            if (self.delegate) {
+                [self.delegate playEnd];
+            }
         }
     }else if (self.effectPlayCount != 0 && self.currentPlayCount >= self.effectPlayCount) {//已经播放完成
         [self setEffectPath:@""];
-        [[NSNotificationCenter defaultCenter] postNotificationName:AiyaMessageNotification object:nil userInfo:@{AiyaMessageNotificationUserInfoKey:@"AY_EFFECTS_REPLAY_END"}];
+        if (self.delegate) {
+            [self.delegate playEnd];
+        }
     }
 }
 #endif
