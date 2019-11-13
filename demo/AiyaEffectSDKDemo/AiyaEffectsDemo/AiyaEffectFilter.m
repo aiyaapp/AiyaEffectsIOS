@@ -16,7 +16,7 @@ static const int ddLogLevel = DDLogLevelVerbose;// 定义日志级别
 static const int recordStep = 10; //每10帧做一次记录
 #endif
 
-@interface AiyaEffectFilter ()
+@interface AiyaEffectFilter () <AYEffectHandlerDelegate>
 
 @property (nonatomic, strong) AYEffectHandler *effectHandler;
 
@@ -38,6 +38,7 @@ static const int recordStep = 10; //每10帧做一次记录
             [GPUImageContext useImageProcessingContext];
            
             _effectHandler = [[AYEffectHandler alloc] initWithProcessTexture:YES];
+            _effectHandler.delegate = self;
         });
     }
     return self;
@@ -146,6 +147,10 @@ static const int recordStep = 10; //每10帧做一次记录
 
 - (void)setIntensityOfStyle:(CGFloat)intensity{
     [_effectHandler setIntensityOfStyle:intensity];
+}
+
+- (void)playEnd {
+    NSLog(@"特效播放完成");
 }
 
 @end

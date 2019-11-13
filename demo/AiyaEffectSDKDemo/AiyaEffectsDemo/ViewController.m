@@ -33,9 +33,6 @@
     // license state notification
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(licenseMessage:) name:AiyaLicenseNotification object:nil];
     
-    // render state notification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(aiyaMessage:) name:AiyaMessageNotification object:nil];
-    
     // init license . apply license please open http://www.lansear.cn/product/bbtx or +8618676907096
     [AYLicenseManager initLicense:@"067ea67564164944b93e5e8825734781"];
     
@@ -164,12 +161,6 @@
             NSLog(@"License 验证失败");
             break;
     }
-}
-
-- (void)aiyaMessage:(NSNotification *)notifi{
-    
-//    NSString *message = notifi.userInfo[AiyaMessageNotificationUserInfoKey];
-//    NSLog(@"message : %@",message);
 }
 
 -(void)dealloc{

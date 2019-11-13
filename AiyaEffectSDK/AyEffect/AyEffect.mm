@@ -10,12 +10,21 @@
 #import "RenderSticker.h"
 #include "AYEffectConstants.h"
 
-void funcAyEffectMessage(int type, int ret, const char *info){
-    [[NSNotificationCenter defaultCenter] postNotificationName:AiyaMessageNotification object:nil userInfo:@{AiyaMessageNotificationUserInfoKey:[NSString stringWithUTF8String:info]}];
-}
+class AyEffectCallBack
+{
+public:
+    AyEffect *ayEffect;
+    
+    void effectMessage(int type, int ret, const char *info){
+        if (ayEffect.delegate) {
+            [ayEffect.delegate effectMessageWithType:type ret:ret info:[NSString stringWithUTF8String:info]];
+        }
+    }
+};
 
 @interface AyEffect (){
     std::shared_ptr<AiyaRender::RenderSticker> render;
+    AyEffectCallBack effectCallBack;
     
     BOOL updateEffectPath;
     BOOL updateFaceData;
@@ -26,8 +35,9 @@ void funcAyEffectMessage(int type, int ret, const char *info){
 @implementation AyEffect
 
 - (void)initGLResource{
+    effectCallBack.ayEffect = self;
     render = std::make_shared<AiyaRender::RenderSticker>();
-    render->message = funcAyEffectMessage;
+    render->message = std::bind(&AyEffectCallBack::effectMessage, &effectCallBack, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 }
 
 - (void)releaseGLtContext{

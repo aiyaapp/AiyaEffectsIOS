@@ -8,7 +8,18 @@
 
 #import "AYGPUImageFilter.h"
 
+@protocol AYGPUImageEffectFilterDelegate <NSObject>
+
+/**
+ 播放结束
+ */
+- (void)playEnd;
+
+@end
+
 @interface AYGPUImageEffectFilter : AYGPUImageFilter
+
+@property (nonatomic, weak) id<AYGPUImageEffectFilterDelegate> delegate;
 
 @property (nonatomic, strong) NSString *effectPath;
 

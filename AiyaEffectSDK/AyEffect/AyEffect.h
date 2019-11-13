@@ -12,10 +12,18 @@
 #import <OpenGLES/ES2/glext.h>
 #include "FaceData.h"
 
-extern NSString * const AiyaMessageNotification;
-extern NSString * const AiyaMessageNotificationUserInfoKey;
+@protocol AyEffectDelegate <NSObject>
+@optional
+/**
+ 特效数据回调
+ */
+- (void)effectMessageWithType:(NSInteger)type ret:(NSInteger)ret info:(NSString *)info;
+
+@end
 
 @interface AyEffect : NSObject
+
+@property (nonatomic, weak) id<AyEffectDelegate> delegate;
 
 /**
  特效文件路径
