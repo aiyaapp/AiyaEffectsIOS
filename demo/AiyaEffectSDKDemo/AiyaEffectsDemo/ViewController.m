@@ -25,7 +25,6 @@
 @property (nonatomic, strong) AYCamera *camera;
 @property (nonatomic, strong) AYPixelBufferPreview *preview;
 
-@property (nonatomic, strong) UIView *tapGestureView;
 @property (nonatomic, strong) CALayer *focusBoxLayer;
 @property (nonatomic, strong) CAAnimation *focusBoxAnimation;
 
@@ -61,18 +60,18 @@
     _preview.previewContentMode = AYPreivewContentModeScaleAspectFill;
     [self.view addSubview:_preview];
     
-    // 手势UI, 添加点按手势, 点按时聚焦
-    _tapGestureView = [[UIView alloc] initWithFrame:self.view.frame];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
-    [tapGesture setNumberOfTapsRequired:1];
-    [_tapGestureView addGestureRecognizer:tapGesture];
-    
     // 页面各种控件UI
     CameraView *cameraView = [[CameraView alloc] initWithFrame:self.view.frame];
     cameraView.effectData = self.effectData;
     cameraView.styleData = self.styleData;
     cameraView.delegate = self;
     [self.view addSubview:cameraView];
+    
+    // 手势UI, 添加点按手势, 点按时聚焦
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
+    [tapGesture setNumberOfTapsRequired:1];
+    [cameraView addGestureRecognizer:tapGesture];
+    [cameraView setUserInteractionEnabled:true];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterForeground:) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -150,7 +149,7 @@
         focusBoxLayer.borderWidth = 1.0;
         focusBoxLayer.borderColor = UIColor.yellowColor.CGColor;
         focusBoxLayer.opacity = 0.0;
-        [self.tapGestureView.layer addSublayer:focusBoxLayer];
+        [self.view.layer addSublayer:focusBoxLayer];
         self.focusBoxLayer = focusBoxLayer;
     }
     
