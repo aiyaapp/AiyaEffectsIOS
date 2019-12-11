@@ -6,9 +6,4 @@ project 'AiyaEffectsDemo.xcodeproj'
 target 'AiyaEffectsDemo' do
     
     pod 'Masonry'
-    
-    pod 'GPUImage'
-    
-    pod 'CocoaLumberjack'
-
 end

@@ -8,20 +8,30 @@
 
 #import "ViewController.h"
 #import "CameraView.h"
-#import "AiyaEffectFilter.h"
-#import <GPUImage/GPUImage.h>
+#import "AYPixelBufferPreview.h"
+#import "AYCamera.h"
 #import <AiyaEffectSDK/AiyaEffectSDK.h>
 
-@interface ViewController () <CameraViewDelegate>{
-    GPUImageVideoCamera *_videoCamera;
-    AiyaEffectFilter *_effectFilter;
-    GPUImageView *_cameraPreview;
+@interface ViewController () <CameraViewDelegate, AYCameraDelegate, AYEffectHandlerDelegate>{
+    
 }
 
-@property (nonatomic, assign) BOOL isViewAppear;
+@property (nonatomic, assign) BOOL viewAppear;
+@property (nonatomic, assign) BOOL stopPreview;
 
 @property (nonatomic, strong) NSMutableArray *effectData;
 @property (nonatomic, strong) NSMutableArray *styleData;
+
+@property (nonatomic, strong) AYCamera *camera;
+@property (nonatomic, strong) AYPixelBufferPreview *preview;
+
+@property (nonatomic, strong) UIView *tapGestureView;
+@property (nonatomic, strong) CALayer *focusBoxLayer;
+@property (nonatomic, strong) CAAnimation *focusBoxAnimation;
+
+@property (nonatomic, strong) NSLock *openGLLock;
+
+@property (nonatomic, strong) AYEffectHandler *effectHandler;
 
 @end
 
@@ -38,25 +48,27 @@
     
     // init effect resource
     [self initResourceData];
-
-    // GPUImage
-    _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionFront];
-    _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
     
-    _cameraPreview = [[GPUImageView alloc] initWithFrame:self.view.bounds];
-    _cameraPreview.fillMode = kGPUImageFillModePreserveAspectRatioAndFill;
-    [self.view addSubview:_cameraPreview];
+    _openGLLock = [[NSLock alloc] init];
     
-    _effectFilter = [[AiyaEffectFilter alloc] init];
+    // 相机, 录制视频分辩率
+    _camera = [[AYCamera alloc] initWithResolution:AVCaptureSessionPreset1920x1080];
+    _camera.delegate = self;
+    [_camera setFrameRate:30];
     
-    [_videoCamera addTarget:_effectFilter];
-    [_effectFilter addTarget:_cameraPreview];
+    // 相机预览UI
+    _preview = [[AYPixelBufferPreview alloc] initWithFrame:self.view.frame];
+    _preview.previewContentMode = AYPreivewContentModeScaleAspectFill;
+    [self.view addSubview:_preview];
     
-    [_videoCamera startCameraCapture];
+    // 手势UI, 添加点按手势, 点按时聚焦
+    _tapGestureView = [[UIView alloc] initWithFrame:self.view.frame];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
+    [tapGesture setNumberOfTapsRequired:1];
+    [_tapGestureView addGestureRecognizer:tapGesture];
     
-    // UI
-    CameraView *cameraView = [[CameraView alloc]initWithFrame:self.view.frame];
+    // 页面各种控件UI
+    CameraView *cameraView = [[CameraView alloc] initWithFrame:self.view.frame];
     cameraView.effectData = self.effectData;
     cameraView.styleData = self.styleData;
     cameraView.delegate = self;
@@ -120,33 +132,128 @@
     }
 }
 
+// MARK : Tap Screen
+- (void)tapScreen:(UITapGestureRecognizer *)tapGesture {
+    CGPoint point = [tapGesture locationInView:self.preview];
+    
+    CGPoint pointOfInterest = CGPointMake(point.y / self.preview.bounds.size.height, 1.0 - point.x / self.preview.bounds.size.width);
+    
+    [self.camera focusAtPoint:pointOfInterest];
+    [self showFocusBox:point];
+}
+
+- (void)showFocusBox:(CGPoint)point {
+    if (self.focusBoxLayer == NULL) {
+        CALayer *focusBoxLayer = [[CALayer alloc] init];
+        focusBoxLayer.cornerRadius = 3.0;
+        focusBoxLayer.bounds = CGRectMake(0.0, 0.0, 70.0, 70.0);
+        focusBoxLayer.borderWidth = 1.0;
+        focusBoxLayer.borderColor = UIColor.yellowColor.CGColor;
+        focusBoxLayer.opacity = 0.0;
+        [self.tapGestureView.layer addSublayer:focusBoxLayer];
+        self.focusBoxLayer = focusBoxLayer;
+    }
+    
+    if (self.focusBoxAnimation == NULL) {
+        CABasicAnimation *focusBoxAnimation = [[CABasicAnimation alloc] init];
+        focusBoxAnimation.keyPath = @"opacity";
+        focusBoxAnimation.duration = 1;
+        focusBoxAnimation.autoreverses = false;
+        focusBoxAnimation.repeatCount = 0.0;
+        focusBoxAnimation.fromValue = @(1.0);
+        focusBoxAnimation.toValue = @(0.0);
+        self.focusBoxAnimation = focusBoxAnimation;
+    }
+    
+    [self.focusBoxLayer removeAllAnimations];
+    
+    [CATransaction begin];
+    [CATransaction setValue:@(YES) forKey:kCATransactionDisableActions];
+    self.focusBoxLayer.position = point;
+    [CATransaction commit];
+    
+    [self.focusBoxLayer addAnimation:self.focusBoxAnimation forKey:@"animateOpacity"];
+}
+
 #pragma mark -
 #pragma mark ViewController lifecycle
 - (void)viewDidAppear:(BOOL)animated{
-
     [super viewDidAppear:animated];
-    self.isViewAppear= YES;
-    [_videoCamera startCameraCapture];
+    
+    [_openGLLock lock];
+    
+    self.viewAppear = YES;
+    
+    // 打开相机
+    [self.camera startCapture];
+    
+    // 开始预览
+    self.stopPreview = NO;
+    
+    // 页面常亮
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    [_openGLLock unlock];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-
-    [_videoCamera stopCameraCapture];
-    self.isViewAppear= NO;
     [super viewWillDisappear:animated];
+
+    [_openGLLock lock];
+    
+    self.viewAppear = NO;
+    
+    // 关闭相机
+    [self.camera stopCapture];
+    
+    // 结束预览
+    self.stopPreview = YES;
+    
+    // 关闭页面常亮
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+    
+    // 释放画面预览的资源
+    [self.preview releaseGLResources];
+    
+    [_openGLLock unlock];
 }
 
 - (void)enterBackground:(NSNotification *)notifi{
-
-    if ([self isViewAppear]) {
-        [_videoCamera stopCameraCapture];
+    if ([self viewAppear]) {
+        [self.openGLLock lock];
+        
+        // 关闭相机
+        [self.camera stopCapture];
+        
+        // 结束预览
+        self.stopPreview = YES;
+        
+        // 关闭页面常亮
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        
+        // 释放画面预览的资源
+        [self.preview releaseGLResources];
+        
+        [self.openGLLock unlock];
     }
 }
 
 - (void)enterForeground:(NSNotification *)notifi{
-
-    if ([self isViewAppear]) {
-        [_videoCamera startCameraCapture];
+    if ([self viewAppear]) {
+        [self.openGLLock lock];
+        
+        self.viewAppear = YES;
+        
+        // 打开相机
+        [self.camera startCapture];
+        
+        // 开始预览
+        self.stopPreview = NO;
+        
+        // 页面常亮
+        [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+        
+        [self.openGLLock unlock];
     }
 }
 
@@ -169,49 +276,108 @@
 }
 
 #pragma mark-
+#pragma mark AYEffectHandlerDelegate
+
+- (void)playEnd {
+    NSLog(@"特效播放完成");
+}
+
+#pragma mark-
+#pragma mark AYCameraDelegate
+
+- (void)cameraVideoOutput:(CMSampleBufferRef)sampleBuffer {
+    //========== 当前为相机视频数据传输 线程==========//
+    
+    [self.openGLLock lock];
+    
+    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+
+    // 创建EffectHandler
+    if (self.effectHandler == NULL) {
+        _effectHandler = [[AYEffectHandler alloc] initWithProcessTexture:NO];
+        self.effectHandler.delegate = self;
+    }
+        
+    // 添加特效
+    if (self.camera.cameraPosition == AVCaptureDevicePositionFront) {
+        self.effectHandler.rotateMode = kAYPreviewRotateRightFlipVertical;
+        [self.effectHandler processWithPixelBuffer:pixelBuffer formatType:kCVPixelFormatType_32BGRA];
+    }
+    
+    // 设置预览画面方向
+    if (self.camera.cameraPosition == AVCaptureDevicePositionFront) {
+        self.preview.previewRotationMode = kAYPreviewRotateRightFlipHorizontal;
+
+    } else if (self.camera.cameraPosition == AVCaptureDevicePositionBack) {
+        self.preview.previewRotationMode = kAYPreviewRotateLeft;
+    }
+    
+    // 预览相机画面
+    if (self.stopPreview == NO) {
+        // 预览PixelBuffer
+        [self.preview render:pixelBuffer];
+    }
+    
+    [self.openGLLock unlock];
+    
+    //========== 当前为相机视频数据传输 线程==========//
+}
+
+- (void)cameraAudioOutput:(CMSampleBufferRef)sampleBuffer {
+    //========== 当前为相机音频数据传输 线程==========//
+    
+    //========== 当前为相机音频数据传输 线程==========//
+}
+
+
+#pragma mark-
 #pragma mark ViewDelegate
 
-- (void)onChangeCameraPosition:(AVCaptureDevicePosition)captureDevicePosition{
-
-
+- (void)onSwitchCamera {
+    if ([self.camera cameraPosition] == AVCaptureDevicePositionBack) {
+        [self.camera setCameraPosition:AVCaptureDevicePositionFront];
+    } else {
+        [self.camera setCameraPosition:AVCaptureDevicePositionBack];
+    }
 }
 
 -(void)onEffectClick:(NSString *)path{
-    [_effectFilter setEffect:path];
-    [_effectFilter setEffectCount:0]; //无限循环播放
+    [self.effectHandler setEffectPath:path];
+    [self.effectHandler setEffectPlayCount:0];  //无限循环播放
+    NSLog(@"effectPath %@",path);
 }
 
 - (void)onSmoothChange:(float)intensity{
-    [_effectFilter setSmooth:intensity];
+    [self.effectHandler setSmooth:intensity];
     NSLog(@"smooth %f",intensity);
 }
 
 - (void)onRuddyChange:(float)intensity{
-    [_effectFilter setSaturation:intensity];
+    [self.effectHandler setSaturation:intensity];
     NSLog(@"ruddy %f",intensity);
 }
 
 - (void)onWhiteChange:(float)intensity{
-    [_effectFilter setWhiten:intensity];
+    [self.effectHandler setWhiten:intensity];
     NSLog(@"white %f",intensity);
 }
 
 - (void)onBigEyesScaleChange:(float)scale{
-    [_effectFilter setBigEye:scale];
+    [self.effectHandler setBigEye:scale];
     NSLog(@"BigEye scale %f",scale);
 }
 
 - (void)onSlimFaceScaleChange:(float)scale{
-    [_effectFilter setSlimFace:scale];
+    [self.effectHandler setSlimFace:scale];
     NSLog(@"SlimFace scale %f",scale);
 }
 
 - (void)onStyleClick:(UIImage *)image{
-    [_effectFilter setStyle:image];
+    [self.effectHandler setStyle:image];
 }
 
 - (void)onStyleChange:(float)style{
-    _effectFilter.intensityOfStyle = style;
+    self.effectHandler.intensityOfStyle = style;
     NSLog(@"style %f",style);
 }
 

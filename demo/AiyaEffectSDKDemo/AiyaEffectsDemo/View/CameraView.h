@@ -11,7 +11,7 @@
 
 @protocol CameraViewDelegate <NSObject>
 
-- (void)onChangeCameraPosition:(AVCaptureDevicePosition)cameraPosition;
+- (void)onSwitchCamera;
 
 - (void)onEffectClick:(NSString *)path;
 

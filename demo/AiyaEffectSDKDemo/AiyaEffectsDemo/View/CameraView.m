@@ -14,6 +14,7 @@
 @interface CameraView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UIButton *switchCamera;
 @property (nonatomic, strong) UIButton *effectBt;
 @property (nonatomic, strong) UIButton *beautifyBt;
 @property (nonatomic, strong) UIButton *styleBt;
@@ -93,6 +94,12 @@
     self.slider.value = 0;
     self.slider.hidden = YES;
     [self.slider addTarget:self action:@selector(sliderValueChange) forControlEvents:UIControlEventValueChanged];
+    
+    _switchCamera = [[UIButton alloc] init];
+    [self.switchCamera setTitle:@"切换相机" forState:UIControlStateNormal];
+    self.switchCamera.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.switchCamera setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [self.switchCamera addTarget:self action:@selector(onSwitchCameraClick:) forControlEvents:UIControlEventTouchUpInside];
 
     [layout addSubview:self.collectionView];
     [layout addSubview:self.effectBt];
@@ -100,6 +107,7 @@
     [layout addSubview:self.styleBt];
     [self addSubview:layout];
     [self addSubview:self.slider];
+    [self addSubview:self.switchCamera];
     
     [layout mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
@@ -137,6 +145,12 @@
         make.size.mas_equalTo(CGSizeMake(34, 34));
         make.right.equalTo(self.beautifyBt.mas_left).offset(-36);
         make.bottom.equalTo(layout.mas_bottom).offset(-65);
+    }];
+    
+    [self.switchCamera mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(100, 44));
+        make.top.equalTo(self.mas_top).offset(50);
+        make.centerX.equalTo(self.mas_centerX);
     }];
 }
 
@@ -229,6 +243,12 @@
         self.isShowEffectCollectionView = NO;
         self.isShowBeautifyCollectionView = NO;
         self.isShowStyleCollectionView = YES;
+    }
+}
+
+- (void)onSwitchCameraClick:(UIButton *)bt {
+    if (self.delegate) {
+        [self.delegate onSwitchCamera];
     }
 }
 

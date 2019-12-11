@@ -20,9 +20,9 @@
 		D31F330E1FF39D8800B042BD /* AiyaEffectSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
-		D393AE4D1FD387CF00DA7EB5 /* AiyaEffectFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D393AE4C1FD387CF00DA7EB5 /* AiyaEffectFilter.m */; };
+		D3711A0223A11C4700457F99 /* AYCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D37119FE23A11C4700457F99 /* AYCamera.m */; };
+		D3711A0923A11F0100457F99 /* AYPixelBufferPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = D3711A0723A11F0100457F99 /* AYPixelBufferPreview.m */; };
 		D3969C031F1F0EB6006B3372 /* FilterResources in Resources */ = {isa = PBXBuildFile; fileRef = D3969C021F1F0EB6006B3372 /* FilterResources */; };
-		D3AE5C4F1FF261B4004D476B /* DeviceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE5C481FF261B2004D476B /* DeviceMonitor.m */; };
 		D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
 /* End PBXBuildFile section */
 
@@ -113,13 +113,13 @@
 		D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AiyaEffectSDK.bundle; path = ../../../AiyaEffectSDK/AiyaEffectSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
 		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D37119FE23A11C4700457F99 /* AYCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYCamera.m; sourceTree = "<group>"; };
+		D37119FF23A11C4700457F99 /* AYCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYCamera.h; sourceTree = "<group>"; };
+		D3711A0723A11F0100457F99 /* AYPixelBufferPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYPixelBufferPreview.m; sourceTree = "<group>"; };
+		D3711A0823A11F0100457F99 /* AYPixelBufferPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYPixelBufferPreview.h; sourceTree = "<group>"; };
 		D392C60C20514C3F009883B2 /* AiyaEffectSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AiyaEffectSDK.xcodeproj; path = ../../AiyaEffectSDK/AiyaEffectSDK.xcodeproj; sourceTree = "<group>"; };
-		D393AE4B1FD387CF00DA7EB5 /* AiyaEffectFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AiyaEffectFilter.h; sourceTree = "<group>"; };
-		D393AE4C1FD387CF00DA7EB5 /* AiyaEffectFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiyaEffectFilter.m; sourceTree = "<group>"; };
 		D393AE6E1FD3988E00DA7EB5 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D3969C021F1F0EB6006B3372 /* FilterResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FilterResources; sourceTree = SOURCE_ROOT; };
-		D3AE5C481FF261B2004D476B /* DeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceMonitor.m; sourceTree = "<group>"; };
-		D3AE5C501FF261DC004D476B /* DeviceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceMonitor.h; sourceTree = "<group>"; };
 		D3D5CEF71E716DAE005C1F7A /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		D3D5CEF91E716DC5005C1F7A /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -191,6 +191,7 @@
 		D3190AB71E7108E400121BAB /* AiyaEffectsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D37119F523A11C1800457F99 /* RecordTool */,
 				D3481EED1EAA072C006FB4AE /* EffectResources */,
 				D3969C021F1F0EB6006B3372 /* FilterResources */,
 				D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */,
@@ -198,10 +199,6 @@
 				D3190ABC1E7108E400121BAB /* AppDelegate.m */,
 				D3190ABE1E7108E400121BAB /* ViewController.h */,
 				D3190ABF1E7108E400121BAB /* ViewController.m */,
-				D393AE4B1FD387CF00DA7EB5 /* AiyaEffectFilter.h */,
-				D393AE4C1FD387CF00DA7EB5 /* AiyaEffectFilter.m */,
-				D3AE5C501FF261DC004D476B /* DeviceMonitor.h */,
-				D3AE5C481FF261B2004D476B /* DeviceMonitor.m */,
 				D3190AC41E7108E400121BAB /* Assets.xcassets */,
 				D3190AC91E7108E400121BAB /* Info.plist */,
 				D3190B2B1E713A3D00121BAB /* View */,
@@ -229,12 +226,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D37119F523A11C1800457F99 /* RecordTool */ = {
+			isa = PBXGroup;
+			children = (
+				D3711A0823A11F0100457F99 /* AYPixelBufferPreview.h */,
+				D3711A0723A11F0100457F99 /* AYPixelBufferPreview.m */,
+				D37119FF23A11C4700457F99 /* AYCamera.h */,
+				D37119FE23A11C4700457F99 /* AYCamera.m */,
+			);
+			path = RecordTool;
+			sourceTree = "<group>";
+		};
 		D392C60D20514C3F009883B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */,
-				D392C61D20514C40009883B2 /* libAySDKCore.a */,
-				D392C61F20514C40009883B2 /* libAyTrack.a */,
+				D392C61D20514C40009883B2 /* libAyCore.a */,
+				D392C61F20514C40009883B2 /* libAyFaceTrack.a */,
 				D392C62120514C40009883B2 /* libAyEffect.a */,
 				D392C62320514C40009883B2 /* libAyBeauty.a */,
 				D392C62520514C40009883B2 /* libAyShortVideoEffect.a */,
@@ -253,7 +261,6 @@
 				D3190AB11E7108E400121BAB /* Sources */,
 				D3190AB21E7108E400121BAB /* Frameworks */,
 				D3190AB31E7108E400121BAB /* Resources */,
-				8C6443B829A814F6264E1F10 /* [CP] Copy Pods Resources */,
 				D393AE6C1FD3982900DA7EB5 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -287,6 +294,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -314,14 +322,14 @@
 			remoteRef = D392C61A20514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D392C61D20514C40009883B2 /* libAySDKCore.a */ = {
+		D392C61D20514C40009883B2 /* libAyCore.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAyCore.a;
 			remoteRef = D392C61C20514C40009883B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D392C61F20514C40009883B2 /* libAyTrack.a */ = {
+		D392C61F20514C40009883B2 /* libAyFaceTrack.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAyFaceTrack.a;
@@ -384,32 +392,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C6443B829A814F6264E1F10 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo-resources.sh",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -417,10 +399,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D393AE4D1FD387CF00DA7EB5 /* AiyaEffectFilter.m in Sources */,
+				D3711A0923A11F0100457F99 /* AYPixelBufferPreview.m in Sources */,
 				D3190B311E713A3D00121BAB /* CircleCell.m in Sources */,
-				D3AE5C4F1FF261B4004D476B /* DeviceMonitor.m in Sources */,
 				D3190AC01E7108E400121BAB /* ViewController.m in Sources */,
+				D3711A0223A11C4700457F99 /* AYCamera.m in Sources */,
 				D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */,
 				D3190ABA1E7108E400121BAB /* main.m in Sources */,
 				D3190B301E713A3D00121BAB /* CameraView.m in Sources */,
