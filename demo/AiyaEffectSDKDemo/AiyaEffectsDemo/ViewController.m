@@ -211,8 +211,10 @@
     // 关闭页面常亮
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     
-    // 释放画面预览的资源
+    // 页面退到后台时必须要释放申请的GPU资源
     [self.preview releaseGLResources];
+    [self.effectHandler destroy];
+    self.effectHandler = nil;
     
     [_openGLLock unlock];
 }
@@ -230,8 +232,10 @@
         // 关闭页面常亮
         [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
         
-        // 释放画面预览的资源
+        // 页面退到后台时必须要释放申请的GPU资源
         [self.preview releaseGLResources];
+    	[self.effectHandler destroy];
+    	self.effectHandler = nil;
         
         [self.openGLLock unlock];
     }
