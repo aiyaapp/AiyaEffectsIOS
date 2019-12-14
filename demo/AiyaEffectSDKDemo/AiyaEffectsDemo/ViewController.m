@@ -66,14 +66,14 @@
     _preview = [[AYPixelBufferPreview alloc] initWithFrame:self.view.frame];
     _preview.previewContentMode = AYPreivewContentModeScaleAspectFill;
     [cameraView insertSubview:_preview atIndex:0];
-    
+        
     // 手势UI, 添加点按手势, 点按时聚焦
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
     [tapGesture setNumberOfTapsRequired:1];
     [_preview addGestureRecognizer:tapGesture];
     [_preview setUserInteractionEnabled:true];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterBackground:) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterForeground:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
 }
@@ -221,6 +221,7 @@
 
 - (void)enterBackground:(NSNotification *)notifi{
     if ([self viewAppear]) {
+        NSLog(@"enterBackground start");
         [self.openGLLock lock];
         
         // 关闭相机
@@ -238,11 +239,13 @@
     	self.effectHandler = nil;
         
         [self.openGLLock unlock];
+        NSLog(@"enterBackground stop");
     }
 }
 
 - (void)enterForeground:(NSNotification *)notifi{
     if ([self viewAppear]) {
+        NSLog(@"enterForeground start");
         [self.openGLLock lock];
         
         self.viewAppear = YES;
@@ -257,6 +260,7 @@
         [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
         
         [self.openGLLock unlock];
+        NSLog(@"enterForeground stop");
     }
 }
 

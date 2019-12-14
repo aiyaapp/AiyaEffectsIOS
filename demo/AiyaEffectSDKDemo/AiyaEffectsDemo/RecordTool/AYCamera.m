@@ -10,7 +10,6 @@
 
 @interface AYCamera () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate> {
     dispatch_queue_t videoProcessingQueue, audioProcessingQueue;
-    dispatch_semaphore_t frameRenderingSemaphore;
 }
 
 //捕获设备，摄像头
@@ -55,8 +54,6 @@
 }
 
 - (void)commitInit{
-    frameRenderingSemaphore = dispatch_semaphore_create(1);
-    
     _cameraPosition = AVCaptureDevicePositionFront;
 
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
@@ -167,25 +164,16 @@
         [self.session removeOutput:self.audioOutput];
         
         [self.session stopRunning];
-        
-        dispatch_semaphore_wait(frameRenderingSemaphore, DISPATCH_TIME_FOREVER);
-        dispatch_semaphore_signal(frameRenderingSemaphore);
     }
 }
 
 #pragma mark AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
     if (output == self.videoOutput){
-        if (dispatch_semaphore_wait(frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0) {
-            return;
-        }
-        
         if (self.delegate && [self.delegate respondsToSelector:@selector(cameraVideoOutput:)]) {
             [self.delegate cameraVideoOutput:sampleBuffer];
         }
         
-        dispatch_semaphore_signal(frameRenderingSemaphore);
-
     } else if (output == self.audioOutput){
         if (self.delegate && [self.delegate respondsToSelector:@selector(cameraAudioOutput:)]) {
             [self.delegate cameraAudioOutput:sampleBuffer];
