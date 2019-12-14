@@ -124,10 +124,19 @@
 #if AY_ENABLE_TRACK
     //获取人脸数据
     _faceData = NULL;
+
+    GLubyte *trackBuffer = malloc(self.outputSize.width * self.outputSize.height * 4);
+    
+    // 拷贝图像数据到Buffer
     [outputFramebuffer lockForReading];
-    GLubyte * outputBuffer = CVPixelBufferGetBaseAddress(outputFramebuffer.pixelBuffer);
-    [self.track trackWithPixelBuffer:outputBuffer bufferWidth:self.outputSize.width bufferHeight:self.outputSize.height trackData:self.faceData];
+    GLubyte *outputBuffer = CVPixelBufferGetBaseAddress(outputFramebuffer.pixelBuffer);
+    memcpy(trackBuffer, outputBuffer, self.outputSize.width * self.outputSize.height * 4);
     [outputFramebuffer unlockAfterReading];
+
+    // 进行人脸识别
+    [self.track trackWithPixelBuffer:trackBuffer bufferWidth:self.outputSize.width bufferHeight:self.outputSize.height trackData:self.faceData];
+
+    free(trackBuffer);
 #endif
     
     [outputFramebuffer unlock];

@@ -54,12 +54,7 @@
     _camera = [[AYCamera alloc] initWithResolution:AVCaptureSessionPreset1920x1080];
     _camera.delegate = self;
     [_camera setFrameRate:30];
-    
-    // 相机预览UI
-    _preview = [[AYPixelBufferPreview alloc] initWithFrame:self.view.frame];
-    _preview.previewContentMode = AYPreivewContentModeScaleAspectFill;
-    [self.view addSubview:_preview];
-    
+        
     // 页面各种控件UI
     CameraView *cameraView = [[CameraView alloc] initWithFrame:self.view.frame];
     cameraView.effectData = self.effectData;
@@ -67,11 +62,16 @@
     cameraView.delegate = self;
     [self.view addSubview:cameraView];
     
+    // 相机预览UI
+    _preview = [[AYPixelBufferPreview alloc] initWithFrame:self.view.frame];
+    _preview.previewContentMode = AYPreivewContentModeScaleAspectFill;
+    [cameraView insertSubview:_preview atIndex:0];
+    
     // 手势UI, 添加点按手势, 点按时聚焦
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
     [tapGesture setNumberOfTapsRequired:1];
-    [cameraView addGestureRecognizer:tapGesture];
-    [cameraView setUserInteractionEnabled:true];
+    [_preview addGestureRecognizer:tapGesture];
+    [_preview setUserInteractionEnabled:true];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enterForeground:) name:UIApplicationDidBecomeActiveNotification object:nil];
