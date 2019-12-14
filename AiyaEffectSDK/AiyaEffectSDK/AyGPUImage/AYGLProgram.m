@@ -53,6 +53,8 @@
         
         glAttachShader(program, vertShader);
         glAttachShader(program, fragShader);
+        
+        NSLog(@"Aiya 创建一个 OpenGL Program %d", program);
     }
     
     return self;
@@ -179,6 +181,7 @@
     if (program)
         glDeleteProgram(program);
     
+    NSLog(@"Aiya 销毁一个 OpenGL Program %d", program);
 }
 // END:dealloc
 @end

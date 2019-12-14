@@ -140,6 +140,13 @@ static int specificKey;
     return context;
 }
 
+- (void)dealloc {
+    if (_coreVideoTextureCache != NULL) {
+        CFRelease(_coreVideoTextureCache);
+        _coreVideoTextureCache = NULL;
+    }
+}
+
 #pragma mark -
 #pragma mark Accessors
 
