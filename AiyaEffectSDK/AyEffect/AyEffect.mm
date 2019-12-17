@@ -35,13 +35,14 @@ public:
 @implementation AyEffect
 
 - (void)initGLResource{
-    effectCallBack.ayEffect = self;
+    effectCallBack.ayEffect = self; // 此处为循环引用
     render = std::make_shared<AiyaRender::RenderSticker>();
     render->message = std::bind(&AyEffectCallBack::effectMessage, &effectCallBack, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 }
 
 - (void)releaseGLtContext{
     render->release();
+    effectCallBack.ayEffect = nil; // 释放循环引用
 }
 
 - (void)setEffectPath:(NSString *)effectPath{
