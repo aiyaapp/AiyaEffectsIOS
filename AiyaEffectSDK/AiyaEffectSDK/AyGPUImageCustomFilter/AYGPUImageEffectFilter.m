@@ -102,12 +102,12 @@
 }
 
 #if AY_ENABLE_EFFECT
-- (void)effectMessageWithType:(NSInteger)type ret:(NSInteger)ret info:(NSString *)info {
+- (void)effectMessageWithType:(NSInteger)type ret:(NSInteger)ret {
     if (!self.effectPath || [self.effectPath isEqualToString:@""]){
         
-    }else if ([@"AY_EFFECTS_END" isEqualToString:info]) {//已经渲染完成一遍
+    }else if (ret == MSG_STAT_EFFECTS_END || ret < 0) {//已经渲染完成一遍
         self.currentPlayCount ++;
-        if (self.effectPlayCount != 0 && self.currentPlayCount >= self.effectPlayCount){
+        if (ret < 0 || (self.effectPlayCount != 0 && self.currentPlayCount >= self.effectPlayCount)){
             [self setEffectPath:@""];
             if (self.delegate) {
                 [self.delegate playEnd];

@@ -111,6 +111,7 @@
         _animHandler = [[AYAnimHandler alloc] init];
         self.animHandler.effectPath = [[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"shiwaitaoyuan"];
         self.animHandler.effectPlayCount = 2;
+        self.animHandler.delegate = self;
     }
     
     //清空画布

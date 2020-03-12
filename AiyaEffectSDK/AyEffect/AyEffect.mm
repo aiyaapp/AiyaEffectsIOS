@@ -10,6 +10,21 @@
 #import "RenderSticker.h"
 #include "AYEffectConstants.h"
 
+/**
+ * 特效播放中
+ */
+int MSG_STAT_EFFECTS_PLAY = 0x00020000;
+
+/**
+ * 特效播放结束
+ */
+int MSG_STAT_EFFECTS_END = 0x00040000;
+
+/**
+ * 特效播放开始
+ */
+int MSG_STAT_EFFECTS_START = 0x00080000;
+
 class AyEffectCallBack
 {
 public:
@@ -17,7 +32,7 @@ public:
     
     void effectMessage(int type, int ret, const char *info){
         if (ayEffect.delegate) {
-            [ayEffect.delegate effectMessageWithType:type ret:ret info:[NSString stringWithUTF8String:info]];
+            [ayEffect.delegate effectMessageWithType:type ret:ret];
         }
     }
 };

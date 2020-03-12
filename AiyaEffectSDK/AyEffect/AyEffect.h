@@ -12,12 +12,27 @@
 #import <OpenGLES/ES2/glext.h>
 #include "FaceData.h"
 
+/**
+ * 特效播放中
+ */
+extern int MSG_STAT_EFFECTS_PLAY;
+
+/**
+ * 特效播放结束
+ */
+extern int MSG_STAT_EFFECTS_END;
+
+/**
+ * 特效播放开始
+ */
+extern int MSG_STAT_EFFECTS_START;
+
 @protocol AyEffectDelegate <NSObject>
 @optional
 /**
  特效数据回调
  */
-- (void)effectMessageWithType:(NSInteger)type ret:(NSInteger)ret info:(NSString *)info;
+- (void)effectMessageWithType:(NSInteger)type ret:(NSInteger)ret;
 
 @end
 
