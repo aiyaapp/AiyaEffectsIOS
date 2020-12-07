@@ -10,6 +10,6 @@
 
 @interface AYGPUImageGaussianBlurFilter : AYGPUImageFilter
 
-@property (nonatomic,assign) CGFloat blurRadiusInPixels;
+@property (nonatomic, assign) CGFloat blurRadiusInPixels;
 
 @end

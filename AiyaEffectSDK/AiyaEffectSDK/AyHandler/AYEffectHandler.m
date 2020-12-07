@@ -25,6 +25,7 @@
 #endif
 
 #import "AYGPUImageLookupFilter.h"
+#import "AYGPUImageGaussianBlurFilter.h"
 
 #if AY_ENABLE_BEAUTY
 #import "AYGPUImageBeautyFilter.h"
@@ -66,6 +67,7 @@
 #endif
 
 @property (nonatomic, strong) AYGPUImageLookupFilter *lookupFilter;
+@property (nonatomic, strong) AYGPUImageGaussianBlurFilter *gaussianBlurFilter;
 
 #if AY_ENABLE_BEAUTY
 @property (nonatomic, strong) AYGPUImageBeautyFilter *beautyFilter;
@@ -122,6 +124,7 @@
 #endif
         
         _lookupFilter = [[AYGPUImageLookupFilter alloc] initWithContext:_glContext];
+        _gaussianBlurFilter = [[AYGPUImageGaussianBlurFilter alloc] initWithContext:_glContext];
         
 #if AY_ENABLE_BEAUTY
         _bigEyeFilter = [[AYGPUImageBigEyeFilter alloc] initWithContext:_glContext];
@@ -187,7 +190,12 @@
     
     [self.lookupFilter setIntensity:intensityOfStyle];
 }
-
+    
+- (void)setIntensityOfGaussianBlur:(CGFloat)intensityOfGaussianBlur{
+    _intensityOfGaussianBlur = intensityOfGaussianBlur;
+    
+    [self.gaussianBlurFilter setBlurRadiusInPixels:intensityOfGaussianBlur];
+}
 #if AY_ENABLE_BEAUTY
 - (void)setBeautyAlgorithmType:(NSInteger)beautyAlgorithmType{
     _beautyAlgorithmType = beautyAlgorithmType;
@@ -268,6 +276,8 @@
 #if AY_ENABLE_EFFECT
         [filterChainArray addObject:self.effectFilter];
 #endif
+        
+        [filterChainArray addObject:self.gaussianBlurFilter];
         
 #if AY_ENABLE_TRACK
         [self.commonInputFilter addTarget:self.trackOutput];

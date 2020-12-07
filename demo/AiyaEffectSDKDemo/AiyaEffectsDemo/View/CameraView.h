@@ -29,6 +29,8 @@
 
 - (void)onStyleChange:(float)style;
 
+- (void)onGaussianBlurChange:(float)intensity;
+
 @end
 
 @interface CameraView : UIView

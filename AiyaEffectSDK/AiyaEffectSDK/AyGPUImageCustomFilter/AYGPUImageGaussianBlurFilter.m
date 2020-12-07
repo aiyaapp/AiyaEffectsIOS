@@ -13,6 +13,11 @@
     GLint verticalPassTexelHeightOffsetUniform;
     
     AYGPUImageFramebuffer *secondOutputFramebuffer;
+    
+    AYGLProgram *gaussianBlurProgram;
+    
+    GLint gaussianBlurPositionAttribute, gaussianBlurTextureCoordinateAttribute;
+    GLint gaussianBlurInputTextureUniform;
 }
 @end
 
@@ -165,66 +170,63 @@
 - (void)setBlurRadiusInPixels:(CGFloat)newValue;
 {
     // 7.0 is the limit for blur size for hardcoded varying offsets
-    
     if (round(newValue) != _blurRadiusInPixels) {
         _blurRadiusInPixels = round(newValue); // For now, only do integral sigmas
         
-        NSUInteger calculatedSampleRadius = 0;
-        if (_blurRadiusInPixels >= 1) { // Avoid a divide-by-zero error here
-            
+        if (_blurRadiusInPixels >= 1) {
+            NSUInteger calculatedSampleRadius = 0;
+                
             // Calculate the number of pixels to sample from by setting a bottom limit for the contribution of the outermost pixel
             CGFloat minimumWeightToFindEdgeOfSamplingArea = 1.0/256.0;
             calculatedSampleRadius = floor(sqrt(-2.0 * pow(_blurRadiusInPixels, 2.0) * log(minimumWeightToFindEdgeOfSamplingArea * sqrt(2.0 * M_PI * pow(_blurRadiusInPixels, 2.0))) ));
             calculatedSampleRadius += calculatedSampleRadius % 2; // There's nothing to gain from handling odd radius sizes, due to the optimizations I use
+            
+            //        NSLog(@"Blur radius: %f, calculated sample radius: %d", _blurRadiusInPixels, calculatedSampleRadius);
+            //
+            NSString *newGaussianBlurVertexShader = [[self class] vertexShaderForOptimizedBlurOfRadius:calculatedSampleRadius sigma:_blurRadiusInPixels];
+            NSString *newGaussianBlurFragmentShader = [[self class] fragmentShaderForOptimizedBlurOfRadius:calculatedSampleRadius sigma:_blurRadiusInPixels];
+            
+            //        NSLog(@"Optimized vertex shader: \n%@", newGaussianBlurVertexShader);
+            //        NSLog(@"Optimized fragment shader: \n%@", newGaussianBlurFragmentShader);
+            
+            [self switchToVertexShader:newGaussianBlurVertexShader fragmentShader:newGaussianBlurFragmentShader];
         }
-        
-        //        NSLog(@"Blur radius: %f, calculated sample radius: %d", _blurRadiusInPixels, calculatedSampleRadius);
-        //
-        NSString *newGaussianBlurVertexShader = [[self class] vertexShaderForOptimizedBlurOfRadius:calculatedSampleRadius sigma:_blurRadiusInPixels];
-        NSString *newGaussianBlurFragmentShader = [[self class] fragmentShaderForOptimizedBlurOfRadius:calculatedSampleRadius sigma:_blurRadiusInPixels];
-        
-        //        NSLog(@"Optimized vertex shader: \n%@", newGaussianBlurVertexShader);
-        //        NSLog(@"Optimized fragment shader: \n%@", newGaussianBlurFragmentShader);
-        
-        [self switchToVertexShader:newGaussianBlurVertexShader fragmentShader:newGaussianBlurFragmentShader];
     }
 }
-
-
 
 
 - (void)switchToVertexShader:(NSString *)vertexShaderString fragmentShader:(NSString *)fragmentShaderString;
 {
     runAYSynchronouslyOnContextQueue(self.context,^{
         [self.context useAsCurrentContext];
+
+        gaussianBlurProgram = [[AYGLProgram alloc] initWithVertexShaderString:vertexShaderString fragmentShaderString:fragmentShaderString];
         
-        filterProgram = [self.context programForVertexShaderString:vertexShaderString fragmentShaderString:fragmentShaderString];
-        
-        if (!filterProgram.initialized)
+        if (!gaussianBlurProgram.initialized)
         {
-            if (![filterProgram link])
+            if (![gaussianBlurProgram link])
             {
-                NSString *progLog = [filterProgram programLog];
+                NSString *progLog = [gaussianBlurProgram programLog];
                 NSLog(@"Program link log: %@", progLog);
-                NSString *fragLog = [filterProgram fragmentShaderLog];
+                NSString *fragLog = [gaussianBlurProgram fragmentShaderLog];
                 NSLog(@"Fragment shader compile log: %@", fragLog);
-                NSString *vertLog = [filterProgram vertexShaderLog];
+                NSString *vertLog = [gaussianBlurProgram vertexShaderLog];
                 NSLog(@"Vertex shader compile log: %@", vertLog);
-                filterProgram = nil;
+                gaussianBlurProgram = nil;
                 NSAssert(NO, @"Filter shader link failed");
             }
         }
     
-        filterPositionAttribute = [filterProgram attributeIndex:@"position"];
-        filterTextureCoordinateAttribute = [filterProgram attributeIndex:@"inputTextureCoordinate"];
-        filterInputTextureUniform = [filterProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
-        verticalPassTexelWidthOffsetUniform = [filterProgram uniformIndex:@"texelWidthOffset"];
-        verticalPassTexelHeightOffsetUniform = [filterProgram uniformIndex:@"texelHeightOffset"];
+        gaussianBlurPositionAttribute = [gaussianBlurProgram attributeIndex:@"position"];
+        gaussianBlurTextureCoordinateAttribute = [gaussianBlurProgram attributeIndex:@"inputTextureCoordinate"];
+        gaussianBlurInputTextureUniform = [gaussianBlurProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
+        verticalPassTexelWidthOffsetUniform = [gaussianBlurProgram uniformIndex:@"texelWidthOffset"];
+        verticalPassTexelHeightOffsetUniform = [gaussianBlurProgram uniformIndex:@"texelHeightOffset"];
         
-        [filterProgram use];
+        [gaussianBlurProgram use];
 
-        glEnableVertexAttribArray(filterPositionAttribute);
-        glEnableVertexAttribArray(filterTextureCoordinateAttribute);
+        glEnableVertexAttribArray(gaussianBlurPositionAttribute);
+        glEnableVertexAttribArray(gaussianBlurTextureCoordinateAttribute);
         
     });
 }
@@ -234,46 +236,51 @@
 
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;
 {
-    [filterProgram use];
-    
-    secondOutputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:[self sizeOfFBO] textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
-    [secondOutputFramebuffer activateFramebuffer];
-    
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, [firstInputFramebuffer texture]);
-    glUniform1i(filterInputTextureUniform, 2);
-    
-    glUniform1f(verticalPassTexelWidthOffsetUniform, 1.0f / inputTextureSize.width);
-    glUniform1f(verticalPassTexelHeightOffsetUniform, 0);
-    
-    glVertexAttribPointer(filterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
-    glVertexAttribPointer(filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
-    
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    
-    outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:[self sizeOfFBO] textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
-    [outputFramebuffer activateFramebuffer];
-    
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, [secondOutputFramebuffer texture]);
-    glUniform1i(filterInputTextureUniform, 2);
-    
-    glUniform1f(verticalPassTexelWidthOffsetUniform, 0);
-    glUniform1f(verticalPassTexelHeightOffsetUniform, 1.0f / inputTextureSize.height);
-    
-    glVertexAttribPointer(filterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
-    glVertexAttribPointer(filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
-    
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    
-    [firstInputFramebuffer unlock];
-    [secondOutputFramebuffer unlock];
+    if (_blurRadiusInPixels >= 1) {
+        [gaussianBlurProgram use];
+        
+        secondOutputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:[self sizeOfFBO] textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
+        [secondOutputFramebuffer activateFramebuffer];
+        
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, [firstInputFramebuffer texture]);
+        glUniform1i(gaussianBlurInputTextureUniform, 2);
+        
+        glUniform1f(verticalPassTexelWidthOffsetUniform, 1.0f / inputTextureSize.width);
+        glUniform1f(verticalPassTexelHeightOffsetUniform, 0);
+        
+        glVertexAttribPointer(gaussianBlurPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
+        glVertexAttribPointer(gaussianBlurTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+        
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        
+        outputFramebuffer = [[self.context framebufferCache] fetchFramebufferForSize:[self sizeOfFBO] textureOptions:self.outputTextureOptions missCVPixelBuffer:YES];
+        [outputFramebuffer activateFramebuffer];
+        
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, [secondOutputFramebuffer texture]);
+        glUniform1i(gaussianBlurInputTextureUniform, 2);
+        
+        glUniform1f(verticalPassTexelWidthOffsetUniform, 0);
+        glUniform1f(verticalPassTexelHeightOffsetUniform, 1.0f / inputTextureSize.height);
+        
+        glVertexAttribPointer(gaussianBlurPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
+        glVertexAttribPointer(gaussianBlurTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+        
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        
+        [firstInputFramebuffer unlock];
+        [secondOutputFramebuffer unlock];
+        
+    } else {
+        [super renderToTextureWithVertices:vertices textureCoordinates:textureCoordinates];
+    }
 }
 
 @end

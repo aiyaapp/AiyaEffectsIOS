@@ -42,6 +42,11 @@
 @property (nonatomic, assign) CGFloat intensityOfStyle;
 
 /**
+ 设置高斯模糊滤镜
+ */
+@property (nonatomic, assign) CGFloat intensityOfGaussianBlur;
+
+/**
  当前的美颜算法类型, 共有6种美颜算法. 当前使用的是AY_BEAUTY_TYPE_5
  */
 @property (nonatomic, assign) NSInteger beautyAlgorithmType;

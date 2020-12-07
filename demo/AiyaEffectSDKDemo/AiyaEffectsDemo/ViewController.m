@@ -374,6 +374,11 @@
     NSLog(@"BigEye scale %f",scale);
 }
 
+- (void)onGaussianBlurChange:(float)intensity {
+    [self.effectHandler setIntensityOfGaussianBlur:intensity*50];
+    NSLog(@"GaussianBlur %f",intensity);
+}
+
 - (void)onSlimFaceScaleChange:(float)scale{
     [self.effectHandler setSlimFace:scale];
     NSLog(@"SlimFace scale %f",scale);

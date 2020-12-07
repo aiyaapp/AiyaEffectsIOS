@@ -57,6 +57,7 @@
                         [UIImage imageNamed:@"beautify"],@"美白",
                         [UIImage imageNamed:@"beautify"],@"大眼",
                         [UIImage imageNamed:@"beautify"],@"瘦脸",
+                        [UIImage imageNamed:@"beautify"],@"模糊",
                         ];
     }
     return self;
@@ -352,7 +353,7 @@
     }else if (self.mode == 2){
         self.slider.hidden = NO;
         
-        self.sliderMode = 5;
+        self.sliderMode = 6;
         self.slider.minimumValue = 0;//设置可变最小值
         self.slider.maximumValue = 1;//设置可变最大值
         self.slider.value = 0;
@@ -387,6 +388,10 @@
             [self.delegate onSlimFaceScaleChange:self.slider.value];
         }
     }else if (self.sliderMode == 5){
+        if (self.delegate) {
+            [self.delegate onGaussianBlurChange:self.slider.value];
+        }
+    }else if (self.sliderMode == 6){
         if (self.delegate) {
             [self.delegate onStyleChange:self.slider.value];
         }
