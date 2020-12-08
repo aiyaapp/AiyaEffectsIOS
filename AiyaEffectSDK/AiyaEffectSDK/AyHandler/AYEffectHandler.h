@@ -42,7 +42,7 @@
 @property (nonatomic, assign) CGFloat intensityOfStyle;
 
 /**
- 设置高斯模糊滤镜
+ 设置高斯模糊滤镜 默认0 最高为50
  */
 @property (nonatomic, assign) CGFloat intensityOfGaussianBlur;
 
