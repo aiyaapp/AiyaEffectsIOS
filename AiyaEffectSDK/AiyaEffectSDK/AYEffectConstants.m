@@ -47,6 +47,3 @@ NSString * const AY_MESSAGE_DETAIL[] = {
     @"AY_EFFECTS_PAUSE",
     @"AY_EFFECTS_REPLAY_END"
 };
-
-NSString * const AiyaLicenseNotification = @"AiyaLicenseNotification";
-NSString * const AiyaLicenseNotificationUserInfoKey = @"AiyaLicenseResult";

@@ -11,11 +11,4 @@
 
 extern NSString * const AY_MESSAGE_DETAIL[];
 
-extern NSString * const AiyaLicenseNotification;
-extern NSString * const AiyaLicenseNotificationUserInfoKey;
-typedef NS_ENUM(NSUInteger, AiyaLicenseResult) {
-    AiyaLicenseSuccess,
-    AiyaLicenseFail,
-};
-
 #endif /* AYEffectConstants_h */

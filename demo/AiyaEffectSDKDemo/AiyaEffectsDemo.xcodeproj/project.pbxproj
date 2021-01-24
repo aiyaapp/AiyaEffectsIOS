@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */; };
-		D310C553205F4E9800FD1826 /* AiyaEffectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */; };
-		D310C554205F4E9800FD1826 /* AiyaEffectSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D30FB5BA25BD31300041AF69 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB5B825BD31300041AF69 /* RecordViewController.m */; };
+		D30FB5DE25BD91100041AF69 /* AYMediaEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB5DC25BD91100041AF69 /* AYMediaEncoder.m */; };
+		D30FB5F625BDC25F0041AF69 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB5F525BDC25F0041AF69 /* PlayerViewController.m */; };
 		D3190ABA1E7108E400121BAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190AB91E7108E400121BAB /* main.m */; };
 		D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABC1E7108E400121BAB /* AppDelegate.m */; };
-		D3190AC01E7108E400121BAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABF1E7108E400121BAB /* ViewController.m */; };
+		D3190AC01E7108E400121BAB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABF1E7108E400121BAB /* CameraViewController.m */; };
 		D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3190AC41E7108E400121BAB /* Assets.xcassets */; };
 		D3190B301E713A3D00121BAB /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2D1E713A3D00121BAB /* CameraView.m */; };
 		D3190B311E713A3D00121BAB /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190B2F1E713A3D00121BAB /* CircleCell.m */; };
@@ -20,6 +21,12 @@
 		D31F330E1FF39D8800B042BD /* AiyaEffectSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */; };
 		D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */ = {isa = PBXBuildFile; fileRef = D3481EED1EAA072C006FB4AE /* EffectResources */; };
 		D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D361964E1E978C9C00C8BC0B /* libiconv.tbd */; };
+		D36DE75125B874F2009DCF89 /* AiyaEffectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D392C61B20514C40009883B2 /* AiyaEffectSDK.framework */; };
+		D36DE75B25B876DA009DCF89 /* AiyaEffectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36DE75A25B876DA009DCF89 /* AiyaEffectSDK.framework */; };
+		D36DE76225B8776A009DCF89 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36DE76125B8776A009DCF89 /* MainViewController.m */; };
+		D36DE78825B88201009DCF89 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36DE78725B88201009DCF89 /* MainNavigationController.m */; };
+		D36DE7AD25B9C69A009DCF89 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = D36DE7AC25B9C69A009DCF89 /* UIColor+Hex.m */; };
+		D36DE7B225B9C8DD009DCF89 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36DE7B125B9C8DD009DCF89 /* AnimationViewController.m */; };
 		D3711A0223A11C4700457F99 /* AYCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D37119FE23A11C4700457F99 /* AYCamera.m */; };
 		D3711A0923A11F0100457F99 /* AYPixelBufferPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = D3711A0723A11F0100457F99 /* AYPixelBufferPreview.m */; };
 		D3969C031F1F0EB6006B3372 /* FilterResources in Resources */ = {isa = PBXBuildFile; fileRef = D3969C021F1F0EB6006B3372 /* FilterResources */; };
@@ -78,30 +85,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		D393AE6C1FD3982900DA7EB5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D310C554205F4E9800FD1826 /* AiyaEffectSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiyaEffectsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71294350E0B716DB815C6811 /* Pods-AiyaEffectsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiyaEffectsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		789AA450CDB7819EABCD7788 /* Pods-AiyaEffectsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiyaEffectsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D30FB5B825BD31300041AF69 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		D30FB5B925BD31300041AF69 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		D30FB5DC25BD91100041AF69 /* AYMediaEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYMediaEncoder.m; sourceTree = "<group>"; };
+		D30FB5DD25BD91100041AF69 /* AYMediaEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYMediaEncoder.h; sourceTree = "<group>"; };
+		D30FB5EF25BDC25F0041AF69 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		D30FB5F525BDC25F0041AF69 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		D3190AB51E7108E400121BAB /* AiyaEffectsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiyaEffectsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3190AB91E7108E400121BAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3190ABB1E7108E400121BAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3190ABC1E7108E400121BAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D3190ABE1E7108E400121BAB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D3190ABF1E7108E400121BAB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D3190ABE1E7108E400121BAB /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		D3190ABF1E7108E400121BAB /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		D3190AC41E7108E400121BAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3190AC91E7108E400121BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3190B2C1E713A3D00121BAB /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
@@ -113,6 +112,15 @@
 		D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AiyaEffectSDK.bundle; path = ../../../AiyaEffectSDK/AiyaEffectSDK.bundle; sourceTree = "<group>"; };
 		D3481EED1EAA072C006FB4AE /* EffectResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EffectResources; sourceTree = SOURCE_ROOT; };
 		D361964E1E978C9C00C8BC0B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D36DE75A25B876DA009DCF89 /* AiyaEffectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AiyaEffectSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AiyaEffectsDemo-azzhjqjsmjxbrgdjzzzhyzpvjozj/Build/Products/Debug-iphoneos/AiyaEffectSDK.framework"; sourceTree = "<group>"; };
+		D36DE76025B8776A009DCF89 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D36DE76125B8776A009DCF89 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D36DE78625B88201009DCF89 /* MainNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		D36DE78725B88201009DCF89 /* MainNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		D36DE7AB25B9C69A009DCF89 /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		D36DE7AC25B9C69A009DCF89 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		D36DE7B025B9C8DD009DCF89 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationViewController.h; path = ../../AiyaAnimEffectDemo/AiyaAnimEffectDemo/AnimationViewController.h; sourceTree = "<group>"; };
+		D36DE7B125B9C8DD009DCF89 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationViewController.m; path = ../../AiyaAnimEffectDemo/AiyaAnimEffectDemo/AnimationViewController.m; sourceTree = "<group>"; };
 		D37119FE23A11C4700457F99 /* AYCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYCamera.m; sourceTree = "<group>"; };
 		D37119FF23A11C4700457F99 /* AYCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYCamera.h; sourceTree = "<group>"; };
 		D3711A0723A11F0100457F99 /* AYPixelBufferPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYPixelBufferPreview.m; sourceTree = "<group>"; };
@@ -135,7 +143,8 @@
 				D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */,
 				D361964F1E978C9C00C8BC0B /* libiconv.tbd in Frameworks */,
 				D3190B351E7168C400121BAB /* libc++.tbd in Frameworks */,
-				D310C553205F4E9800FD1826 /* AiyaEffectSDK.framework in Frameworks */,
+				D36DE75125B874F2009DCF89 /* AiyaEffectSDK.framework in Frameworks */,
+				D36DE75B25B876DA009DCF89 /* AiyaEffectSDK.framework in Frameworks */,
 				8E156A5D0DDC318C4766207B /* libPods-AiyaEffectsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +164,7 @@
 		B39C98AC3A4107F581005916 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D36DE75A25B876DA009DCF89 /* AiyaEffectSDK.framework */,
 				D393AE6E1FD3988E00DA7EB5 /* OpenAL.framework */,
 				D361964E1E978C9C00C8BC0B /* libiconv.tbd */,
 				D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */,
@@ -167,6 +177,15 @@
 				3A84222977728FD05A9A7E27 /* libPods-AiyaEffectsDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D30FB5AE25BD30A80041AF69 /* RecordTool */ = {
+			isa = PBXGroup;
+			children = (
+				D30FB5DD25BD91100041AF69 /* AYMediaEncoder.h */,
+				D30FB5DC25BD91100041AF69 /* AYMediaEncoder.m */,
+			);
+			path = RecordTool;
 			sourceTree = "<group>";
 		};
 		D3190AAC1E7108E400121BAB = {
@@ -191,14 +210,25 @@
 		D3190AB71E7108E400121BAB /* AiyaEffectsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D37119F523A11C1800457F99 /* RecordTool */,
 				D3481EED1EAA072C006FB4AE /* EffectResources */,
 				D3969C021F1F0EB6006B3372 /* FilterResources */,
 				D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */,
 				D3190ABB1E7108E400121BAB /* AppDelegate.h */,
 				D3190ABC1E7108E400121BAB /* AppDelegate.m */,
-				D3190ABE1E7108E400121BAB /* ViewController.h */,
-				D3190ABF1E7108E400121BAB /* ViewController.m */,
+				D36DE78625B88201009DCF89 /* MainNavigationController.h */,
+				D36DE78725B88201009DCF89 /* MainNavigationController.m */,
+				D36DE76025B8776A009DCF89 /* MainViewController.h */,
+				D36DE76125B8776A009DCF89 /* MainViewController.m */,
+				D3190ABE1E7108E400121BAB /* CameraViewController.h */,
+				D3190ABF1E7108E400121BAB /* CameraViewController.m */,
+				D37119F523A11C1800457F99 /* CameraTool */,
+				D36DE7B025B9C8DD009DCF89 /* AnimationViewController.h */,
+				D36DE7B125B9C8DD009DCF89 /* AnimationViewController.m */,
+				D30FB5B925BD31300041AF69 /* RecordViewController.h */,
+				D30FB5B825BD31300041AF69 /* RecordViewController.m */,
+				D30FB5EF25BDC25F0041AF69 /* PlayerViewController.h */,
+				D30FB5F525BDC25F0041AF69 /* PlayerViewController.m */,
+				D30FB5AE25BD30A80041AF69 /* RecordTool */,
 				D3190AC41E7108E400121BAB /* Assets.xcassets */,
 				D3190AC91E7108E400121BAB /* Info.plist */,
 				D3190B2B1E713A3D00121BAB /* View */,
@@ -222,11 +252,13 @@
 				D3190B2D1E713A3D00121BAB /* CameraView.m */,
 				D3190B2E1E713A3D00121BAB /* CircleCell.h */,
 				D3190B2F1E713A3D00121BAB /* CircleCell.m */,
+				D36DE7AB25B9C69A009DCF89 /* UIColor+Hex.h */,
+				D36DE7AC25B9C69A009DCF89 /* UIColor+Hex.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		D37119F523A11C1800457F99 /* RecordTool */ = {
+		D37119F523A11C1800457F99 /* CameraTool */ = {
 			isa = PBXGroup;
 			children = (
 				D3711A0823A11F0100457F99 /* AYPixelBufferPreview.h */,
@@ -234,7 +266,7 @@
 				D37119FF23A11C4700457F99 /* AYCamera.h */,
 				D37119FE23A11C4700457F99 /* AYCamera.m */,
 			);
-			path = RecordTool;
+			path = CameraTool;
 			sourceTree = "<group>";
 		};
 		D392C60D20514C3F009883B2 /* Products */ = {
@@ -261,7 +293,7 @@
 				D3190AB11E7108E400121BAB /* Sources */,
 				D3190AB21E7108E400121BAB /* Frameworks */,
 				D3190AB31E7108E400121BAB /* Resources */,
-				D393AE6C1FD3982900DA7EB5 /* Embed Frameworks */,
+				C132E4E823CD62D9B28949AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,6 +423,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C132E4E823CD62D9B28949AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo-resources.sh",
+				"${PODS_ROOT}/SJBaseVideoPlayer/SJBaseVideoPlayer/ResourceLoader/SJBaseVideoPlayerResources.bundle",
+				"${PODS_ROOT}/SJVideoPlayer/SJVideoPlayer/ResourceLoader/SJVideoPlayer.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SJBaseVideoPlayerResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SJVideoPlayer.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AiyaEffectsDemo/Pods-AiyaEffectsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -399,8 +451,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3711A0923A11F0100457F99 /* AYPixelBufferPreview.m in Sources */,
+				D36DE7AD25B9C69A009DCF89 /* UIColor+Hex.m in Sources */,
 				D3190B311E713A3D00121BAB /* CircleCell.m in Sources */,
-				D3190AC01E7108E400121BAB /* ViewController.m in Sources */,
+				D30FB5BA25BD31300041AF69 /* RecordViewController.m in Sources */,
+				D36DE76225B8776A009DCF89 /* MainViewController.m in Sources */,
+				D36DE78825B88201009DCF89 /* MainNavigationController.m in Sources */,
+				D36DE7B225B9C8DD009DCF89 /* AnimationViewController.m in Sources */,
+				D30FB5F625BDC25F0041AF69 /* PlayerViewController.m in Sources */,
+				D3190AC01E7108E400121BAB /* CameraViewController.m in Sources */,
+				D30FB5DE25BD91100041AF69 /* AYMediaEncoder.m in Sources */,
 				D3711A0223A11C4700457F99 /* AYCamera.m in Sources */,
 				D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */,
 				D3190ABA1E7108E400121BAB /* main.m in Sources */,

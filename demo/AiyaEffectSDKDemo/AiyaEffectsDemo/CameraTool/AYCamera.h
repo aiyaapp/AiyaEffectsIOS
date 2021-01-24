@@ -30,6 +30,15 @@
 
 @interface AYCamera : NSObject
 
+/**
+ 输出设备, 输出视频数据 (CMSampleBufferRef)
+ */
+@property (nonatomic, strong, readonly) AVCaptureVideoDataOutput *videoOutput;
+/**
+ 输出设备, 输出音频数据 (CMSampleBufferRef)
+ */
+@property (nonatomic, strong, readonly) AVCaptureAudioDataOutput *audioOutput;
+
 @property (nonatomic, weak) id <AYCameraDelegate> delegate;
 
 /**

@@ -14,13 +14,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreFoundation/CoreFoundation.h>
 
-void func_ay_auth_message(int type,int ret,const char * info){
-    if (type == AyObserverMsg::MSG_TYPE_AUTH) {
-        if (ret == 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:AiyaLicenseNotification object:nil userInfo:@{AiyaLicenseNotificationUserInfoKey:@(0)}];
-        }else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:AiyaLicenseNotification object:nil userInfo:@{AiyaLicenseNotificationUserInfoKey:@(1)}];
+AYAuthCallback authCallback = nil;
 
+void func_ay_auth_message(int type, int ret, const char *info) {
+    if (type == AyObserverMsg::MSG_TYPE_AUTH) {
+        
+        if (authCallback != nil) {
+            authCallback(ret);
+            authCallback = nil;
         }
     }
 }
@@ -29,10 +30,11 @@ AyObserver ay_auth_observer = {func_ay_auth_message};
 
 @implementation AyCore
 
-+ (void)initLicense:(NSString *)appKey{
++ (void)initLicense:(NSString *)appKey callback:(AYAuthCallback)callback {
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+        authCallback = [callback copy];
         AyCore_Auth("", "", std::string(appKey.UTF8String), "", &ay_auth_observer);
     });
 }

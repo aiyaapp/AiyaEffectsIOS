@@ -11,8 +11,8 @@
 
 @implementation AYLicenseManager
 
-+ (void)initLicense:(NSString *)appKey{
-    [AyCore initLicense:appKey];
++ (void)initLicense:(NSString *)appKey callback:(AYAuthCallback)callback {
+    [AyCore initLicense:appKey callback:callback];
 }
 
 @end

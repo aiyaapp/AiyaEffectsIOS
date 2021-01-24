@@ -6,4 +6,7 @@ project 'AiyaEffectsDemo.xcodeproj'
 target 'AiyaEffectsDemo' do
     
     pod 'Masonry'
+    
+    pod 'SJVideoPlayer', :git => 'https://gitee.com/changsanjiang/SJVideoPlayer.git'
+
 end

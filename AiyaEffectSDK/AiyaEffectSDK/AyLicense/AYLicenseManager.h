@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const AiyaLicenseNotification;
-extern NSString *const AiyaLicenseNotificationUserInfoKey;
+typedef void(^AYAuthCallback)(int);
 
 @interface AYLicenseManager : NSObject
 
@@ -17,6 +16,6 @@ extern NSString *const AiyaLicenseNotificationUserInfoKey;
  初始化lisence
  异步请求服务器确认lisence
  */
-+ (void)initLicense:(NSString *)appKey;
++ (void)initLicense:(NSString *)appKey callback:(AYAuthCallback)callback;
 
 @end

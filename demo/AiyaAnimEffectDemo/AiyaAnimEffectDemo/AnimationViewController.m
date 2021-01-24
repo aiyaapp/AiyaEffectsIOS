@@ -1,16 +1,16 @@
 //
-//  ViewController.m
+//  AnimationViewController.m
 //  AiyaAnimEffectDemo
 //
 //  Created by 汪洋 on 2017/12/27.
 //  Copyright © 2017年 深圳市哎吖科技有限公司. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AnimationViewController.h"
 #import <GLKit/GLKit.h>
 #import <AiyaEffectSDK/AiyaEffectSDK.h>
 
-@interface ViewController () <GLKViewDelegate, AYAnimHandlerDelegate>{
+@interface AnimationViewController () <GLKViewDelegate, AYAnimHandlerDelegate>{
     GLKView *glkView;
     CADisplayLink* displayLink;
     
@@ -22,16 +22,11 @@
 
 @end
 
-@implementation ViewController
+@implementation AnimationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // license state notification
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(licenseMessage:) name:AiyaLicenseNotification object:nil];
-    
-    // init license . apply license please open http://www.lansear.cn/product/bbtx or +8618676907096
-    [AYLicenseManager initLicense:@"3a8dff7c222644b7abbde10b22ad779d"];
+        
     
     // add blue view
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -57,19 +52,6 @@
     // 监听进入后台前台
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
-}
-
-- (void)licenseMessage:(NSNotification *)notifi{
-    
-    AiyaLicenseResult result = [notifi.userInfo[AiyaLicenseNotificationUserInfoKey] integerValue];
-    switch (result) {
-        case AiyaLicenseSuccess:
-            NSLog(@"License 验证成功");
-            break;
-        case AiyaLicenseFail:
-            NSLog(@"License 验证失败");
-            break;
-    }
 }
 
 - (void)didEnterBackground {
@@ -109,7 +91,7 @@
     if (!_animHandler) {
         //初始化AiyaAnimEffect
         _animHandler = [[AYAnimHandler alloc] init];
-        self.animHandler.effectPath = [[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"shiwaitaoyuan"];
+        self.animHandler.effectPath = [[NSBundle mainBundle] pathForResource:@"meta" ofType:@"json" inDirectory:@"EffectResources/shiwaitaoyuan"];
         self.animHandler.effectPlayCount = 2;
         self.animHandler.delegate = self;
     }
