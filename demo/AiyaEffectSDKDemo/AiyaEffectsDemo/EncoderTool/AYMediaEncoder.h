@@ -22,12 +22,12 @@
 /**
  配置视频编码
  */
-- (BOOL)configureVideoEncodeWithWidth:(NSUInteger)width height:(NSUInteger)height videoBitRate:(NSUInteger)videoBitRate videoFrameRate:(NSUInteger)videoFrameRate transform:(CGAffineTransform)transform pixelFormatType:(OSType)pixelFormatType;
+- (BOOL)configureVideoEncoderWithWidth:(NSUInteger)width height:(NSUInteger)height videoBitRate:(NSUInteger)videoBitRate videoFrameRate:(NSUInteger)videoFrameRate transform:(CGAffineTransform)transform pixelFormatType:(OSType)pixelFormatType;
 
 /**
  配置音频编码
  */
-- (BOOL)configureAudioEncodeWithChannelCount:(NSUInteger)channelCount sampleRate:(NSUInteger)sampleRate audioBitRate:(NSUInteger)audioBitRate;
+- (BOOL)configureAudioEncoderWithChannelCount:(NSUInteger)channelCount sampleRate:(NSUInteger)sampleRate audioBitRate:(NSUInteger)audioBitRate;
 
 /**
  启动编码器

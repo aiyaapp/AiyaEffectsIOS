@@ -34,8 +34,8 @@
 - (id)init{
     self = [super init];
     if (self) {
-        _encoderQueue = dispatch_queue_create("com.wenyao.videorecord", DISPATCH_QUEUE_CONCURRENT);
-        _firstTime = kCMTimeZero;
+        _encoderQueue = dispatch_queue_create("com.aiyaapp.video.encoder", DISPATCH_QUEUE_CONCURRENT);
+        _firstTime = kCMTimeInvalid;
     }
     return self;
 }
@@ -79,7 +79,7 @@
 
 #pragma mark - setup
 
-- (BOOL)configureAudioEncodeWithChannelCount:(NSUInteger)channelCount sampleRate:(NSUInteger)sampleRate audioBitRate:(NSUInteger)audioBitRate {
+- (BOOL)configureAudioEncoderWithChannelCount:(NSUInteger)channelCount sampleRate:(NSUInteger)sampleRate audioBitRate:(NSUInteger)audioBitRate {
     
     AudioChannelLayout acl;
     bzero(&acl, sizeof(AudioChannelLayout));
@@ -118,7 +118,7 @@
     return YES;
 }
 
-- (BOOL)configureVideoEncodeWithWidth:(NSUInteger)width height:(NSUInteger)height videoBitRate:(NSUInteger)videoBitRate videoFrameRate:(NSUInteger)videoFrameRate transform:(CGAffineTransform)transform pixelFormatType:(OSType)pixelFormatType {
+- (BOOL)configureVideoEncoderWithWidth:(NSUInteger)width height:(NSUInteger)height videoBitRate:(NSUInteger)videoBitRate videoFrameRate:(NSUInteger)videoFrameRate transform:(CGAffineTransform)transform pixelFormatType:(OSType)pixelFormatType {
     
     NSDictionary *settings = @{ AVVideoCodecKey : AVVideoCodecH264,
                                 AVVideoScalingModeKey : AVVideoScalingModeResizeAspectFill,
@@ -200,12 +200,24 @@
     }
     
     // perform write
-    if ( self.assetMediaWriter.status == AVAssetWriterStatusWriting && CMTimeCompare(self.firstTime, kCMTimeZero) != 0) {
+    if (self.assetMediaWriter.status == AVAssetWriterStatusWriting) {
         
         CFRetain(sampleBuffer);
         
-        dispatch_async(self.encoderQueue, ^{
-            if (self.assetWriterAudioInput && self.assetWriterAudioInput.readyForMoreMediaData && !self.isFinish) {
+        dispatch_sync(self.encoderQueue, ^{
+            
+            NSTimeInterval waitStartTime = [NSDate date].timeIntervalSince1970;
+            while((!self.assetWriterAudioInput.readyForMoreMediaData || (CMTimeCompare(self.firstTime, kCMTimeInvalid) == 0)) && !self.isFinish) {
+                
+                sleep(1);
+
+                // 如果等待时间太长放放弃这一帧
+                if ([NSDate date].timeIntervalSince1970 - waitStartTime > 3) {
+                    break;
+                }
+            }
+            
+            if (self.assetWriterAudioInput && self.assetWriterAudioInput.readyForMoreMediaData && CMTimeCompare(self.firstTime, kCMTimeInvalid) != 0 &&  !self.isFinish) {
                 
                 CMSampleBufferRef adjustedSampleBuffer = [self adjustTime:sampleBuffer by:self.firstTime];
                 
@@ -218,6 +230,8 @@
                     
                     CFRelease(adjustedSampleBuffer);
                 }
+            } else {
+                NSLog(@"audio write failure");
             }
             CFRelease(sampleBuffer);
         });
@@ -267,13 +281,20 @@
         CVPixelBufferRetain(pixelBuffer);
         CVPixelBufferLockBaseAddress(pixelBuffer, 0);
         
-        dispatch_async(self.encoderQueue, ^{
-            if (![self.assetWriterVideoInput isReadyForMoreMediaData] && !self.isFinish) {
-                [NSThread sleepForTimeInterval: 0.01];
+        dispatch_sync(self.encoderQueue, ^{
+            
+            NSTimeInterval waitStartTime = [NSDate date].timeIntervalSince1970;
+            while (![self.assetWriterVideoInput isReadyForMoreMediaData] && !self.isFinish) {
+                sleep(1);
+                // 如果等待时间太长放放弃这一帧
+                if ([NSDate date].timeIntervalSince1970 - waitStartTime > 3) {
+                    break;
+                }
             }
+            
             if ([self.assetWriterVideoInput isReadyForMoreMediaData] && !self.isFinish) {
                 
-                if (CMTimeCompare(self.firstTime, kCMTimeZero) == 0) {
+                if (CMTimeCompare(self.firstTime, kCMTimeInvalid) == 0) {
                     self.firstTime = frameTime;
                     [self.assetMediaWriter startSessionAtSourceTime:kCMTimeZero];
                     NSLog(@"设置第一帧的时间");
@@ -287,6 +308,8 @@
                     NSLog(@"video write success");
                 }
                 
+            }else {
+                NSLog(@"video write failure");
             }
             
             CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
@@ -300,7 +323,7 @@
     dispatch_barrier_async(self.encoderQueue, ^{ //等待数据全部完成写入
         
         self.isFinish = YES;
-        self.firstTime = kCMTimeZero;
+        self.firstTime = kCMTimeInvalid;
         
         if (self.assetMediaWriter.status == AVAssetWriterStatusUnknown ||
             self.assetMediaWriter.status == AVAssetWriterStatusCompleted) {
@@ -328,7 +351,7 @@
         }
         
         self.isFinish = YES;
-        self.firstTime = kCMTimeZero;
+        self.firstTime = kCMTimeInvalid;
         
         if (self.assetMediaWriter.status == AVAssetWriterStatusUnknown ||
             self.assetMediaWriter.status == AVAssetWriterStatusCompleted) {

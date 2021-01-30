@@ -10,6 +10,7 @@
 #import "CameraViewController.h"
 #import "AnimationViewController.h"
 #import "RecordViewController.h"
+#import "DecoderAndEncoderViewController.h"
 #import <Masonry/Masonry.h>
 #import "UIColor+Hex.h"
 #import <AiyaEffectSDK/AiyaEffectSDK.h>
@@ -58,6 +59,16 @@
     
     [self.view addSubview:recordBtn];
     
+    UIButton *decodeAndEncodeBtn = [UIButton new];
+    [decodeAndEncodeBtn setTitle:@"转码" forState:UIControlStateNormal];
+    [decodeAndEncodeBtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+    [decodeAndEncodeBtn setBackgroundColor:[UIColor colorWithHexString:@"#EEEEEE" alpha:1]];
+    [decodeAndEncodeBtn.layer setMasksToBounds:YES];
+    [decodeAndEncodeBtn.layer setCornerRadius:8];
+    [decodeAndEncodeBtn addTarget:self action:@selector(onDecodeAndEncodeBtnTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:decodeAndEncodeBtn];
+    
     [cameraBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(20);
         make.right.equalTo(self.view.mas_right).offset(-20);
@@ -76,6 +87,14 @@
         make.left.equalTo(self.view.mas_left).offset(20);
         make.right.equalTo(self.view.mas_right).offset(-20);
         make.top.equalTo(animationBtn.mas_bottom).offset(20);
+        make.height.mas_equalTo(44);
+    }];
+    
+    
+    [decodeAndEncodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(recordBtn.mas_bottom).offset(20);
         make.height.mas_equalTo(44);
     }];
     
@@ -163,6 +182,11 @@
     RecordViewController *vc = [RecordViewController new];
     vc.effectData = self.effectData;
     vc.styleData = self.styleData;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)onDecodeAndEncodeBtnTap:(UIButton *)bt {
+    DecoderAndEncoderViewController *vc = [DecoderAndEncoderViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

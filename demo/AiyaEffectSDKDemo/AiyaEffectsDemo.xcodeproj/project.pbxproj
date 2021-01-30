@@ -11,6 +11,8 @@
 		D30FB5BA25BD31300041AF69 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB5B825BD31300041AF69 /* RecordViewController.m */; };
 		D30FB5DE25BD91100041AF69 /* AYMediaEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB5DC25BD91100041AF69 /* AYMediaEncoder.m */; };
 		D30FB5F625BDC25F0041AF69 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB5F525BDC25F0041AF69 /* PlayerViewController.m */; };
+		D30FB9E725BEF8540041AF69 /* DecoderAndEncoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB9E625BEF8540041AF69 /* DecoderAndEncoderViewController.m */; };
+		D30FB9F325BEFAAE0041AF69 /* AYMediaDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D30FB9F225BEFAAE0041AF69 /* AYMediaDecoder.m */; };
 		D3190ABA1E7108E400121BAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190AB91E7108E400121BAB /* main.m */; };
 		D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABC1E7108E400121BAB /* AppDelegate.m */; };
 		D3190AC01E7108E400121BAB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3190ABF1E7108E400121BAB /* CameraViewController.m */; };
@@ -31,6 +33,8 @@
 		D3711A0923A11F0100457F99 /* AYPixelBufferPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = D3711A0723A11F0100457F99 /* AYPixelBufferPreview.m */; };
 		D3969C031F1F0EB6006B3372 /* FilterResources in Resources */ = {isa = PBXBuildFile; fileRef = D3969C021F1F0EB6006B3372 /* FilterResources */; };
 		D3BC81BF1EF3C53E00E31D4B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D3190B321E7168BB00121BAB /* libz.tbd */; };
+		D3DBC8B625C4F6370063A4C9 /* VideoResources in Resources */ = {isa = PBXBuildFile; fileRef = D3DBC8B525C4F6370063A4C9 /* VideoResources */; };
+		D3DFB34F25C30F8700E2357E /* AYReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DFB34825C30F8700E2357E /* AYReadWriteLock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		D30FB5DD25BD91100041AF69 /* AYMediaEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYMediaEncoder.h; sourceTree = "<group>"; };
 		D30FB5EF25BDC25F0041AF69 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		D30FB5F525BDC25F0041AF69 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		D30FB9E525BEF8540041AF69 /* DecoderAndEncoderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecoderAndEncoderViewController.h; sourceTree = "<group>"; };
+		D30FB9E625BEF8540041AF69 /* DecoderAndEncoderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecoderAndEncoderViewController.m; sourceTree = "<group>"; };
+		D30FB9F125BEFAAE0041AF69 /* AYMediaDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYMediaDecoder.h; sourceTree = "<group>"; };
+		D30FB9F225BEFAAE0041AF69 /* AYMediaDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AYMediaDecoder.m; sourceTree = "<group>"; };
 		D3190AB51E7108E400121BAB /* AiyaEffectsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiyaEffectsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3190AB91E7108E400121BAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3190ABB1E7108E400121BAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +141,9 @@
 		D3D5CEFB1E716DCE005C1F7A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D3D5CEFD1E716DD9005C1F7A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D3D5CEFF1E716DE4005C1F7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D3DBC8B525C4F6370063A4C9 /* VideoResources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VideoResources; sourceTree = SOURCE_ROOT; };
+		D3DFB34825C30F8700E2357E /* AYReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYReadWriteLock.m; sourceTree = "<group>"; };
+		D3DFB34E25C30F8700E2357E /* AYReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYReadWriteLock.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,13 +190,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D30FB5AE25BD30A80041AF69 /* RecordTool */ = {
+		D30FB5AE25BD30A80041AF69 /* EncoderTool */ = {
 			isa = PBXGroup;
 			children = (
+				D3DFB34E25C30F8700E2357E /* AYReadWriteLock.h */,
+				D3DFB34825C30F8700E2357E /* AYReadWriteLock.m */,
 				D30FB5DD25BD91100041AF69 /* AYMediaEncoder.h */,
 				D30FB5DC25BD91100041AF69 /* AYMediaEncoder.m */,
 			);
-			path = RecordTool;
+			path = EncoderTool;
+			sourceTree = "<group>";
+		};
+		D30FB9EE25BEF87D0041AF69 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D36DE78625B88201009DCF89 /* MainNavigationController.h */,
+				D36DE78725B88201009DCF89 /* MainNavigationController.m */,
+				D36DE76025B8776A009DCF89 /* MainViewController.h */,
+				D36DE76125B8776A009DCF89 /* MainViewController.m */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		D30FB9EF25BEFA5B0041AF69 /* DecoderTool */ = {
+			isa = PBXGroup;
+			children = (
+				D30FB9F125BEFAAE0041AF69 /* AYMediaDecoder.h */,
+				D30FB9F225BEFAAE0041AF69 /* AYMediaDecoder.m */,
+			);
+			path = DecoderTool;
 			sourceTree = "<group>";
 		};
 		D3190AAC1E7108E400121BAB = {
@@ -212,13 +245,11 @@
 			children = (
 				D3481EED1EAA072C006FB4AE /* EffectResources */,
 				D3969C021F1F0EB6006B3372 /* FilterResources */,
+				D3DBC8B525C4F6370063A4C9 /* VideoResources */,
 				D31F330D1FF39D8700B042BD /* AiyaEffectSDK.bundle */,
 				D3190ABB1E7108E400121BAB /* AppDelegate.h */,
 				D3190ABC1E7108E400121BAB /* AppDelegate.m */,
-				D36DE78625B88201009DCF89 /* MainNavigationController.h */,
-				D36DE78725B88201009DCF89 /* MainNavigationController.m */,
-				D36DE76025B8776A009DCF89 /* MainViewController.h */,
-				D36DE76125B8776A009DCF89 /* MainViewController.m */,
+				D30FB9EE25BEF87D0041AF69 /* MainViewController */,
 				D3190ABE1E7108E400121BAB /* CameraViewController.h */,
 				D3190ABF1E7108E400121BAB /* CameraViewController.m */,
 				D37119F523A11C1800457F99 /* CameraTool */,
@@ -226,9 +257,12 @@
 				D36DE7B125B9C8DD009DCF89 /* AnimationViewController.m */,
 				D30FB5B925BD31300041AF69 /* RecordViewController.h */,
 				D30FB5B825BD31300041AF69 /* RecordViewController.m */,
+				D30FB5AE25BD30A80041AF69 /* EncoderTool */,
 				D30FB5EF25BDC25F0041AF69 /* PlayerViewController.h */,
 				D30FB5F525BDC25F0041AF69 /* PlayerViewController.m */,
-				D30FB5AE25BD30A80041AF69 /* RecordTool */,
+				D30FB9E525BEF8540041AF69 /* DecoderAndEncoderViewController.h */,
+				D30FB9E625BEF8540041AF69 /* DecoderAndEncoderViewController.m */,
+				D30FB9EF25BEFA5B0041AF69 /* DecoderTool */,
 				D3190AC41E7108E400121BAB /* Assets.xcassets */,
 				D3190AC91E7108E400121BAB /* Info.plist */,
 				D3190B2B1E713A3D00121BAB /* View */,
@@ -397,6 +431,7 @@
 			files = (
 				D3969C031F1F0EB6006B3372 /* FilterResources in Resources */,
 				D3190AC51E7108E400121BAB /* Assets.xcassets in Resources */,
+				D3DBC8B625C4F6370063A4C9 /* VideoResources in Resources */,
 				D3481EEE1EAA072C006FB4AE /* EffectResources in Resources */,
 				D31F330E1FF39D8800B042BD /* AiyaEffectSDK.bundle in Resources */,
 			);
@@ -460,7 +495,10 @@
 				D30FB5F625BDC25F0041AF69 /* PlayerViewController.m in Sources */,
 				D3190AC01E7108E400121BAB /* CameraViewController.m in Sources */,
 				D30FB5DE25BD91100041AF69 /* AYMediaEncoder.m in Sources */,
+				D30FB9E725BEF8540041AF69 /* DecoderAndEncoderViewController.m in Sources */,
+				D30FB9F325BEFAAE0041AF69 /* AYMediaDecoder.m in Sources */,
 				D3711A0223A11C4700457F99 /* AYCamera.m in Sources */,
+				D3DFB34F25C30F8700E2357E /* AYReadWriteLock.m in Sources */,
 				D3190ABD1E7108E400121BAB /* AppDelegate.m in Sources */,
 				D3190ABA1E7108E400121BAB /* main.m in Sources */,
 				D3190B301E713A3D00121BAB /* CameraView.m in Sources */,

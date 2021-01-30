@@ -12,6 +12,7 @@
 #import "AYMediaEncoder.h"
 #import <AiyaEffectSDK/AiyaEffectSDK.h>
 #import "PlayerViewController.h"
+#import "AYMediaDecoder.h"
 
 typedef NS_ENUM(NSUInteger, AYMediaEncoderState) {
     AYMediaEncoderStateIdle,
@@ -226,7 +227,7 @@ typedef NS_ENUM(NSUInteger, AYMediaEncoderState) {
         transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(M_PI_2), CGAffineTransformMakeTranslation(720, 0));
     }
     
-    if (![self.encoder configureVideoEncodeWithWidth:1280 height:720 videoBitRate:2*1000*1000 videoFrameRate:30 transform:transform pixelFormatType:kCVPixelFormatType_32BGRA]) {
+    if (![self.encoder configureVideoEncoderWithWidth:1280 height:720 videoBitRate:2*1000*1000 videoFrameRate:30 transform:transform pixelFormatType:kCVPixelFormatType_32BGRA]) {
         NSLog(@"初始化编码器失败");
         return;
     }
@@ -236,7 +237,7 @@ typedef NS_ENUM(NSUInteger, AYMediaEncoderState) {
     NSUInteger sampleRate = [[audioParamsRecommd valueForKey:AVSampleRateKey] integerValue];
     NSUInteger channelCount = [[audioParamsRecommd valueForKey:AVNumberOfChannelsKey] integerValue];
     NSUInteger audioBitRate = [[audioParamsRecommd valueForKey:AVEncoderBitRateKey] integerValue];
-    if (![self.encoder configureAudioEncodeWithChannelCount:channelCount == 0 ? 1 : channelCount sampleRate:sampleRate == 0 ? 44100 : sampleRate audioBitRate:audioBitRate == 0 ? 64000 : audioBitRate]) {
+    if (![self.encoder configureAudioEncoderWithChannelCount:channelCount == 0 ? 1 : channelCount sampleRate:sampleRate == 0 ? 44100 : sampleRate audioBitRate:audioBitRate == 0 ? 64000 : audioBitRate]) {
         NSLog(@"初始化编码器失败");
         return;
     }
@@ -260,21 +261,22 @@ typedef NS_ENUM(NSUInteger, AYMediaEncoderState) {
     if (self.encoderState == AYMediaEncoderStateRecording) {
         _encoderState = AYMediaEncoderStateFinished;
 
+        __weak typeof(self) ws = self;
         [self.encoder finishWritingWithCompletionHandler:^{
             NSLog(@"录制完成");
             
             // 切换到主线程更新UI
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.startRecordBt setHidden:NO];
+                [ws.startRecordBt setHidden:NO];
             });
             
-            // 保存到相册
+            // 进行播放
             NSFileManager * manager = [NSFileManager defaultManager];
-            if ([manager fileExistsAtPath:self.mp4URL.path]) {
+            if ([manager fileExistsAtPath:ws.mp4URL.path]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     PlayerViewController *playerVC = [PlayerViewController new];
-                    playerVC.url = self.mp4URL;
-                    [self.navigationController pushViewController:playerVC animated:true];
+                    playerVC.url = ws.mp4URL;
+                    [ws.navigationController pushViewController:playerVC animated:true];
                 });
             }
         }];
