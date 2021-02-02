@@ -227,12 +227,12 @@
 }
 
 - (void)decoderOutputAudioFormatWithChannelCount:(NSUInteger)channelCount sampleRate:(NSUInteger)sampleRate {
-    
+        
     // 解码音频信息完成
     if (channelCount > 0 && sampleRate > 0) {
         
         // 配置编码器
-        if ([self.encoder configureAudioEncoderWithChannelCount:channelCount sampleRate:sampleRate audioBitRate:64000]) {
+        if ([self.encoder configureAudioEncoderWithChannelCount:channelCount sampleRate:44100 audioBitRate:64*1000]) {
 
             self.audioEncoderConfigResult = true;
             if (self.videoEncoderConfigResult && self.audioEncoderConfigResult) {

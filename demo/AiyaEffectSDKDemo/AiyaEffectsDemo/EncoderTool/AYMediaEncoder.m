@@ -209,7 +209,7 @@
             NSTimeInterval waitStartTime = [NSDate date].timeIntervalSince1970;
             while((!self.assetWriterAudioInput.readyForMoreMediaData || (CMTimeCompare(self.firstTime, kCMTimeInvalid) == 0)) && !self.isFinish) {
                 
-                sleep(1);
+                [NSThread sleepForTimeInterval:0.001];
 
                 // 如果等待时间太长放放弃这一帧
                 if ([NSDate date].timeIntervalSince1970 - waitStartTime > 3) {
@@ -285,7 +285,7 @@
             
             NSTimeInterval waitStartTime = [NSDate date].timeIntervalSince1970;
             while (![self.assetWriterVideoInput isReadyForMoreMediaData] && !self.isFinish) {
-                sleep(1);
+                [NSThread sleepForTimeInterval:0.001];
                 // 如果等待时间太长放放弃这一帧
                 if ([NSDate date].timeIntervalSince1970 - waitStartTime > 3) {
                     break;
